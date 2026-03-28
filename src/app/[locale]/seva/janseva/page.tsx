@@ -91,7 +91,7 @@ export default function JansevaPage() {
   ]);
 
   return (
-    <div className="pt-28 pb-16">
+    <div style={{ paddingTop: "120px", paddingBottom: "64px" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
