@@ -73,11 +73,25 @@ export function MobileNav({ open, onClose, navLinks, donateLabel }: MobileNavPro
           </Link>
         ))}
 
+        {/* Login */}
+        <a
+          href="/login"
+          onClick={onClose}
+          className="mt-6 inline-flex items-center justify-center gap-2 py-3.5 border border-warm-200 text-warm-800 text-base font-sans font-medium rounded-lg hover:border-crimson-300 hover:text-crimson-600 transition-all duration-200"
+          style={{
+            opacity: open ? 1 : 0,
+            transform: open ? "translateY(0)" : "translateY(20px)",
+            transition: `opacity 0.5s cubic-bezier(0.16,1,0.3,1) ${80 + navLinks.length * 60}ms, transform 0.5s cubic-bezier(0.16,1,0.3,1) ${80 + navLinks.length * 60}ms`,
+          }}
+        >
+          Login / Sign Up
+        </a>
+
         {/* Donate button */}
         <Link
           href={"/get-involved/donate" as any}
           onClick={onClose}
-          className="mt-8 inline-flex items-center justify-center gap-2 py-3.5 bg-crimson-600 text-white text-base font-sans font-medium rounded-lg hover:bg-crimson-700 active:scale-[0.98] transition-all duration-200"
+          className="mt-3 inline-flex items-center justify-center gap-2 py-3.5 bg-crimson-600 text-white text-base font-sans font-medium rounded-lg hover:bg-crimson-700 active:scale-[0.98] transition-all duration-200"
           style={{
             opacity: open ? 1 : 0,
             transform: open ? "translateY(0)" : "translateY(20px)",

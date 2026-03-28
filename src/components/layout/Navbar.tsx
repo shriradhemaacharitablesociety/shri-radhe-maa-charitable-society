@@ -38,6 +38,14 @@ export function Navbar() {
           </Link>
 
           <div className="flex items-center gap-2">
+            {/* Login — mobile */}
+            <a
+              href="/login"
+              className="inline-flex items-center gap-1 px-3 py-2 border border-warm-200 text-warm-600 text-xs font-sans font-medium rounded-full hover:border-crimson-300 hover:text-crimson-500 transition-colors"
+            >
+              Login
+            </a>
+
             {/* Donate button — compact on mobile */}
             <Link
               href={"/get-involved/donate" as any}
@@ -91,6 +99,14 @@ export function Navbar() {
                 </Link>
               ))}
             </div>
+
+            {/* Login */}
+            <a
+              href="/login"
+              className="px-3.5 py-1.5 text-sm font-sans text-warm-600 hover:text-crimson-500 hover:bg-crimson-50 rounded-full transition-all duration-200 whitespace-nowrap"
+            >
+              Login
+            </a>
 
             {/* Donate button */}
             <Link
