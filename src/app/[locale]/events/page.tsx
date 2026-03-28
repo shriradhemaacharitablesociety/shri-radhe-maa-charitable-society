@@ -159,12 +159,12 @@ export default function EventsPage() {
   ]);
 
   return (
-    <div style={{ paddingTop: "120px", paddingBottom: "64px" }}>
+    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeader
             title="Events & Activities"

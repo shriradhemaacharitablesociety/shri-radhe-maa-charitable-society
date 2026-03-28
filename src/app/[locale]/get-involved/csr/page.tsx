@@ -78,7 +78,7 @@ export default function CSRPage() {
   ]);
 
   return (
-    <div style={{ paddingTop: "120px", paddingBottom: "64px" }}>
+    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}

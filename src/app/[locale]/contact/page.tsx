@@ -82,7 +82,7 @@ export default function ContactPage() {
   const faqSchema = faqJsonLd(faqs);
 
   return (
-    <div style={{ paddingTop: "120px", paddingBottom: "64px" }}>
+    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -91,7 +91,7 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeader
             title="Get in Touch"
@@ -104,7 +104,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {/* Contact Form — 2 cols */}
           <ScrollReveal delay={100} className="lg:col-span-2">
-            <div className="rounded-3xl border border-saffron-300/60 bg-white/45 backdrop-blur-sm p-8">
+            <div className="rounded-3xl border border-saffron-200 bg-white shadow-sm shadow-warm-200/40 p-8">
               <p className="font-devanagari text-sm text-crimson-500 mb-1" lang="hi">हमें लिखें</p>
               <h2 className="font-serif text-2xl text-warm-900 mb-6">Send us a Message</h2>
               <ContactForm />
@@ -116,7 +116,7 @@ export default function ContactPage() {
             {/* Offices */}
             {offices.map((office, i) => (
               <ScrollReveal key={office.city} delay={200 + i * 100}>
-                <div className="rounded-3xl border border-saffron-300/50 bg-white/40 backdrop-blur-sm p-6">
+                <div className="rounded-3xl border border-saffron-200 bg-white shadow-sm shadow-warm-200/40 p-6">
                   <div className="flex items-center gap-2 mb-3">
                     <Badge variant={i === 0 ? "crimson" : "gold"}>{office.type}</Badge>
                   </div>
@@ -140,7 +140,7 @@ export default function ContactPage() {
 
             {/* Email */}
             <ScrollReveal delay={400}>
-              <div className="rounded-3xl border border-saffron-300/50 bg-white/40 backdrop-blur-sm p-6">
+              <div className="rounded-3xl border border-saffron-200 bg-white shadow-sm shadow-warm-200/40 p-6">
                 <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-2">Email</p>
                 <a
                   href="mailto:shriradhemaacharitablesociety@gmail.com"
@@ -153,7 +153,7 @@ export default function ContactPage() {
 
             {/* Social */}
             <ScrollReveal delay={500}>
-              <div className="rounded-3xl border border-saffron-300/50 bg-white/40 backdrop-blur-sm p-6">
+              <div className="rounded-3xl border border-saffron-200 bg-white shadow-sm shadow-warm-200/40 p-6">
                 <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-3">Follow Us</p>
                 <div className="flex flex-col gap-2">
                   {[
@@ -187,7 +187,7 @@ export default function ContactPage() {
               {faqs.map((faq) => (
                 <details
                   key={faq.question}
-                  className="group rounded-2xl border border-saffron-300/50 bg-white/40 backdrop-blur-sm overflow-hidden"
+                  className="group rounded-2xl border border-saffron-200 bg-white shadow-sm shadow-warm-200/40 overflow-hidden"
                 >
                   <summary className="flex items-center justify-between cursor-pointer px-6 py-4 font-sans text-sm font-medium text-warm-900 hover:bg-saffron-50/40 transition-colors list-none">
                     {faq.question}

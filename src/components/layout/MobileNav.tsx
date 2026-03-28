@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import { Link } from "@/i18n/routing";
 
 interface NavLink {
@@ -37,7 +38,10 @@ export function MobileNav({ open, onClose, navLinks, donateLabel }: MobileNavPro
     >
       {/* Header row */}
       <div className="flex items-center justify-between px-6 pt-6 pb-4">
-        <span className="font-serif text-xl text-saffron-400">श्री राधे माँ</span>
+        <span className="flex items-center gap-2">
+          <Image src="/logo.png" alt="Shri Radhe Maa Charitable Society" width={36} height={36} className="rounded-full" />
+          <span className="font-serif text-xl text-saffron-400">श्री राधे माँ</span>
+        </span>
         <button
           onClick={onClose}
           className="w-9 h-9 flex items-center justify-center rounded-full border border-white/20 text-white/80 hover:text-white hover:border-white/40 transition-colors"

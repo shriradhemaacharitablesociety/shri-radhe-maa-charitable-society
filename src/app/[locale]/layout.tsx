@@ -7,6 +7,7 @@ import { instrumentSerif, spaceGrotesk, notoDevanagari, fraunces } from "@/lib/f
 import { nonprofitJsonLd } from "@/lib/seo";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SocietyBanner } from "@/components/layout/SocietyBanner";
 import { LenisProvider } from "@/components/layout/LenisProvider";
 import "../globals.css";
 
@@ -57,6 +58,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <LenisProvider>
             <Navbar />
+            <SocietyBanner />
             <main>{children}</main>
             <Footer />
           </LenisProvider>

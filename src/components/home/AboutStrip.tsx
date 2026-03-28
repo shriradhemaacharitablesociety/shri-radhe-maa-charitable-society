@@ -4,7 +4,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 export function AboutStrip() {
   return (
     <section className="py-16">
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto text-center flex flex-col gap-5">
             {/* Decorative line */}

@@ -10,17 +10,18 @@ interface BankField {
 }
 
 const BANK_FIELDS: BankField[] = [
-  { label: "Account Name", value: "To be updated" },
-  { label: "Bank", value: "To be updated" },
-  { label: "Account No.", value: "To be updated" },
-  { label: "IFSC", value: "To be updated" },
+  { label: "Account Name", value: "Shri Radhe Maa Charitable Society" },
+  { label: "Bank", value: "HDFC Bank Ltd., Plot No. F 26/7, Ayodhya Chowk, Sector-7, Rohini, New Delhi" },
+  { label: "Account No.", value: "50100214648162" },
+  { label: "IFSC", value: "HDFC0002072" },
+  { label: "Account Type", value: "Current Bank Account" },
+  { label: "PAN", value: "AAUAS1740G" },
 ];
 
 function CopyButton({ value }: { value: string }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    if (value === "To be updated") return;
     try {
       await navigator.clipboard.writeText(value);
       setCopied(true);
@@ -60,7 +61,7 @@ export function BankDetails() {
   const t = useTranslations("donate");
 
   return (
-    <div className="relative rounded-3xl overflow-hidden bg-white/45 backdrop-blur-sm border border-saffron-300/60">
+    <div className="relative rounded-3xl overflow-hidden bg-white shadow-sm shadow-warm-200/40 border border-saffron-200">
       {/* Left border accent */}
       <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-crimson-500 to-saffron-500" />
 

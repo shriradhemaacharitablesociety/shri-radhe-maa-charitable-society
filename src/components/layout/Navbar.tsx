@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { MobileNav } from "./MobileNav";
 
@@ -19,15 +20,13 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 flex justify-center pt-4 px-4 pointer-events-none">
-        <nav className="pointer-events-auto flex items-center gap-4 px-5 py-2.5 bg-white/45 backdrop-blur-xl border border-warm-200/60 rounded-pill shadow-sm shadow-warm-200/30 max-w-3xl w-full">
-          {/* Brand */}
-          <Link href={"/" as any} className="font-serif text-xl text-saffron-600 shrink-0 hover:text-saffron-700 transition-colors">
-            श्री राधे माँ
-          </Link>
+      <header className="fixed top-0 left-0 right-0 z-40 flex items-start pt-3 px-4 pointer-events-none">
+        {/* Logo — outside navbar, on the left */}
+        <Link href={"/" as any} className="pointer-events-auto shrink-0 hover:opacity-90 transition-opacity ml-2 mr-4">
+          <Image src="/logo.png" alt="Shri Radhe Maa Charitable Society" width={120} height={120} className="drop-shadow-md" />
+        </Link>
 
-          {/* Divider */}
-          <div className="h-5 w-px bg-warm-800/15 shrink-0" />
+        <nav className="pointer-events-auto flex items-center gap-4 px-5 py-2.5 bg-white/45 backdrop-blur-xl border border-warm-200/60 rounded-pill shadow-sm shadow-warm-200/30 flex-1 max-w-3xl mt-2">
 
           {/* Nav links — desktop */}
           <div className="hidden md:flex items-center gap-0.5 flex-1">

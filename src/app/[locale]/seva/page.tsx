@@ -99,14 +99,14 @@ export default function SevaPage() {
   ]);
 
   return (
-    <div style={{ paddingTop: "120px", paddingBottom: "64px" }}>
+    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
       {/* Impact stats header */}
       <div className="border-b border-saffron-300/40 bg-saffron-50/40 mb-16">
-        <div className="max-w-5xl mx-auto px-6 py-10">
+        <div className="max-w-7xl mx-auto px-6 py-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-0">
             {stats.map((stat, i) => (
               <div
@@ -128,7 +128,7 @@ export default function SevaPage() {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeader
             title="Our Seva Programmes"

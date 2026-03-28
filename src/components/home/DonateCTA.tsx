@@ -14,7 +14,7 @@ export function DonateCTA() {
 
   return (
     <section className="py-16">
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div
           className="relative rounded-4xl overflow-hidden border border-saffron-300/30"
           style={{

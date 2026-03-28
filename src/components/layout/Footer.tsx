@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Link } from "@/i18n/routing";
 
 export function Footer() {
@@ -51,7 +52,7 @@ export function Footer() {
     },
     {
       label: "Email",
-      href: "mailto:shriradhecharitablesociety@gmail.com",
+      href: "mailto:shriradhemaacharitablesociety@gmail.com",
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
@@ -59,8 +60,8 @@ export function Footer() {
       ),
     },
     {
-      label: "+91 96507 27772",
-      href: "tel:+919650727772",
+      label: "+91 95608 00343",
+      href: "tel:+919560800343",
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25z" />
@@ -70,12 +71,15 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-warm-900 text-white/80 pt-16 pb-8">
-      <div className="max-w-6xl mx-auto px-6">
+    <footer className="bg-white border-t border-saffron-200 text-warm-800 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Brand */}
         <div className="mb-12">
-          <span className="font-serif text-2xl text-saffron-400">श्री राधे माँ चैरिटेबल सोसाइटी</span>
-          <p className="mt-2 font-sans text-sm text-white/50 max-w-sm">
+          <span className="flex items-center gap-3">
+            <Image src="/logo.png" alt="Shri Radhe Maa Charitable Society" width={80} height={80} className="rounded-full" />
+            <span className="font-serif text-2xl text-warm-900">श्री राधे माँ चैरिटेबल सोसाइटी</span>
+          </span>
+          <p className="mt-2 font-sans text-sm text-warm-800/60 max-w-sm">
             Serving humanity with compassion — free dialysis, disaster relief, monthly pensions & divyang seva.
           </p>
         </div>
@@ -84,7 +88,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           {/* Column 1: Quick Links */}
           <div>
-            <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
+            <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-warm-800/40 mb-4">
               {t("quick_links")}
             </h3>
             <ul className="space-y-2">
@@ -92,7 +96,7 @@ export function Footer() {
                 <li key={href}>
                   <Link
                     href={href as any}
-                    className="text-sm text-white/70 hover:text-saffron-400 transition-colors duration-200"
+                    className="text-sm text-warm-800/70 hover:text-crimson-500 transition-colors duration-200"
                   >
                     {label}
                   </Link>
@@ -103,14 +107,14 @@ export function Footer() {
 
           {/* Column 2: Our Seva */}
           <div>
-            <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
+            <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-warm-800/40 mb-4">
               {t("our_seva")}
             </h3>
             <ul className="space-y-2">
               {sevaItems.map(({ en, hi }) => (
-                <li key={en} className="text-sm text-white/70">
+                <li key={en} className="text-sm text-warm-800/70">
                   <span>{en}</span>
-                  <span className="block font-devanagari text-xs text-white/40">{hi}</span>
+                  <span className="block font-devanagari text-xs text-warm-800/40">{hi}</span>
                 </li>
               ))}
             </ul>
@@ -118,7 +122,7 @@ export function Footer() {
 
           {/* Column 3: Connect */}
           <div>
-            <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
+            <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-warm-800/40 mb-4">
               {t("connect")}
             </h3>
             <ul className="space-y-2">
@@ -128,7 +132,7 @@ export function Footer() {
                     href={href}
                     target={href.startsWith("http") ? "_blank" : undefined}
                     rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-saffron-400 transition-colors duration-200"
+                    className="inline-flex items-center gap-2 text-sm text-warm-800/70 hover:text-crimson-500 transition-colors duration-200"
                   >
                     {icon}
                     {label}
@@ -140,29 +144,29 @@ export function Footer() {
 
           {/* Column 4: Offices */}
           <div>
-            <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
+            <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-warm-800/40 mb-4">
               Offices
             </h3>
             <div className="space-y-4">
               <div>
-                <p className="text-xs font-medium text-saffron-500 mb-1">{t("delhi_office")}</p>
-                <p className="text-sm text-white/60 leading-relaxed">{t("delhi_address")}</p>
+                <p className="text-xs font-medium text-crimson-600 mb-1">{t("delhi_office")}</p>
+                <p className="text-sm text-warm-800/60 leading-relaxed">{t("delhi_address")}</p>
               </div>
               <div>
-                <p className="text-xs font-medium text-saffron-500 mb-1">{t("mumbai_office")}</p>
-                <p className="text-sm text-white/60 leading-relaxed">{t("mumbai_address")}</p>
+                <p className="text-xs font-medium text-crimson-600 mb-1">{t("mumbai_office")}</p>
+                <p className="text-sm text-warm-800/60 leading-relaxed">{t("mumbai_address")}</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-          <p className="text-xs text-white/40 font-sans">{t("copyright")}</p>
+        <div className="border-t border-saffron-200 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+          <p className="text-xs text-warm-800/40 font-sans">{t("copyright")}</p>
           <div className="flex items-center gap-3 flex-wrap">
-            <span className="text-xs text-white/40 font-sans">Regd. S/2930/SDM/NW/2017</span>
-            <span className="h-3 w-px bg-white/20" />
-            <span className="inline-flex items-center gap-1 text-xs font-medium text-saffron-500 border border-saffron-600/40 rounded-pill px-2.5 py-0.5">
+            <span className="text-xs text-warm-800/40 font-sans">Regd. S/2930/SDM/NW/2017</span>
+            <span className="h-3 w-px bg-saffron-100" />
+            <span className="inline-flex items-center gap-1 text-xs font-medium text-crimson-600 border border-crimson-300 rounded-pill px-2.5 py-0.5">
               <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
               </svg>

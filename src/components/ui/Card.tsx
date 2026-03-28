@@ -11,7 +11,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       <div
         ref={ref}
         className={cn(
-          "relative rounded-xl bg-white/50 border border-warm-800/[0.05] p-5 transition-all duration-500 hover:bg-white/70 hover:shadow-sm",
+          "relative rounded-xl bg-white border border-saffron-200 shadow-sm shadow-warm-200/40 p-5 transition-all duration-500 hover:shadow-md",
           className
         )}
         style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}

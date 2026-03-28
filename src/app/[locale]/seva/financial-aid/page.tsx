@@ -65,7 +65,7 @@ export default function FinancialAidPage() {
   const faqSchema = faqJsonLd(faqs);
 
   return (
-    <div style={{ paddingTop: "120px", paddingBottom: "64px" }}>
+    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -74,7 +74,7 @@ export default function FinancialAidPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <ScrollReveal>
           <div className="mb-3">
             <Badge variant="gold">Financial Aid</Badge>

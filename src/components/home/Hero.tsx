@@ -30,10 +30,10 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative pb-12 overflow-hidden" style={{ paddingTop: "120px" }}>
-      <div style={{ maxWidth: "960px", marginLeft: "auto", marginRight: "auto", paddingLeft: "24px", paddingRight: "24px" }}>
-        {/* 2-column layout with inline styles to guarantee it works */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "48px", alignItems: "start" }}>
+    <section className="relative pb-12 overflow-hidden" style={{ paddingTop: "24px" }}>
+      <div style={{ maxWidth: "1280px", marginLeft: "auto", marginRight: "auto", paddingLeft: "24px", paddingRight: "24px" }}>
+        {/* 2-column layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12 items-start">
           {/* Left column */}
           <div>
             <ScrollReveal delay={0}>
@@ -101,7 +101,7 @@ export function Hero() {
           </div>
 
           {/* Right column — stat cards */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "32px" }}>
+          <div className="flex flex-col gap-3 pt-8">
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={200 + i * 120}>
                 <Card accent="crimson">

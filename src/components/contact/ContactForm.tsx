@@ -43,7 +43,7 @@ export function ContactForm() {
             type="text"
             required
             placeholder="Ramesh Kumar"
-            className="w-full rounded-2xl border border-saffron-300/60 bg-white/50 backdrop-blur-sm px-4 py-3 font-sans text-sm text-warm-900 placeholder:text-warm-800/30 focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400/60 transition-all duration-200"
+            className="w-full rounded-2xl border border-saffron-200 bg-saffron-50/30 px-4 py-3 font-sans text-sm text-warm-900 placeholder:text-warm-800/30 focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400/60 transition-all duration-200"
           />
         </div>
         <div>
@@ -56,7 +56,7 @@ export function ContactForm() {
             type="email"
             required
             placeholder="you@example.com"
-            className="w-full rounded-2xl border border-saffron-300/60 bg-white/50 backdrop-blur-sm px-4 py-3 font-sans text-sm text-warm-900 placeholder:text-warm-800/30 focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400/60 transition-all duration-200"
+            className="w-full rounded-2xl border border-saffron-200 bg-saffron-50/30 px-4 py-3 font-sans text-sm text-warm-900 placeholder:text-warm-800/30 focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400/60 transition-all duration-200"
           />
         </div>
       </div>
@@ -70,7 +70,7 @@ export function ContactForm() {
           name="subject"
           type="text"
           placeholder="How can we help you?"
-          className="w-full rounded-2xl border border-saffron-300/60 bg-white/50 backdrop-blur-sm px-4 py-3 font-sans text-sm text-warm-900 placeholder:text-warm-800/30 focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400/60 transition-all duration-200"
+          className="w-full rounded-2xl border border-saffron-200 bg-saffron-50/30 px-4 py-3 font-sans text-sm text-warm-900 placeholder:text-warm-800/30 focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400/60 transition-all duration-200"
         />
       </div>
 
@@ -84,7 +84,7 @@ export function ContactForm() {
           rows={5}
           required
           placeholder="Write your message here..."
-          className="w-full rounded-2xl border border-saffron-300/60 bg-white/50 backdrop-blur-sm px-4 py-3 font-sans text-sm text-warm-900 placeholder:text-warm-800/30 focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400/60 transition-all duration-200 resize-none"
+          className="w-full rounded-2xl border border-saffron-200 bg-saffron-50/30 px-4 py-3 font-sans text-sm text-warm-900 placeholder:text-warm-800/30 focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400/60 transition-all duration-200 resize-none"
         />
       </div>
 
