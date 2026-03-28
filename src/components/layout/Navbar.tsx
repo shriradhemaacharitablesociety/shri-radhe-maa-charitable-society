@@ -46,7 +46,7 @@ export function Navbar() {
 
           {/* Donate button */}
           <Link
-            href={"/donate" as any}
+            href={"/get-involved/donate" as any}
             className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 bg-gradient-to-r from-crimson-500 to-crimson-400 text-white text-sm font-medium rounded-pill hover:from-crimson-600 hover:to-crimson-500 transition-all duration-300 active:scale-[0.98] shadow-sm"
             style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
           >

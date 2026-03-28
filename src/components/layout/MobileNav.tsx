@@ -69,7 +69,7 @@ export function MobileNav({ open, onClose, navLinks, donateLabel }: MobileNavPro
 
         {/* Donate link */}
         <Link
-          href={"/donate" as any}
+          href={"/get-involved/donate" as any}
           onClick={onClose}
           className="mt-8 inline-flex items-center justify-center gap-2 py-3.5 bg-gradient-to-r from-crimson-500 to-crimson-400 text-white text-base font-medium rounded-pill active:scale-[0.98] transition-transform"
           style={{
