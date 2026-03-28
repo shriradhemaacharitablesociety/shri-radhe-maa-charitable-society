@@ -1,0 +1,193 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
+import { stories, sevaTypeLabels } from "@/data/stories";
+import { breadcrumbJsonLd } from "@/lib/seo";
+
+export async function generateStaticParams() {
+  return stories.map((story) => ({ id: story.id }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; id: string }>;
+}): Promise<Metadata> {
+  const { locale, id } = await params;
+  const story = stories.find((s) => s.id === id);
+  if (!story) return { title: "Story Not Found" };
+
+  const isHindi = locale === "hi";
+  const name = isHindi ? story.nameHi : story.name;
+  const sevaLabel = isHindi
+    ? sevaTypeLabels[story.sevaType].hi
+    : sevaTypeLabels[story.sevaType].en;
+
+  return {
+    title: isHindi
+      ? `${name} — ${sevaLabel} | श्री राधे माँ चैरिटेबल सोसाइटी`
+      : `${name} — ${sevaLabel} | Shri Radhe Maa Charitable Society`,
+    description: isHindi ? story.quoteHi : story.quote,
+    alternates: {
+      languages: {
+        "en-IN": `/en/stories/${id}`,
+        "hi-IN": `/hi/stories/${id}`,
+      },
+    },
+    openGraph: {
+      title: `${story.name} — ${sevaTypeLabels[story.sevaType].en}`,
+      description: story.quote,
+      type: "article",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
+
+export default async function StoryDetailPage({
+  params,
+}: {
+  params: Promise<{ locale: string; id: string }>;
+}) {
+  const { id } = await params;
+  const story = stories.find((s) => s.id === id);
+  if (!story) notFound();
+
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "Impact Stories", url: "https://shriradhemasociety.org/stories" },
+    { name: story.name, url: `https://shriradhemasociety.org/stories/${story.id}` },
+  ]);
+
+  const shareUrl = `https://shriradhemasociety.org/stories/${story.id}`;
+  const shareText = `${story.name}: "${story.quote}" — Shri Radhe Maa Charitable Society`;
+  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText + " " + shareUrl)}`;
+  const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+
+  return (
+    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      <div className="max-w-3xl mx-auto px-6">
+        {/* Back link */}
+        <ScrollReveal>
+          <Link
+            href="/stories"
+            className="inline-flex items-center gap-1.5 text-warm-500 text-sm font-sans hover:text-crimson-500 transition-colors mb-8"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+            All Stories
+          </Link>
+        </ScrollReveal>
+
+        {/* Header */}
+        <ScrollReveal delay={100}>
+          <div className="mb-8">
+            <Badge variant="crimson" className="mb-4">
+              {sevaTypeLabels[story.sevaType].en}
+            </Badge>
+            <h1 className="font-serif text-4xl text-warm-900 tracking-tight mb-1">
+              {story.name}
+            </h1>
+            <p className="font-devanagari text-warm-800/50 text-lg" lang="hi">
+              {story.nameHi}
+            </p>
+            <div className="flex items-center gap-1.5 text-warm-500 text-sm font-sans mt-3">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+              </svg>
+              {story.location}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Quote highlight */}
+        <ScrollReveal delay={200}>
+          <div className="rounded-2xl border border-crimson-100 bg-crimson-50/40 p-8 mb-10">
+            <svg className="w-8 h-8 text-crimson-300 mb-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5 3.871 3.871 0 0 1-2.748-1.179Zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5 3.871 3.871 0 0 1-2.748-1.179Z" />
+            </svg>
+            <blockquote className="font-serif text-xl text-warm-900 leading-relaxed italic">
+              {story.quote}
+            </blockquote>
+            <p className="font-devanagari text-warm-600 text-base mt-3 italic" lang="hi">
+              {story.quoteHi}
+            </p>
+          </div>
+        </ScrollReveal>
+
+        {/* Full story */}
+        <ScrollReveal delay={300}>
+          <div className="mb-12">
+            <h2 className="font-serif text-2xl text-warm-900 mb-4">Their Story</h2>
+            <div className="w-8 h-[3px] rounded-full bg-crimson-500 mb-6" />
+            <p className="text-warm-600 font-sans text-[15px] leading-relaxed whitespace-pre-line">
+              {story.fullStory}
+            </p>
+          </div>
+        </ScrollReveal>
+
+        {/* Share buttons */}
+        <ScrollReveal delay={400}>
+          <div className="border-t border-black/[0.06] pt-8 mb-10">
+            <p className="text-warm-500 text-sm font-sans mb-4">Share this story</p>
+            <div className="flex items-center gap-3">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-sans font-medium bg-[#25D366] text-white hover:bg-[#1fb855] transition-colors"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+                </svg>
+                WhatsApp
+              </a>
+              <a
+                href={facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-sans font-medium bg-[#1877F2] text-white hover:bg-[#1565c0] transition-colors"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+                Facebook
+              </a>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* CTA */}
+        <ScrollReveal delay={500}>
+          <div className="rounded-2xl border border-saffron-300/50 bg-saffron-50/40 p-8 text-center">
+            <p className="font-devanagari text-sm text-crimson-500 mb-1" lang="hi">
+              सहायता करें
+            </p>
+            <h3 className="font-serif text-2xl text-warm-900 mb-3">
+              Help Someone Like {story.name}
+            </h3>
+            <p className="text-warm-600 font-sans text-sm leading-relaxed max-w-md mx-auto mb-6">
+              Your contribution can transform lives. Support our{" "}
+              {sevaTypeLabels[story.sevaType].en.toLowerCase()} programme and make a
+              difference today.
+            </p>
+            <Link href="/get-involved/donate">
+              <Button variant="primary" size="lg">
+                Donate Now
+              </Button>
+            </Link>
+          </div>
+        </ScrollReveal>
+      </div>
+    </div>
+  );
+}
