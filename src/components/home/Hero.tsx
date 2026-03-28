@@ -30,7 +30,7 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative pt-28 pb-12 overflow-hidden">
+    <section className="relative pb-12 overflow-hidden" style={{ paddingTop: "120px" }}>
       <div style={{ maxWidth: "960px", marginLeft: "auto", marginRight: "auto", paddingLeft: "24px", paddingRight: "24px" }}>
         {/* 2-column layout with inline styles to guarantee it works */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "48px", alignItems: "start" }}>
