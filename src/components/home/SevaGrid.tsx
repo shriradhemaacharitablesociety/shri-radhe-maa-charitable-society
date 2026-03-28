@@ -9,14 +9,14 @@ export function SevaGrid() {
   const t = useTranslations("seva");
 
   return (
-    <section className="section-cream py-20 px-6">
+    <section className="section-cream py-12 md:py-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
           <SectionHeader
             title={t("title")}
             titleHi={t("title_hi")}
             subtitle="Seven dimensions of seva — from free dialysis to disaster relief"
-            className="mb-12"
+            className="mb-8 md:mb-12"
           />
         </ScrollReveal>
 
@@ -24,7 +24,7 @@ export function SevaGrid() {
           {/* Featured: Dialysis - spans 2 cols + 2 rows */}
           <ScrollReveal delay={100} className="md:col-span-2 md:row-span-2">
             <div
-              className="group relative h-full rounded-2xl bg-gradient-to-br from-crimson-50 to-white border border-black/[0.06] p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+              className="group relative h-full rounded-2xl bg-gradient-to-br from-crimson-50 to-white border border-black/[0.06] p-5 md:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
               style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
             >
               {/* Left accent bar on hover */}
@@ -46,7 +46,7 @@ export function SevaGrid() {
                   </p>
                 </div>
                 <div className="text-right shrink-0">
-                  <div className="font-stat text-4xl font-black text-crimson-500">
+                  <div className="font-stat text-2xl md:text-4xl font-black text-crimson-500">
                     {t("dialysis_stat")}
                   </div>
                   <p className="text-saffron-500 text-xs font-sans mt-1 uppercase tracking-wider">

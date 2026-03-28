@@ -47,12 +47,12 @@ export function DonationForm() {
   };
 
   const inputClass =
-    "w-full bg-white/45 border border-saffron-500/[0.06] rounded-2xl px-5 py-4 font-sans text-sm text-warm-900 placeholder:text-warm-800/40 focus:outline-none focus:border-saffron-400/40 focus:bg-white/60 transition-all duration-300";
+    "w-full bg-white/45 border border-saffron-500/[0.06] rounded-2xl px-4 py-3 md:px-5 md:py-4 font-sans text-sm text-warm-900 placeholder:text-warm-800/40 focus:outline-none focus:border-saffron-400/40 focus:bg-white/60 transition-all duration-300";
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-6 p-8 rounded-3xl bg-white/30 backdrop-blur-sm border border-saffron-300/40"
+      className="flex flex-col gap-5 md:gap-6 p-5 md:p-8 rounded-3xl bg-white/30 backdrop-blur-sm border border-saffron-300/40"
     >
       {/* Frequency Toggle */}
       <div className="flex items-center gap-1 p-1 rounded-pill bg-white/50 border border-saffron-300/40 self-start">

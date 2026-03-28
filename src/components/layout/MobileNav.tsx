@@ -35,21 +35,13 @@ export function MobileNav({ open, onClose, navLinks, donateLabel }: MobileNavPro
     <div className="fixed inset-0 z-50 flex flex-col bg-white">
       {/* Header row */}
       <div className="flex items-center justify-between px-6 pt-6 pb-4">
-        <span className="flex items-center gap-3">
-          <Image
-            src="/logo.png"
-            alt="Shri Radhe Maa Charitable Society"
-            width={40}
-            height={40}
-            className="rounded-full"
-          />
-          <span className="flex flex-col">
-            <span className="font-serif text-xl text-warm-900">श्री राधे माँ</span>
-            <span className="font-sans text-[11px] text-warm-600 tracking-wide">
-              Charitable Society
-            </span>
-          </span>
-        </span>
+        <Image
+          src="/logo.png"
+          alt="Shri Radhe Maa Charitable Society"
+          width={48}
+          height={48}
+          className="rounded-full"
+        />
 
         {/* Close button */}
         <button

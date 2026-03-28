@@ -36,8 +36,8 @@ export default function GalleryPage() {
   const filtered = activeTab === "All" ? galleryItems : galleryItems.filter((g) => g.category === activeTab);
 
   return (
-    <div className="space-y-6 font-sans">
-      <div className="flex items-center justify-between">
+    <div className="space-y-6 font-sans p-4 sm:p-8">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="text-2xl font-semibold text-warm-900">Gallery Management</h1>
         <button className="rounded-lg bg-crimson-500 px-4 py-2 text-sm font-medium text-white hover:bg-crimson-600">
           Upload Photo
@@ -45,7 +45,7 @@ export default function GalleryPage() {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         {(["All", "Events", "Seva", "Spiritual"] as FilterTab[]).map((tab) => (
           <button
             key={tab}

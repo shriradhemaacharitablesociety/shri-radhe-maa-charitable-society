@@ -28,7 +28,7 @@ export function SectionHeader({
           {titleHi}
         </span>
       )}
-      <h2 className="font-serif text-4xl text-warm-900 tracking-tight">
+      <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl text-warm-900 tracking-tight">
         {title}
       </h2>
       <div

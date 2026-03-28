@@ -80,7 +80,7 @@ export default function DonorWallPage() {
   return (
     <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
       {/* Community Impact Stats */}
-      <section className="py-20 px-6">
+      <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <SectionHeader
@@ -92,14 +92,14 @@ export default function DonorWallPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={150}>
-            <div className="rounded-3xl border border-saffron-300/50 bg-saffron-50/40 p-8 mb-16">
+            <div className="rounded-3xl border border-saffron-300/50 bg-saffron-50/40 p-5 sm:p-8 mb-12 sm:mb-16">
               <p className="font-devanagari text-center text-sm text-crimson-500 mb-2" lang="hi">
                 सामुदायिक प्रभाव
               </p>
-              <h3 className="font-serif text-2xl text-warm-900 text-center mb-8">
+              <h3 className="font-serif text-xl sm:text-2xl text-warm-900 text-center mb-6 sm:mb-8">
                 Community Impact
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
                 {communityStats.map((stat) => (
                   <div key={stat.label} className="flex flex-col gap-1">
                     <span className="font-stat text-3xl font-black text-crimson-500">
@@ -117,14 +117,14 @@ export default function DonorWallPage() {
       </section>
 
       {/* Donor Tiers */}
-      <section className="bg-cream py-20 px-6">
+      <section className="bg-cream py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <div className="text-center mb-14">
+            <div className="text-center mb-10 sm:mb-14">
               <p className="font-devanagari text-sm text-crimson-500 mb-1" lang="hi">
                 सम्मान स्तर
               </p>
-              <h2 className="font-serif text-3xl text-warm-900">
+              <h2 className="font-serif text-2xl md:text-3xl text-warm-900">
                 Recognition Tiers
               </h2>
               <div className="w-8 h-[3px] rounded-full bg-crimson-500 mt-3 mx-auto" />
@@ -179,13 +179,13 @@ export default function DonorWallPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6">
+      <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
             <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">
               सेवा में भागीदार बनें
             </p>
-            <h2 className="font-serif text-3xl text-warm-900 mb-4">
+            <h2 className="font-serif text-2xl md:text-3xl text-warm-900 mb-4">
               Join Our Donor Community
             </h2>
             <p className="font-sans text-warm-600 leading-relaxed mb-8">

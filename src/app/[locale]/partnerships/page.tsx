@@ -77,7 +77,7 @@ export default function PartnershipsPage() {
   return (
     <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
       {/* Header */}
-      <section className="py-20 px-6">
+      <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <SectionHeader
@@ -91,14 +91,14 @@ export default function PartnershipsPage() {
       </section>
 
       {/* Hospital Partnerships */}
-      <section className="bg-cream py-20 px-6">
+      <section className="bg-cream py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="mb-10">
               <p className="font-devanagari text-sm text-crimson-500 mb-1" lang="hi">
                 अस्पताल साझेदारी
               </p>
-              <h2 className="font-serif text-3xl text-warm-900">Hospital Partnerships</h2>
+              <h2 className="font-serif text-2xl md:text-3xl text-warm-900">Hospital Partnerships</h2>
               <div className="w-8 h-[3px] rounded-full bg-crimson-500 mt-3" />
             </div>
           </ScrollReveal>
@@ -124,8 +124,8 @@ export default function PartnershipsPage() {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h3 className="font-serif text-xl text-warm-900">{partner.name}</h3>
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+                      <h3 className="font-serif text-lg sm:text-xl text-warm-900">{partner.name}</h3>
                       <Badge variant="crimson">{partner.programme}</Badge>
                     </div>
                     <p className="font-sans text-sm text-warm-500 mb-3">
@@ -147,14 +147,14 @@ export default function PartnershipsPage() {
       </section>
 
       {/* Government Affiliations */}
-      <section className="py-20 px-6">
+      <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="mb-10">
               <p className="font-devanagari text-sm text-crimson-500 mb-1" lang="hi">
                 सरकारी संबद्धता
               </p>
-              <h2 className="font-serif text-3xl text-warm-900">Government Affiliations</h2>
+              <h2 className="font-serif text-2xl md:text-3xl text-warm-900">Government Affiliations</h2>
               <div className="w-8 h-[3px] rounded-full bg-crimson-500 mt-3" />
               <p className="font-sans text-[15px] text-warm-600 mt-3 max-w-xl leading-relaxed">
                 The society has contributed to major government relief funds, reinforcing our
@@ -163,7 +163,7 @@ export default function PartnershipsPage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {governmentAffiliations.map((affiliation, i) => (
               <ScrollReveal key={affiliation.name} delay={i * 150}>
                 <Card variant="cream" accent="gold" className="h-full">
@@ -200,15 +200,15 @@ export default function PartnershipsPage() {
       </section>
 
       {/* Partner With Us CTA */}
-      <section className="bg-cream py-20 px-6">
+      <section className="bg-cream py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-start">
             <ScrollReveal>
               <div>
                 <p className="font-devanagari text-sm text-crimson-500 mb-1" lang="hi">
                   हमारे साथ जुड़ें
                 </p>
-                <h2 className="font-serif text-3xl text-warm-900 mb-4">Partner With Us</h2>
+                <h2 className="font-serif text-2xl md:text-3xl text-warm-900 mb-4">Partner With Us</h2>
                 <div className="w-8 h-[3px] rounded-full bg-crimson-500 mb-6" />
                 <p className="font-sans text-warm-600 leading-relaxed mb-6">
                   Whether you are a corporation looking to fulfil your CSR mandate, a hospital
@@ -258,7 +258,7 @@ export default function PartnershipsPage() {
 
           {/* CSR Compliance Note */}
           <ScrollReveal delay={350}>
-            <div className="mt-12 rounded-2xl border border-saffron-300/50 bg-saffron-50/40 p-6 md:p-8">
+            <div className="mt-10 sm:mt-12 rounded-2xl border border-saffron-300/50 bg-saffron-50/40 p-4 sm:p-6 md:p-8">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-saffron-100 flex items-center justify-center">
                   <svg

@@ -12,7 +12,7 @@ export function DonateCTA() {
   const t = useTranslations("donate");
 
   return (
-    <section className="bg-crimson-500 py-20 px-6">
+    <section className="bg-crimson-500 py-12 md:py-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center text-center gap-10">
           {/* Title */}
@@ -33,7 +33,7 @@ export function DonateCTA() {
               {AMOUNTS.map(({ amount, key }) => (
                 <div
                   key={key}
-                  className="flex flex-col items-center gap-1.5 px-6 py-4 rounded-lg bg-white border border-white/20 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 cursor-pointer min-w-[120px]"
+                  className="flex flex-col items-center gap-1.5 px-5 sm:px-6 py-4 rounded-lg bg-white border border-white/20 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 cursor-pointer min-w-[90px] sm:min-w-[120px] flex-1 sm:flex-initial"
                   style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
                 >
                   <span className="font-stat text-2xl font-black text-crimson-500">
@@ -51,7 +51,7 @@ export function DonateCTA() {
           <ScrollReveal delay={250}>
             <Link href={"/get-involved/donate" as any}>
               <button
-                className="inline-flex items-center justify-center gap-2 rounded-lg font-sans font-medium px-8 py-3.5 text-base bg-white text-crimson-500 shadow-sm hover:bg-white/90 hover:shadow-md active:scale-[0.98] transition-all duration-300 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-crimson-500"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg font-sans font-medium px-8 py-3.5 text-base bg-white text-crimson-500 shadow-sm hover:bg-white/90 hover:shadow-md active:scale-[0.98] transition-all duration-300 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-crimson-500"
                 style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
               >
                 {t("cta")} / {"\u0926\u093E\u0928 \u0915\u0930\u0947\u0902"}

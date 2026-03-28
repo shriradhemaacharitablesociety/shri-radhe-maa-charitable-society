@@ -28,13 +28,13 @@ export function StoriesClient() {
     <>
       {/* Filter tabs */}
       <ScrollReveal delay={100}>
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <div className="flex items-center gap-2 mb-12 overflow-x-auto pb-2 px-1 sm:flex-wrap sm:justify-center sm:overflow-x-visible sm:pb-0 sm:px-0 scrollbar-hide">
           {filterTabs.map((tab) => (
             <button
               key={tab.key}
               onClick={() => setActiveFilter(tab.key)}
               className={`
-                inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-sans font-medium
+                inline-flex items-center gap-1.5 rounded-lg px-4 py-2.5 text-sm font-sans font-medium whitespace-nowrap min-h-[44px]
                 transition-all duration-300 cursor-pointer select-none
                 ${
                   activeFilter === tab.key

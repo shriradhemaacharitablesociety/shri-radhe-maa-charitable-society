@@ -10,7 +10,7 @@ export default function SettingsPage() {
     "mt-4 rounded-lg bg-crimson-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-crimson-600 transition";
 
   return (
-    <div className="space-y-8 font-sans">
+    <div className="space-y-8 font-sans p-4 sm:p-8">
       <h1 className="text-2xl font-semibold text-warm-900">Settings</h1>
 
       {/* Society Details */}

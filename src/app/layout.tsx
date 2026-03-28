@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { instrumentSerif, spaceGrotesk, notoDevanagari, fraunces } from "@/lib/fonts";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Shri Radhe Maa Charitable Society | श्री राधे माँ चैरिटेबल सोसाइटी",
@@ -12,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={`${instrumentSerif.variable} ${spaceGrotesk.variable} ${notoDevanagari.variable} ${fraunces.variable}`}>
+      <body className="font-sans">{children}</body>
     </html>
   );
 }

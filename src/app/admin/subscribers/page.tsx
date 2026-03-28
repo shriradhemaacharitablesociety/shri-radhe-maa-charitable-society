@@ -33,8 +33,8 @@ export default function SubscribersPage() {
   };
 
   return (
-    <div className="space-y-6 font-sans">
-      <div className="flex items-center justify-between">
+    <div className="space-y-6 font-sans p-4 sm:p-8">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="text-2xl font-semibold text-warm-900">Newsletter Subscribers</h1>
         <button className="rounded-lg border border-warm-200 px-4 py-2 text-sm font-medium text-warm-700 hover:bg-warm-50">
           Export CSV
@@ -48,8 +48,9 @@ export default function SubscribersPage() {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto rounded-xl border border-warm-100 bg-white shadow-sm">
-        <table className="w-full text-left text-sm">
+      <div className="rounded-xl border border-warm-100 bg-white shadow-sm">
+        <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+        <table className="min-w-[600px] w-full text-left text-sm">
           <thead>
             <tr className="bg-warm-50 text-warm-600">
               <th className="px-5 py-3 font-medium">Email</th>
@@ -84,6 +85,7 @@ export default function SubscribersPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

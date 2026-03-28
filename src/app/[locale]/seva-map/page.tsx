@@ -113,7 +113,7 @@ export default function SevaMapPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollReveal>
           <SectionHeader
@@ -126,11 +126,11 @@ export default function SevaMapPage() {
 
         {/* Stats Bar */}
         <ScrollReveal delay={100}>
-          <div className="grid grid-cols-3 gap-4 mb-12 max-w-lg mx-auto">
+          <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-12 max-w-lg mx-auto">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="bg-white rounded-2xl border border-black/[0.06] p-5 text-center"
+                className="bg-white rounded-2xl border border-black/[0.06] p-3 sm:p-5 text-center"
               >
                 <p className="font-serif text-3xl text-crimson-500 font-semibold">
                   {stat.value}
@@ -145,7 +145,7 @@ export default function SevaMapPage() {
         </ScrollReveal>
 
         {/* Location Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {locations.map((loc, i) => (
             <ScrollReveal key={loc.city} delay={200 + i * 120}>
               <Card variant="white" accent={loc.accent} className="h-full">
@@ -261,7 +261,7 @@ export default function SevaMapPage() {
 
         {/* Contact CTA */}
         <ScrollReveal delay={800}>
-          <div className="mt-12 rounded-2xl border border-black/[0.06] bg-white p-8 text-center">
+          <div className="mt-12 rounded-2xl border border-black/[0.06] bg-white p-5 sm:p-8 text-center">
             <p className="font-devanagari text-sm text-crimson-500 mb-1" lang="hi">
               हमसे जुड़ें
             </p>
@@ -273,7 +273,7 @@ export default function SevaMapPage() {
             </p>
             <a
               href="/get-involved"
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-crimson-500 text-white text-sm font-medium rounded-lg hover:bg-crimson-600 transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-6 py-2.5 min-h-[44px] w-full sm:w-auto justify-center bg-crimson-500 text-white text-sm font-medium rounded-lg hover:bg-crimson-600 transition-colors duration-200"
             >
               Get Involved
             </a>

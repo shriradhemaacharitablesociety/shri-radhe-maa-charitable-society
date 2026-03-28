@@ -32,7 +32,7 @@ export default function ImpactCalculatorPage() {
   return (
     <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
       {/* Hero / Slider Section */}
-      <section className="bg-cream py-20 px-6">
+      <section className="bg-cream py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <SectionHeader
@@ -46,9 +46,9 @@ export default function ImpactCalculatorPage() {
           {/* Slider Card */}
           <ScrollReveal delay={150}>
             <div className="max-w-2xl mx-auto">
-              <Card variant="white" accent="crimson" className="p-8 md:p-10">
+              <Card variant="white" accent="crimson" className="p-5 sm:p-8 md:p-10">
                 <div className="text-center mb-8">
-                  <span className="font-stat text-5xl md:text-6xl font-black text-crimson-500 tracking-tight">
+                  <span className="font-stat text-3xl sm:text-5xl md:text-6xl font-black text-crimson-500 tracking-tight">
                     {formatINR(amount)}
                   </span>
                   <p className="font-sans text-sm text-warm-600 mt-2">
@@ -103,7 +103,7 @@ export default function ImpactCalculatorPage() {
       </section>
 
       {/* All Impact Tiers */}
-      <section className="py-20 px-6">
+      <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <SectionHeader
@@ -163,13 +163,13 @@ export default function ImpactCalculatorPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-cream py-20 px-6">
+      <section className="bg-cream py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
             <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">
               सेवा में सहयोग करें
             </p>
-            <h2 className="font-serif text-3xl text-warm-900 mb-4">
+            <h2 className="font-serif text-2xl md:text-3xl text-warm-900 mb-4">
               Ready to Make a Difference?
             </h2>
             <p className="font-sans text-warm-600 leading-relaxed mb-8">

@@ -29,7 +29,7 @@ export function EventCards() {
   const t = useTranslations("events");
 
   return (
-    <section className="section-white py-20 px-6">
+    <section className="section-white py-12 md:py-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
           <SectionHeader

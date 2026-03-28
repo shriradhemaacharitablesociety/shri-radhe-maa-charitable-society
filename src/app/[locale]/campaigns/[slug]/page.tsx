@@ -90,7 +90,7 @@ export default async function CampaignDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Back link */}
         <ScrollReveal>
           <Link
@@ -121,7 +121,7 @@ export default async function CampaignDetailPage({
             <Badge variant="gold" className="mb-4">
               {campaign.sevaType}
             </Badge>
-            <h1 className="font-serif text-4xl md:text-[2.75rem] text-warm-900 tracking-tight leading-tight mb-2">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-[2.75rem] text-warm-900 tracking-tight leading-tight mb-2">
               {isHindi ? campaign.titleHi : campaign.title}
             </h1>
             {!isHindi && (
@@ -140,9 +140,9 @@ export default async function CampaignDetailPage({
 
         {/* Large progress bar */}
         <ScrollReveal delay={200}>
-          <div className="rounded-2xl border border-black/[0.06] bg-cream p-8 mb-10">
-            <div className="flex items-center justify-between text-base font-sans mb-3">
-              <span className="text-warm-900 font-semibold text-lg">
+          <div className="rounded-2xl border border-black/[0.06] bg-cream p-5 sm:p-8 mb-10">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between text-base font-sans mb-3 gap-1">
+              <span className="text-warm-900 font-semibold text-base sm:text-lg">
                 {formatCurrency(campaign.raised)}{" "}
                 <span className="text-warm-400 font-normal text-base">
                   {isHindi ? "जुटाए गए" : "raised"} / {formatCurrency(campaign.goal)}{" "}
@@ -164,9 +164,9 @@ export default async function CampaignDetailPage({
 
         {/* Stats row */}
         <ScrollReveal delay={300}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-10">
             <div className="text-center">
-              <p className="font-sans text-3xl font-bold text-warm-900 mb-1">
+              <p className="font-sans text-xl sm:text-3xl font-bold text-warm-900 mb-1">
                 {formatCurrency(campaign.raised)}
               </p>
               <p className="text-warm-500 text-sm font-sans">
@@ -174,7 +174,7 @@ export default async function CampaignDetailPage({
               </p>
             </div>
             <div className="text-center">
-              <p className="font-sans text-3xl font-bold text-warm-900 mb-1">
+              <p className="font-sans text-xl sm:text-3xl font-bold text-warm-900 mb-1">
                 {formatCurrency(campaign.goal)}
               </p>
               <p className="text-warm-500 text-sm font-sans">
@@ -182,7 +182,7 @@ export default async function CampaignDetailPage({
               </p>
             </div>
             <div className="text-center">
-              <p className="font-sans text-3xl font-bold text-warm-900 mb-1">
+              <p className="font-sans text-xl sm:text-3xl font-bold text-warm-900 mb-1">
                 {campaign.donorCount}
               </p>
               <p className="text-warm-500 text-sm font-sans">
@@ -190,7 +190,7 @@ export default async function CampaignDetailPage({
               </p>
             </div>
             <div className="text-center">
-              <p className="font-sans text-3xl font-bold text-warm-900 mb-1">
+              <p className="font-sans text-xl sm:text-3xl font-bold text-warm-900 mb-1">
                 {daysLeft}
               </p>
               <p className="text-warm-500 text-sm font-sans">
@@ -202,7 +202,7 @@ export default async function CampaignDetailPage({
 
         {/* Donate CTA */}
         <ScrollReveal delay={400}>
-          <div className="rounded-2xl border border-black/[0.06] bg-white p-8 text-center mb-10">
+          <div className="rounded-2xl border border-black/[0.06] bg-white p-5 sm:p-8 text-center mb-10">
             <h2 className="font-serif text-2xl text-warm-900 mb-3">
               {isHindi
                 ? "इस अभियान में योगदान दें"
@@ -227,12 +227,12 @@ export default async function CampaignDetailPage({
             <p className="text-warm-500 text-sm font-sans mb-4">
               {isHindi ? "इस अभियान को साझा करें" : "Share this campaign"}
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-sans font-medium bg-[#25D366] text-white hover:bg-[#1fb855] transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 min-h-[44px] text-sm font-sans font-medium bg-[#25D366] text-white hover:bg-[#1fb855] transition-colors"
               >
                 <svg
                   className="w-4 h-4"
@@ -248,7 +248,7 @@ export default async function CampaignDetailPage({
                 href={facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-sans font-medium bg-[#1877F2] text-white hover:bg-[#1565c0] transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 min-h-[44px] text-sm font-sans font-medium bg-[#1877F2] text-white hover:bg-[#1565c0] transition-colors"
               >
                 <svg
                   className="w-4 h-4"

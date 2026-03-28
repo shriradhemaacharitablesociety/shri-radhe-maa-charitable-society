@@ -146,7 +146,7 @@ export default async function SevaSubscriptionsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <ScrollReveal>
           <SectionHeader
@@ -188,7 +188,7 @@ export default async function SevaSubscriptionsPage({
             return (
               <ScrollReveal key={tier.name} delay={100 + i * 120}>
                 <div
-                  className={`relative rounded-2xl border-2 bg-white p-8 transition-all duration-300 hover:-translate-y-0.5 ${
+                  className={`relative rounded-2xl border-2 bg-white p-5 sm:p-8 transition-all duration-300 hover:-translate-y-0.5 ${
                     tier.popular
                       ? `${accentBorder} shadow-lg scale-[1.02]`
                       : "border-black/[0.06] hover:shadow-lg"
@@ -236,7 +236,7 @@ export default async function SevaSubscriptionsPage({
 
                   {/* Price */}
                   <div className="mt-4 mb-2">
-                    <span className={`font-sans text-4xl font-bold ${accentText}`}>
+                    <span className={`font-sans text-3xl sm:text-4xl font-bold ${accentText}`}>
                       ₹{tier.price.toLocaleString("en-IN")}
                     </span>
                     <span className="text-warm-400 text-sm font-sans">

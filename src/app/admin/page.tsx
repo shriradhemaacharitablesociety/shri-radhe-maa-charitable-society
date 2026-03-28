@@ -66,7 +66,7 @@ export default function AdminDashboard() {
   return (
     <>
       {/* Header */}
-      <header className="h-16 bg-white border-b border-warm-100 flex items-center justify-between px-8">
+      <header className="h-16 bg-white border-b border-warm-100 flex items-center justify-between px-4 sm:px-8">
         <h1 className="text-lg font-semibold text-warm-900">Dashboard</h1>
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-crimson-100 flex items-center justify-center text-crimson-600 text-sm font-semibold">
@@ -77,7 +77,7 @@ export default function AdminDashboard() {
       </header>
 
       {/* Content */}
-      <div className="p-8">
+      <div className="p-4 sm:p-8">
         {/* Welcome */}
         <div className="mb-8">
           <h2 className="text-2xl font-semibold text-warm-900">Welcome back</h2>
@@ -107,8 +107,8 @@ export default function AdminDashboard() {
           <div className="px-6 py-4 border-b border-warm-100">
             <h3 className="text-base font-semibold text-warm-900">Recent Activity</h3>
           </div>
-          <div className="overflow-x-auto">
-            <table className="w-full">
+          <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+            <table className="min-w-[600px] w-full">
               <thead>
                 <tr className="bg-warm-50">
                   <th className="text-left text-xs font-medium text-warm-600 uppercase tracking-wider px-6 py-3">

@@ -66,7 +66,7 @@ export default function PressPage() {
   return (
     <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
       {/* Press Mentions */}
-      <section className="py-20 px-6">
+      <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <SectionHeader
@@ -77,7 +77,7 @@ export default function PressPage() {
             />
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {pressPlaceholders.map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 150}>
                 <Card variant="cream" accent="crimson" className="h-full">
@@ -101,14 +101,14 @@ export default function PressPage() {
       </section>
 
       {/* Key Facts / Press Kit */}
-      <section className="bg-cream py-20 px-6">
+      <section className="bg-cream py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-14">
               <p className="font-devanagari text-sm text-crimson-500 mb-1" lang="hi">
                 प्रेस किट
               </p>
-              <h2 className="font-serif text-3xl text-warm-900">Press Kit</h2>
+              <h2 className="font-serif text-2xl md:text-3xl text-warm-900">Press Kit</h2>
               <div className="w-8 h-[3px] rounded-full bg-crimson-500 mt-3 mx-auto" />
               <p className="font-sans text-[15px] text-warm-600 mt-3 max-w-xl mx-auto leading-relaxed">
                 Download our press kit or use the key facts below for your coverage.
@@ -179,13 +179,13 @@ export default function PressPage() {
       </section>
 
       {/* Media Contact */}
-      <section className="py-20 px-6">
+      <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
             <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">
               मीडिया संपर्क
             </p>
-            <h2 className="font-serif text-3xl text-warm-900 mb-4">
+            <h2 className="font-serif text-2xl md:text-3xl text-warm-900 mb-4">
               Media Contact
             </h2>
             <p className="font-sans text-warm-600 leading-relaxed mb-8">
@@ -194,7 +194,7 @@ export default function PressPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={150}>
-            <Card variant="cream" accent="none" className="inline-block text-left">
+            <Card variant="cream" accent="none" className="sm:inline-block text-left">
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <svg

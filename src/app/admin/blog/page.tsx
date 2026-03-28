@@ -7,7 +7,7 @@ export default function AdminBlog() {
   return (
     <>
       {/* Header */}
-      <header className="h-16 bg-white border-b border-warm-100 flex items-center justify-between px-8">
+      <header className="h-16 bg-white border-b border-warm-100 flex items-center justify-between px-4 sm:px-8">
         <h1 className="text-lg font-semibold text-warm-900">Blog Posts</h1>
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-crimson-100 flex items-center justify-center text-crimson-600 text-sm font-semibold">
@@ -18,7 +18,7 @@ export default function AdminBlog() {
       </header>
 
       {/* Content */}
-      <div className="p-8">
+      <div className="p-4 sm:p-8">
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 className="text-2xl font-semibold text-warm-900">All Posts</h2>
@@ -35,8 +35,8 @@ export default function AdminBlog() {
 
         {/* Table */}
         <div className="bg-white rounded-xl border border-warm-100 shadow-sm overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full">
+          <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+            <table className="min-w-[600px] w-full">
               <thead>
                 <tr className="bg-warm-50">
                   <th className="text-left text-xs font-medium text-warm-600 uppercase tracking-wider px-6 py-3">

@@ -1,6 +1,20 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export function SocietyBanner() {
   return (
     <div className="pb-6 text-center" style={{ paddingTop: "80px" }}>
+      {/* Logo — scrolls with the page */}
+      <Link href="/" className="inline-block hover:scale-105 transition-transform duration-300 mb-4">
+        <Image
+          src="/logo.png"
+          alt="Shri Radhe Maa Charitable Society"
+          width={120}
+          height={120}
+          className="drop-shadow-lg mx-auto w-[80px] h-[80px] md:w-[120px] md:h-[120px]"
+        />
+      </Link>
+
       <h1
         className="font-devanagari font-bold bg-gradient-to-r from-crimson-600 via-crimson-500 to-saffron-500 bg-clip-text text-transparent"
         lang="hi"

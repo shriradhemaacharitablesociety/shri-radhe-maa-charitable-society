@@ -70,7 +70,7 @@ export default async function CampaignsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <ScrollReveal>
           <SectionHeader
@@ -96,7 +96,7 @@ export default async function CampaignsPage({
             return (
               <ScrollReveal key={campaign.id} delay={100 + i * 120}>
                 <div
-                  className="rounded-2xl border border-black/[0.06] bg-white p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  className="rounded-2xl border border-black/[0.06] bg-white p-5 sm:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   style={{
                     transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
@@ -112,7 +112,7 @@ export default async function CampaignsPage({
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-serif text-2xl text-warm-900 tracking-tight leading-tight mb-1">
+                  <h3 className="font-serif text-xl sm:text-2xl text-warm-900 tracking-tight leading-tight mb-1">
                     {isHindi ? campaign.titleHi : campaign.title}
                   </h3>
                   {!isHindi && (

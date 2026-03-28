@@ -79,7 +79,7 @@ export default async function FAQPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <section className="py-20 px-6">
+      <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <SectionHeader
@@ -122,7 +122,7 @@ export default async function FAQPage({
                         key={i}
                         className="group rounded-2xl border border-warm-200 bg-white hover:bg-warm-50/50 transition-colors duration-200"
                       >
-                        <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                        <summary className="flex items-center justify-between gap-4 px-4 sm:px-6 py-4 sm:py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden min-h-[44px]">
                           <span className="font-sans text-warm-900 text-[15px] font-medium leading-snug">
                             {isHindi ? faq.questionHi : faq.question}
                           </span>
@@ -142,7 +142,7 @@ export default async function FAQPage({
                             />
                           </svg>
                         </summary>
-                        <div className="px-6 pb-5 pt-0">
+                        <div className="px-4 sm:px-6 pb-5 pt-0">
                           <p className="text-warm-600 text-sm leading-relaxed font-sans">
                             {isHindi ? faq.answerHi : faq.answer}
                           </p>
@@ -157,7 +157,7 @@ export default async function FAQPage({
 
           {/* CTA */}
           <ScrollReveal delay={500}>
-            <div className="mt-8 rounded-3xl border border-saffron-300/50 bg-saffron-50/40 p-10 text-center">
+            <div className="mt-8 rounded-3xl border border-saffron-300/50 bg-saffron-50/40 p-6 sm:p-10 text-center">
               <h3 className="font-serif text-2xl text-warm-900 mb-2">
                 {isHindi ? "अभी भी कोई प्रश्न है?" : "Still have questions?"}
               </h3>
@@ -168,7 +168,7 @@ export default async function FAQPage({
               </p>
               <Link
                 href={`/${locale}/contact`}
-                className="inline-flex items-center gap-2 bg-crimson-500 text-white font-sans font-semibold text-sm px-6 py-3 rounded-lg hover:bg-crimson-600 transition-colors duration-200"
+                className="inline-flex items-center gap-2 bg-crimson-500 text-white font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto justify-center rounded-lg hover:bg-crimson-600 transition-colors duration-200"
               >
                 {isHindi ? "संपर्क करें" : "Contact Us"}
                 <svg

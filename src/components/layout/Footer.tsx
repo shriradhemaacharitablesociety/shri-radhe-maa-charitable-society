@@ -14,6 +14,16 @@ export function Footer() {
     { href: "/events", label: tn("events") },
     { href: "/gallery", label: tn("gallery") },
     { href: "/contact", label: tn("contact") },
+    { href: "/stories", label: "Impact Stories" },
+    { href: "/blog", label: "News & Updates" },
+    { href: "/faq", label: "FAQ" },
+    { href: "/80g", label: "80G Tax Benefits" },
+    { href: "/campaigns", label: "Campaigns" },
+    { href: "/impact", label: "Impact Calculator" },
+    { href: "/donors", label: "Donor Wall" },
+    { href: "/annual-report", label: "Annual Report" },
+    { href: "/privacy-policy", label: "Privacy Policy" },
+    { href: "/terms", label: "Terms" },
   ] as const;
 
   const sevaItems = [
@@ -28,31 +38,18 @@ export function Footer() {
       className="border-t pt-16 pb-8"
       style={{ backgroundColor: "#FAF7F2", borderColor: "#EDE8DF" }}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* 4-column grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-12">
           {/* Column 1: Brand */}
           <div className="col-span-2 md:col-span-1">
-            <span className="flex items-center gap-3 mb-3">
-              <Image
-                src="/logo.png"
-                alt="Shri Radhe Maa Charitable Society"
-                width={48}
-                height={48}
-                className="rounded-full"
-              />
-              <span className="flex flex-col">
-                <span className="font-serif text-lg text-warm-800">
-                  श्री राधे माँ
-                </span>
-                <span className="font-sans text-[11px] text-warm-600 tracking-wide">
-                  Charitable Society
-                </span>
-              </span>
-            </span>
-            <p className="font-sans text-sm text-warm-600 leading-relaxed max-w-xs">
-              Serving humanity with compassion — free dialysis, disaster relief, monthly pensions &amp; divyang seva.
-            </p>
+            <Image
+              src="/logo.png"
+              alt="Shri Radhe Maa Charitable Society"
+              width={160}
+              height={160}
+              className="drop-shadow-sm"
+            />
           </div>
 
           {/* Column 2: Quick Links */}
@@ -60,12 +57,12 @@ export function Footer() {
             <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-warm-800 mb-4">
               {t("quick_links")}
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-1">
               {quickLinks.map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href as any}
-                    className="text-sm font-sans text-warm-600 hover:text-crimson-500 transition-colors duration-200"
+                    className="text-sm font-sans text-warm-600 hover:text-crimson-500 transition-colors duration-200 inline-block py-1.5 min-h-[44px] leading-normal"
                   >
                     {label}
                   </Link>

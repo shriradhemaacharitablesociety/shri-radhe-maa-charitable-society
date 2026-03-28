@@ -97,7 +97,7 @@ export default async function TaxBenefitsPage({
       />
 
       {/* Header */}
-      <section className="py-20 px-6">
+      <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <SectionHeader
@@ -133,7 +133,7 @@ export default async function TaxBenefitsPage({
 
           {/* Tax Calculation Card */}
           <ScrollReveal delay={200}>
-            <div className="mb-14 rounded-3xl border border-saffron-300/50 bg-saffron-50/40 p-8 md:p-10">
+            <div className="mb-14 rounded-3xl border border-saffron-300/50 bg-saffron-50/40 p-5 sm:p-8 md:p-10">
               <p className="font-devanagari text-center text-sm text-crimson-500 mb-2" lang="hi">
                 कर बचत उदाहरण
               </p>
@@ -147,7 +147,7 @@ export default async function TaxBenefitsPage({
                   <span className="font-sans text-warm-600 text-sm">
                     {isHindi ? "आपका दान" : "Your Donation"}
                   </span>
-                  <span className="font-stat text-2xl font-black text-warm-900">
+                  <span className="font-stat text-xl sm:text-2xl font-black text-warm-900">
                     &#x20B9;10,000
                   </span>
                 </div>
@@ -157,7 +157,7 @@ export default async function TaxBenefitsPage({
                   <span className="font-sans text-warm-600 text-sm">
                     {isHindi ? "80G कटौती (50%)" : "80G Deduction (50%)"}
                   </span>
-                  <span className="font-stat text-2xl font-black text-saffron-600">
+                  <span className="font-stat text-xl sm:text-2xl font-black text-saffron-600">
                     &#x20B9;5,000
                   </span>
                 </div>
@@ -169,7 +169,7 @@ export default async function TaxBenefitsPage({
                       ? "कर बचत (30% स्लैब पर)"
                       : "Tax Saved (at 30% slab)"}
                   </span>
-                  <span className="font-stat text-2xl font-black text-crimson-500">
+                  <span className="font-stat text-xl sm:text-2xl font-black text-crimson-500">
                     &#x20B9;1,500
                   </span>
                 </div>
@@ -179,7 +179,7 @@ export default async function TaxBenefitsPage({
                   <p className="font-sans text-warm-600 text-xs uppercase tracking-wider mb-1">
                     {isHindi ? "प्रभावी दान लागत" : "Effective Cost of Donation"}
                   </p>
-                  <p className="font-stat text-4xl font-black text-crimson-500">
+                  <p className="font-stat text-3xl sm:text-4xl font-black text-crimson-500">
                     &#x20B9;8,500
                   </p>
                   <p className="font-sans text-warm-500 text-xs mt-2">
@@ -211,7 +211,7 @@ export default async function TaxBenefitsPage({
                 {currentSteps.map((step, i) => (
                   <div
                     key={i}
-                    className="rounded-2xl border border-warm-200 bg-white p-6 text-center"
+                    className="rounded-2xl border border-warm-200 bg-white p-5 sm:p-6 text-center"
                   >
                     <div className="w-10 h-10 rounded-full bg-crimson-500 text-white font-stat font-bold text-lg flex items-center justify-center mx-auto mb-4">
                       {step.number}
@@ -230,7 +230,7 @@ export default async function TaxBenefitsPage({
 
           {/* Society Details */}
           <ScrollReveal delay={400}>
-            <div className="mb-14 rounded-2xl border border-warm-200 bg-warm-50/50 p-6 md:p-8">
+            <div className="mb-14 rounded-2xl border border-warm-200 bg-warm-50/50 p-4 sm:p-6 md:p-8">
               <h3 className="font-serif text-xl text-warm-900 mb-4">
                 {isHindi ? "सोसाइटी विवरण" : "Society Details"}
               </h3>
@@ -272,13 +272,13 @@ export default async function TaxBenefitsPage({
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href={`/${locale}/contact`}
-                className="inline-flex items-center gap-2 bg-white text-crimson-500 border-2 border-crimson-500 font-sans font-semibold text-sm px-6 py-3 rounded-lg hover:bg-crimson-50 transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 bg-white text-crimson-500 border-2 border-crimson-500 font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto rounded-lg hover:bg-crimson-50 transition-colors duration-200"
               >
                 {isHindi ? "रसीद डाउनलोड करें" : "Download Receipt"}
               </Link>
               <Link
                 href={`/${locale}/seva`}
-                className="inline-flex items-center gap-2 bg-crimson-500 text-white font-sans font-semibold text-sm px-6 py-3 rounded-lg hover:bg-crimson-600 transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 bg-crimson-500 text-white font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto rounded-lg hover:bg-crimson-600 transition-colors duration-200"
               >
                 {isHindi ? "अभी दान करें" : "Donate Now"}
                 <svg

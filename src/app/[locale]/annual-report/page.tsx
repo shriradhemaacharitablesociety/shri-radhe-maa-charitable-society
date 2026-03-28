@@ -157,7 +157,7 @@ export default async function AnnualReportPage({
       />
 
       {/* ── Section 1: Header ──────────────────────────────────────── */}
-      <section className="py-20 px-6">
+      <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <SectionHeader
@@ -177,20 +177,20 @@ export default async function AnnualReportPage({
       </section>
 
       {/* ── Section 2: Key Highlights ──────────────────────────────── */}
-      <section className="py-20 px-6 bg-cream">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-cream">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <h3 className="font-serif text-2xl text-warm-900 tracking-tight text-center mb-10">
+            <h3 className="font-serif text-xl sm:text-2xl text-warm-900 tracking-tight text-center mb-10">
               {isHindi ? "प्रमुख उपलब्धियाँ" : "Key Highlights"}
             </h3>
           </ScrollReveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {highlights.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={100 + i * 100}>
-                <div className="rounded-2xl border border-black/[0.06] bg-white p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                <div className="rounded-2xl border border-black/[0.06] bg-white p-4 sm:p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
                 >
-                  <p className="font-sans text-3xl md:text-4xl font-bold text-crimson-500 mb-2">
+                  <p className="font-sans text-2xl sm:text-3xl md:text-4xl font-bold text-crimson-500 mb-2">
                     {stat.value}
                   </p>
                   <p className="text-warm-600 font-sans text-sm">
@@ -204,10 +204,10 @@ export default async function AnnualReportPage({
       </section>
 
       {/* ── Section 3: Fund Utilization ────────────────────────────── */}
-      <section className="py-20 px-6">
+      <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <h3 className="font-serif text-2xl text-warm-900 tracking-tight text-center mb-3">
+            <h3 className="font-serif text-xl sm:text-2xl text-warm-900 tracking-tight text-center mb-3">
               {isHindi ? "कोष उपयोग विवरण" : "Fund Utilization Breakdown"}
             </h3>
             <p className="text-warm-500 font-sans text-sm text-center mb-10 max-w-lg mx-auto">
@@ -236,8 +236,8 @@ export default async function AnnualReportPage({
             <div className="space-y-4">
               {fundCategories.map((cat, i) => (
                 <ScrollReveal key={cat.name} delay={200 + i * 80}>
-                  <div className="flex items-center gap-4">
-                    <div className="w-40 md:w-52 flex-shrink-0">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="w-28 sm:w-40 md:w-52 flex-shrink-0">
                       <p className="text-warm-800 font-sans text-sm font-medium">
                         {isHindi ? cat.nameHi : cat.name}
                       </p>
@@ -260,10 +260,10 @@ export default async function AnnualReportPage({
       </section>
 
       {/* ── Section 4: Timeline of Key Milestones ──────────────────── */}
-      <section className="py-20 px-6 bg-cream">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-cream">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <h3 className="font-serif text-2xl text-warm-900 tracking-tight text-center mb-14">
+            <h3 className="font-serif text-xl sm:text-2xl text-warm-900 tracking-tight text-center mb-10 sm:mb-14">
               {isHindi
                 ? "प्रमुख मील के पत्थर (2017–2026)"
                 : "Key Milestones (2017–2026)"}
@@ -317,10 +317,10 @@ export default async function AnnualReportPage({
       </section>
 
       {/* ── Section 5: Download PDF ────────────────────────────────── */}
-      <section className="py-20 px-6">
+      <section className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <h3 className="font-serif text-2xl text-warm-900 tracking-tight mb-3">
+            <h3 className="font-serif text-xl sm:text-2xl text-warm-900 tracking-tight mb-3">
               {isHindi
                 ? "पूरी रिपोर्ट डाउनलोड करें"
                 : "Download Full Report"}

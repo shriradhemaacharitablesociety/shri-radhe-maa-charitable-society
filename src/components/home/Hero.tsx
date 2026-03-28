@@ -30,9 +30,9 @@ export function Hero() {
 
   return (
     <section className="section-white" style={{ paddingTop: "24px", paddingBottom: "80px" }}>
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* 2-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 lg:gap-16 items-start">
           {/* Left column */}
           <div>
             <ScrollReveal delay={0}>
@@ -47,7 +47,7 @@ export function Hero() {
               <div
                 className="font-devanagari font-black select-none pointer-events-none"
                 style={{
-                  fontSize: "120px",
+                  fontSize: "clamp(60px, 15vw, 120px)",
                   lineHeight: 0.85,
                   letterSpacing: "-0.04em",
                   color: "rgba(26, 15, 8, 0.04)",
@@ -59,10 +59,10 @@ export function Hero() {
               <h1
                 className="font-serif text-warm-900 relative"
                 style={{
-                  fontSize: "56px",
+                  fontSize: "clamp(32px, 6vw, 56px)",
                   lineHeight: 1.08,
                   letterSpacing: "-0.03em",
-                  marginTop: "-44px",
+                  marginTop: "clamp(-24px, -4vw, -44px)",
                   zIndex: 1,
                 }}
               >
@@ -85,12 +85,11 @@ export function Hero() {
 
             <ScrollReveal delay={250}>
               <p
-                className="text-warm-600"
+                className="text-warm-600 lg:max-w-[420px]"
                 style={{
                   fontSize: "15px",
                   lineHeight: 1.75,
                   marginTop: "16px",
-                  maxWidth: "420px",
                 }}
               >
                 {t("description")}
@@ -113,7 +112,7 @@ export function Hero() {
           </div>
 
           {/* Right column - stat cards */}
-          <div className="flex flex-col gap-3 pt-8">
+          <div className="flex flex-col gap-3 pt-4 lg:pt-8">
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={200 + i * 120}>
                 <div

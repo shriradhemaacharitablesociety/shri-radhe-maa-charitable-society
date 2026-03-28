@@ -57,7 +57,7 @@ export default function BlogPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <ScrollReveal>
           <SectionHeader
@@ -72,7 +72,7 @@ export default function BlogPage() {
         {featuredPost && (
           <ScrollReveal delay={100}>
             <Link href={`/blog/${featuredPost.slug}`} className="block mb-12 group">
-              <div className="rounded-2xl border border-black/[0.06] bg-cream p-8 md:p-10 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+              <div className="rounded-2xl border border-black/[0.06] bg-cream p-5 sm:p-8 md:p-10 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                 style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
               >
                 <div className="flex items-center gap-3 mb-4">
@@ -81,7 +81,7 @@ export default function BlogPage() {
                   </Badge>
                   <span className="text-warm-400 text-xs font-sans">Featured</span>
                 </div>
-                <h2 className="font-serif text-3xl md:text-4xl text-warm-900 tracking-tight leading-tight group-hover:text-crimson-600 transition-colors mb-3">
+                <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl text-warm-900 tracking-tight leading-tight group-hover:text-crimson-600 transition-colors mb-3">
                   {featuredPost.title}
                 </h2>
                 <p className="font-devanagari text-warm-800/50 text-base mb-4" lang="hi">

@@ -3,7 +3,6 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { instrumentSerif, spaceGrotesk, notoDevanagari, fraunces } from "@/lib/fonts";
 import { nonprofitJsonLd } from "@/lib/seo";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -11,7 +10,6 @@ import { SocietyBanner } from "@/components/layout/SocietyBanner";
 import { LenisProvider } from "@/components/layout/LenisProvider";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { CookieConsent } from "@/components/layout/CookieConsent";
-import "../globals.css";
 
 export const metadata: Metadata = {
   title: {
@@ -47,27 +45,21 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html
-      lang={locale}
-      className={`${instrumentSerif.variable} ${spaceGrotesk.variable} ${notoDevanagari.variable} ${fraunces.variable}`}
-    >
-      <body className="font-sans">
-        {/* NonProfit / NGO JSON-LD — present on every page for GEO & SEO */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(nonprofitJsonLd()) }}
-        />
-        <NextIntlClientProvider messages={messages}>
-          <LenisProvider>
-            <Navbar />
-            <SocietyBanner />
-            <main>{children}</main>
-            <Footer />
-            <WhatsAppButton />
-            <CookieConsent />
-          </LenisProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(nonprofitJsonLd()) }}
+      />
+      <NextIntlClientProvider messages={messages}>
+        <LenisProvider>
+          <Navbar />
+          <SocietyBanner />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppButton />
+          <CookieConsent />
+        </LenisProvider>
+      </NextIntlClientProvider>
+    </>
   );
 }
