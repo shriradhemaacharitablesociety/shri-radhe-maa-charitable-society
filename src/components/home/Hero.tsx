@@ -31,9 +31,9 @@ export function Hero() {
 
   return (
     <section className="relative pt-28 pb-12 overflow-hidden">
-      <div className="max-w-5xl mx-auto px-6">
-        {/* Use CSS Grid for reliable 2-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-12 items-start">
+      <div style={{ maxWidth: "960px", marginLeft: "auto", marginRight: "auto", paddingLeft: "24px", paddingRight: "24px" }}>
+        {/* 2-column layout with inline styles to guarantee it works */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "48px", alignItems: "start" }}>
           {/* Left column */}
           <div>
             <ScrollReveal delay={0}>
@@ -46,22 +46,25 @@ export function Hero() {
             {/* Watermark + Title */}
             <div className="relative mt-6">
               <div
-                className="font-devanagari font-black select-none pointer-events-none text-warm-900/[0.05]"
+                className="font-devanagari font-black select-none pointer-events-none"
                 style={{
-                  fontSize: "clamp(80px, 11vw, 130px)",
+                  fontSize: "120px",
                   lineHeight: 0.85,
                   letterSpacing: "-0.04em",
+                  color: "rgba(26, 15, 8, 0.05)",
                 }}
                 aria-hidden="true"
               >
                 सेवा
               </div>
               <h1
-                className="font-serif text-warm-900 -mt-10 relative z-10"
+                className="font-serif text-warm-900 relative"
                 style={{
-                  fontSize: "clamp(38px, 4.5vw, 54px)",
+                  fontSize: "52px",
                   lineHeight: 1.08,
                   letterSpacing: "-0.03em",
+                  marginTop: "-44px",
+                  zIndex: 1,
                 }}
               >
                 {t("title_1")}
@@ -73,23 +76,23 @@ export function Hero() {
             </div>
 
             <ScrollReveal delay={150}>
-              <p className="font-devanagari text-saffron-600/40 text-base mt-3">
+              <p className="font-devanagari text-saffron-600/40 text-base" style={{ marginTop: "12px" }}>
                 {t("sanskrit")}
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={250}>
-              <p className="text-[15px] text-warm-800/40 leading-[1.75] mt-4 max-w-md">
+              <p className="text-warm-800/40" style={{ fontSize: "15px", lineHeight: 1.75, marginTop: "16px", maxWidth: "420px" }}>
                 {t("description")}
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={350}>
-              <div className="flex flex-wrap gap-3 mt-8">
+              <div className="flex flex-wrap gap-3" style={{ marginTop: "32px" }}>
                 <Link href={"/seva" as any}>
                   <Button variant="primary">
                     {t("cta_primary")}{" "}
-                    <span className="text-xs opacity-50">→</span>
+                    <span style={{ fontSize: "11px", opacity: 0.5 }}>→</span>
                   </Button>
                 </Link>
                 <Button variant="gold">{t("cta_secondary")}</Button>
@@ -97,40 +100,23 @@ export function Hero() {
             </ScrollReveal>
           </div>
 
-          {/* Right column — stat cards (fixed width via grid) */}
-          <div className="flex flex-col gap-3 lg:pt-8">
+          {/* Right column — stat cards */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "32px" }}>
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={200 + i * 120}>
                 <Card accent="crimson">
-                  <div className="font-stat text-[28px] font-bold leading-none text-crimson-500">
+                  <div className="font-stat font-bold leading-none text-crimson-500" style={{ fontSize: "28px" }}>
                     {stat.num}
                   </div>
-                  <p className="text-[11px] text-warm-800/35 tracking-[1.5px] uppercase mt-2 font-medium">
+                  <p className="text-warm-800/35 font-medium" style={{ fontSize: "11px", letterSpacing: "1.5px", textTransform: "uppercase", marginTop: "8px" }}>
                     {stat.label}
                   </p>
-                  <p className="text-[11px] text-warm-800/20 mt-1">
+                  <p className="text-warm-800/20" style={{ fontSize: "11px", marginTop: "4px" }}>
                     {stat.detail}
                   </p>
                 </Card>
               </ScrollReveal>
             ))}
-
-            {/* Scroll hint */}
-            <div className="flex items-center gap-2 mt-2 justify-end">
-              <span className="text-[10px] text-warm-800/20 tracking-[2px] uppercase">
-                Scroll to explore
-              </span>
-              <div
-                className="w-10 h-px"
-                style={{
-                  background:
-                    "linear-gradient(to right, rgba(196,30,58,0.15), rgba(218,165,32,0.15))",
-                  transformOrigin: "left",
-                  animation:
-                    "lineGrow 2s cubic-bezier(0.16, 1, 0.3, 1) infinite",
-                }}
-              />
-            </div>
           </div>
         </div>
       </div>
