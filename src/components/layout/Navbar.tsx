@@ -100,6 +100,9 @@ export function Navbar() {
               ))}
             </div>
 
+            {/* Divider */}
+            <div className="h-6 w-px bg-warm-200/60 mx-1" />
+
             {/* Login */}
             <a
               href="/login"
