@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 const aboutSections = [
   {
@@ -40,9 +42,45 @@ const aboutSections = [
   },
 ];
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isHindi = locale === "hi";
+  return {
+    title: isHindi
+      ? "हमारे बारे में | श्री राधे माँ चैरिटेबल सोसाइटी"
+      : "About | Shri Radhe Maa Charitable Society",
+    description: isHindi
+      ? "श्री राधे माँ चैरिटेबल सोसाइटी — श्री राधे गुरु माँ के मार्गदर्शन में स्थापित। सोसाइटी का इतिहास, नेतृत्व और उद्देश्य जानें।"
+      : "Learn about Shri Radhe Maa Charitable Society — founded under the spiritual guidance of Shri Radhe Guru Maa. Our history, leadership, and mission.",
+    keywords: isHindi
+      ? ["श्री राधे माँ सोसाइटी", "चैरिटेबल सोसाइटी दिल्ली", "पंजीकृत संस्था", "समाज सेवा"]
+      : ["Shri Radhe Maa Society", "charitable society Delhi", "registered NGO", "social service India"],
+    alternates: { languages: { "en-IN": "/en/about", "hi-IN": "/hi/about" } },
+    openGraph: {
+      title: "About Shri Radhe Maa Charitable Society",
+      description: "Registered NGO serving humanity since 2017 under Shri Radhe Guru Maa.",
+      type: "website",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
+
 export default function AboutPage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "About", url: "https://shriradhemasociety.org/about" },
+  ]);
+
   return (
     <div className="pt-32 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="max-w-6xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeader

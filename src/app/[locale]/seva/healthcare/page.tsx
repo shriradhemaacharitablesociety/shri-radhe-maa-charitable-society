@@ -1,11 +1,78 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
+
+const faqs = [
+  {
+    question: "How can I avail free dialysis at the centre?",
+    answer:
+      "Visit Anand Hospital, 2nd Floor, Dahisar Village, Anand Nagar, Dahisar East, Mumbai – 400068. You can also call 86570 67228 or 98921 54615 to inquire about availability and eligibility. The service is completely free of charge for all patients.",
+  },
+  {
+    question: "Where is the dialysis centre located?",
+    answer:
+      "The free dialysis centre is located at the 2nd Floor of Anand Hospital, Dahisar Village, Anand Nagar, Dahisar East, Mumbai – 400068. It operates in partnership with the Taramati Charitable Foundation.",
+  },
+  {
+    question: "How do I access the free ambulance service?",
+    answer:
+      "The free ambulance service is available to Satyam Charitable Hospital. Please contact Dr. Ramrao Athankar at 8959388249 for more information and to coordinate transport.",
+  },
+  {
+    question: "When are the blood donation camps held?",
+    answer:
+      "Blood donation camps are organised periodically across Delhi and Mumbai. Follow our social media or contact the society at 95608 00343 to stay updated on upcoming camps.",
+  },
+];
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isHindi = locale === "hi";
+  return {
+    title: isHindi
+      ? "स्वास्थ्य सेवा | निःशुल्क डायलिसिस | श्री राधे माँ चैरिटेबल सोसाइटी"
+      : "Healthcare Programmes | Free Dialysis Centre | Shri Radhe Maa Charitable Society",
+    description: isHindi
+      ? "मुंबई के अनंद अस्पताल में निःशुल्क किडनी डायलिसिस केन्द्र, मुफ्त एम्बुलेंस सेवा, रक्तदान शिविर और नेत्र-दंत जांच।"
+      : "Free kidney dialysis centre at Anand Hospital Mumbai, free ambulance service, blood donation camps, eye and dental check-up drives for the underprivileged.",
+    keywords: isHindi
+      ? ["निःशुल्क डायलिसिस", "मुफ्त किडनी उपचार", "रक्तदान", "एम्बुलेंस सेवा", "मुंबई"]
+      : ["free dialysis Mumbai", "free kidney dialysis India", "blood donation camp Delhi", "free ambulance NGO"],
+    alternates: { languages: { "en-IN": "/en/seva/healthcare", "hi-IN": "/hi/seva/healthcare" } },
+    openGraph: {
+      title: "Free Dialysis Centre & Healthcare — Shri Radhe Maa Charitable Society",
+      description: "Free kidney dialysis at Anand Hospital, Dahisar, Mumbai — no cost to patients.",
+      type: "website",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
 
 export default function HealthcarePage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "Seva", url: "https://shriradhemasociety.org/seva" },
+    { name: "Healthcare", url: "https://shriradhemasociety.org/seva/healthcare" },
+  ]);
+  const faqSchema = faqJsonLd(faqs);
+
   return (
     <div className="pt-32 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <div className="mb-3">
@@ -127,36 +194,19 @@ export default function HealthcarePage() {
           <h2 className="font-serif text-2xl text-warm-900 mb-2">Frequently Asked Questions</h2>
           <p className="font-devanagari text-sm text-crimson-500 mb-6" lang="hi">सामान्य प्रश्न</p>
           <div className="space-y-3">
-            {[
-              {
-                q: "How can I avail free dialysis at the centre?",
-                a: "Visit Anand Hospital, 2nd Floor, Dahisar Village, Anand Nagar, Dahisar East, Mumbai – 400068. You can also call 86570 67228 or 98921 54615 to inquire about availability and eligibility. The service is completely free of charge for all patients.",
-              },
-              {
-                q: "Where is the dialysis centre located?",
-                a: "The free dialysis centre is located at the 2nd Floor of Anand Hospital, Dahisar Village, Anand Nagar, Dahisar East, Mumbai – 400068. It operates in partnership with the Taramati Charitable Foundation.",
-              },
-              {
-                q: "How do I access the free ambulance service?",
-                a: "The free ambulance service is available to Satyam Charitable Hospital. Please contact Dr. Ramrao Athankar at 8959388249 for more information and to coordinate transport.",
-              },
-              {
-                q: "When are the blood donation camps held?",
-                a: "Blood donation camps are organised periodically across Delhi and Mumbai. Follow our social media or contact the society at 95608 00343 to stay updated on upcoming camps.",
-              },
-            ].map((faq) => (
+            {faqs.map((faq) => (
               <details
-                key={faq.q}
+                key={faq.question}
                 className="group rounded-2xl border border-saffron-300/50 bg-white/40 backdrop-blur-sm overflow-hidden"
               >
                 <summary className="flex items-center justify-between cursor-pointer px-6 py-4 font-sans text-sm font-medium text-warm-900 hover:bg-saffron-50/40 transition-colors list-none">
-                  {faq.q}
+                  {faq.question}
                   <svg className="w-4 h-4 text-warm-800/40 shrink-0 ml-3 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                   </svg>
                 </summary>
                 <div className="px-6 pb-5 font-sans text-sm text-warm-800/70 leading-relaxed border-t border-saffron-300/30 pt-4">
-                  {faq.a}
+                  {faq.answer}
                 </div>
               </details>
             ))}

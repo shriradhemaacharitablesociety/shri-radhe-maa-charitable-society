@@ -1,7 +1,36 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { breadcrumbJsonLd } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isHindi = locale === "hi";
+  return {
+    title: isHindi
+      ? "सीएसआर साझेदारी | श्री राधे माँ चैरिटेबल सोसाइटी"
+      : "CSR & Corporate Partnerships | Shri Radhe Maa Charitable Society",
+    description: isHindi
+      ? "80G कर लाभ के साथ कॉर्पोरेट CSR साझेदारी। स्वास्थ्य सेवा, दिव्यांग कल्याण, आपदा राहत और गौशाला सेवा में निवेश करें।"
+      : "Corporate CSR partnerships with 80G tax benefits. Invest in healthcare, divyang welfare, disaster relief, and gaushala seva with a registered NGO.",
+    keywords: isHindi
+      ? ["CSR साझेदारी", "कॉर्पोरेट सामाजिक जिम्मेदारी", "80G दान", "एनजीओ CSR"]
+      : ["CSR partnership India", "corporate social responsibility NGO", "80G CSR donation", "registered NGO partnership"],
+    alternates: { languages: { "en-IN": "/en/get-involved/csr", "hi-IN": "/hi/get-involved/csr" } },
+    openGraph: {
+      title: "CSR & Corporate Partnerships — Shri Radhe Maa Charitable Society",
+      description: "Fulfil your CSR mandate with a registered, transparent NGO. 80G benefit.",
+      type: "website",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
 
 const csrOpportunities = [
   {
@@ -43,8 +72,17 @@ const csrOpportunities = [
 ];
 
 export default function CSRPage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "CSR", url: "https://shriradhemasociety.org/get-involved/csr" },
+  ]);
+
   return (
     <div className="pt-32 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <div className="mb-3">

@@ -1,11 +1,47 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { breadcrumbJsonLd } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isHindi = locale === "hi";
+  return {
+    title: isHindi
+      ? "सोसाइटी का परिचय | श्री राधे माँ चैरिटेबल सोसाइटी"
+      : "The Society | Shri Radhe Maa Charitable Society",
+    description: isHindi
+      ? "पंजीकरण संख्या S/2930/SDM/NW/2017 — सोसाइटी रजिस्ट्रेशन अधिनियम 1860 के तहत पंजीकृत। मिशन, गतिविधियाँ और पते।"
+      : "Registration No. S/2930/SDM/NW/2017 — registered under The Societies Registration Act, 1860. Mission, activities, and contact details.",
+    alternates: { languages: { "en-IN": "/en/about/society", "hi-IN": "/hi/about/society" } },
+    openGraph: {
+      title: "About the Society — Shri Radhe Maa Charitable Society",
+      description: "Registered NGO (S/2930/SDM/NW/2017) serving India since 2017.",
+      type: "website",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
 
 export default function SocietyPage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "About", url: "https://shriradhemasociety.org/about" },
+    { name: "The Society", url: "https://shriradhemasociety.org/about/society" },
+  ]);
+
   return (
     <div className="pt-32 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <div className="mb-3">

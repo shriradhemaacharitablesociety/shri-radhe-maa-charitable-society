@@ -1,7 +1,36 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { breadcrumbJsonLd } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isHindi = locale === "hi";
+  return {
+    title: isHindi
+      ? "आपदा राहत अभियान | श्री राधे माँ चैरिटेबल सोसाइटी"
+      : "Disaster Relief Operations | Shri Radhe Maa Charitable Society",
+    description: isHindi
+      ? "पंजाब बाढ़, केरल बाढ़, नेपाल भूकंप, महाराष्ट्र बाढ़ और कोविड-19 राहत अभियान। इस्लामपुर गाँव का पूर्ण पुनर्निर्माण।"
+      : "Punjab flood relief (Islampur village rebuild), Kerala floods, Nepal earthquake, Maharashtra floods, and COVID-19 relief. 5+ operations across India and Nepal.",
+    keywords: isHindi
+      ? ["बाढ़ राहत", "आपदा प्रबंधन", "पंजाब बाढ़", "नेपाल भूकंप", "कोविड राहत"]
+      : ["disaster relief India", "flood relief NGO", "Punjab flood Islampur", "Nepal earthquake relief", "COVID relief India"],
+    alternates: { languages: { "en-IN": "/en/seva/disaster-relief", "hi-IN": "/hi/seva/disaster-relief" } },
+    openGraph: {
+      title: "Disaster Relief Operations — Shri Radhe Maa Charitable Society",
+      description: "5+ relief operations across Punjab, Kerala, Nepal, Maharashtra and COVID-19.",
+      type: "website",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
 
 const reliefOperations = [
   {
@@ -52,8 +81,18 @@ const reliefOperations = [
 ];
 
 export default function DisasterReliefPage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "Seva", url: "https://shriradhemasociety.org/seva" },
+    { name: "Disaster Relief", url: "https://shriradhemasociety.org/seva/disaster-relief" },
+  ]);
+
   return (
     <div className="pt-32 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <div className="mb-3">

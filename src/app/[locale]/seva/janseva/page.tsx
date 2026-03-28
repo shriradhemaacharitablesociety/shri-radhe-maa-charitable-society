@@ -1,7 +1,36 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { breadcrumbJsonLd } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isHindi = locale === "hi";
+  return {
+    title: isHindi
+      ? "जनसेवा अभियान | व्हीलचेयर, भोजन, वस्त्र वितरण"
+      : "Janseva Abhiyan | Wheelchair, Food & Clothing Distribution",
+    description: isHindi
+      ? "व्हीलचेयर वितरण, दिव्यांग सेवा, कंबल और वस्त्र वितरण, अन्न सेवा, आवश्यक वस्तुएँ — 500+ लाभार्थी।"
+      : "Wheelchair distribution, divyang seva, blanket and clothing drives, Ann Seva food distribution, essential items — 500+ beneficiaries across India.",
+    keywords: isHindi
+      ? ["जनसेवा", "व्हीलचेयर वितरण", "दिव्यांग सेवा", "अन्न सेवा", "कंबल वितरण"]
+      : ["janseva", "wheelchair distribution India", "divyang seva", "food distribution NGO", "blanket distribution Delhi"],
+    alternates: { languages: { "en-IN": "/en/seva/janseva", "hi-IN": "/hi/seva/janseva" } },
+    openGraph: {
+      title: "Janseva Abhiyan — Shri Radhe Maa Charitable Society",
+      description: "Wheelchairs, food, clothing, and essential items for 500+ beneficiaries.",
+      type: "website",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
 
 const activities = [
   {
@@ -43,8 +72,18 @@ const activities = [
 ];
 
 export default function JansevaPage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "Seva", url: "https://shriradhemasociety.org/seva" },
+    { name: "Janseva Abhiyan", url: "https://shriradhemasociety.org/seva/janseva" },
+  ]);
+
   return (
     <div className="pt-32 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <div className="mb-3">

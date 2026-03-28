@@ -1,11 +1,49 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { breadcrumbJsonLd } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isHindi = locale === "hi";
+  return {
+    title: isHindi
+      ? "श्री राधे गुरु माँ | श्री राधे माँ चैरिटेबल सोसाइटी"
+      : "Shri Radhe Guru Maa | Shri Radhe Maa Charitable Society",
+    description: isHindi
+      ? "श्री राधे गुरु माँ — 30+ वर्षों की मानवीय सेवा, निःशुल्क डायलिसिस केन्द्र, बाढ़ राहत और दिव्यांग सेवा।"
+      : "Shri Radhe Guru Maa — 30+ years of humanitarian service, free dialysis centre, disaster relief, and divyang seva across India.",
+    keywords: isHindi
+      ? ["श्री राधे गुरु माँ", "राधे माँ", "आध्यात्मिक नेता", "मानवीय सेवा"]
+      : ["Shri Radhe Guru Maa", "Radhe Maa", "spiritual leader", "humanitarian service India"],
+    alternates: { languages: { "en-IN": "/en/about/maa", "hi-IN": "/hi/about/maa" } },
+    openGraph: {
+      title: "Shri Radhe Guru Maa — Humanitarian Leader",
+      description: "30+ years of compassionate service across India and abroad.",
+      type: "profile",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
 
 export default function MaaPage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "About", url: "https://shriradhemasociety.org/about" },
+    { name: "Shri Radhe Guru Maa", url: "https://shriradhemasociety.org/about/maa" },
+  ]);
   return (
     <div className="pt-32 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <div className="mb-3">

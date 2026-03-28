@@ -1,11 +1,50 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { breadcrumbJsonLd } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isHindi = locale === "hi";
+  return {
+    title: isHindi
+      ? "गौशाला सेवा | गौ माता की सेवा | श्री राधे माँ चैरिटेबल सोसाइटी"
+      : "Gaushala Seva | Cow Shelter Support | Shri Radhe Maa Charitable Society",
+    description: isHindi
+      ? "गौशालाओं को वित्तीय दान, चारा, और पशु चिकित्सा सहायता — भारतीय संस्कृति और आध्यात्मिक परंपरा की सेवा।"
+      : "Financial donations, fodder, and veterinary support to registered gaushalas — serving Indian cultural tradition and caring for Gau Mata.",
+    keywords: isHindi
+      ? ["गौशाला सेवा", "गाय आश्रय", "गौ माता", "गौशाला दान"]
+      : ["gaushala seva", "cow shelter donation India", "gau mata", "gaushala support NGO"],
+    alternates: { languages: { "en-IN": "/en/seva/gaushala", "hi-IN": "/hi/seva/gaushala" } },
+    openGraph: {
+      title: "Gaushala Seva — Shri Radhe Maa Charitable Society",
+      description: "Supporting cow shelters as a sacred act of cultural and spiritual service.",
+      type: "website",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
 
 export default function GaushalaPage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "Seva", url: "https://shriradhemasociety.org/seva" },
+    { name: "Gaushala Seva", url: "https://shriradhemasociety.org/seva/gaushala" },
+  ]);
+
   return (
     <div className="pt-32 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <div className="mb-3">

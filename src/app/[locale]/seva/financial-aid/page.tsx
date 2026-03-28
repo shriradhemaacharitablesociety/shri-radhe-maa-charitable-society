@@ -1,12 +1,79 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
+
+const faqs = [
+  {
+    question: "How can I apply for the monthly pension programme?",
+    answer:
+      "To apply for monthly pension support, please contact the society office at 95608 00343 or email shriradhemaacharitablesociety@gmail.com. Our team will assess your situation and guide you through the process. Applications are evaluated based on need and available capacity.",
+  },
+  {
+    question: "What is included in the marriage assistance package?",
+    answer:
+      "The marriage assistance package includes 5 essential items to help families with wedding expenses — typically covering household items, clothing, kitchen essentials, ceremony items, and practical utility goods. The exact items are tailored to the family's needs.",
+  },
+  {
+    question: "Who is eligible for one-time financial assistance?",
+    answer:
+      "Families facing sudden financial crises — medical emergencies, loss of income, or other urgent hardships — may be eligible for one-time aid. Please reach out to the society to discuss your situation. Each case is evaluated on its individual merits.",
+  },
+  {
+    question: "Are the pensions recurring every month?",
+    answer:
+      "Yes, the monthly pension programme provides consistent support every month to enrolled families. The society is committed to ensuring continuity and reliability of this support.",
+  },
+];
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isHindi = locale === "hi";
+  return {
+    title: isHindi
+      ? "वित्तीय सहायता और पेंशन | श्री राधे माँ चैरिटेबल सोसाइटी"
+      : "Financial Aid & Monthly Pensions | Shri Radhe Maa Charitable Society",
+    description: isHindi
+      ? "100+ परिवारों को मासिक पेंशन, विवाह सहायता और एकमुश्त वित्तीय सहायता। सरकारी राहत कोष में ₹25 लाख से अधिक का योगदान।"
+      : "Monthly pensions for 100+ families, marriage assistance, one-time financial aid, and ₹25 lakh+ in government relief fund contributions.",
+    keywords: isHindi
+      ? ["मासिक पेंशन", "विवाह सहायता", "वित्तीय सहायता दिल्ली", "गरीब परिवार सहायता"]
+      : ["monthly pension NGO India", "financial aid Delhi", "marriage assistance charity", "poor family support India"],
+    alternates: { languages: { "en-IN": "/en/seva/financial-aid", "hi-IN": "/hi/seva/financial-aid" } },
+    openGraph: {
+      title: "Financial Aid & Pensions — Shri Radhe Maa Charitable Society",
+      description: "Monthly pensions for 100+ families and marriage assistance across Delhi NCR.",
+      type: "website",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
 
 export default function FinancialAidPage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "Seva", url: "https://shriradhemasociety.org/seva" },
+    { name: "Financial Aid", url: "https://shriradhemasociety.org/seva/financial-aid" },
+  ]);
+  const faqSchema = faqJsonLd(faqs);
+
   return (
     <div className="pt-32 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <div className="mb-3">
@@ -132,36 +199,19 @@ export default function FinancialAidPage() {
           <h2 className="font-serif text-2xl text-warm-900 mb-2">Frequently Asked Questions</h2>
           <p className="font-devanagari text-sm text-crimson-500 mb-6" lang="hi">सामान्य प्रश्न</p>
           <div className="space-y-3">
-            {[
-              {
-                q: "How can I apply for the monthly pension programme?",
-                a: "To apply for monthly pension support, please contact the society office at 95608 00343 or email shriradhemaacharitablesociety@gmail.com. Our team will assess your situation and guide you through the process. Applications are evaluated based on need and available capacity.",
-              },
-              {
-                q: "What is included in the marriage assistance package?",
-                a: "The marriage assistance package includes 5 essential items to help families with wedding expenses — typically covering household items, clothing, kitchen essentials, ceremony items, and practical utility goods. The exact items are tailored to the family's needs.",
-              },
-              {
-                q: "Who is eligible for one-time financial assistance?",
-                a: "Families facing sudden financial crises — medical emergencies, loss of income, or other urgent hardships — may be eligible for one-time aid. Please reach out to the society to discuss your situation. Each case is evaluated on its individual merits.",
-              },
-              {
-                q: "Are the pensions recurring every month?",
-                a: "Yes, the monthly pension programme provides consistent support every month to enrolled families. The society is committed to ensuring continuity and reliability of this support.",
-              },
-            ].map((faq) => (
+            {faqs.map((faq) => (
               <details
-                key={faq.q}
+                key={faq.question}
                 className="group rounded-2xl border border-saffron-300/50 bg-white/40 backdrop-blur-sm overflow-hidden"
               >
                 <summary className="flex items-center justify-between cursor-pointer px-6 py-4 font-sans text-sm font-medium text-warm-900 hover:bg-saffron-50/40 transition-colors list-none">
-                  {faq.q}
+                  {faq.question}
                   <svg className="w-4 h-4 text-warm-800/40 shrink-0 ml-3 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                   </svg>
                 </summary>
                 <div className="px-6 pb-5 font-sans text-sm text-warm-800/70 leading-relaxed border-t border-saffron-300/30 pt-4">
-                  {faq.a}
+                  {faq.answer}
                 </div>
               </details>
             ))}

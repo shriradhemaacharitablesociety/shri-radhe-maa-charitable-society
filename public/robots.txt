@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://shriradhemasociety.org
+
+# Sitemaps
+Sitemap: https://shriradhemasociety.org/sitemap.xml

@@ -1,7 +1,36 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { breadcrumbJsonLd } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isHindi = locale === "hi";
+  return {
+    title: isHindi
+      ? "आयोजन और गतिविधियाँ | श्री राधे माँ चैरिटेबल सोसाइटी"
+      : "Events & Activities | Shri Radhe Maa Charitable Society",
+    description: isHindi
+      ? "सेवा शिविर, स्वास्थ्य शिविर, भजन जैमिंग, सुखमनी साहिब पाठ, भागवत कथा — आगामी और पिछले आयोजन।"
+      : "Seva camps, health camps, bhajan programmes, Sukhmani Sahib Paath, Bhagwat Katha — upcoming and past events.",
+    keywords: isHindi
+      ? ["सेवा शिविर", "भजन जैमिंग", "भागवत कथा", "स्वास्थ्य शिविर", "आध्यात्मिक आयोजन"]
+      : ["seva camp Delhi", "bhajan programme", "Bhagwat Katha", "health camp NGO", "spiritual events India"],
+    alternates: { languages: { "en-IN": "/en/events", "hi-IN": "/hi/events" } },
+    openGraph: {
+      title: "Events & Activities — Shri Radhe Maa Charitable Society",
+      description: "Seva camps, spiritual gatherings, and distribution drives across India.",
+      type: "website",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
 
 const upcomingEvents = [
   {
@@ -124,8 +153,17 @@ function EventCard({ event }: { event: typeof upcomingEvents[0] }) {
 }
 
 export default function EventsPage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "Events", url: "https://shriradhemasociety.org/events" },
+  ]);
+
   return (
     <div className="pt-32 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="max-w-6xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeader

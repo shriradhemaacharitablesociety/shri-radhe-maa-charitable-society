@@ -1,7 +1,36 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+import { breadcrumbJsonLd } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isHindi = locale === "hi";
+  return {
+    title: isHindi
+      ? "सेवा कार्यक्रम | श्री राधे माँ चैरिटेबल सोसाइटी"
+      : "Seva Programmes | Shri Radhe Maa Charitable Society",
+    description: isHindi
+      ? "मुफ्त डायलिसिस, वित्तीय सहायता, बाढ़ राहत, जनसेवा अभियान, गौशाला सेवा — 500+ परिवारों की सेवा।"
+      : "Free dialysis, financial aid, disaster relief, Janseva Abhiyan, gaushala seva — 7 programmes serving 500+ families across India.",
+    keywords: isHindi
+      ? ["सेवा कार्यक्रम", "मुफ्त डायलिसिस", "जनसेवा", "दिव्यांग सेवा", "बाढ़ राहत"]
+      : ["seva programmes", "free dialysis India", "janseva", "divyang seva", "disaster relief NGO"],
+    alternates: { languages: { "en-IN": "/en/seva", "hi-IN": "/hi/seva" } },
+    openGraph: {
+      title: "Seva Programmes — Shri Radhe Maa Charitable Society",
+      description: "7 dimensions of compassionate service for India's most vulnerable.",
+      type: "website",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
 
 const sevaPrograms = [
   {
@@ -64,8 +93,17 @@ const stats = [
 ];
 
 export default function SevaPage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "Seva", url: "https://shriradhemasociety.org/seva" },
+  ]);
+
   return (
     <div className="pt-32 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       {/* Impact stats header */}
       <div className="border-b border-saffron-300/40 bg-saffron-50/40 mb-16">
         <div className="max-w-6xl mx-auto px-6 py-10">

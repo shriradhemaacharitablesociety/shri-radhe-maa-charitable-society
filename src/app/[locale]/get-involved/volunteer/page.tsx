@@ -1,7 +1,36 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { breadcrumbJsonLd } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isHindi = locale === "hi";
+  return {
+    title: isHindi
+      ? "स्वयंसेवा करें | श्री राधे माँ चैरिटेबल सोसाइटी"
+      : "Volunteer | Shri Radhe Maa Charitable Society",
+    description: isHindi
+      ? "स्वास्थ्य सेवा, वितरण अभियान, आपदा राहत, और डिजिटल स्वयंसेवा के अवसर। आज ही जुड़ें।"
+      : "Volunteer opportunities in healthcare, distribution drives, disaster relief, event support, and digital outreach. Join our seva network today.",
+    keywords: isHindi
+      ? ["स्वयंसेवक", "एनजीओ स्वयंसेवा", "समाज सेवा दिल्ली", "सेवा अवसर"]
+      : ["volunteer NGO India", "volunteer Delhi", "charity volunteer", "seva volunteer opportunities"],
+    alternates: { languages: { "en-IN": "/en/get-involved/volunteer", "hi-IN": "/hi/get-involved/volunteer" } },
+    openGraph: {
+      title: "Volunteer — Shri Radhe Maa Charitable Society",
+      description: "Join our volunteer network for healthcare, distribution, and relief seva.",
+      type: "website",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
 
 const volunteerRoles = [
   {
@@ -43,8 +72,17 @@ const volunteerRoles = [
 ];
 
 export default function VolunteerPage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "Volunteer", url: "https://shriradhemasociety.org/get-involved/volunteer" },
+  ]);
+
   return (
     <div className="pt-32 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <div className="mb-3">

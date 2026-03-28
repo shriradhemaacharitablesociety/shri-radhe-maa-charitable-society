@@ -1,11 +1,47 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { breadcrumbJsonLd } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isHindi = locale === "hi";
+  return {
+    title: isHindi
+      ? "नेतृत्व | श्री राधे माँ चैरिटेबल सोसाइटी"
+      : "Leadership | Shri Radhe Maa Charitable Society",
+    description: isHindi
+      ? "महासचिव श्री रुपेंद्र कश्यप के नेतृत्व में पारदर्शी और समर्पित न्यासी मंडल।"
+      : "Led by General Secretary Mr. Rupendra Kashyap, with a dedicated board of trustees ensuring transparent and compassionate governance.",
+    alternates: { languages: { "en-IN": "/en/about/leadership", "hi-IN": "/hi/about/leadership" } },
+    openGraph: {
+      title: "Leadership — Shri Radhe Maa Charitable Society",
+      description: "Transparent governance led by General Secretary Mr. Rupendra Kashyap.",
+      type: "website",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
 
 export default function LeadershipPage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "About", url: "https://shriradhemasociety.org/about" },
+    { name: "Leadership", url: "https://shriradhemasociety.org/about/leadership" },
+  ]);
+
   return (
     <div className="pt-32 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <div className="mb-3">

@@ -1,11 +1,49 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { breadcrumbJsonLd } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isHindi = locale === "hi";
+  return {
+    title: isHindi
+      ? "पारदर्शिता और अनुपालन | श्री राधे माँ चैरिटेबल सोसाइटी"
+      : "Transparency & Compliance | Shri Radhe Maa Charitable Society",
+    description: isHindi
+      ? "पंजीकरण संख्या S/2930/SDM/NW/2017, 80G कर छूट, वार्षिक रिपोर्ट, निधि उपयोग और शासन सिद्धांत।"
+      : "Registration No. S/2930/SDM/NW/2017, 80G tax exemption, annual reports, fund utilisation breakdown, and governance principles.",
+    keywords: isHindi
+      ? ["80G कर छूट", "एनजीओ पारदर्शिता", "वार्षिक रिपोर्ट", "पंजीकृत समाज"]
+      : ["80G tax exemption India", "NGO transparency", "annual report charity", "registered society India"],
+    alternates: { languages: { "en-IN": "/en/transparency", "hi-IN": "/hi/transparency" } },
+    openGraph: {
+      title: "Transparency & Compliance — Shri Radhe Maa Charitable Society",
+      description: "Fully registered, 80G certified, transparent fund utilisation.",
+      type: "website",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
+    },
+  };
+}
 
 export default function TransparencyPage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "Transparency", url: "https://shriradhemasociety.org/transparency" },
+  ]);
+
   return (
     <div className="pt-32 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <div className="mb-3">
