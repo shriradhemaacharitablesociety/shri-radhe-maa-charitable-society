@@ -65,7 +65,7 @@ export default function FinancialAidPage() {
   const faqSchema = faqJsonLd(faqs);
 
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -106,7 +106,7 @@ export default function FinancialAidPage() {
 
         {/* Monthly Pensions */}
         <ScrollReveal delay={150}>
-          <Card variant="default" className="mb-5">
+          <Card className="mb-5">
             <CardHeader>
               <div className="text-2xl mb-2" aria-hidden="true">🤝</div>
               <h2 className="font-serif text-xl text-warm-900">Monthly Pension Programme</h2>
@@ -122,7 +122,7 @@ export default function FinancialAidPage() {
 
         {/* One-time Aid */}
         <ScrollReveal delay={200}>
-          <Card variant="default" className="mb-5">
+          <Card className="mb-5">
             <CardHeader>
               <div className="text-2xl mb-2" aria-hidden="true">💵</div>
               <h2 className="font-serif text-xl text-warm-900">One-Time Financial Assistance</h2>
@@ -138,7 +138,7 @@ export default function FinancialAidPage() {
 
         {/* Marriage Assistance */}
         <ScrollReveal delay={250}>
-          <Card variant="default" className="mb-10">
+          <Card className="mb-10">
             <CardHeader>
               <div className="text-2xl mb-2" aria-hidden="true">💒</div>
               <h2 className="font-serif text-xl text-warm-900">Marriage Assistance</h2>

@@ -13,7 +13,7 @@ export function ImpactCounter() {
 
   return (
     <div className="border-t border-b border-saffron-300/40 bg-saffron-50/40">
-      <div className="max-w-6xl mx-auto px-6 py-12">
+      <div className="max-w-5xl mx-auto px-6 py-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-0">
           {stats.map((stat, i) => (
             <div

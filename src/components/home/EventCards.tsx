@@ -30,8 +30,8 @@ export function EventCards() {
   const t = useTranslations("events");
 
   return (
-    <section className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-16">
+      <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeader
             title={t("title")}
@@ -44,7 +44,7 @@ export function EventCards() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {PLACEHOLDER_EVENTS.map((event, i) => (
             <ScrollReveal key={i} delay={i * 150}>
-              <Card variant="default">
+              <Card>
                 <CardHeader>
                   <div className="flex items-center justify-between mb-3">
                     <Badge variant={event.type === "seva" ? "crimson" : "gold"}>

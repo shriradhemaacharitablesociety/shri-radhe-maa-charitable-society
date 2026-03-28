@@ -3,14 +3,14 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function AboutStrip() {
   return (
-    <section className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-16">
+      <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
-          <div className="max-w-3xl mx-auto text-center flex flex-col gap-6">
+          <div className="max-w-3xl mx-auto text-center flex flex-col gap-5">
             {/* Decorative line */}
             <div className="flex items-center justify-center gap-4">
               <div className="h-px flex-1 bg-gradient-to-r from-transparent to-saffron-400/40" />
-              <span className="font-devanagari text-crimson-500/60 text-xl">🪷</span>
+              <span className="font-devanagari text-crimson-500/60 text-xl">{"\uD83E\uDEB7"}</span>
               <div className="h-px flex-1 bg-gradient-to-l from-transparent to-saffron-400/40" />
             </div>
 
@@ -28,13 +28,11 @@ export function AboutStrip() {
               className="font-devanagari text-xl md:text-2xl text-warm-900/40 leading-relaxed"
               lang="hi"
             >
-              श्री राधे गुरु माँ के दिव्य आशीर्वाद से स्थापित यह समाज, आध्यात्मिक भक्ति को
-              व्यावहारिक करुणा में परिवर्तित करता है — निःशुल्क डायलिसिस, बाढ़ राहत, वृद्ध
-              पेंशन, दिव्यांग सहायता और देशभर में जरूरतमंद परिवारों की सेवा।
+              {"\u0936\u094D\u0930\u0940 \u0930\u093E\u0927\u0947 \u0917\u0941\u0930\u0941 \u092E\u093E\u0901 \u0915\u0947 \u0926\u093F\u0935\u094D\u092F \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926 \u0938\u0947 \u0938\u094D\u0925\u093E\u092A\u093F\u0924 \u092F\u0939 \u0938\u092E\u093E\u091C, \u0906\u0927\u094D\u092F\u093E\u0924\u094D\u092E\u093F\u0915 \u092D\u0915\u094D\u0924\u093F \u0915\u094B \u0935\u094D\u092F\u093E\u0935\u0939\u093E\u0930\u093F\u0915 \u0915\u0930\u0941\u0923\u093E \u092E\u0947\u0902 \u092A\u0930\u093F\u0935\u0930\u094D\u0924\u093F\u0924 \u0915\u0930\u0924\u093E \u0939\u0948 \u2014 \u0928\u093F\u0903\u0936\u0941\u0932\u094D\u0915 \u0921\u093E\u092F\u0932\u093F\u0938\u093F\u0938, \u092C\u093E\u0922\u093C \u0930\u093E\u0939\u0924, \u0935\u0943\u0926\u094D\u0927 \u092A\u0947\u0902\u0936\u0928, \u0926\u093F\u0935\u094D\u092F\u093E\u0902\u0917 \u0938\u0939\u093E\u092F\u0924\u093E \u0914\u0930 \u0926\u0947\u0936\u092D\u0930 \u092E\u0947\u0902 \u091C\u0930\u0942\u0930\u0924\u092E\u0902\u0926 \u092A\u0930\u093F\u0935\u093E\u0930\u094B\u0902 \u0915\u0940 \u0938\u0947\u0935\u093E\u0964"}
             </p>
 
             {/* Learn more link */}
-            <div className="flex items-center justify-center gap-2 mt-2">
+            <div className="flex items-center justify-center gap-2 mt-1">
               <Link
                 href={"/about" as any}
                 className="font-sans text-sm font-semibold text-crimson-500 hover:text-crimson-600 transition-colors inline-flex items-center gap-1.5 group"

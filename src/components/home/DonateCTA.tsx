@@ -13,8 +13,8 @@ export function DonateCTA() {
   const t = useTranslations("donate");
 
   return (
-    <section className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-16">
+      <div className="max-w-5xl mx-auto px-6">
         <div
           className="relative rounded-4xl overflow-hidden border border-saffron-300/30"
           style={{

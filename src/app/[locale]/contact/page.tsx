@@ -82,7 +82,7 @@ export default function ContactPage() {
   const faqSchema = faqJsonLd(faqs);
 
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -91,13 +91,13 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeader
             title="Get in Touch"
             titleHi="संपर्क करें"
             subtitle="Whether you'd like to donate, volunteer, seek assistance, or simply know more — we're here to help."
-            className="mb-16"
+            className="mb-10"
           />
         </ScrollReveal>
 

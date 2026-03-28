@@ -37,7 +37,7 @@ export default function LeadershipPage() {
   ]);
 
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -58,7 +58,7 @@ export default function LeadershipPage() {
 
         {/* General Secretary */}
         <ScrollReveal delay={100}>
-          <Card variant="default" className="mb-8">
+          <Card className="mb-8">
             <CardHeader>
               <Badge variant="crimson" className="mb-4 w-fit">General Secretary</Badge>
               <div className="flex gap-6 items-start">
@@ -111,7 +111,7 @@ export default function LeadershipPage() {
             },
           ].map((item, i) => (
             <ScrollReveal key={item.role} delay={250 + i * 100}>
-              <Card variant="default" className="h-full">
+              <Card className="h-full">
                 <CardHeader>
                   <h3 className="font-serif text-base text-warm-900">{item.role}</h3>
                   <p className="font-devanagari text-xs text-warm-800/40 mt-0.5" lang="hi">{item.roleHi}</p>

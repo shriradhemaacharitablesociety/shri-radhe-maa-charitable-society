@@ -76,18 +76,18 @@ export default function AboutPage() {
   ]);
 
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeader
             title="About the Society"
             titleHi="सोसाइटी के बारे में"
             subtitle="A registered charitable organisation serving humanity under the spiritual guidance of Shri Radhe Guru Maa."
-            className="mb-16"
+            className="mb-10"
           />
         </ScrollReveal>
 
@@ -95,7 +95,7 @@ export default function AboutPage() {
           {aboutSections.map((section, i) => (
             <ScrollReveal key={section.href} delay={i * 150}>
               <Link href={section.href} className="block h-full group">
-                <Card variant="default" className="h-full cursor-pointer">
+                <Card className="h-full cursor-pointer">
                   <CardHeader>
                     <div className="flex items-center justify-between mb-3">
                       <Badge variant={section.badgeVariant}>{section.badge}</Badge>

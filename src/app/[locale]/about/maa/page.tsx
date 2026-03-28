@@ -39,7 +39,7 @@ export default function MaaPage() {
     { name: "Shri Radhe Guru Maa", url: "https://shriradhemasociety.org/about/maa" },
   ]);
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -111,7 +111,7 @@ export default function MaaPage() {
             { icon: "💊", title: "Healthcare Camps", desc: "Blood donation drives, free eye and dental check-up camps organised across India." },
           ].map((item, i) => (
             <ScrollReveal key={item.title} delay={350 + i * 100}>
-              <Card variant="default">
+              <Card>
                 <CardHeader>
                   <div className="text-2xl mb-2" aria-hidden="true">{item.icon}</div>
                   <h3 className="font-serif text-lg text-warm-900">{item.title}</h3>

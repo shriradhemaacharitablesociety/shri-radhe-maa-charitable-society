@@ -8,49 +8,41 @@ export function SevaGrid() {
   const t = useTranslations("seva");
 
   return (
-    <section className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-16">
+      <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeader
             title={t("title")}
             titleHi={t("title_hi")}
             subtitle="Seven dimensions of seva — from free dialysis to disaster relief"
-            className="mb-12"
+            className="mb-10"
           />
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {/* Featured: Dialysis */}
+          {/* Featured: Dialysis — light card with gold accent */}
           <ScrollReveal delay={100} className="md:col-span-2">
-            <Card variant="featured">
+            <Card accent="gold">
               <CardHeader>
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <div className="text-3xl mb-3" aria-hidden="true">🏥</div>
-                    <h3 className="font-serif text-2xl text-saffron-200 leading-tight">
+                    <div className="text-3xl mb-3" aria-hidden="true">{"\uD83C\uDFE5"}</div>
+                    <h3 className="font-serif text-2xl text-warm-900 leading-tight">
                       {t("dialysis_title")}
                     </h3>
                   </div>
                   <div className="text-right shrink-0">
-                    <div
-                      className="font-stat text-4xl font-black"
-                      style={{
-                        background: "linear-gradient(135deg, #FFE4B8 0%, #DAA520 100%)",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                        backgroundClip: "text",
-                      }}
-                    >
+                    <div className="font-stat text-4xl font-black text-crimson-500">
                       {t("dialysis_stat")}
                     </div>
-                    <p className="text-saffron-400/70 text-xs font-sans mt-1 uppercase tracking-wider">
+                    <p className="text-saffron-600 text-xs font-sans mt-1 uppercase tracking-wider">
                       Free Access
                     </p>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-warm-200/60 font-sans text-sm leading-relaxed">
+                <p className="text-warm-800/60 font-sans text-sm leading-relaxed">
                   {t("dialysis_desc")}
                 </p>
               </CardContent>
@@ -59,9 +51,9 @@ export function SevaGrid() {
 
           {/* Pensions */}
           <ScrollReveal delay={200}>
-            <Card variant="default">
+            <Card accent="crimson">
               <CardHeader>
-                <div className="text-2xl mb-2" aria-hidden="true">🤝</div>
+                <div className="text-2xl mb-2" aria-hidden="true">{"\uD83E\uDD1D"}</div>
                 <h3 className="font-serif text-xl text-warm-900 leading-tight">
                   {t("pension_title")}
                 </h3>
@@ -85,9 +77,9 @@ export function SevaGrid() {
 
           {/* Disaster Relief */}
           <ScrollReveal delay={300}>
-            <Card variant="default">
+            <Card accent="gold">
               <CardHeader>
-                <div className="text-2xl mb-2" aria-hidden="true">🌊</div>
+                <div className="text-2xl mb-2" aria-hidden="true">{"\uD83C\uDF0A"}</div>
                 <h3 className="font-serif text-xl text-warm-900 leading-tight">
                   {t("disaster_title")}
                 </h3>
@@ -110,9 +102,9 @@ export function SevaGrid() {
 
           {/* Divyang Seva */}
           <ScrollReveal delay={400}>
-            <Card variant="default">
+            <Card accent="crimson">
               <CardHeader>
-                <div className="text-2xl mb-2" aria-hidden="true">♿</div>
+                <div className="text-2xl mb-2" aria-hidden="true">{"\u267F"}</div>
                 <h3 className="font-serif text-xl text-warm-900 leading-tight">
                   {t("divyang_title")}
                 </h3>
@@ -136,9 +128,9 @@ export function SevaGrid() {
 
           {/* Marriage Assistance */}
           <ScrollReveal delay={500}>
-            <Card variant="default">
+            <Card accent="gold">
               <CardHeader>
-                <div className="text-2xl mb-2" aria-hidden="true">💒</div>
+                <div className="text-2xl mb-2" aria-hidden="true">{"\uD83D\uDC92"}</div>
                 <h3 className="font-serif text-xl text-warm-900 leading-tight">
                   {t("marriage_title")}
                 </h3>

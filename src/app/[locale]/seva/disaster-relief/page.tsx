@@ -88,7 +88,7 @@ export default function DisasterReliefPage() {
   ]);
 
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -127,7 +127,7 @@ export default function DisasterReliefPage() {
         <div className="space-y-5 mb-12">
           {reliefOperations.map((op, i) => (
             <ScrollReveal key={op.title} delay={150 + i * 100}>
-              <Card variant="default">
+              <Card>
                 <CardHeader>
                   <div className="flex items-start justify-between gap-4">
                     <div>

@@ -78,7 +78,7 @@ export default function CSRPage() {
   ]);
 
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -99,16 +99,17 @@ export default function CSRPage() {
 
         {/* 80G benefit */}
         <ScrollReveal delay={100}>
-          <div className="mb-10 rounded-3xl border border-saffron-600/30 bg-warm-900 p-8">
+          <div className="relative mb-10 rounded-xl bg-white/50 border border-warm-800/[0.05] p-6">
+            <div className="absolute left-0 top-2 bottom-2 w-[2px] rounded-full bg-gradient-to-b from-saffron-500/25 to-transparent" />
             <div className="flex items-start gap-5">
               <div className="text-3xl shrink-0" aria-hidden="true">📄</div>
               <div>
                 <Badge variant="gold" className="mb-3">Tax Benefit</Badge>
-                <h2 className="font-serif text-xl text-saffron-200 mb-2">80G Tax Deduction for Corporations</h2>
-                <p className="font-sans text-warm-200/70 text-sm leading-relaxed mb-3">
-                  Corporate donations to the Shri Radhe Maa Charitable Society may qualify for deduction under <strong className="text-saffron-300">Section 80G of the Income Tax Act, 1961</strong>. This makes your CSR contribution financially beneficial in addition to its social impact.
+                <h2 className="font-serif text-xl text-warm-900 mb-2">80G Tax Deduction for Corporations</h2>
+                <p className="font-sans text-warm-800/70 text-sm leading-relaxed mb-3">
+                  Corporate donations to the Shri Radhe Maa Charitable Society may qualify for deduction under <strong className="text-warm-900">Section 80G of the Income Tax Act, 1961</strong>. This makes your CSR contribution financially beneficial in addition to its social impact.
                 </p>
-                <p className="font-sans text-warm-200/60 text-sm leading-relaxed">
+                <p className="font-sans text-warm-800/60 text-sm leading-relaxed">
                   Please contact us for our 80G certificate and to discuss eligible donation structures under the Companies Act, 2013.
                 </p>
               </div>
@@ -125,7 +126,7 @@ export default function CSRPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
           {csrOpportunities.map((item, i) => (
             <ScrollReveal key={item.title} delay={250 + i * 80}>
-              <Card variant="default" className="h-full">
+              <Card className="h-full">
                 <CardHeader>
                   <div className="text-2xl mb-2" aria-hidden="true">{item.icon}</div>
                   <h3 className="font-serif text-lg text-warm-900">{item.title}</h3>

@@ -42,7 +42,7 @@ function DonatePage() {
   const donateAction = donateActionJsonLd();
 
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -51,7 +51,7 @@ function DonatePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(donateAction) }}
       />
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         {/* Page Header */}
         <ScrollReveal>
           <div className="mb-12 flex flex-col gap-2">

@@ -37,7 +37,7 @@ export default function SocietyPage() {
   ]);
 
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -58,7 +58,7 @@ export default function SocietyPage() {
 
         {/* Registration Card */}
         <ScrollReveal delay={100}>
-          <Card variant="default" className="mb-8">
+          <Card className="mb-8">
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
                 <div className="text-2xl" aria-hidden="true">📋</div>
@@ -118,7 +118,7 @@ export default function SocietyPage() {
             { icon: "🎵", title: "Spiritual Events", desc: "Bhajan programmes, Sukhmani Sahib Paath, and Bhagwat Katha for community upliftment." },
           ].map((item, i) => (
             <ScrollReveal key={item.title} delay={350 + i * 80}>
-              <Card variant="default">
+              <Card>
                 <CardHeader>
                   <div className="text-xl mb-1.5" aria-hidden="true">{item.icon}</div>
                   <h3 className="font-serif text-base text-warm-900">{item.title}</h3>

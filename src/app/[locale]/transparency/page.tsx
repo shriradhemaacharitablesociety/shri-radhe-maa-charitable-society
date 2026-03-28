@@ -39,7 +39,7 @@ export default function TransparencyPage() {
   ]);
 
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -60,7 +60,7 @@ export default function TransparencyPage() {
 
         {/* Registration */}
         <ScrollReveal delay={100}>
-          <Card variant="default" className="mb-6">
+          <Card className="mb-6">
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
                 <div className="text-2xl" aria-hidden="true">📋</div>
@@ -90,7 +90,7 @@ export default function TransparencyPage() {
 
         {/* 80G */}
         <ScrollReveal delay={200}>
-          <Card variant="default" className="mb-6">
+          <Card className="mb-6">
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
                 <div className="text-2xl" aria-hidden="true">📄</div>
@@ -115,7 +115,7 @@ export default function TransparencyPage() {
 
         {/* Annual Report */}
         <ScrollReveal delay={300}>
-          <Card variant="default" className="mb-6">
+          <Card className="mb-6">
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
                 <div className="text-2xl" aria-hidden="true">📊</div>
@@ -150,7 +150,7 @@ export default function TransparencyPage() {
 
         {/* Fund Utilization */}
         <ScrollReveal delay={400}>
-          <Card variant="default" className="mb-6">
+          <Card className="mb-6">
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
                 <div className="text-2xl" aria-hidden="true">🥧</div>

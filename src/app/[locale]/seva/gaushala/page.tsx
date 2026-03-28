@@ -40,7 +40,7 @@ export default function GaushalaPage() {
   ]);
 
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -105,7 +105,7 @@ export default function GaushalaPage() {
             },
           ].map((item, i) => (
             <ScrollReveal key={item.title} delay={250 + i * 80}>
-              <Card variant="default" className="h-full">
+              <Card className="h-full">
                 <CardHeader>
                   <div className="text-2xl mb-2" aria-hidden="true">{item.icon}</div>
                   <h3 className="font-serif text-lg text-warm-900">{item.title}</h3>

@@ -130,7 +130,7 @@ const pastEvents = [
 
 function EventCard({ event }: { event: typeof upcomingEvents[0] }) {
   return (
-    <Card variant="default">
+    <Card>
       <CardHeader>
         <div className="flex items-center justify-between mb-3">
           <Badge variant={event.badgeVariant}>{event.typeLabel}</Badge>
@@ -159,18 +159,18 @@ export default function EventsPage() {
   ]);
 
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeader
             title="Events & Activities"
             titleHi="आयोजन और गतिविधियाँ"
             subtitle="From spiritual gatherings to seva camps — stay updated on our upcoming and past events."
-            className="mb-16"
+            className="mb-10"
           />
         </ScrollReveal>
 

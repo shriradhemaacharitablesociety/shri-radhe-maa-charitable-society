@@ -79,7 +79,7 @@ export default function JansevaPage() {
   ]);
 
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -117,7 +117,7 @@ export default function JansevaPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
           {activities.map((activity, i) => (
             <ScrollReveal key={activity.title} delay={150 + i * 80}>
-              <Card variant="default" className="h-full">
+              <Card className="h-full">
                 <CardHeader>
                   <div className="text-2xl mb-2" aria-hidden="true">{activity.icon}</div>
                   <h2 className="font-serif text-lg text-warm-900">{activity.title}</h2>

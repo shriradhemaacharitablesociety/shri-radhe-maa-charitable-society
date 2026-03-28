@@ -1,58 +1,52 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: "default" | "featured";
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  accent?: "crimson" | "gold" | "none";
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant = "default", children, ...props }, ref) => {
-    const base =
-      "relative rounded-3xl overflow-hidden transition-all duration-500 group";
-
-    const variants = {
-      default:
-        "bg-white/45 backdrop-blur-sm border border-saffron-300/60 hover:-translate-y-1 hover:shadow-xl hover:shadow-saffron-200/40",
-      featured:
-        "bg-warm-900 border border-saffron-600/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-crimson-900/30",
-    };
-
+  ({ className, accent = "crimson", children, ...props }, ref) => {
     return (
       <div
         ref={ref}
-        className={cn(base, variants[variant], className)}
+        className={cn(
+          "relative rounded-xl bg-white/50 border border-warm-800/[0.05] p-5 transition-all duration-500 hover:bg-white/70 hover:shadow-sm",
+          className
+        )}
         style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
         {...props}
       >
-        {/* Left border gradient accent */}
-        <div
-          className={cn(
-            "absolute left-0 top-0 bottom-0 w-[3px]",
-            variant === "default"
-              ? "bg-gradient-to-b from-crimson-500 to-saffron-500"
-              : "bg-gradient-to-b from-saffron-400 to-saffron-600"
-          )}
-        />
+        {accent !== "none" && (
+          <div
+            className={cn(
+              "absolute left-0 top-2 bottom-2 w-[2px] rounded-full",
+              accent === "crimson" && "bg-gradient-to-b from-crimson-500/25 to-transparent",
+              accent === "gold" && "bg-gradient-to-b from-saffron-500/25 to-transparent"
+            )}
+          />
+        )}
         {children}
       </div>
     );
   }
 );
-
 Card.displayName = "Card";
 
+// Simple sub-components for backward compat
 const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6 pl-8", className)} {...props} />
+    <div ref={ref} className={cn("flex flex-col gap-1", className)} {...props} />
   )
 );
 CardHeader.displayName = "CardHeader";
 
 const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("p-6 pl-8 pt-0", className)} {...props} />
+    <div ref={ref} className={cn("mt-2", className)} {...props} />
   )
 );
 CardContent.displayName = "CardContent";
 
 export { Card, CardHeader, CardContent };
+export type { CardProps };

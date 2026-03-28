@@ -99,14 +99,14 @@ export default function SevaPage() {
   ]);
 
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
       {/* Impact stats header */}
       <div className="border-b border-saffron-300/40 bg-saffron-50/40 mb-16">
-        <div className="max-w-6xl mx-auto px-6 py-10">
+        <div className="max-w-5xl mx-auto px-6 py-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-0">
             {stats.map((stat, i) => (
               <div
@@ -128,7 +128,7 @@ export default function SevaPage() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeader
             title="Our Seva Programmes"
@@ -147,73 +147,45 @@ export default function SevaPage() {
             >
               <Link href={program.href} className="block group h-full">
                 <div
-                  className={`relative rounded-3xl overflow-hidden border transition-all duration-500 hover:-translate-y-1 ${
-                    program.featured
-                      ? "bg-warm-900 border-saffron-600/30 hover:shadow-xl hover:shadow-crimson-900/30"
-                      : "bg-white/45 backdrop-blur-sm border-saffron-300/60 hover:shadow-xl hover:shadow-saffron-200/40"
-                  }`}
+                  className="relative rounded-xl bg-white/50 border border-warm-800/[0.05] transition-all duration-500 hover:bg-white/70 hover:shadow-sm hover:-translate-y-0.5 overflow-hidden"
                   style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
                 >
                   {/* Left border gradient */}
-                  <div className={`absolute left-0 top-0 bottom-0 w-[3px] ${
+                  <div className={`absolute left-0 top-2 bottom-2 w-[2px] rounded-full ${
                     program.featured
-                      ? "bg-gradient-to-b from-saffron-400 to-saffron-600"
-                      : "bg-gradient-to-b from-crimson-500 to-saffron-500"
+                      ? "bg-gradient-to-b from-saffron-500/25 to-transparent"
+                      : "bg-gradient-to-b from-crimson-500/25 to-transparent"
                   }`} />
 
-                  <div className={`p-6 pl-8 ${program.featured ? "md:flex md:items-center md:gap-8" : ""}`}>
+                  <div className={`p-5 ${program.featured ? "md:flex md:items-center md:gap-8" : ""}`}>
                     <div className={program.featured ? "flex-1" : ""}>
                       <div className="flex items-start justify-between gap-4">
                         <div>
                           <div className={`mb-3 ${program.featured ? "text-3xl" : "text-2xl"}`} aria-hidden="true">
                             {program.icon}
                           </div>
-                          <h2 className={`font-serif leading-tight ${
-                            program.featured
-                              ? "text-2xl text-saffron-200"
-                              : "text-xl text-warm-900 group-hover:text-crimson-600 transition-colors"
-                          }`}>
+                          <h2 className="font-serif leading-tight text-xl text-warm-900 group-hover:text-crimson-600 transition-colors">
                             {program.title}
                           </h2>
-                          <p className={`font-devanagari text-base mt-1 ${
-                            program.featured ? "text-saffron-400/70" : "text-warm-800/50"
-                          }`} lang="hi">
+                          <p className="font-devanagari text-base mt-1 text-warm-800/50" lang="hi">
                             {program.titleHi}
                           </p>
                         </div>
                         <div className="text-right shrink-0">
-                          <div
-                            className={`font-stat text-4xl font-black ${
-                              program.featured
-                                ? ""
-                                : "text-crimson-500"
-                            }`}
-                            style={program.featured ? {
-                              background: "linear-gradient(135deg, #FFE4B8 0%, #DAA520 100%)",
-                              WebkitBackgroundClip: "text",
-                              WebkitTextFillColor: "transparent",
-                              backgroundClip: "text",
-                            } : undefined}
-                          >
+                          <div className="font-stat text-4xl font-black text-crimson-500">
                             {program.stat}
                           </div>
-                          <p className={`text-xs font-sans mt-1 uppercase tracking-wider ${
-                            program.featured ? "text-saffron-400/70" : "text-warm-800/50"
-                          }`}>
+                          <p className="text-xs font-sans mt-1 uppercase tracking-wider text-warm-800/50">
                             {program.statLabel}
                           </p>
                         </div>
                       </div>
                     </div>
                     <div className={program.featured ? "md:w-80 mt-4 md:mt-0" : "mt-4"}>
-                      <p className={`font-sans text-sm leading-relaxed ${
-                        program.featured ? "text-warm-200/60" : "text-warm-800/60"
-                      }`}>
+                      <p className="font-sans text-sm leading-relaxed text-warm-800/60">
                         {program.desc}
                       </p>
-                      <div className={`mt-3 flex items-center gap-1.5 text-sm font-semibold font-sans group-hover:gap-2.5 transition-all duration-300 ${
-                        program.featured ? "text-saffron-400" : "text-crimson-500"
-                      }`}>
+                      <div className="mt-3 flex items-center gap-1.5 text-sm font-semibold font-sans text-crimson-500 group-hover:gap-2.5 transition-all duration-300">
                         Learn more
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />

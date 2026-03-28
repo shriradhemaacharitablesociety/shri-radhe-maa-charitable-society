@@ -5,7 +5,7 @@ export function TrustBar() {
 
   return (
     <div className="border-t border-b border-saffron-300/40 bg-saffron-50/60 backdrop-blur-sm">
-      <div className="max-w-6xl mx-auto px-6 py-4">
+      <div className="max-w-5xl mx-auto px-6 py-4">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0">
           <div className="flex items-center gap-2 px-6 sm:border-r sm:border-saffron-300/40">
             <span className="text-crimson-500 text-xs font-sans font-semibold uppercase tracking-widest">

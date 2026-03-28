@@ -64,7 +64,7 @@ export default function HealthcarePage() {
   const faqSchema = faqJsonLd(faqs);
 
   return (
-    <div className="pt-32 pb-16">
+    <div className="pt-28 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -89,48 +89,38 @@ export default function HealthcarePage() {
 
         {/* Featured: Dialysis */}
         <ScrollReveal delay={100}>
-          <div className="relative rounded-3xl overflow-hidden bg-warm-900 border border-saffron-600/30 mb-6">
-            <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-saffron-400 to-saffron-600" />
-            <div className="p-8 pl-10">
-              <div className="flex items-start justify-between gap-6">
-                <div className="flex-1">
-                  <Badge variant="gold" className="mb-4">Flagship Programme</Badge>
-                  <div className="text-3xl mb-3" aria-hidden="true">🏥</div>
-                  <h2 className="font-serif text-2xl text-saffron-200 mb-2">Free Kidney Dialysis Centre</h2>
-                  <p className="font-devanagari text-saffron-400/70 text-base mb-4" lang="hi">निःशुल्क किडनी डायलिसिस केन्द्र</p>
-                  <p className="font-sans text-warm-200/70 text-sm leading-relaxed mb-4">
-                    In partnership with the <strong className="text-warm-100">Taramati Charitable Foundation</strong>, the society operates a free kidney dialysis centre at Anand Hospital, Dahisar, Mumbai. All dialysis sessions are provided at absolutely no cost to patients.
-                  </p>
-                  <address className="font-sans text-sm text-saffron-300/80 not-italic leading-relaxed">
-                    2nd Floor, Anand Hospital, Dahisar Village,<br />
-                    Anand Nagar, Dahisar East, Mumbai – 400068
-                  </address>
-                </div>
-                <div className="shrink-0 text-right">
-                  <div
-                    className="font-stat text-5xl font-black"
-                    style={{
-                      background: "linear-gradient(135deg, #FFE4B8 0%, #DAA520 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
-                    Free
-                  </div>
-                  <p className="text-saffron-400/70 text-xs font-sans mt-1 uppercase tracking-wider">
-                    For All
-                  </p>
-                </div>
+          <div className="relative rounded-xl bg-white/50 border border-warm-800/[0.05] overflow-hidden mb-6 p-6">
+            <div className="absolute left-0 top-2 bottom-2 w-[2px] rounded-full bg-gradient-to-b from-saffron-500/25 to-transparent" />
+            <div className="flex items-start justify-between gap-6">
+              <div className="flex-1">
+                <Badge variant="gold" className="mb-4">Flagship Programme</Badge>
+                <div className="text-3xl mb-3" aria-hidden="true">🏥</div>
+                <h2 className="font-serif text-2xl text-warm-900 mb-2">Free Kidney Dialysis Centre</h2>
+                <p className="font-devanagari text-warm-800/50 text-base mb-4" lang="hi">निःशुल्क किडनी डायलिसिस केन्द्र</p>
+                <p className="font-sans text-warm-800/70 text-sm leading-relaxed mb-4">
+                  In partnership with the <strong className="text-warm-900">Taramati Charitable Foundation</strong>, the society operates a free kidney dialysis centre at Anand Hospital, Dahisar, Mumbai. All dialysis sessions are provided at absolutely no cost to patients.
+                </p>
+                <address className="font-sans text-sm text-warm-800/60 not-italic leading-relaxed">
+                  2nd Floor, Anand Hospital, Dahisar Village,<br />
+                  Anand Nagar, Dahisar East, Mumbai – 400068
+                </address>
               </div>
-              <div className="mt-6 pt-6 border-t border-saffron-600/20 flex flex-wrap gap-4">
-                <div>
-                  <p className="font-sans text-xs uppercase tracking-wider text-warm-400/50 mb-0.5">Contact</p>
-                  <div className="flex flex-wrap gap-3">
-                    <a href="tel:+918657067228" className="font-sans text-sm text-saffron-300 hover:text-saffron-200 transition-colors">86570 67228</a>
-                    <span className="text-warm-600">/</span>
-                    <a href="tel:+919892154615" className="font-sans text-sm text-saffron-300 hover:text-saffron-200 transition-colors">98921 54615</a>
-                  </div>
+              <div className="shrink-0 text-right">
+                <div className="font-stat text-5xl font-black text-crimson-500">
+                  Free
+                </div>
+                <p className="text-saffron-600 text-xs font-sans mt-1 uppercase tracking-wider">
+                  For All
+                </p>
+              </div>
+            </div>
+            <div className="mt-6 pt-6 border-t border-saffron-300/30 flex flex-wrap gap-4">
+              <div>
+                <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-0.5">Contact</p>
+                <div className="flex flex-wrap gap-3">
+                  <a href="tel:+918657067228" className="font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors">86570 67228</a>
+                  <span className="text-warm-800/30">/</span>
+                  <a href="tel:+919892154615" className="font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors">98921 54615</a>
                 </div>
               </div>
             </div>
@@ -139,7 +129,7 @@ export default function HealthcarePage() {
 
         {/* Ambulance */}
         <ScrollReveal delay={200}>
-          <Card variant="default" className="mb-6">
+          <Card className="mb-6">
             <CardHeader>
               <div className="text-2xl mb-2" aria-hidden="true">🚑</div>
               <h2 className="font-serif text-xl text-warm-900">Free Ambulance Service</h2>
@@ -175,7 +165,7 @@ export default function HealthcarePage() {
             },
           ].map((item, i) => (
             <ScrollReveal key={item.title} delay={300 + i * 100}>
-              <Card variant="default" className="h-full">
+              <Card className="h-full">
                 <CardHeader>
                   <div className="text-2xl mb-2" aria-hidden="true">{item.icon}</div>
                   <h3 className="font-serif text-lg text-warm-900">{item.title}</h3>
