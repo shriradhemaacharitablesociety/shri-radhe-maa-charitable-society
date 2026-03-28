@@ -9,6 +9,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SocietyBanner } from "@/components/layout/SocietyBanner";
 import { LenisProvider } from "@/components/layout/LenisProvider";
+import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import "../globals.css";
 
 export const metadata: Metadata = {
@@ -61,6 +62,7 @@ export default async function LocaleLayout({
             <SocietyBanner />
             <main>{children}</main>
             <Footer />
+            <WhatsAppButton />
           </LenisProvider>
         </NextIntlClientProvider>
       </body>

@@ -7,11 +7,11 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 function Badge({ className, variant = "crimson", ...props }: BadgeProps) {
   const base =
-    "inline-flex items-center rounded-pill px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-widest font-sans transition-colors";
+    "inline-flex items-center rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-wider font-sans transition-colors";
 
   const variants = {
-    crimson: "bg-crimson-100 text-crimson-600 border border-crimson-200",
-    gold: "bg-saffron-100 text-saffron-700 border border-saffron-300",
+    crimson: "bg-crimson-50 text-crimson-500 border border-crimson-100",
+    gold: "bg-saffron-100 text-saffron-600 border border-saffron-200",
   };
 
   return (

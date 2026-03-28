@@ -3,15 +3,18 @@ import { cn } from "@/lib/utils";
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   accent?: "crimson" | "gold" | "none";
+  variant?: "white" | "cream";
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, accent = "crimson", children, ...props }, ref) => {
+  ({ className, accent = "crimson", variant = "white", children, ...props }, ref) => {
     return (
       <div
         ref={ref}
         className={cn(
-          "relative rounded-xl bg-white border border-saffron-200 shadow-sm shadow-warm-200/40 p-5 transition-all duration-500 hover:shadow-md",
+          "group relative rounded-2xl border border-black/[0.06] p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5",
+          variant === "white" && "bg-white",
+          variant === "cream" && "bg-cream",
           className
         )}
         style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
@@ -20,9 +23,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         {accent !== "none" && (
           <div
             className={cn(
-              "absolute left-0 top-2 bottom-2 w-[2px] rounded-full",
-              accent === "crimson" && "bg-gradient-to-b from-crimson-500/25 to-transparent",
-              accent === "gold" && "bg-gradient-to-b from-saffron-500/25 to-transparent"
+              "absolute left-0 top-3 bottom-3 w-[3px] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100",
+              accent === "crimson" && "bg-crimson-500",
+              accent === "gold" && "bg-saffron-500"
             )}
           />
         )}

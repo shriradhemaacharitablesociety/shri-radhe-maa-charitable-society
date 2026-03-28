@@ -18,30 +18,30 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        "flex flex-col gap-2",
+        "flex flex-col",
         align === "center" ? "items-center text-center" : "items-start text-left",
         className
       )}
     >
       {titleHi && (
-        <span className="font-devanagari text-sm font-medium text-crimson-500 tracking-wide">
+        <span className="font-devanagari text-sm text-crimson-500 font-medium mb-1">
           {titleHi}
         </span>
       )}
-      <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-warm-900 leading-tight">
+      <h2 className="font-serif text-4xl text-warm-900 tracking-tight">
         {title}
       </h2>
-      {subtitle && (
-        <p className="font-sans text-warm-800/70 text-base md:text-lg max-w-xl mt-1">
-          {subtitle}
-        </p>
-      )}
       <div
         className={cn(
-          "mt-3 h-px w-16 bg-gradient-to-r from-crimson-500 to-saffron-500",
+          "w-8 h-[3px] rounded-full bg-crimson-500 mt-3",
           align === "center" && "mx-auto"
         )}
       />
+      {subtitle && (
+        <p className="text-[15px] text-warm-600 mt-3 leading-relaxed max-w-xl">
+          {subtitle}
+        </p>
+      )}
     </div>
   );
 }

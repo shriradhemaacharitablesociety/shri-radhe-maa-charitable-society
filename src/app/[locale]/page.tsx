@@ -6,6 +6,7 @@ import { SevaGrid } from "@/components/home/SevaGrid";
 import { ImpactCounter } from "@/components/home/ImpactCounter";
 import { EventCards } from "@/components/home/EventCards";
 import { DonateCTA } from "@/components/home/DonateCTA";
+import { NewsletterStrip } from "@/components/home/NewsletterStrip";
 
 export async function generateMetadata({
   params,
@@ -53,6 +54,7 @@ export default function HomePage() {
       <SevaGrid />
       <ImpactCounter />
       <EventCards />
+      <NewsletterStrip />
       <DonateCTA />
     </main>
   );

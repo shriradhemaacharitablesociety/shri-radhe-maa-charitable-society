@@ -4,31 +4,40 @@ export function TrustBar() {
   const t = useTranslations("trust");
 
   return (
-    <div className="border-t border-b border-saffron-300/40 bg-saffron-50/60 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0">
-          <div className="flex items-center gap-2 px-6 sm:border-r sm:border-saffron-300/40">
-            <span className="text-crimson-500 text-xs font-sans font-semibold uppercase tracking-widest">
-              📋
+    <section className="section-cream py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-0">
+          {/* Registration */}
+          <div className="flex items-center gap-2.5 px-8 py-3 sm:border-r sm:border-warm-900/10">
+            <span className="text-sm" aria-hidden="true">
+              {"\uD83D\uDCCB"}
             </span>
-            <span className="font-sans text-sm text-warm-800/80 font-medium">
+            <span className="font-sans text-sm text-warm-700 font-medium">
               {t("registration")}
             </span>
           </div>
-          <div className="flex items-center gap-2 px-6 sm:border-r sm:border-saffron-300/40">
-            <span className="text-saffron-600 text-xs">🏛️</span>
-            <span className="font-sans text-sm text-warm-800/80 font-medium">
+
+          {/* Established */}
+          <div className="flex items-center gap-2.5 px-8 py-3 sm:border-r sm:border-warm-900/10">
+            <span className="text-sm" aria-hidden="true">
+              {"\uD83C\uDFDB\uFE0F"}
+            </span>
+            <span className="font-sans text-sm text-warm-700 font-medium">
               {t("established")}
             </span>
           </div>
-          <div className="flex items-center gap-2 px-6">
-            <span className="text-saffron-600 text-xs">✅</span>
-            <span className="font-sans text-sm text-warm-800/80 font-medium">
+
+          {/* 80G Certified */}
+          <div className="flex items-center gap-2.5 px-8 py-3">
+            <span className="text-sm" aria-hidden="true">
+              {"\u2705"}
+            </span>
+            <span className="font-sans text-sm text-warm-700 font-medium">
               {t("certified")}
             </span>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

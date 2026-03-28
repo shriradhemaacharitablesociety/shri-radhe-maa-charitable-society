@@ -9,6 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        cream: {
+          DEFAULT: "#FAF7F2",
+          dark: "#F3EDE4",
+        },
         saffron: {
           50: "#FFFAF0",
           100: "#FFF8ED",
@@ -22,7 +26,7 @@ const config: Config = {
           900: "#2E220A",
         },
         crimson: {
-          50: "#FFF5F6",
+          50: "#FFF0F2",
           100: "#FFE0E4",
           200: "#FFB3BC",
           300: "#FF8090",
@@ -35,9 +39,14 @@ const config: Config = {
         },
         warm: {
           50: "#FDFBF7",
-          100: "#FAF6EF",
-          200: "#F5EDE0",
-          800: "#2a1810",
+          100: "#F5EDE0",
+          200: "#E8DDD0",
+          300: "#D4C8B8",
+          400: "#B8A892",
+          500: "#9C8B74",
+          600: "#8B7355",
+          700: "#6B563F",
+          800: "#3D2E1F",
           900: "#1a0f08",
         },
       },
@@ -57,18 +66,13 @@ const config: Config = {
         expo: "cubic-bezier(0.16, 1, 0.3, 1)",
       },
       animation: {
-        "slide-reveal": "slideReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "orb-float": "orbFloat 10s ease-in-out infinite",
+        "slide-reveal": "slideReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "line-grow": "lineGrow 2s cubic-bezier(0.16, 1, 0.3, 1) infinite",
       },
       keyframes: {
         slideReveal: {
-          from: { transform: "translateY(40px)", opacity: "0", filter: "blur(8px)" },
-          to: { transform: "translateY(0)", opacity: "1", filter: "blur(0)" },
-        },
-        orbFloat: {
-          "0%, 100%": { transform: "translate(0, 0) scale(1)", opacity: "0.7" },
-          "50%": { transform: "translate(-10px, -8px) scale(1.05)", opacity: "1" },
+          from: { transform: "translateY(20px)", opacity: "0" },
+          to: { transform: "translateY(0)", opacity: "1" },
         },
         lineGrow: {
           from: { transform: "scaleX(0)" },
