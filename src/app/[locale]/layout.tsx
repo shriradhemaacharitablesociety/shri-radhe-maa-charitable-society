@@ -1,0 +1,46 @@
+import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import { instrumentSerif, spaceGrotesk, notoDevanagari, fraunces } from "@/lib/fonts";
+import "../globals.css";
+
+export const metadata: Metadata = {
+  title: "Shri Radhe Maa Charitable Society | श्री राधे माँ चैरिटेबल सोसाइटी",
+  description:
+    "Serving humanity through compassion — free dialysis, disaster relief, monthly pensions, divyang seva. समाज सेवा, मुफ्त डायलिसिस, बाढ़ राहत, मासिक पेंशन, दिव्यांग सेवा।",
+};
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  if (!routing.locales.includes(locale as "en" | "hi")) {
+    notFound();
+  }
+
+  const messages = await getMessages();
+
+  return (
+    <html
+      lang={locale}
+      className={`${instrumentSerif.variable} ${spaceGrotesk.variable} ${notoDevanagari.variable} ${fraunces.variable}`}
+    >
+      <body className="font-sans">
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}

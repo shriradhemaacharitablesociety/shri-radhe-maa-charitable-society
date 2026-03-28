@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "about": "About",
+    "seva": "Our Seva",
+    "events": "Events",
+    "impact": "Impact",
+    "gallery": "Gallery",
+    "donate": "Donate",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Established 2017 · Delhi",
+    "title_1": "Compassion",
+    "title_2": "in",
+    "title_3": "every",
+    "title_4": "seva",
+    "sanskrit": "सेवा परमो धर्मः — जन सेवा ही प्रभु सेवा",
+    "description": "Free dialysis. Flood relief. Monthly pensions. Marriage aid. Divyang instruments. Under the divine guidance of Shri Radhe Guru Maa — we serve.",
+    "cta_primary": "Explore Our Work",
+    "cta_secondary": "Watch Stories"
+  },
+  "stats": {
+    "relief_amount": "₹25L+",
+    "relief_label": "Relief Funds Deployed",
+    "relief_detail": "PM Cares · Delhi CM · Punjab CM · Maharashtra",
+    "dialysis_amount": "Free 24/7",
+    "dialysis_label": "Dialysis Centre",
+    "dialysis_detail": "Anand Hospital, Dahisar, Mumbai",
+    "families_amount": "500+",
+    "families_label": "Families Served",
+    "families_detail": "Pensions · Wheelchairs · Marriage Aid"
+  },
+  "trust": {
+    "registration": "Regd. S/2930/SDM/NW/2017",
+    "established": "Est. Aug 2017",
+    "certified": "80G Certified"
+  },
+  "seva": {
+    "title": "Our Seva",
+    "title_hi": "हमारी सेवाएं",
+    "dialysis_title": "Free Dialysis Centre",
+    "dialysis_stat": "24/7",
+    "dialysis_desc": "Anand Hospital, Dahisar, Mumbai — in partnership with Taramati Foundation",
+    "pension_title": "Monthly Pensions",
+    "pension_stat": "100+",
+    "pension_desc": "Families supported monthly",
+    "disaster_title": "Disaster Relief",
+    "disaster_stat": "₹25L+",
+    "disaster_desc": "Punjab, Kerala, Nepal floods",
+    "divyang_title": "Divyang Seva",
+    "divyang_stat": "500+",
+    "divyang_desc": "Wheelchairs & instruments",
+    "marriage_title": "Marriage Assistance",
+    "marriage_stat": "5 Items",
+    "marriage_desc": "Per family in need",
+    "gaushala_title": "Gaushala Support",
+    "gaushala_desc": "Donations to cow shelters"
+  },
+  "impact": {
+    "title": "Our Impact",
+    "title_hi": "हमारा प्रभाव",
+    "families": "Families Served",
+    "funds": "Relief Funds",
+    "years": "Years of Seva",
+    "programs": "Active Programs"
+  },
+  "events": {
+    "title": "Upcoming Events",
+    "title_hi": "आगामी कार्यक्रम",
+    "view_all": "View All Events"
+  },
+  "donate": {
+    "title": "Your Contribution Transforms Lives",
+    "title_hi": "आपका योगदान जीवन बदलता है",
+    "cta": "Donate Now",
+    "amount_500": "1 Dialysis Session",
+    "amount_1000": "1 Month Pension for an Elder",
+    "amount_2500": "Marriage Assistance Kit (5 items)",
+    "amount_5000": "Wheelchair or Instrument for Divyang",
+    "amount_10000": "Flood Relief for One Family",
+    "amount_custom": "Your Amount",
+    "onetime": "One Time",
+    "monthly": "Monthly",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "pan": "PAN (for 80G receipt)",
+    "pan_optional": "Optional",
+    "trust_80g": "50% tax deduction under Section 80G",
+    "trust_100": "100% of your donation goes to seva",
+    "qr_title": "Scan & Pay via UPI",
+    "bank_title": "Bank Transfer",
+    "thank_you": "Thank you for your generous donation!"
+  },
+  "footer": {
+    "quick_links": "Quick Links",
+    "our_seva": "Our Seva",
+    "connect": "Connect",
+    "legal": "Legal",
+    "delhi_office": "Delhi Office",
+    "mumbai_office": "Mumbai Office",
+    "copyright": "© 2024 Shri Radhe Maa Charitable Society. All rights reserved.",
+    "delhi_address": "Plot No. 5, Pocket-11, Sector-5, Rohini, New Delhi — 110085",
+    "mumbai_address": "Shree Ram Trade Centre, 6th Floor, S.V.P. Road, Borivali (W), Mumbai — 400092"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "title_hi": "संपर्क करें",
+    "form_name": "Your Name",
+    "form_email": "Email Address",
+    "form_message": "Your Message",
+    "form_submit": "Send Message"
+  },
+  "common": {
+    "scroll": "Scroll to explore",
+    "read_more": "Read More",
+    "view_all": "View All"
+  }
+}
