@@ -1,0 +1,216 @@
+import Link from "next/link";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+
+const sevaPrograms = [
+  {
+    href: "/seva/healthcare",
+    icon: "🏥",
+    title: "Healthcare",
+    titleHi: "स्वास्थ्य सेवा",
+    stat: "Free",
+    statLabel: "Dialysis",
+    desc: "Free dialysis centre, ambulance service, blood donation camps, eye and dental check-ups.",
+    featured: true,
+  },
+  {
+    href: "/seva/financial-aid",
+    icon: "🤝",
+    title: "Financial Aid",
+    titleHi: "वित्तीय सहायता",
+    stat: "100+",
+    statLabel: "Families",
+    desc: "Monthly pensions, one-time aid, and marriage assistance for families in need.",
+    featured: false,
+  },
+  {
+    href: "/seva/disaster-relief",
+    icon: "🌊",
+    title: "Disaster Relief",
+    titleHi: "आपदा राहत",
+    stat: "5+",
+    statLabel: "Operations",
+    desc: "Punjab, Kerala, Nepal, Maharashtra floods and COVID-19 relief.",
+    featured: false,
+  },
+  {
+    href: "/seva/janseva",
+    icon: "♿",
+    title: "Janseva Abhiyan",
+    titleHi: "जनसेवा अभियान",
+    stat: "500+",
+    statLabel: "Beneficiaries",
+    desc: "Wheelchairs, instruments, clothing, food, and essential items for the specially abled.",
+    featured: false,
+  },
+  {
+    href: "/seva/gaushala",
+    icon: "🐄",
+    title: "Gaushala Seva",
+    titleHi: "गौशाला सेवा",
+    stat: "∞",
+    statLabel: "Compassion",
+    desc: "Donations and support to cow shelters as a sacred act of service.",
+    featured: false,
+  },
+];
+
+const stats = [
+  { value: "500+", label: "Families Served" },
+  { value: "₹25L+", label: "Govt Contributions" },
+  { value: "7+", label: "Years of Seva" },
+  { value: "5+", label: "Programmes" },
+];
+
+export default function SevaPage() {
+  return (
+    <div className="pt-32 pb-16">
+      {/* Impact stats header */}
+      <div className="border-b border-saffron-300/40 bg-saffron-50/40 mb-16">
+        <div className="max-w-6xl mx-auto px-6 py-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0">
+            {stats.map((stat, i) => (
+              <div
+                key={stat.label}
+                className={`flex flex-col items-center justify-center text-center py-4 px-4 ${
+                  i < stats.length - 1 ? "lg:border-r lg:border-saffron-300/40" : ""
+                } ${i % 2 === 0 && i < stats.length - 1 ? "border-r border-saffron-300/40 lg:border-r-0" : ""}`}
+              >
+                <AnimatedCounter
+                  value={stat.value}
+                  className="font-stat text-4xl md:text-5xl font-black text-crimson-500"
+                />
+                <p className="font-sans text-warm-800/60 text-xs md:text-sm font-medium uppercase tracking-wider mt-2">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6">
+        <ScrollReveal>
+          <SectionHeader
+            title="Our Seva Programmes"
+            titleHi="हमारे सेवा कार्यक्रम"
+            subtitle="Seven dimensions of compassionate service — from free medical care to disaster relief across India."
+            className="mb-12"
+          />
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {sevaPrograms.map((program, i) => (
+            <ScrollReveal
+              key={program.href}
+              delay={i * 100}
+              className={program.featured ? "md:col-span-2" : ""}
+            >
+              <Link href={program.href} className="block group h-full">
+                <div
+                  className={`relative rounded-3xl overflow-hidden border transition-all duration-500 hover:-translate-y-1 ${
+                    program.featured
+                      ? "bg-warm-900 border-saffron-600/30 hover:shadow-xl hover:shadow-crimson-900/30"
+                      : "bg-white/45 backdrop-blur-sm border-saffron-300/60 hover:shadow-xl hover:shadow-saffron-200/40"
+                  }`}
+                  style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
+                >
+                  {/* Left border gradient */}
+                  <div className={`absolute left-0 top-0 bottom-0 w-[3px] ${
+                    program.featured
+                      ? "bg-gradient-to-b from-saffron-400 to-saffron-600"
+                      : "bg-gradient-to-b from-crimson-500 to-saffron-500"
+                  }`} />
+
+                  <div className={`p-6 pl-8 ${program.featured ? "md:flex md:items-center md:gap-8" : ""}`}>
+                    <div className={program.featured ? "flex-1" : ""}>
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <div className={`mb-3 ${program.featured ? "text-3xl" : "text-2xl"}`} aria-hidden="true">
+                            {program.icon}
+                          </div>
+                          <h2 className={`font-serif leading-tight ${
+                            program.featured
+                              ? "text-2xl text-saffron-200"
+                              : "text-xl text-warm-900 group-hover:text-crimson-600 transition-colors"
+                          }`}>
+                            {program.title}
+                          </h2>
+                          <p className={`font-devanagari text-base mt-1 ${
+                            program.featured ? "text-saffron-400/70" : "text-warm-800/50"
+                          }`} lang="hi">
+                            {program.titleHi}
+                          </p>
+                        </div>
+                        <div className="text-right shrink-0">
+                          <div
+                            className={`font-stat text-4xl font-black ${
+                              program.featured
+                                ? ""
+                                : "text-crimson-500"
+                            }`}
+                            style={program.featured ? {
+                              background: "linear-gradient(135deg, #FFE4B8 0%, #DAA520 100%)",
+                              WebkitBackgroundClip: "text",
+                              WebkitTextFillColor: "transparent",
+                              backgroundClip: "text",
+                            } : undefined}
+                          >
+                            {program.stat}
+                          </div>
+                          <p className={`text-xs font-sans mt-1 uppercase tracking-wider ${
+                            program.featured ? "text-saffron-400/70" : "text-warm-800/50"
+                          }`}>
+                            {program.statLabel}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className={program.featured ? "md:w-80 mt-4 md:mt-0" : "mt-4"}>
+                      <p className={`font-sans text-sm leading-relaxed ${
+                        program.featured ? "text-warm-200/60" : "text-warm-800/60"
+                      }`}>
+                        {program.desc}
+                      </p>
+                      <div className={`mt-3 flex items-center gap-1.5 text-sm font-semibold font-sans group-hover:gap-2.5 transition-all duration-300 ${
+                        program.featured ? "text-saffron-400" : "text-crimson-500"
+                      }`}>
+                        Learn more
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </ScrollReveal>
+          ))}
+        </div>
+
+        {/* Donate CTA */}
+        <ScrollReveal delay={600}>
+          <div className="mt-16 text-center">
+            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">
+              इन सेवाओं को जारी रखने में मदद करें
+            </p>
+            <p className="font-sans text-warm-800/60 text-base mb-6">
+              Your donation directly funds these programmes. Every rupee counts.
+            </p>
+            <Link
+              href="/donate"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-crimson-500 to-crimson-400 text-white text-base font-medium rounded-pill hover:from-crimson-600 hover:to-crimson-500 transition-all duration-300 active:scale-[0.98] shadow-sm"
+              style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
+            >
+              Support Our Seva
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+          </div>
+        </ScrollReveal>
+      </div>
+    </div>
+  );
+}

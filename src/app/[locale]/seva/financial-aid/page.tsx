@@ -1,0 +1,173 @@
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { Card, CardHeader, CardContent } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+
+export default function FinancialAidPage() {
+  return (
+    <div className="pt-32 pb-16">
+      <div className="max-w-4xl mx-auto px-6">
+        <ScrollReveal>
+          <div className="mb-3">
+            <Badge variant="gold">Financial Aid</Badge>
+          </div>
+          <SectionHeader
+            title="Financial Aid & Pensions"
+            titleHi="वित्तीय सहायता और पेंशन"
+            subtitle="Providing sustained financial support to families who need it most — monthly pensions, emergency aid, and marriage assistance."
+            align="left"
+            className="mb-12"
+          />
+        </ScrollReveal>
+
+        {/* Stats */}
+        <ScrollReveal delay={100}>
+          <div className="grid grid-cols-3 gap-4 mb-10 rounded-3xl border border-saffron-300/50 bg-saffron-50/40 p-6">
+            {[
+              { value: "100+", label: "Families on Monthly Pension" },
+              { value: "5", label: "Items in Marriage Aid" },
+              { value: "₹25L+", label: "Govt Contributions" },
+            ].map((stat, i) => (
+              <div key={stat.label} className={`text-center ${i < 2 ? "border-r border-saffron-300/40" : ""}`}>
+                <AnimatedCounter value={stat.value} className="font-stat text-3xl font-black text-crimson-500" />
+                <p className="font-sans text-xs uppercase tracking-wider text-warm-800/60 mt-1">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+
+        {/* Monthly Pensions */}
+        <ScrollReveal delay={150}>
+          <Card variant="default" className="mb-5">
+            <CardHeader>
+              <div className="text-2xl mb-2" aria-hidden="true">🤝</div>
+              <h2 className="font-serif text-xl text-warm-900">Monthly Pension Programme</h2>
+              <p className="font-devanagari text-sm text-warm-800/50 mt-1" lang="hi">मासिक पेंशन कार्यक्रम</p>
+            </CardHeader>
+            <CardContent>
+              <p className="font-sans text-sm text-warm-800/70 leading-relaxed">
+                The society provides regular monthly pensions to over <strong>100 families</strong> across Delhi and NCR. These are families living in poverty, often elderly individuals or households that have lost their primary earner. The pension ensures dignity and basic sustenance on a consistent basis.
+              </p>
+            </CardContent>
+          </Card>
+        </ScrollReveal>
+
+        {/* One-time Aid */}
+        <ScrollReveal delay={200}>
+          <Card variant="default" className="mb-5">
+            <CardHeader>
+              <div className="text-2xl mb-2" aria-hidden="true">💵</div>
+              <h2 className="font-serif text-xl text-warm-900">One-Time Financial Assistance</h2>
+              <p className="font-devanagari text-sm text-warm-800/50 mt-1" lang="hi">एकमुश्त वित्तीय सहायता</p>
+            </CardHeader>
+            <CardContent>
+              <p className="font-sans text-sm text-warm-800/70 leading-relaxed">
+                For families facing sudden crises — medical emergencies, job loss, or other urgent situations — the society provides one-time financial assistance. These grants help families navigate difficult times without falling into long-term debt or destitution.
+              </p>
+            </CardContent>
+          </Card>
+        </ScrollReveal>
+
+        {/* Marriage Assistance */}
+        <ScrollReveal delay={250}>
+          <Card variant="default" className="mb-10">
+            <CardHeader>
+              <div className="text-2xl mb-2" aria-hidden="true">💒</div>
+              <h2 className="font-serif text-xl text-warm-900">Marriage Assistance</h2>
+              <p className="font-devanagari text-sm text-warm-800/50 mt-1" lang="hi">विवाह सहायता</p>
+            </CardHeader>
+            <CardContent>
+              <p className="font-sans text-sm text-warm-800/70 leading-relaxed mb-4">
+                Marriages can be financially overwhelming for poor families. The society provides a package of <strong>5 essential items per family</strong> to help ease the burden and ensure that every family can celebrate this milestone with dignity.
+              </p>
+              <div className="rounded-2xl bg-saffron-50/60 border border-saffron-200/60 px-5 py-4">
+                <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-3">Assistance Package (5 items)</p>
+                <ul className="space-y-1.5">
+                  {[
+                    "Essential household items",
+                    "Clothing and textiles",
+                    "Kitchen essentials",
+                    "Religious ceremony items",
+                    "Practical utility items",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 font-sans text-sm text-warm-800/70">
+                      <span className="w-1.5 h-1.5 rounded-full bg-saffron-500 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+        </ScrollReveal>
+
+        {/* Government Contributions */}
+        <ScrollReveal delay={350}>
+          <h2 className="font-serif text-2xl text-warm-900 mb-2">Government Recognition</h2>
+          <p className="font-devanagari text-sm text-crimson-500 mb-6" lang="hi">सरकारी सहयोग</p>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+          {[
+            { fund: "PM Cares Fund", amount: "₹10 Lakh", icon: "🇮🇳" },
+            { fund: "Delhi CM Relief Fund", amount: "₹5 Lakh", icon: "🏛️" },
+            { fund: "Punjab CM Relief Fund", amount: "₹5 Lakh", icon: "🌾" },
+            { fund: "Maharashtra CM Relief Fund", amount: "₹5 Lakh", icon: "🌊" },
+          ].map((item, i) => (
+            <ScrollReveal key={item.fund} delay={400 + i * 80}>
+              <div className="flex items-center gap-4 rounded-2xl border border-saffron-300/50 bg-white/40 p-5">
+                <div className="text-2xl shrink-0" aria-hidden="true">{item.icon}</div>
+                <div>
+                  <p className="font-sans text-sm font-medium text-warm-900">{item.fund}</p>
+                  <p className="font-stat text-xl font-black text-crimson-500 mt-0.5">{item.amount}</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+
+        {/* FAQ */}
+        <ScrollReveal delay={700}>
+          <h2 className="font-serif text-2xl text-warm-900 mb-2">Frequently Asked Questions</h2>
+          <p className="font-devanagari text-sm text-crimson-500 mb-6" lang="hi">सामान्य प्रश्न</p>
+          <div className="space-y-3">
+            {[
+              {
+                q: "How can I apply for the monthly pension programme?",
+                a: "To apply for monthly pension support, please contact the society office at 95608 00343 or email shriradhemaacharitablesociety@gmail.com. Our team will assess your situation and guide you through the process. Applications are evaluated based on need and available capacity.",
+              },
+              {
+                q: "What is included in the marriage assistance package?",
+                a: "The marriage assistance package includes 5 essential items to help families with wedding expenses — typically covering household items, clothing, kitchen essentials, ceremony items, and practical utility goods. The exact items are tailored to the family's needs.",
+              },
+              {
+                q: "Who is eligible for one-time financial assistance?",
+                a: "Families facing sudden financial crises — medical emergencies, loss of income, or other urgent hardships — may be eligible for one-time aid. Please reach out to the society to discuss your situation. Each case is evaluated on its individual merits.",
+              },
+              {
+                q: "Are the pensions recurring every month?",
+                a: "Yes, the monthly pension programme provides consistent support every month to enrolled families. The society is committed to ensuring continuity and reliability of this support.",
+              },
+            ].map((faq) => (
+              <details
+                key={faq.q}
+                className="group rounded-2xl border border-saffron-300/50 bg-white/40 backdrop-blur-sm overflow-hidden"
+              >
+                <summary className="flex items-center justify-between cursor-pointer px-6 py-4 font-sans text-sm font-medium text-warm-900 hover:bg-saffron-50/40 transition-colors list-none">
+                  {faq.q}
+                  <svg className="w-4 h-4 text-warm-800/40 shrink-0 ml-3 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </summary>
+                <div className="px-6 pb-5 font-sans text-sm text-warm-800/70 leading-relaxed border-t border-saffron-300/30 pt-4">
+                  {faq.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </ScrollReveal>
+      </div>
+    </div>
+  );
+}
