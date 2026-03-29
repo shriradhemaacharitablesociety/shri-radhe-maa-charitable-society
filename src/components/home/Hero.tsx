@@ -29,10 +29,10 @@ export function Hero() {
   ];
 
   return (
-    <section className="section-white" style={{ paddingTop: "24px", paddingBottom: "80px" }}>
+    <section className="section-white" style={{ paddingTop: "12px", paddingBottom: "40px" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* 2-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 lg:gap-16 items-start">
           {/* Left column */}
           <div>
             <ScrollReveal delay={0}>
@@ -43,9 +43,9 @@ export function Hero() {
             </ScrollReveal>
 
             {/* Watermark + Title */}
-            <div className="relative mt-6">
+            <div className="relative mt-4 md:mt-6">
               <div
-                className="font-devanagari font-black select-none pointer-events-none"
+                className="font-devanagari font-black select-none pointer-events-none hidden md:block"
                 style={{
                   fontSize: "clamp(60px, 15vw, 120px)",
                   lineHeight: 0.85,
@@ -57,12 +57,11 @@ export function Hero() {
                 {"\u0938\u0947\u0935\u093E"}
               </div>
               <h1
-                className="font-serif text-warm-900 relative"
+                className="font-serif text-warm-900 relative md:-mt-11"
                 style={{
-                  fontSize: "clamp(32px, 6vw, 56px)",
-                  lineHeight: 1.08,
+                  fontSize: "clamp(28px, 6vw, 56px)",
+                  lineHeight: 1.1,
                   letterSpacing: "-0.03em",
-                  marginTop: "clamp(-24px, -4vw, -44px)",
                   zIndex: 1,
                 }}
               >
@@ -76,8 +75,8 @@ export function Hero() {
 
             <ScrollReveal delay={150}>
               <p
-                className="font-devanagari text-saffron-500 opacity-50"
-                style={{ fontSize: "16px", marginTop: "12px" }}
+                className="font-devanagari text-saffron-500 opacity-50 hidden md:block"
+                style={{ fontSize: "14px", marginTop: "8px" }}
               >
                 {t("sanskrit")}
               </p>
@@ -85,11 +84,10 @@ export function Hero() {
 
             <ScrollReveal delay={250}>
               <p
-                className="text-warm-600 lg:max-w-[420px]"
+                className="text-warm-600 lg:max-w-[420px] text-sm md:text-[15px]"
                 style={{
-                  fontSize: "15px",
-                  lineHeight: 1.75,
-                  marginTop: "16px",
+                  lineHeight: 1.7,
+                  marginTop: "12px",
                 }}
               >
                 {t("description")}
@@ -97,7 +95,7 @@ export function Hero() {
             </ScrollReveal>
 
             <ScrollReveal delay={350}>
-              <div className="flex flex-wrap gap-3" style={{ marginTop: "32px" }}>
+              <div className="flex flex-wrap gap-3" style={{ marginTop: "20px" }}>
                 <Link href={"/seva" as any}>
                   <Button variant="primary">
                     {t("cta_primary")}{" "}
