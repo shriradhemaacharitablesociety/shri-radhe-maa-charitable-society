@@ -3,9 +3,12 @@ import Link from "next/link";
 
 export function SocietyBanner() {
   return (
-    <div className="pb-2 md:pb-6 text-center pt-14 md:pt-24">
-      {/* Logo — hidden on mobile (navbar has it), shown on desktop */}
-      <Link href="/" className="hidden md:inline-block hover:scale-105 transition-transform duration-300 mb-4">
+    <div className="pt-16 md:pt-24 pb-1 md:pb-6 text-center">
+      {/* Logo — hidden on mobile, shown on desktop */}
+      <Link
+        href="/"
+        className="hidden md:inline-block hover:scale-105 transition-transform duration-300 mb-4"
+      >
         <Image
           src="/logo.png"
           alt="Shri Radhe Maa Charitable Society"
@@ -15,19 +18,27 @@ export function SocietyBanner() {
         />
       </Link>
 
+      {/* Mobile: compact crimson sub-header */}
       <h1
-        className="font-devanagari font-bold bg-gradient-to-r from-crimson-600 via-crimson-500 to-saffron-500 bg-clip-text text-transparent px-4"
+        className="font-devanagari font-bold text-crimson-600 md:bg-gradient-to-r md:from-crimson-600 md:via-crimson-500 md:to-saffron-500 md:bg-clip-text md:text-transparent px-4"
         lang="hi"
-        style={{ fontSize: "clamp(1.1rem, 4.5vw, 2.75rem)", lineHeight: 1.3 }}
+        style={{
+          fontSize: "clamp(0.95rem, 4vw, 2.75rem)",
+          lineHeight: 1.3,
+        }}
       >
         ॥ श्री राधे माँ चैरिटेबल सोसाइटी ॥
       </h1>
+
+      {/* Desktop only: English name */}
       <p className="hidden md:block font-sans text-sm text-warm-600 tracking-widest uppercase mt-2">
         SHRI RADHE MAA CHARITABLE SOCIETY
       </p>
+
+      {/* Accent line — thinner on mobile */}
       <div
-        className="mx-auto mt-2 md:mt-4 h-0.5 bg-gradient-to-r from-crimson-500 to-saffron-500"
-        style={{ width: "32px" }}
+        className="mx-auto mt-1.5 md:mt-4 h-0.5 bg-gradient-to-r from-crimson-500 to-saffron-500 rounded-full"
+        style={{ width: "24px" }}
       />
     </div>
   );

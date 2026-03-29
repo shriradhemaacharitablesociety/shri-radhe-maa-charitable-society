@@ -14,19 +14,21 @@ export function ImpactCounter() {
   ];
 
   return (
-    <section className="section-white py-12 md:py-20 px-4 sm:px-6">
+    <section className="py-8 md:py-20 px-4 sm:px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-black/[0.06] rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl overflow-hidden border border-black/[0.06]">
           {stats.map((stat, i) => (
             <div
               key={i}
-              className="flex flex-col items-center justify-center text-center py-6 md:py-10 px-4 md:px-6 bg-white"
+              className={`flex flex-col items-center justify-center text-center py-5 md:py-10 px-3 md:px-6 ${
+                i % 2 === 0 ? "bg-crimson-50/60" : "bg-white"
+              } md:bg-white`}
             >
               <AnimatedCounter
                 value={stat.value}
-                className="font-stat text-2xl sm:text-4xl md:text-5xl font-black text-crimson-500"
+                className="font-stat text-2xl sm:text-3xl md:text-5xl font-black text-crimson-500"
               />
-              <p className="font-sans text-warm-600 text-xs md:text-sm font-medium uppercase tracking-wider mt-3">
+              <p className="font-sans text-warm-600 text-[9px] sm:text-xs md:text-sm font-semibold uppercase tracking-wider mt-1.5 md:mt-3">
                 {stat.label}
               </p>
             </div>
