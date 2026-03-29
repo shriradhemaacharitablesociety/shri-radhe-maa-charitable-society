@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -10,109 +13,111 @@ const AMOUNTS = [
 
 export function DonateCTA() {
   const t = useTranslations("donate");
+  const [selected, setSelected] = useState(1);
 
   return (
     <section className="relative overflow-hidden">
-      {/* Deep crimson gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-crimson-700 via-crimson-500 to-crimson-600" />
-      {/* Subtle saffron glow overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-crimson-800/30 via-transparent to-saffron-500/10" />
+      {/* Diagonal gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-crimson-600 via-crimson-500 to-saffron-600" />
+      {/* Subtle overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/5" />
 
-      <div className="relative py-10 md:py-20 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col items-center text-center gap-6 md:gap-10">
-            {/* Title */}
-            <ScrollReveal>
-              <div className="flex flex-col gap-1.5 md:gap-2">
-                <h2 className="font-serif text-2xl md:text-4xl lg:text-5xl text-white leading-tight">
-                  {t("title")}
-                </h2>
-                <p
-                  className="font-devanagari text-base md:text-xl text-white/50"
-                  lang="hi"
+      <div className="relative py-16 md:py-24 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Title */}
+          <ScrollReveal>
+            <h2
+              className="font-serif text-white leading-tight"
+              style={{ fontSize: "clamp(24px, 5vw, 48px)" }}
+            >
+              {t("title")}
+            </h2>
+            <p
+              className="font-devanagari text-white/70 mt-2 md:mt-3"
+              style={{ fontSize: "clamp(14px, 2.5vw, 20px)" }}
+              lang="hi"
+            >
+              {t("title_hi")}
+            </p>
+          </ScrollReveal>
+
+          {/* Amount pills */}
+          <ScrollReveal delay={150}>
+            <div className="flex w-full justify-center gap-3 md:gap-4 mt-8 md:mt-10">
+              {AMOUNTS.map(({ amount, key }, i) => (
+                <button
+                  key={key}
+                  onClick={() => setSelected(i)}
+                  className={`flex flex-col items-center gap-1 px-5 sm:px-8 py-3.5 md:py-5 rounded-2xl transition-all duration-300 cursor-pointer flex-1 max-w-[160px] select-none ${
+                    selected === i
+                      ? "bg-white text-crimson-600 shadow-xl scale-105 ring-2 ring-white/50"
+                      : "bg-white/15 text-white backdrop-blur-sm hover:bg-white/25"
+                  }`}
+                  style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
                 >
-                  {t("title_hi")}
-                </p>
-              </div>
-            </ScrollReveal>
+                  <span className={`font-stat text-xl md:text-2xl font-black ${
+                    selected === i ? "text-crimson-600" : "text-white"
+                  }`}>
+                    {amount}
+                  </span>
+                  <span className={`font-sans text-[9px] md:text-xs text-center leading-tight ${
+                    selected === i ? "text-warm-600" : "text-white/70"
+                  }`}>
+                    {t(key)}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </ScrollReveal>
 
-            {/* Amount cards */}
-            <ScrollReveal delay={150}>
-              <div className="flex w-full justify-center gap-2.5 md:gap-3">
-                {AMOUNTS.map(({ amount, key }) => (
-                  <div
-                    key={key}
-                    className="flex flex-col items-center gap-1 px-4 sm:px-6 py-3 md:py-4 rounded-xl bg-white/95 backdrop-blur-sm hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 cursor-pointer flex-1 max-w-[140px]"
-                    style={{
-                      transitionTimingFunction:
-                        "cubic-bezier(0.16,1,0.3,1)",
-                    }}
-                  >
-                    <span className="font-stat text-xl md:text-2xl font-black text-crimson-600">
-                      {amount}
-                    </span>
-                    <span className="font-sans text-[9px] md:text-xs text-warm-600 text-center leading-tight">
-                      {t(key)}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </ScrollReveal>
-
-            {/* CTA button — full width on mobile */}
-            <ScrollReveal delay={250}>
+          {/* CTA Button */}
+          <ScrollReveal delay={250}>
+            <div className="mt-8 md:mt-10">
               <Link
                 href={"/get-involved/donate" as any}
-                className="block w-full sm:w-auto"
+                className="block w-full sm:w-auto sm:inline-block"
               >
                 <button
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl font-sans font-bold px-8 py-4 text-base md:text-lg bg-white text-crimson-600 shadow-lg hover:bg-white/90 hover:shadow-xl active:scale-[0.98] transition-all duration-300 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-crimson-500"
-                  style={{
-                    transitionTimingFunction:
-                      "cubic-bezier(0.16, 1, 0.3, 1)",
-                  }}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-2xl font-sans font-black px-10 py-4.5 text-base md:text-lg bg-white text-crimson-600 shadow-xl hover:bg-white/95 hover:shadow-2xl active:scale-[0.98] transition-all duration-300 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-crimson-500"
+                  style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
                 >
-                  {t("cta")} /{" "}
-                  {"\u0926\u093E\u0928 \u0915\u0930\u0947\u0902"}
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2.5}
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                    />
-                  </svg>
+                  {t("cta")} {"\u2192"}
                 </button>
               </Link>
-            </ScrollReveal>
+            </div>
+          </ScrollReveal>
 
-            {/* Trust signals */}
-            <ScrollReveal delay={350}>
-              <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-white/80 text-sm">{"\u2705"}</span>
-                  <span className="font-sans text-[10px] md:text-xs text-white/80">
-                    {t("trust_80g")}
-                  </span>
-                </div>
-                <div className="w-px h-3 bg-white/20" />
-                <div className="flex items-center gap-1.5">
-                  <span className="text-white/80 text-sm">
-                    {"\uD83E\uDEB7"}
-                  </span>
-                  <span className="font-sans text-[10px] md:text-xs text-white/80">
-                    {t("trust_100")}
-                  </span>
-                </div>
+          {/* Trust badges */}
+          <ScrollReveal delay={350}>
+            <div className="flex flex-wrap items-center justify-center gap-5 md:gap-8 mt-8 md:mt-10">
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <span className="font-sans text-xs md:text-sm text-white/80 font-medium">
+                  {t("trust_80g")}
+                </span>
               </div>
-            </ScrollReveal>
-          </div>
+              <div className="w-px h-4 bg-white/20 hidden sm:block" />
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
+                <span className="font-sans text-xs md:text-sm text-white/80 font-medium">
+                  {t("trust_100")}
+                </span>
+              </div>
+              <div className="w-px h-4 bg-white/20 hidden sm:block" />
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                </svg>
+                <span className="font-sans text-xs md:text-sm text-white/80 font-medium">
+                  Secure Payments
+                </span>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

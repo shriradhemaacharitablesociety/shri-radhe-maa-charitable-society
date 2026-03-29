@@ -14,25 +14,32 @@ export function ImpactCounter() {
   ];
 
   return (
-    <section className="py-8 md:py-20 px-4 sm:px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl overflow-hidden border border-black/[0.06]">
-          {stats.map((stat, i) => (
-            <div
-              key={i}
-              className={`flex flex-col items-center justify-center text-center py-5 md:py-10 px-3 md:px-6 ${
-                i % 2 === 0 ? "bg-crimson-50/60" : "bg-white"
-              } md:bg-white`}
-            >
-              <AnimatedCounter
-                value={stat.value}
-                className="font-stat text-2xl sm:text-3xl md:text-5xl font-black text-crimson-500"
-              />
-              <p className="font-sans text-warm-600 text-[9px] sm:text-xs md:text-sm font-semibold uppercase tracking-wider mt-1.5 md:mt-3">
-                {stat.label}
-              </p>
-            </div>
-          ))}
+    <section className="relative overflow-hidden bg-gradient-to-r from-crimson-600 to-crimson-500">
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(255,255,255,0.05),transparent_50%)]" />
+
+      <div className="relative py-12 md:py-16 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4">
+            {stats.map((stat, i) => (
+              <div
+                key={i}
+                className={`flex flex-col items-center justify-center text-center py-4 md:py-0 px-3 md:px-6 ${
+                  i < stats.length - 1 ? "lg:border-r lg:border-white/20" : ""
+                } ${i < 2 ? "border-b lg:border-b-0 border-white/20" : ""} ${
+                  i % 2 === 0 && i < 2 ? "border-r lg:border-r border-white/20" : ""
+                } ${i === 1 ? "lg:border-r lg:border-white/20" : ""}`}
+              >
+                <AnimatedCounter
+                  value={stat.value}
+                  className="font-stat text-3xl sm:text-4xl md:text-5xl font-black text-saffron-400"
+                />
+                <p className="font-sans text-white text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-wider mt-2 md:mt-3">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
