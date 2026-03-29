@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function SocietyBanner() {
   return (
-    <div className="pt-16 md:pt-24 pb-1 md:pb-6 text-center">
+    <div className="pt-20 md:pt-28 pb-1 md:pb-6 text-center">
       {/* Logo — hidden on mobile, shown on desktop */}
       <Link
         href="/"

@@ -22,47 +22,50 @@ export function Navbar() {
   return (
     <>
       {/* ===== MOBILE NAVBAR (below md) ===== */}
-      <header className="md:hidden fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-b border-warm-200/50 shadow-sm">
-        <div className="flex items-center justify-between px-4 py-2.5">
-          {/* Logo + brand */}
-          <Link href={"/" as any} className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full overflow-hidden">
+      <header className="md:hidden fixed top-0 left-0 right-0 z-40">
+        {/* Top bar with gradient accent */}
+        <div className="h-1 bg-gradient-to-r from-crimson-500 via-saffron-500 to-crimson-500" />
+        <div className="bg-white/95 backdrop-blur-xl shadow-md">
+          <div className="flex items-center justify-between px-3 py-2">
+            {/* Logo — full image like footer, bigger */}
+            <Link href={"/" as any} className="shrink-0">
               <Image
                 src="/logo.png"
                 alt="Shri Radhe Maa Charitable Society"
-                width={60}
-                height={60}
-                className="w-[48px] h-auto -mt-0.5 mx-auto"
+                width={52}
+                height={52}
+                className="drop-shadow-sm"
               />
-            </div>
-          </Link>
-
-          <div className="flex items-center gap-2">
-            {/* Login — mobile */}
-            <a
-              href="/login"
-              className="inline-flex items-center gap-1 px-3 py-2 border border-warm-200 text-warm-600 text-xs font-sans font-medium rounded-full hover:border-crimson-300 hover:text-crimson-500 transition-colors"
-            >
-              Login
-            </a>
-
-            {/* Donate button — compact on mobile */}
-            <Link
-              href={"/get-involved/donate" as any}
-              className="inline-flex items-center gap-1 px-4 py-2 bg-crimson-500 text-white text-xs font-sans font-medium rounded-full hover:bg-crimson-600 transition-colors"
-            >
-              {t("donate")}
             </Link>
 
-            {/* Hamburger */}
-            <button
-              className="flex flex-col justify-center items-center w-10 h-10 gap-1.5 rounded-lg hover:bg-warm-100 transition-colors"
-              onClick={() => setMobileOpen(true)}
-              aria-label="Open menu"
-            >
-              <span className="block w-5 h-0.5 bg-warm-800 rounded-full" />
-              <span className="block w-3.5 h-0.5 bg-warm-800 rounded-full" />
-            </button>
+            <div className="flex items-center gap-1.5">
+              {/* Login */}
+              <a
+                href="/login"
+                className="inline-flex items-center px-3 py-1.5 text-[11px] font-sans font-medium text-warm-700 border border-warm-200 rounded-lg hover:border-crimson-300 hover:text-crimson-500 transition-colors"
+              >
+                Login
+              </a>
+
+              {/* Donate */}
+              <Link
+                href={"/get-involved/donate" as any}
+                className="inline-flex items-center px-3.5 py-1.5 bg-crimson-500 text-white text-[11px] font-sans font-semibold rounded-lg hover:bg-crimson-600 transition-colors shadow-sm"
+              >
+                {t("donate")}
+              </Link>
+
+              {/* Hamburger */}
+              <button
+                className="flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded-lg hover:bg-warm-50 transition-colors"
+                onClick={() => setMobileOpen(true)}
+                aria-label="Open menu"
+              >
+                <span className="block w-[18px] h-[2px] bg-warm-800 rounded-full" />
+                <span className="block w-[14px] h-[2px] bg-warm-800 rounded-full" />
+                <span className="block w-[18px] h-[2px] bg-warm-800 rounded-full" />
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -70,22 +73,20 @@ export function Navbar() {
       {/* ===== DESKTOP NAVBAR (md and above) ===== */}
       <header className="hidden md:block fixed top-0 left-0 right-0 z-40 pointer-events-none pt-4 px-8">
         <div className="flex justify-center">
-          <nav className="pointer-events-auto flex items-center gap-1 pl-2 pr-2 py-2 bg-white/92 backdrop-blur-xl border border-warm-200/50 rounded-full shadow-lg shadow-warm-900/[0.05]">
-            {/* Logo inside pill */}
-            <Link href={"/" as any} className="shrink-0 hover:scale-105 transition-transform duration-300">
-              <div className="w-10 h-10 rounded-full overflow-hidden">
-                <Image
-                  src="/logo.png"
-                  alt="Shri Radhe Maa Charitable Society"
-                  width={60}
-                  height={60}
-                  className="w-[48px] h-auto -mt-0.5 mx-auto"
-                />
-              </div>
+          <nav className="pointer-events-auto flex items-center gap-1 pl-1.5 pr-2 py-1.5 bg-white/92 backdrop-blur-xl border border-warm-200/50 rounded-full shadow-lg shadow-warm-900/[0.05]">
+            {/* Logo — full image, badge style */}
+            <Link href={"/" as any} className="shrink-0 hover:scale-105 transition-transform duration-300 -my-3">
+              <Image
+                src="/logo.png"
+                alt="Shri Radhe Maa Charitable Society"
+                width={56}
+                height={56}
+                className="drop-shadow-md"
+              />
             </Link>
 
             {/* Divider */}
-            <div className="h-6 w-px bg-warm-200/60 mx-1" />
+            <div className="h-7 w-px bg-warm-200/60 mx-1.5" />
 
             {/* Nav links */}
             <div className="flex items-center gap-0.5">
@@ -101,7 +102,7 @@ export function Navbar() {
             </div>
 
             {/* Divider */}
-            <div className="h-6 w-px bg-warm-200/60 mx-1" />
+            <div className="h-7 w-px bg-warm-200/60 mx-1.5" />
 
             {/* Login */}
             <a
