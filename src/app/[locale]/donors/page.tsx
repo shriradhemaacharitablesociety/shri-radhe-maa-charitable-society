@@ -61,7 +61,7 @@ export default function DonorWallPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <section className="bg-white pt-6 md:pt-10 pb-8 md:pb-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
             <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">हमारे सहयोगी</span>
@@ -78,7 +78,7 @@ export default function DonorWallPage() {
       </section>
 
       {/* Donor Tiers on Cream */}
-      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
+      <section className="bg-cream pt-6 md:pt-8 pb-12 md:pb-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-10 sm:mb-14">

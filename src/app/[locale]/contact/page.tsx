@@ -74,7 +74,7 @@ export default function ContactPage() {
       />
 
       {/* Hero */}
-      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <section className="bg-white pt-6 md:pt-10 pb-8 md:pb-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
             <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">संपर्क करें</span>
@@ -88,12 +88,12 @@ export default function ContactPage() {
       </section>
 
       {/* Form + Sidebar on White */}
-      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <section className="bg-white pt-6 md:pt-8 pb-12 md:pb-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
             {/* Contact Form — 2 cols */}
-            <ScrollReveal delay={100} className="lg:col-span-2">
-              <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+            <ScrollReveal delay={100} className="lg:col-span-2 h-full">
+              <div className="group flex h-full rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
                 <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
                   <Send className="w-5 h-5" />
                   <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>MESSAGE</span>

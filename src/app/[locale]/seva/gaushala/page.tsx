@@ -45,7 +45,7 @@ export default function GaushalaPage() {
       />
 
       {/* Hero */}
-      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <section className="bg-white pt-6 md:pt-10 pb-8 md:pb-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
             <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">
@@ -63,7 +63,7 @@ export default function GaushalaPage() {
       </section>
 
       {/* Cream context section */}
-      <section className="py-12 md:py-16 px-4 sm:px-6 bg-warm-50">
+      <section className="pt-2 md:pt-4 pb-12 md:pb-16 px-4 sm:px-6 bg-warm-50">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal delay={100}>
             <div className="flex items-start gap-6">

@@ -43,7 +43,7 @@ export default function SocietyPage() {
       />
 
       {/* Hero */}
-      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <section className="bg-white pt-6 md:pt-10 pb-8 md:pb-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
             <span className="inline-block px-3 py-1 rounded-full bg-crimson-50 text-crimson-600 text-xs font-semibold font-sans uppercase tracking-wider mb-4">Registered Society</span>
@@ -62,7 +62,7 @@ export default function SocietyPage() {
       </section>
 
       {/* White section: Registration */}
-      <section className="py-12 md:py-20 px-4 sm:px-6 bg-white">
+      <section className="pt-6 md:pt-8 pb-12 md:pb-20 px-4 sm:px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal delay={100}>
             <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">

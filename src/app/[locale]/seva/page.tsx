@@ -53,7 +53,7 @@ export default function SevaPage() {
       />
 
       {/* Hero */}
-      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <section className="bg-white pt-6 md:pt-10 pb-8 md:pb-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
             <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">

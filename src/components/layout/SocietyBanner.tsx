@@ -1,6 +1,6 @@
 export function SocietyBanner() {
   return (
-    <div className="pb-2 md:pb-4 text-center bg-white pt-4 md:pt-6">
+    <div className="pb-2 md:pb-2 text-center bg-white pt-2 md:pt-2">
       <h1
         className="font-devanagari font-bold bg-gradient-to-r from-crimson-600 via-crimson-500 to-saffron-500 bg-clip-text text-transparent px-4"
         lang="hi"

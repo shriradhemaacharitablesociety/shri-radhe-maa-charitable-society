@@ -5,6 +5,8 @@ import { AboutStrip } from "@/components/home/AboutStrip";
 import { SevaGrid } from "@/components/home/SevaGrid";
 import { ImpactCounter } from "@/components/home/ImpactCounter";
 import { EventCards } from "@/components/home/EventCards";
+import { CampaignCards } from "@/components/home/CampaignCards";
+import { StoriesPreview } from "@/components/home/StoriesPreview";
 import { DonateCTA } from "@/components/home/DonateCTA";
 import { NewsletterStrip } from "@/components/home/NewsletterStrip";
 
@@ -53,6 +55,8 @@ export default function HomePage() {
       <AboutStrip />
       <SevaGrid />
       <ImpactCounter />
+      <CampaignCards />
+      <StoriesPreview />
       <EventCards />
       <NewsletterStrip />
       <DonateCTA />

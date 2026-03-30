@@ -6,8 +6,8 @@ export function NavbarLogo() {
     <>
       {/* Desktop: spacer to clear fixed navbar + logo */}
       <div className="hidden md:block">
-        <div style={{ height: 80 }} />
-        <div className="flex justify-center py-6">
+        <div style={{ height: 70 }} />
+        <div className="flex justify-center py-3">
           <Link href={"/" as any} className="hover:scale-105 transition-transform duration-300">
             <Image
               src="/logo.png"

@@ -32,7 +32,7 @@ export default function ImpactCalculatorPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <section className="bg-white pt-6 md:pt-10 pb-8 md:pb-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
             <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">आपका प्रभाव</span>
@@ -103,7 +103,7 @@ export default function ImpactCalculatorPage() {
       </section>
 
       {/* All Impact Tiers on White */}
-      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <section className="bg-white pt-6 md:pt-8 pb-12 md:pb-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <p className="font-devanagari text-sm text-crimson-500 mb-3 text-center" lang="hi">हर रुपये का महत्व</p>

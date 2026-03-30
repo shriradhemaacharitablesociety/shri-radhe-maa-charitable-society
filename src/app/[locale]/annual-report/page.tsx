@@ -158,7 +158,7 @@ export default async function AnnualReportPage({
       />
 
       {/* Hero */}
-      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <section className="bg-white pt-6 md:pt-10 pb-8 md:pb-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
             <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">वार्षिक रिपोर्ट</span>
@@ -176,7 +176,7 @@ export default async function AnnualReportPage({
       </section>
 
       {/* ── Section 2: Key Highlights ──────────────────────────────── */}
-      <section className="py-12 md:py-20 px-4 sm:px-6 bg-cream">
+      <section className="pt-6 md:pt-8 pb-12 md:pb-20 px-4 sm:px-6 bg-cream">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <h3 className="font-serif text-xl sm:text-2xl text-warm-900 tracking-tight text-center mb-10">

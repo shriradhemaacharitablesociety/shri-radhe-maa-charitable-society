@@ -43,7 +43,7 @@ export default function MaaPage() {
       />
 
       {/* Hero */}
-      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <section className="bg-white pt-6 md:pt-10 pb-8 md:pb-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
             <span className="inline-block px-3 py-1 rounded-full bg-crimson-50 text-crimson-600 text-xs font-semibold font-sans uppercase tracking-wider mb-4">Spiritual Leader</span>
@@ -62,7 +62,7 @@ export default function MaaPage() {
       </section>
 
       {/* Cream note banner */}
-      <section className="py-6 px-4 sm:px-6 bg-warm-50">
+      <section className="pt-2 md:pt-4 pb-6 px-4 sm:px-6 bg-warm-50">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal delay={100}>
             <div className="rounded-xl bg-saffron-50 border border-saffron-200/60 px-6 py-4 text-sm font-sans text-warm-700 leading-relaxed">
