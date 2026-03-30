@@ -2,6 +2,8 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function Hero() {
@@ -27,98 +29,93 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900">
-      {/* Subtle radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(196,30,58,0.15),transparent_60%)]" />
+    <section className="bg-white" style={{ paddingTop: "8px", paddingBottom: "32px" }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 lg:gap-16 items-start">
+          {/* Left column */}
+          <div>
+            <ScrollReveal delay={0}>
+              <Badge variant="crimson">
+                <span className="w-1.5 h-1.5 rounded-full bg-crimson-500 mr-2" />
+                {t("badge")}
+              </Badge>
+            </ScrollReveal>
 
-      <div className="relative py-16 md:py-24 lg:py-32 pb-28 md:pb-36 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          {/* Badge */}
-          <ScrollReveal delay={0}>
-            <span className="inline-flex items-center gap-2 rounded-full bg-saffron-500 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider font-sans text-warm-900">
-              <span className="w-1.5 h-1.5 rounded-full bg-warm-900" />
-              {t("badge")}
-            </span>
-          </ScrollReveal>
-
-          {/* Main heading */}
-          <ScrollReveal delay={100}>
-            <h1
-              className="font-serif text-white mt-6 md:mt-8 max-w-4xl mx-auto"
-              style={{
-                fontSize: "clamp(28px, 7vw, 64px)",
-                lineHeight: 1.08,
-                letterSpacing: "-0.03em",
-              }}
-            >
-              {t("title_1")}{" "}
-              {t("title_2")}{" "}
-              <em className="italic text-crimson-300">{t("title_3")}</em>{" "}
-              <span className="text-saffron-400">{t("title_4")}</span>
-            </h1>
-          </ScrollReveal>
-
-          {/* Sanskrit text */}
-          <ScrollReveal delay={200}>
-            <p
-              className="font-devanagari text-saffron-400 mt-3 md:mt-4"
-              style={{ fontSize: "clamp(13px, 2vw, 16px)" }}
-              lang="hi"
-            >
-              {t("sanskrit")}
-            </p>
-          </ScrollReveal>
-
-          {/* Description */}
-          <ScrollReveal delay={250}>
-            <p
-              className="text-white/80 font-sans max-w-xl mx-auto leading-relaxed mt-4 md:mt-6"
-              style={{ fontSize: "clamp(14px, 2vw, 17px)" }}
-            >
-              {t("description")}
-            </p>
-          </ScrollReveal>
-
-          {/* CTA Buttons */}
-          <ScrollReveal delay={350}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8 md:mt-10">
-              <Link href={"/seva" as any} className="w-full sm:w-auto">
-                <button
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl font-sans font-bold px-8 py-3.5 text-sm md:text-base bg-white text-crimson-600 shadow-lg hover:bg-white/90 hover:shadow-xl active:scale-[0.98] transition-all duration-300 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                  style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
-                >
-                  {t("cta_primary")}
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                  </svg>
-                </button>
-              </Link>
-              <button
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl font-sans font-medium px-8 py-3.5 text-sm md:text-base border-2 border-white/30 text-white hover:border-white/60 hover:bg-white/5 active:scale-[0.98] transition-all duration-300 cursor-pointer select-none"
-                style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
+            <div className="relative mt-3 md:mt-6">
+              <div
+                className="font-devanagari font-black select-none pointer-events-none hidden md:block"
+                style={{
+                  fontSize: "clamp(60px, 15vw, 120px)",
+                  lineHeight: 0.85,
+                  letterSpacing: "-0.04em",
+                  color: "rgba(26, 15, 8, 0.04)",
+                }}
+                aria-hidden="true"
               >
-                {t("cta_secondary")}
-              </button>
+                सेवा
+              </div>
+              <h1
+                className="font-serif text-warm-900 relative md:-mt-11"
+                style={{
+                  fontSize: "clamp(26px, 6vw, 56px)",
+                  lineHeight: 1.08,
+                  letterSpacing: "-0.03em",
+                  zIndex: 1,
+                }}
+              >
+                {t("title_1")}
+                <br />
+                {t("title_2")}{" "}
+                <em className="text-crimson-500 italic">{t("title_3")}</em>{" "}
+                <span className="text-saffron-600">{t("title_4")}</span>
+              </h1>
             </div>
-          </ScrollReveal>
-        </div>
-      </div>
 
-      {/* Stat cards — overlapping into next section */}
-      <div className="relative -mb-16 md:-mb-20 px-4 sm:px-6 z-10">
-        <div className="max-w-5xl mx-auto">
-          {/* Desktop: 3 cards in a row */}
-          <div className="hidden md:grid grid-cols-3 gap-4">
+            <ScrollReveal delay={150}>
+              <p
+                className="font-devanagari text-saffron-500 opacity-50 hidden md:block"
+                style={{ fontSize: "14px", marginTop: "8px" }}
+              >
+                {t("sanskrit")}
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={250}>
+              <p
+                className="text-warm-600 lg:max-w-[420px] text-[13px] md:text-[15px] leading-relaxed"
+                style={{ marginTop: "10px" }}
+              >
+                {t("description")}
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={350}>
+              <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3" style={{ marginTop: "16px" }}>
+                <Link href={"/seva" as any} className="w-full sm:w-auto">
+                  <Button variant="primary" className="w-full sm:w-auto">
+                    {t("cta_primary")} →
+                  </Button>
+                </Link>
+                <Button variant="ghost" className="w-full sm:w-auto">
+                  {t("cta_secondary")}
+                </Button>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Desktop stat cards */}
+          <div className="hidden lg:flex flex-col gap-3 pt-8">
             {stats.map((stat, i) => (
-              <ScrollReveal key={stat.label} delay={400 + i * 100}>
-                <div className="bg-white rounded-2xl shadow-xl p-6 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-                  <div className="font-stat text-3xl lg:text-4xl font-black text-crimson-500 leading-none">
+              <ScrollReveal key={stat.label} delay={200 + i * 120}>
+                <div className="group relative bg-cream rounded-2xl border border-black/[0.06] p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                  <div className="absolute left-0 top-3 bottom-3 w-[3px] rounded-full bg-crimson-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="font-stat font-bold leading-none text-crimson-500 text-[28px]">
                     {stat.num}
                   </div>
-                  <p className="font-sans text-warm-700 font-semibold text-xs uppercase tracking-wider mt-3">
+                  <p className="font-sans text-warm-600 font-medium text-[11px] uppercase tracking-[1.5px] mt-2">
                     {stat.label}
                   </p>
-                  <p className="font-sans text-warm-500 text-xs mt-1">
+                  <p className="font-sans text-warm-500 text-[11px] mt-1">
                     {stat.detail}
                   </p>
                 </div>
@@ -126,21 +123,21 @@ export function Hero() {
             ))}
           </div>
 
-          {/* Mobile: horizontal scroll row */}
-          <div className="md:hidden -mx-4 px-4">
+          {/* Mobile horizontal scroll stat cards */}
+          <div className="lg:hidden -mx-4 px-4 mt-3">
             <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-2 scrollbar-hide">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="snap-start shrink-0 min-w-[220px] flex-1 bg-white rounded-xl shadow-lg p-4 text-center"
+                  className="snap-start shrink-0 min-w-[200px] flex-1 bg-cream rounded-xl border-l-[3px] border-l-crimson-500 border border-black/[0.06] px-4 py-3.5 shadow-sm"
                 >
-                  <div className="font-stat text-2xl font-black text-crimson-500 leading-none">
+                  <div className="font-stat font-bold text-crimson-500 text-xl leading-none">
                     {stat.num}
                   </div>
-                  <p className="font-sans text-warm-700 font-semibold text-[10px] uppercase tracking-wider mt-2">
+                  <p className="font-sans text-warm-700 font-medium text-[10px] uppercase tracking-wider mt-1.5">
                     {stat.label}
                   </p>
-                  <p className="font-sans text-warm-500 text-[10px] mt-0.5 leading-snug">
+                  <p className="font-sans text-warm-500 text-[10px] mt-0.5">
                     {stat.detail}
                   </p>
                 </div>
