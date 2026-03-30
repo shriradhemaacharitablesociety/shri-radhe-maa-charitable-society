@@ -64,18 +64,23 @@ export async function generateMetadata({
 
 export default function PressPage() {
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
-      {/* Press Mentions */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6">
+    <>
+      {/* Dark Hero */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <SectionHeader
-              title="Press & Media"
-              titleHi="प्रेस और मीडिया"
-              subtitle="Media coverage and resources for journalists and content creators covering our charitable work."
-              className="mb-14"
-            />
+            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">प्रेस और मीडिया</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Press &amp; Media</h1>
+            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+              Media coverage and resources for journalists and content creators covering our charitable work.
+            </p>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Press Mentions on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {pressPlaceholders.map((item, i) => (
@@ -101,7 +106,7 @@ export default function PressPage() {
       </section>
 
       {/* Key Facts / Press Kit */}
-      <section className="bg-cream py-12 sm:py-20 px-4 sm:px-6">
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-14">
@@ -178,23 +183,23 @@ export default function PressPage() {
         </div>
       </section>
 
-      {/* Media Contact */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6">
+      {/* Media Contact on Dark */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">
+            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">
               मीडिया संपर्क
             </p>
-            <h2 className="font-serif text-2xl md:text-3xl text-warm-900 mb-4">
+            <h2 className="font-serif text-2xl md:text-3xl text-white mb-4">
               Media Contact
             </h2>
-            <p className="font-sans text-warm-600 leading-relaxed mb-8">
+            <p className="font-sans text-white/70 leading-relaxed mb-8">
               For press enquiries, interviews, or media coverage requests, please reach out to us.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={150}>
-            <Card variant="cream" accent="none" className="sm:inline-block text-left">
+            <Card variant="white" accent="none" className="sm:inline-block text-left">
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <svg
@@ -256,6 +261,6 @@ export default function PressPage() {
           </ScrollReveal>
         </div>
       </section>
-    </div>
+    </>
   );
 }

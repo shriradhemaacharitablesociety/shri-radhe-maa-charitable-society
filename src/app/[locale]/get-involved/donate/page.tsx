@@ -42,7 +42,7 @@ function DonatePage() {
   const donateAction = donateActionJsonLd();
 
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -51,39 +51,44 @@ function DonatePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(donateAction) }}
       />
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Page Header */}
-        <ScrollReveal>
-          <div className="mb-12 flex flex-col gap-2">
-            <span className="font-devanagari text-sm font-medium text-crimson-500 tracking-wide">
+
+      {/* Crimson Gradient Hero */}
+      <section className="bg-gradient-to-br from-crimson-600 via-crimson-500 to-crimson-700 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <p className="font-devanagari text-sm text-saffron-300 mb-3" lang="hi">
               {t("title_hi")}
-            </span>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-warm-900 leading-tight">
+            </p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">
               {t("title")}
             </h1>
-            <div className="mt-3 h-px w-16 bg-gradient-to-r from-crimson-500 to-saffron-500" />
-          </div>
-        </ScrollReveal>
-
-        {/* 3-column layout: form (2 cols) + sidebar (1 col) */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {/* Donation Form — takes 2 columns */}
-          <ScrollReveal className="lg:col-span-2" delay={100}>
-            <DonationForm />
+            <div className="mt-3 h-1 w-16 bg-white/40 rounded-full" />
           </ScrollReveal>
+        </div>
+      </section>
 
-          {/* Sidebar — QR Code + Bank Details */}
-          <div className="flex flex-col gap-6">
-            <ScrollReveal delay={200}>
-              <QRCode />
+      {/* Form + Sidebar on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            {/* Donation Form — takes 2 columns */}
+            <ScrollReveal className="lg:col-span-2" delay={100}>
+              <DonationForm />
             </ScrollReveal>
-            <ScrollReveal delay={300}>
-              <BankDetails />
-            </ScrollReveal>
+
+            {/* Sidebar — QR Code + Bank Details */}
+            <div className="flex flex-col gap-6">
+              <ScrollReveal delay={200}>
+                <QRCode />
+              </ScrollReveal>
+              <ScrollReveal delay={300}>
+                <BankDetails />
+              </ScrollReveal>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }
 

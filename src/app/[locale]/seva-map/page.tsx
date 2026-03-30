@@ -108,41 +108,48 @@ export default function SevaMapPage() {
   ]);
 
   return (
-    <div className="bg-cream" style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <ScrollReveal>
-          <SectionHeader
-            title="Where We Serve"
-            titleHi="हम कहाँ सेवा करते हैं"
-            subtitle="Our charitable programmes reach communities across multiple states in India."
-            className="mb-12"
-          />
-        </ScrollReveal>
 
-        {/* Stats Bar */}
-        <ScrollReveal delay={100}>
-          <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-12 max-w-lg mx-auto">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-white rounded-2xl border border-black/[0.06] p-3 sm:p-5 text-center"
-              >
-                <p className="font-serif text-3xl text-crimson-500 font-semibold">
-                  {stat.value}
-                </p>
-                <p className="font-sans text-sm text-warm-600 mt-1">{stat.label}</p>
-                <p className="font-devanagari text-xs text-warm-800/40 mt-0.5" lang="hi">
-                  {stat.labelHi}
-                </p>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
+      {/* Dark Hero */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">हम कहाँ सेवा करते हैं</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Where We Serve</h1>
+            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+              Our charitable programmes reach communities across multiple states in India.
+            </p>
+          </ScrollReveal>
+
+          {/* Stats Bar inline */}
+          <ScrollReveal delay={100}>
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-10 max-w-lg">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 sm:p-5 text-center"
+                >
+                  <p className="font-stat text-3xl font-black text-saffron-400">
+                    {stat.value}
+                  </p>
+                  <p className="font-sans text-sm text-white/70 mt-1">{stat.label}</p>
+                  <p className="font-devanagari text-xs text-white/40 mt-0.5" lang="hi">
+                    {stat.labelHi}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Location Cards on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto">
 
         {/* Location Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -259,27 +266,31 @@ export default function SevaMapPage() {
           ))}
         </div>
 
-        {/* Contact CTA */}
-        <ScrollReveal delay={800}>
-          <div className="mt-12 rounded-2xl border border-black/[0.06] bg-white p-5 sm:p-8 text-center">
-            <p className="font-devanagari text-sm text-crimson-500 mb-1" lang="hi">
+      </div>
+      </section>
+
+      {/* CTA on Dark */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <ScrollReveal delay={800}>
+            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">
               हमसे जुड़ें
             </p>
-            <h3 className="font-serif text-xl text-warm-900 mb-3">
+            <h3 className="font-serif text-2xl md:text-3xl text-white mb-3">
               Want to Volunteer at a Location?
             </h3>
-            <p className="font-sans text-sm text-warm-600 leading-relaxed mb-5 max-w-md mx-auto">
+            <p className="font-sans text-sm text-white/70 leading-relaxed mb-6 max-w-md mx-auto">
               Whether you want to help at our Delhi headquarters or assist with field operations, we welcome your support.
             </p>
             <a
               href="/get-involved"
-              className="inline-flex items-center gap-2 px-6 py-2.5 min-h-[44px] w-full sm:w-auto justify-center bg-crimson-500 text-white text-sm font-medium rounded-lg hover:bg-crimson-600 transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-6 py-2.5 min-h-[44px] w-full sm:w-auto justify-center bg-white text-crimson-500 text-sm font-medium rounded-lg hover:bg-white/90 transition-colors duration-200"
             >
               Get Involved
             </a>
-          </div>
-        </ScrollReveal>
-      </div>
-    </div>
+          </ScrollReveal>
+        </div>
+      </section>
+    </>
   );
 }

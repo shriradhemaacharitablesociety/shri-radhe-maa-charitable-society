@@ -69,7 +69,7 @@ export default async function FAQPage({
   );
 
   return (
-    <div className="section-white" style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -79,20 +79,26 @@ export default async function FAQPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <section className="py-12 sm:py-20 px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto">
+      {/* Dark Hero */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <SectionHeader
-              title="Frequently Asked Questions"
-              titleHi="सामान्य प्रश्न"
-              subtitle={
-                isHindi
-                  ? "हमारे बारे में अक्सर पूछे जाने वाले प्रश्न और उनके उत्तर"
-                  : "Find answers to common questions about donations, tax benefits, and our seva programmes."
-              }
-              className="mb-14"
-            />
+            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">सामान्य प्रश्न</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">
+              {isHindi ? "सामान्य प्रश्न" : "Frequently Asked Questions"}
+            </h1>
+            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+              {isHindi
+                ? "हमारे बारे में अक्सर पूछे जाने वाले प्रश्न और उनके उत्तर"
+                : "Find answers to common questions about donations, tax benefits, and our seva programmes."}
+            </p>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Accordions on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto">
 
           {categoryOrder.map((category, catIndex) => {
             const items = grouped[category];
@@ -120,7 +126,7 @@ export default async function FAQPage({
                     {items.map((faq, i) => (
                       <details
                         key={i}
-                        className="group rounded-2xl border border-warm-200 bg-white hover:bg-warm-50/50 transition-colors duration-200"
+                        className="group rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300"
                       >
                         <summary className="flex items-center justify-between gap-4 px-4 sm:px-6 py-4 sm:py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden min-h-[44px]">
                           <span className="font-sans text-warm-900 text-[15px] font-medium leading-snug">
@@ -155,41 +161,45 @@ export default async function FAQPage({
             );
           })}
 
-          {/* CTA */}
+        </div>
+      </section>
+
+      {/* CTA on Dark */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal delay={500}>
-            <div className="mt-8 rounded-3xl border border-saffron-300/50 bg-saffron-50/40 p-6 sm:p-10 text-center">
-              <h3 className="font-serif text-2xl text-warm-900 mb-2">
-                {isHindi ? "अभी भी कोई प्रश्न है?" : "Still have questions?"}
-              </h3>
-              <p className="text-warm-600 text-sm mb-6 font-sans">
-                {isHindi
-                  ? "हमसे सीधे संपर्क करें, हम आपकी सहायता के लिए तत्पर हैं।"
-                  : "Reach out to us directly and we will be happy to help."}
-              </p>
-              <Link
-                href={`/${locale}/contact`}
-                className="inline-flex items-center gap-2 bg-crimson-500 text-white font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto justify-center rounded-lg hover:bg-crimson-600 transition-colors duration-200"
+            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">प्रश्न</p>
+            <h3 className="font-serif text-2xl md:text-3xl text-white mb-3">
+              {isHindi ? "अभी भी कोई प्रश्न है?" : "Still have questions?"}
+            </h3>
+            <p className="text-white/70 text-sm mb-6 font-sans">
+              {isHindi
+                ? "हमसे सीधे संपर्क करें, हम आपकी सहायता के लिए तत्पर हैं।"
+                : "Reach out to us directly and we will be happy to help."}
+            </p>
+            <Link
+              href={`/${locale}/contact`}
+              className="inline-flex items-center gap-2 bg-white text-crimson-500 font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto justify-center rounded-lg hover:bg-white/90 transition-colors duration-200"
+            >
+              {isHindi ? "संपर्क करें" : "Contact Us"}
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2.5}
+                viewBox="0 0 24 24"
+                aria-hidden="true"
               >
-                {isHindi ? "संपर्क करें" : "Contact Us"}
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2.5}
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </Link>
-            </div>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </Link>
           </ScrollReveal>
         </div>
       </section>
-    </div>
+    </>
   );
 }

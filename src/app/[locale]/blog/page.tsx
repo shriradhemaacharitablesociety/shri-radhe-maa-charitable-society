@@ -52,21 +52,28 @@ export default function BlogPage() {
   const otherPosts = blogPosts.filter((p) => p !== featuredPost);
 
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <ScrollReveal>
-          <SectionHeader
-            title="News & Updates"
-            titleHi="समाचार और अपडेट"
-            subtitle="Latest news, camp reports, and milestones from our seva activities across India."
-            className="mb-12"
-          />
-        </ScrollReveal>
+
+      {/* Dark Hero */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">समाचार और अपडेट</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">News &amp; Updates</h1>
+            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+              Latest news, camp reports, and milestones from our seva activities across India.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Featured post on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto">
 
         {/* Featured post */}
         {featuredPost && (
@@ -108,47 +115,52 @@ export default function BlogPage() {
           </ScrollReveal>
         )}
 
-        {/* Posts grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {otherPosts.map((post, i) => (
-            <ScrollReveal key={post.id} delay={200 + i * 120}>
-              <Link href={`/blog/${post.slug}`} className="block h-full">
-                <Card variant="cream" className="h-full cursor-pointer">
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-3">
-                      <Badge variant="gold">
-                        {categoryLabels[post.category].en}
-                      </Badge>
-                    </div>
-                    <h3 className="font-serif text-xl text-warm-900 leading-tight group-hover:text-crimson-600 transition-colors">
-                      {post.title}
-                    </h3>
-                    <p className="font-devanagari text-warm-800/50 text-sm mt-1" lang="hi">
-                      {post.titleHi}
-                    </p>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-warm-600 font-sans text-sm leading-relaxed mb-4">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center gap-3 text-warm-400 text-xs font-sans">
-                      <span>{formatDate(post.publishedAt)}</span>
-                      <span className="w-1 h-1 rounded-full bg-warm-300" />
-                      <span>{post.readTime} min read</span>
-                    </div>
-                    <div className="mt-4 flex items-center gap-1.5 text-crimson-500 text-sm font-semibold font-sans group-hover:gap-2.5 transition-all duration-300">
-                      Read more
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                      </svg>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            </ScrollReveal>
-          ))}
-        </div>
       </div>
-    </div>
+      </section>
+
+      {/* Posts grid on Cream */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {otherPosts.map((post, i) => (
+              <ScrollReveal key={post.id} delay={200 + i * 120}>
+                <Link href={`/blog/${post.slug}`} className="block h-full">
+                  <div className="rounded-2xl bg-white shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 overflow-hidden h-full relative">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
+                    <div className="p-5 sm:p-6">
+                      <div className="flex items-center justify-between mb-3">
+                        <Badge variant="gold">
+                          {categoryLabels[post.category].en}
+                        </Badge>
+                      </div>
+                      <h3 className="font-serif text-xl text-warm-900 leading-tight hover:text-crimson-600 transition-colors">
+                        {post.title}
+                      </h3>
+                      <p className="font-devanagari text-warm-800/50 text-sm mt-1" lang="hi">
+                        {post.titleHi}
+                      </p>
+                      <p className="text-warm-600 font-sans text-sm leading-relaxed mb-4 mt-3">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center gap-3 text-warm-400 text-xs font-sans">
+                        <span>{formatDate(post.publishedAt)}</span>
+                        <span className="w-1 h-1 rounded-full bg-warm-300" />
+                        <span>{post.readTime} min read</span>
+                      </div>
+                      <div className="mt-4 flex items-center gap-1.5 text-crimson-500 text-sm font-semibold font-sans">
+                        Read more
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

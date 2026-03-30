@@ -38,23 +38,31 @@ export default function GalleryPage() {
   ]);
 
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-7xl mx-auto px-6">
-        <ScrollReveal>
-          <SectionHeader
-            title="Gallery"
-            titleHi="गैलरी"
-            subtitle="Moments from our seva activities, events, and spiritual programmes."
-            className="mb-12"
-          />
-        </ScrollReveal>
 
-        <GalleryGrid />
-      </div>
-    </div>
+      {/* Dark Hero */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">गैलरी</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Gallery</h1>
+            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+              Moments from our seva activities, events, and spiritual programmes.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Gallery Grid on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <GalleryGrid />
+        </div>
+      </section>
+    </>
   );
 }

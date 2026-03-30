@@ -78,28 +78,34 @@ export default function CSRPage() {
   ]);
 
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-4xl mx-auto px-6">
-        <ScrollReveal>
-          <div className="mb-3">
-            <Badge variant="gold">Corporate Partnerships</Badge>
-          </div>
-          <SectionHeader
-            title="CSR & Corporate Partnerships"
-            titleHi="सीएसआर और कॉर्पोरेट साझेदारी"
-            subtitle="Partner with us to fulfil your Corporate Social Responsibility mandate while creating real impact for India's most vulnerable communities."
-            align="left"
-            className="mb-12"
-          />
-        </ScrollReveal>
+
+      {/* Dark Hero */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <Badge variant="gold" className="mb-4">Corporate Partnerships</Badge>
+            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">सीएसआर और कॉर्पोरेट साझेदारी</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">CSR &amp; Corporate Partnerships</h1>
+            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+              Partner with us to fulfil your Corporate Social Responsibility mandate while creating real impact for India&apos;s most vulnerable communities.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Content on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <div className="max-w-4xl mx-auto">
 
         {/* 80G benefit */}
         <ScrollReveal delay={100}>
-          <div className="relative mb-10 rounded-xl bg-white/50 border border-warm-800/[0.05] p-6">
+          <div className="relative mb-10 rounded-2xl bg-white shadow-md p-6 overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron-500 to-saffron-400" />
             <div className="absolute left-0 top-2 bottom-2 w-[2px] rounded-full bg-gradient-to-b from-saffron-500/25 to-transparent" />
             <div className="flex items-start gap-5">
               <div className="text-3xl shrink-0" aria-hidden="true">📄</div>
@@ -165,39 +171,42 @@ export default function CSRPage() {
           </div>
         </ScrollReveal>
 
-        {/* Contact CTA */}
-        <ScrollReveal delay={900}>
-          <div className="rounded-3xl border border-saffron-300/50 bg-white/40 backdrop-blur-sm p-8">
-            <p className="font-devanagari text-sm text-crimson-500 mb-1" lang="hi">अभी संपर्क करें</p>
-            <h3 className="font-serif text-xl text-warm-900 mb-3">Start a CSR Partnership</h3>
-            <p className="font-sans text-sm text-warm-800/60 leading-relaxed mb-5">
+      </div>
+      </section>
+
+      {/* CTA on Dark */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto">
+          <ScrollReveal delay={900}>
+            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">अभी संपर्क करें</p>
+            <h3 className="font-serif text-2xl md:text-3xl text-white mb-3">Start a CSR Partnership</h3>
+            <p className="font-sans text-sm text-white/70 leading-relaxed mb-6">
               Contact our team to discuss CSR partnership opportunities, project scopes, and impact reporting.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
-              <div>
-                <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-1">Phone</p>
-                <a href="tel:+919560800343" className="font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors">95608 00343</a>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 max-w-lg">
+              <div className="rounded-2xl bg-white/10 backdrop-blur-sm px-5 py-4">
+                <p className="font-sans text-xs uppercase tracking-wider text-white/50 mb-1">Phone</p>
+                <a href="tel:+919560800343" className="font-sans text-sm text-saffron-400 hover:text-saffron-300 transition-colors">95608 00343</a>
               </div>
-              <div>
-                <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-1">Email</p>
-                <a href="mailto:shriradhemaacharitablesociety@gmail.com" className="font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors break-all">
+              <div className="rounded-2xl bg-white/10 backdrop-blur-sm px-5 py-4">
+                <p className="font-sans text-xs uppercase tracking-wider text-white/50 mb-1">Email</p>
+                <a href="mailto:shriradhemaacharitablesociety@gmail.com" className="font-sans text-sm text-saffron-400 hover:text-saffron-300 transition-colors break-all">
                   shriradhemaacharitablesociety@gmail.com
                 </a>
               </div>
             </div>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-crimson-500 to-crimson-400 text-white text-sm font-medium rounded-pill hover:from-crimson-600 hover:to-crimson-500 transition-all duration-300"
-              style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-crimson-500 text-sm font-medium rounded-lg hover:bg-white/90 transition-all duration-300"
             >
               Get in Touch
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
               </svg>
             </a>
-          </div>
-        </ScrollReveal>
-      </div>
-    </div>
+          </ScrollReveal>
+        </div>
+      </section>
+    </>
   );
 }

@@ -30,17 +30,16 @@ export default function ImpactCalculatorPage() {
   }, [amount]);
 
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
-      {/* Hero / Slider Section */}
-      <section className="bg-cream py-12 sm:py-20 px-4 sm:px-6">
+    <>
+      {/* Crimson Hero with slider */}
+      <section className="bg-gradient-to-br from-crimson-600 via-crimson-500 to-crimson-700 py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <SectionHeader
-              title="Your Impact"
-              titleHi="आपका प्रभाव"
-              subtitle="See what your donation can achieve. Move the slider to explore the real-world impact of your generosity."
-              className="mb-14"
-            />
+            <p className="font-devanagari text-sm text-saffron-300 mb-3" lang="hi">आपका प्रभाव</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Your Impact</h1>
+            <p className="font-sans text-base text-white/80 max-w-2xl leading-relaxed">
+              See what your donation can achieve. Move the slider to explore the real-world impact of your generosity.
+            </p>
           </ScrollReveal>
 
           {/* Slider Card */}
@@ -102,16 +101,13 @@ export default function ImpactCalculatorPage() {
         </div>
       </section>
 
-      {/* All Impact Tiers */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6">
+      {/* All Impact Tiers on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <SectionHeader
-              title="Every Rupee Counts"
-              titleHi="हर रुपये का महत्व"
-              subtitle="Here is what each level of generosity can accomplish through our programmes."
-              className="mb-14"
-            />
+            <p className="font-devanagari text-sm text-crimson-500 mb-3 text-center" lang="hi">हर रुपये का महत्व</p>
+            <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl text-warm-900 text-center mb-4">Every Rupee Counts</h2>
+            <p className="font-sans text-warm-600 text-center max-w-xl mx-auto leading-relaxed mb-14">Here is what each level of generosity can accomplish through our programmes.</p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -162,31 +158,31 @@ export default function ImpactCalculatorPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-cream py-12 sm:py-20 px-4 sm:px-6">
+      {/* CTA on Dark */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">
+            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">
               सेवा में सहयोग करें
             </p>
-            <h2 className="font-serif text-2xl md:text-3xl text-warm-900 mb-4">
+            <h2 className="font-serif text-2xl md:text-3xl text-white mb-4">
               Ready to Make a Difference?
             </h2>
-            <p className="font-sans text-warm-600 leading-relaxed mb-8">
+            <p className="font-sans text-white/70 leading-relaxed mb-8">
               Every donation, no matter the size, transforms lives. Your contribution is eligible
               for tax deduction under Section 80G of the Income Tax Act.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/get-involved">
-                <Button size="lg">Donate Now</Button>
+                <Button size="lg" className="bg-white text-crimson-500 hover:bg-white/90">Donate Now</Button>
               </Link>
               <Link href="/contact">
-                <Button variant="ghost" size="lg">Contact Us</Button>
+                <Button variant="ghost" size="lg" className="border-white/30 text-white hover:bg-white/10">Contact Us</Button>
               </Link>
             </div>
           </ScrollReveal>
         </div>
       </section>
-    </div>
+    </>
   );
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { breadcrumbJsonLd } from "@/lib/seo";
@@ -99,128 +98,162 @@ export default function SevaPage() {
   ]);
 
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      {/* Impact stats header */}
-      <div className="border-b border-saffron-300/40 bg-saffron-50/40 mb-16">
-        <div className="max-w-7xl mx-auto px-6 py-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0">
-            {stats.map((stat, i) => (
-              <div
-                key={stat.label}
-                className={`flex flex-col items-center justify-center text-center py-4 px-4 ${
-                  i < stats.length - 1 ? "lg:border-r lg:border-saffron-300/40" : ""
-                } ${i % 2 === 0 && i < stats.length - 1 ? "border-r border-saffron-300/40 lg:border-r-0" : ""}`}
-              >
-                <AnimatedCounter
-                  value={stat.value}
-                  className="font-stat text-4xl md:text-5xl font-black text-crimson-500"
-                />
-                <p className="font-sans text-warm-800/60 text-xs md:text-sm font-medium uppercase tracking-wider mt-2">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+
+      {/* Dark Hero */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-warm-900 to-crimson-900">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.04),transparent_50%)]" />
+        <div className="relative py-12 md:py-20 px-4 sm:px-6">
+          <div className="max-w-7xl mx-auto text-center">
+            <ScrollReveal>
+              <span className="font-devanagari text-sm text-saffron-400 font-medium" lang="hi">
+                हमारे सेवा कार्यक्रम
+              </span>
+              <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl text-white tracking-tight mt-2">
+                Our Seva Programmes
+              </h1>
+              <div className="w-12 h-1 bg-saffron-400 rounded-full mx-auto mt-4" />
+              <p className="text-[15px] text-white/70 mt-4 leading-relaxed max-w-xl mx-auto">
+                Seven dimensions of compassionate service — from free medical care to disaster relief across India.
+              </p>
+            </ScrollReveal>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-6">
-        <ScrollReveal>
-          <SectionHeader
-            title="Our Seva Programmes"
-            titleHi="हमारे सेवा कार्यक्रम"
-            subtitle="Seven dimensions of compassionate service — from free medical care to disaster relief across India."
-            className="mb-12"
-          />
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {sevaPrograms.map((program, i) => (
-            <ScrollReveal
-              key={program.href}
-              delay={i * 100}
-              className={program.featured ? "md:col-span-2" : ""}
-            >
-              <Link href={program.href} className="block group h-full">
+      {/* Crimson stats bar */}
+      <section className="relative overflow-hidden bg-gradient-to-r from-crimson-600 to-crimson-500">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(255,255,255,0.05),transparent_50%)]" />
+        <div className="relative py-8 md:py-12 px-4 sm:px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-2 lg:grid-cols-4">
+              {stats.map((stat, i) => (
                 <div
-                  className="relative rounded-xl bg-white/50 border border-warm-800/[0.05] transition-all duration-500 hover:bg-white/70 hover:shadow-sm hover:-translate-y-0.5 overflow-hidden"
-                  style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
+                  key={stat.label}
+                  className={`flex flex-col items-center justify-center text-center py-4 md:py-0 px-3 md:px-6 ${
+                    i < stats.length - 1 ? "lg:border-r lg:border-white/20" : ""
+                  } ${i < 2 ? "border-b lg:border-b-0 border-white/20" : ""} ${
+                    i % 2 === 0 && i < 2 ? "border-r lg:border-r border-white/20" : ""
+                  } ${i === 1 ? "lg:border-r lg:border-white/20" : ""}`}
                 >
-                  {/* Left border gradient */}
-                  <div className={`absolute left-0 top-2 bottom-2 w-[2px] rounded-full ${
-                    program.featured
-                      ? "bg-gradient-to-b from-saffron-500/25 to-transparent"
-                      : "bg-gradient-to-b from-crimson-500/25 to-transparent"
-                  }`} />
+                  <AnimatedCounter
+                    value={stat.value}
+                    className="font-stat text-3xl sm:text-4xl md:text-5xl font-black text-saffron-400"
+                  />
+                  <p className="font-sans text-white text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-wider mt-2 md:mt-3">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
-                  <div className={`p-5 ${program.featured ? "md:flex md:items-center md:gap-8" : ""}`}>
-                    <div className={program.featured ? "flex-1" : ""}>
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <div className={`mb-3 ${program.featured ? "text-3xl" : "text-2xl"}`} aria-hidden="true">
-                            {program.icon}
+      {/* White section: Programme cards */}
+      <section className="py-12 md:py-20 px-4 sm:px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <div className="text-center mb-10 md:mb-16">
+              <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">
+                सेवा कार्यक्रम
+              </span>
+              <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl text-warm-900 tracking-tight mt-1">
+                Explore Our Programmes
+              </h2>
+              <div className="w-12 h-1 bg-crimson-500 rounded-full mx-auto mt-4" />
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            {sevaPrograms.map((program, i) => (
+              <ScrollReveal
+                key={program.href}
+                delay={i * 100}
+                className={program.featured ? "md:col-span-2" : ""}
+              >
+                <Link href={program.href} className="block group h-full">
+                  <div className="relative rounded-2xl bg-white shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 overflow-hidden">
+                    {/* Crimson top band */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
+
+                    <div className={`p-6 md:p-8 ${program.featured ? "md:flex md:items-center md:gap-8" : ""}`}>
+                      <div className={program.featured ? "flex-1" : ""}>
+                        <div className="flex items-start justify-between gap-4">
+                          <div>
+                            <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl mb-4" aria-hidden="true">
+                              {program.icon}
+                            </div>
+                            <h2 className="font-serif leading-tight text-xl md:text-2xl text-warm-900 group-hover:text-crimson-600 transition-colors">
+                              {program.title}
+                            </h2>
+                            <p className="font-devanagari text-sm mt-1 text-warm-600/60" lang="hi">
+                              {program.titleHi}
+                            </p>
                           </div>
-                          <h2 className="font-serif leading-tight text-xl text-warm-900 group-hover:text-crimson-600 transition-colors">
-                            {program.title}
-                          </h2>
-                          <p className="font-devanagari text-base mt-1 text-warm-800/50" lang="hi">
-                            {program.titleHi}
-                          </p>
-                        </div>
-                        <div className="text-right shrink-0">
-                          <div className="font-stat text-4xl font-black text-crimson-500">
-                            {program.stat}
+                          <div className="text-right shrink-0">
+                            <div className="font-stat text-3xl md:text-4xl font-black text-crimson-500">
+                              {program.stat}
+                            </div>
+                            <p className="text-xs font-sans mt-1 uppercase tracking-wider text-warm-800/50 font-semibold">
+                              {program.statLabel}
+                            </p>
                           </div>
-                          <p className="text-xs font-sans mt-1 uppercase tracking-wider text-warm-800/50">
-                            {program.statLabel}
-                          </p>
                         </div>
                       </div>
-                    </div>
-                    <div className={program.featured ? "md:w-80 mt-4 md:mt-0" : "mt-4"}>
-                      <p className="font-sans text-sm leading-relaxed text-warm-800/60">
-                        {program.desc}
-                      </p>
-                      <div className="mt-3 flex items-center gap-1.5 text-sm font-semibold font-sans text-crimson-500 group-hover:gap-2.5 transition-all duration-300">
-                        Learn more
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                        </svg>
+                      <div className={program.featured ? "md:w-80 mt-4 md:mt-0" : "mt-4"}>
+                        <p className="font-sans text-sm leading-relaxed text-warm-600">
+                          {program.desc}
+                        </p>
+                        <div className="mt-4 flex items-center gap-1.5 text-sm font-semibold font-sans text-crimson-500 group-hover:gap-2.5 transition-all duration-300">
+                          Learn more
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Dark Donate CTA */}
+      <section className="relative overflow-hidden bg-warm-900">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03),transparent_50%)]" />
+        <div className="relative py-12 md:py-20 px-4 sm:px-6">
+          <div className="max-w-7xl mx-auto text-center">
+            <ScrollReveal delay={100}>
+              <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">
+                इन सेवाओं को जारी रखने में मदद करें
+              </p>
+              <h2 className="font-serif text-2xl md:text-3xl text-white mb-3">
+                Support Our Seva
+              </h2>
+              <p className="font-sans text-white/60 text-base mb-8 max-w-md mx-auto">
+                Your donation directly funds these programmes. Every rupee counts.
+              </p>
+              <Link
+                href="/donate"
+                className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-crimson-600 text-base font-semibold rounded-pill hover:bg-saffron-50 transition-all duration-300 active:scale-[0.98] shadow-lg"
+                style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
+              >
+                Donate Now
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
               </Link>
             </ScrollReveal>
-          ))}
-        </div>
-
-        {/* Donate CTA */}
-        <ScrollReveal delay={600}>
-          <div className="mt-16 text-center">
-            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">
-              इन सेवाओं को जारी रखने में मदद करें
-            </p>
-            <p className="font-sans text-warm-800/60 text-base mb-6">
-              Your donation directly funds these programmes. Every rupee counts.
-            </p>
-            <Link
-              href="/donate"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-crimson-500 to-crimson-400 text-white text-base font-medium rounded-pill hover:from-crimson-600 hover:to-crimson-500 transition-all duration-300 active:scale-[0.98] shadow-sm"
-              style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
-            >
-              Support Our Seva
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
           </div>
-        </ScrollReveal>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }

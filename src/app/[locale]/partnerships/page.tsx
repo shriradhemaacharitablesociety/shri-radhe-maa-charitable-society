@@ -75,23 +75,22 @@ export async function generateMetadata({
 
 export default function PartnershipsPage() {
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
-      {/* Header */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6">
+    <>
+      {/* Dark Hero */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <SectionHeader
-              title="Our Partners"
-              titleHi="हमारे सहयोगी"
-              subtitle="Strategic partnerships that amplify our reach and deepen our impact across healthcare, government welfare, and community development."
-              className="mb-14"
-            />
+            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">हमारे सहयोगी</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Our Partners</h1>
+            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+              Strategic partnerships that amplify our reach and deepen our impact across healthcare, government welfare, and community development.
+            </p>
           </ScrollReveal>
         </div>
       </section>
 
       {/* Hospital Partnerships */}
-      <section className="bg-cream py-12 sm:py-20 px-4 sm:px-6">
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="mb-10">
@@ -147,7 +146,7 @@ export default function PartnershipsPage() {
       </section>
 
       {/* Government Affiliations */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6">
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="mb-10">
@@ -200,7 +199,7 @@ export default function PartnershipsPage() {
       </section>
 
       {/* Partner With Us CTA */}
-      <section className="bg-cream py-12 sm:py-20 px-4 sm:px-6">
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-start">
             <ScrollReveal>
@@ -295,6 +294,6 @@ export default function PartnershipsPage() {
           </ScrollReveal>
         </div>
       </section>
-    </div>
+    </>
   );
 }

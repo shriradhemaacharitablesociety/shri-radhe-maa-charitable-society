@@ -65,27 +65,35 @@ export default async function CampaignsPage({
   const activeCampaigns = campaigns.filter((c) => c.active);
 
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <ScrollReveal>
-          <SectionHeader
-            title={isHindi ? "एक कारण का समर्थन करें" : "Support a Cause"}
-            titleHi={isHindi ? undefined : "एक कारण का समर्थन करें"}
-            subtitle={
-              isHindi
-                ? "सक्रिय सेवा अभियानों को ब्राउज़ करें और अपने योगदान से जीवन बदलें।"
-                : "Browse active seva campaigns and transform lives with your contribution."
-            }
-            className="mb-14"
-          />
-        </ScrollReveal>
 
-        {/* Campaign grid */}
+      {/* Crimson Gradient Hero */}
+      <section className="bg-gradient-to-br from-crimson-600 via-crimson-500 to-crimson-700 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <p className="font-devanagari text-sm text-saffron-300 mb-3" lang="hi">
+              {isHindi ? undefined : "एक कारण का समर्थन करें"}
+            </p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">
+              {isHindi ? "एक कारण का समर्थन करें" : "Support a Cause"}
+            </h1>
+            <p className="font-sans text-base text-white/80 max-w-2xl leading-relaxed">
+              {isHindi
+                ? "सक्रिय सेवा अभियानों को ब्राउज़ करें और अपने योगदान से जीवन बदलें।"
+                : "Browse active seva campaigns and transform lives with your contribution."}
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Campaign grid on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto">
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {activeCampaigns.map((campaign, i) => {
             const percentage = Math.round(
@@ -96,7 +104,7 @@ export default async function CampaignsPage({
             return (
               <ScrollReveal key={campaign.id} delay={100 + i * 120}>
                 <div
-                  className="rounded-2xl border border-black/[0.06] bg-white p-5 sm:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  className="rounded-2xl bg-white shadow-md p-5 sm:p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 relative overflow-hidden"
                   style={{
                     transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
@@ -173,6 +181,7 @@ export default async function CampaignsPage({
           })}
         </div>
       </div>
-    </div>
+      </section>
+    </>
   );
 }

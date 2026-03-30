@@ -38,24 +38,31 @@ export default function StoriesPage() {
   ]);
 
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <ScrollReveal>
-          <SectionHeader
-            title="Impact Stories"
-            titleHi="प्रभाव की कहानियाँ"
-            subtitle="Real stories of lives transformed through seva. Every story is a testament to the power of compassion."
-            className="mb-10"
-          />
-        </ScrollReveal>
 
-        <StoriesClient />
-      </div>
-    </div>
+      {/* Dark Hero */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">प्रभाव की कहानियाँ</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Impact Stories</h1>
+            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+              Real stories of lives transformed through seva. Every story is a testament to the power of compassion.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Stories on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <StoriesClient />
+        </div>
+      </section>
+    </>
   );
 }

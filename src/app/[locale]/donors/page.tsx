@@ -78,46 +78,38 @@ export async function generateMetadata({
 
 export default function DonorWallPage() {
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
-      {/* Community Impact Stats */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6">
+    <>
+      {/* Dark Hero */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <SectionHeader
-              title="Our Supporters"
-              titleHi="हमारे सहयोगी"
-              subtitle="Every act of generosity brings us closer to a compassionate society. We honour those who walk this path of seva with us."
-              className="mb-14"
-            />
+            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">हमारे सहयोगी</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Our Supporters</h1>
+            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+              Every act of generosity brings us closer to a compassionate society. We honour those who walk this path of seva with us.
+            </p>
           </ScrollReveal>
 
+          {/* Stats inline on dark */}
           <ScrollReveal delay={150}>
-            <div className="rounded-3xl border border-saffron-300/50 bg-saffron-50/40 p-5 sm:p-8 mb-12 sm:mb-16">
-              <p className="font-devanagari text-center text-sm text-crimson-500 mb-2" lang="hi">
-                सामुदायिक प्रभाव
-              </p>
-              <h3 className="font-serif text-xl sm:text-2xl text-warm-900 text-center mb-6 sm:mb-8">
-                Community Impact
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
-                {communityStats.map((stat) => (
-                  <div key={stat.label} className="flex flex-col gap-1">
-                    <span className="font-stat text-3xl font-black text-crimson-500">
-                      {stat.value}
-                    </span>
-                    <span className="font-sans text-xs uppercase tracking-wider text-warm-800/60">
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center mt-10">
+              {communityStats.map((stat) => (
+                <div key={stat.label} className="rounded-2xl bg-white/10 backdrop-blur-sm p-4 sm:p-6">
+                  <span className="font-stat text-3xl font-black text-saffron-400">
+                    {stat.value}
+                  </span>
+                  <span className="font-sans text-xs uppercase tracking-wider text-white/60 block mt-1">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Donor Tiers */}
-      <section className="bg-cream py-12 sm:py-20 px-4 sm:px-6">
+      {/* Donor Tiers on Cream */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-10 sm:mb-14">
@@ -178,26 +170,26 @@ export default function DonorWallPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6">
+      {/* CTA on Dark */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">
+            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">
               सेवा में भागीदार बनें
             </p>
-            <h2 className="font-serif text-2xl md:text-3xl text-warm-900 mb-4">
+            <h2 className="font-serif text-2xl md:text-3xl text-white mb-4">
               Join Our Donor Community
             </h2>
-            <p className="font-sans text-warm-600 leading-relaxed mb-8">
+            <p className="font-sans text-white/70 leading-relaxed mb-8">
               Your generosity directly funds free dialysis sessions, disability support, widow pensions,
               disaster relief, and more. All donations are eligible for 80G tax deduction.
             </p>
             <Link href="/get-involved">
-              <Button size="lg">Donate and Join</Button>
+              <Button size="lg" className="bg-white text-crimson-500 hover:bg-white/90">Donate and Join</Button>
             </Link>
           </ScrollReveal>
         </div>
       </section>
-    </div>
+    </>
   );
 }

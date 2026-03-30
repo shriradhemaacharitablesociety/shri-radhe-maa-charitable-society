@@ -159,71 +159,84 @@ export default function EventsPage() {
   ]);
 
   return (
-    <section className="bg-white" style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-7xl mx-auto px-6">
-        <ScrollReveal>
-          <SectionHeader
-            title="Events & Activities"
-            titleHi="आयोजन और गतिविधियाँ"
-            subtitle="From spiritual gatherings to seva camps — stay updated on our upcoming and past events."
-            className="mb-10"
-          />
-        </ScrollReveal>
 
-        {/* Upcoming Events */}
-        <ScrollReveal delay={100}>
-          <div className="flex items-center gap-3 mb-6">
-            <h2 className="font-serif text-2xl text-warm-900">Upcoming Events</h2>
-            <p className="font-devanagari text-sm text-warm-800/50" lang="hi">आगामी आयोजन</p>
-            <Badge variant="crimson">Live</Badge>
-          </div>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
-          {upcomingEvents.map((event, i) => (
-            <ScrollReveal key={event.title} delay={150 + i * 100}>
-              <EventCard event={event} variant="cream" />
-            </ScrollReveal>
-          ))}
+      {/* Dark Hero */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">आयोजन और गतिविधियाँ</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Events &amp; Activities</h1>
+            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+              From spiritual gatherings to seva camps — stay updated on our upcoming and past events.
+            </p>
+          </ScrollReveal>
         </div>
+      </section>
 
-        {/* Past Events */}
-        <ScrollReveal delay={500}>
-          <div className="flex items-center gap-3 mb-6">
-            <h2 className="font-serif text-2xl text-warm-900">Past Events</h2>
-            <p className="font-devanagari text-sm text-warm-800/50" lang="hi">पिछले आयोजन</p>
+      {/* Upcoming Events on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal delay={100}>
+            <div className="flex items-center gap-3 mb-6">
+              <h2 className="font-serif text-2xl md:text-3xl text-warm-900">Upcoming Events</h2>
+              <p className="font-devanagari text-sm text-warm-800/50" lang="hi">आगामी आयोजन</p>
+              <Badge variant="crimson">Live</Badge>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {upcomingEvents.map((event, i) => (
+              <ScrollReveal key={event.title} delay={150 + i * 100}>
+                <EventCard event={event} variant="cream" />
+              </ScrollReveal>
+            ))}
           </div>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-          {pastEvents.map((event, i) => (
-            <ScrollReveal key={event.title} delay={550 + i * 80}>
-              <EventCard event={event} variant="cream" />
-            </ScrollReveal>
-          ))}
         </div>
+      </section>
 
-        {/* Newsletter CTA */}
-        <ScrollReveal delay={1000}>
-          <div className="rounded-2xl border border-black/[0.06] bg-cream p-8 text-center">
-            <p className="font-devanagari text-sm text-crimson-500 mb-1" lang="hi">अपडेट रहें</p>
-            <h3 className="font-serif text-xl text-warm-900 mb-3">Stay Updated on Events</h3>
-            <p className="font-sans text-sm text-warm-600 leading-relaxed mb-5 max-w-md mx-auto">
+      {/* Past Events on Cream */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal delay={500}>
+            <div className="flex items-center gap-3 mb-6">
+              <h2 className="font-serif text-2xl md:text-3xl text-warm-900">Past Events</h2>
+              <p className="font-devanagari text-sm text-warm-800/50" lang="hi">पिछले आयोजन</p>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {pastEvents.map((event, i) => (
+              <ScrollReveal key={event.title} delay={550 + i * 80}>
+                <EventCard event={event} />
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Dark CTA */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <ScrollReveal delay={1000}>
+            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">अपडेट रहें</p>
+            <h3 className="font-serif text-2xl md:text-3xl text-white mb-3">Stay Updated on Events</h3>
+            <p className="font-sans text-sm text-white/70 leading-relaxed mb-6 max-w-md mx-auto">
               To receive updates about upcoming seva camps, spiritual events, and distribution drives, contact us or follow our social media.
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-crimson-500 text-white text-sm font-medium rounded-lg hover:bg-crimson-600 transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-crimson-500 text-sm font-medium rounded-lg hover:bg-white/90 transition-colors duration-200"
             >
               Contact Us
             </a>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
+          </ScrollReveal>
+        </div>
+      </section>
+    </>
   );
 }

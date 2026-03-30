@@ -150,34 +150,31 @@ export default async function AnnualReportPage({
   ]);
 
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      {/* ── Section 1: Header ──────────────────────────────────────── */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6">
+      {/* Dark Hero */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <SectionHeader
-              title={
-                isHindi ? "वार्षिक रिपोर्ट 2025-26" : "Annual Report 2025-26"
-              }
-              titleHi={isHindi ? undefined : "वार्षिक रिपोर्ट"}
-              subtitle={
-                isHindi
-                  ? "पारदर्शिता और जवाबदेही — हमारे सेवा कार्यों का वार्षिक विवरण।"
-                  : "Transparency and accountability — a comprehensive overview of our seva activities."
-              }
-              className="mb-14"
-            />
+            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">वार्षिक रिपोर्ट</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">
+              {isHindi ? "वार्षिक रिपोर्ट 2025-26" : "Annual Report 2025-26"}
+            </h1>
+            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+              {isHindi
+                ? "पारदर्शिता और जवाबदेही — हमारे सेवा कार्यों का वार्षिक विवरण।"
+                : "Transparency and accountability — a comprehensive overview of our seva activities."}
+            </p>
           </ScrollReveal>
         </div>
       </section>
 
       {/* ── Section 2: Key Highlights ──────────────────────────────── */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-cream">
+      <section className="py-12 md:py-20 px-4 sm:px-6 bg-cream">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <h3 className="font-serif text-xl sm:text-2xl text-warm-900 tracking-tight text-center mb-10">
@@ -187,10 +184,11 @@ export default async function AnnualReportPage({
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {highlights.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={100 + i * 100}>
-                <div className="rounded-2xl border border-black/[0.06] bg-white p-4 sm:p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                <div className="rounded-2xl bg-white shadow-md p-4 sm:p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 relative overflow-hidden"
                   style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
                 >
-                  <p className="font-sans text-2xl sm:text-3xl md:text-4xl font-bold text-crimson-500 mb-2">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
+                  <p className="font-stat text-2xl sm:text-3xl md:text-4xl font-black text-crimson-500 mb-2">
                     {stat.value}
                   </p>
                   <p className="text-warm-600 font-sans text-sm">
@@ -204,7 +202,7 @@ export default async function AnnualReportPage({
       </section>
 
       {/* ── Section 3: Fund Utilization ────────────────────────────── */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6">
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <h3 className="font-serif text-xl sm:text-2xl text-warm-900 tracking-tight text-center mb-3">
@@ -260,7 +258,7 @@ export default async function AnnualReportPage({
       </section>
 
       {/* ── Section 4: Timeline of Key Milestones ──────────────────── */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-cream">
+      <section className="py-12 md:py-20 px-4 sm:px-6 bg-cream">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <h3 className="font-serif text-xl sm:text-2xl text-warm-900 tracking-tight text-center mb-10 sm:mb-14">
@@ -316,21 +314,22 @@ export default async function AnnualReportPage({
         </div>
       </section>
 
-      {/* ── Section 5: Download PDF ────────────────────────────────── */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6">
+      {/* ── Section 5: Download PDF on Dark ────────────────────────── */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <h3 className="font-serif text-xl sm:text-2xl text-warm-900 tracking-tight mb-3">
+            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">डाउनलोड</p>
+            <h3 className="font-serif text-2xl md:text-3xl text-white mb-3">
               {isHindi
                 ? "पूरी रिपोर्ट डाउनलोड करें"
                 : "Download Full Report"}
             </h3>
-            <p className="text-warm-500 font-sans text-sm mb-8 max-w-md mx-auto">
+            <p className="text-white/60 font-sans text-sm mb-8 max-w-md mx-auto">
               {isHindi
                 ? "वित्तीय विवरण और विस्तृत प्रभाव आँकड़ों सहित पूरी वार्षिक रिपोर्ट PDF में डाउनलोड करें।"
                 : "Download the complete annual report as PDF including financial statements and detailed impact statistics."}
             </p>
-            <Button variant="primary" size="lg">
+            <Button variant="primary" size="lg" className="bg-white text-crimson-500 hover:bg-white/90">
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -352,6 +351,6 @@ export default async function AnnualReportPage({
           </ScrollReveal>
         </div>
       </section>
-    </div>
+    </>
   );
 }

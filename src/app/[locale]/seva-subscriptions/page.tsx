@@ -141,25 +141,34 @@ export default async function SevaSubscriptionsPage({
   ]);
 
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <ScrollReveal>
-          <SectionHeader
-            title={isHindi ? "मासिक सेवा" : "Monthly Seva"}
-            titleHi={isHindi ? undefined : "मासिक सेवा"}
-            subtitle={
-              isHindi
+
+      {/* Crimson Gradient Hero */}
+      <section className="bg-gradient-to-br from-crimson-600 via-crimson-500 to-crimson-700 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <p className="font-devanagari text-sm text-saffron-300 mb-3" lang="hi">
+              {isHindi ? undefined : "मासिक सेवा"}
+            </p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">
+              {isHindi ? "मासिक सेवा" : "Monthly Seva"}
+            </h1>
+            <p className="font-sans text-base text-white/80 max-w-2xl leading-relaxed">
+              {isHindi
                 ? "नियमित योगदान से हर माह जीवन बदलें। अपनी सेवा योजना चुनें।"
-                : "Transform lives every month with a regular contribution. Choose your seva plan."
-            }
-            className="mb-14"
-          />
-        </ScrollReveal>
+                : "Transform lives every month with a regular contribution. Choose your seva plan."}
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Tiers on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto">
 
         {/* Tiers grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
@@ -190,8 +199,8 @@ export default async function SevaSubscriptionsPage({
                 <div
                   className={`relative rounded-2xl border-2 bg-white p-5 sm:p-8 transition-all duration-300 hover:-translate-y-0.5 ${
                     tier.popular
-                      ? `${accentBorder} shadow-lg scale-[1.02]`
-                      : "border-black/[0.06] hover:shadow-lg"
+                      ? `${accentBorder} shadow-xl scale-[1.02]`
+                      : "border-transparent shadow-md hover:shadow-xl"
                   }`}
                   style={{
                     transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
@@ -293,17 +302,22 @@ export default async function SevaSubscriptionsPage({
           })}
         </div>
 
-        {/* Bottom note */}
-        <ScrollReveal delay={500}>
-          <div className="text-center mt-14">
-            <p className="text-warm-500 font-sans text-sm leading-relaxed max-w-xl mx-auto">
+      </div>
+      </section>
+
+      {/* Bottom note on Cream */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <ScrollReveal delay={500}>
+            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">जानकारी</p>
+            <p className="text-warm-600 font-sans text-sm leading-relaxed max-w-xl mx-auto">
               {isHindi
                 ? "सभी सदस्यताएँ आयकर अधिनियम की धारा 80G के तहत कर कटौती के पात्र हैं। आप किसी भी समय अपनी सदस्यता रद्द या बदल सकते हैं।"
                 : "All subscriptions are eligible for tax deduction under Section 80G of the Income Tax Act. You can cancel or change your plan at any time."}
             </p>
-          </div>
-        </ScrollReveal>
-      </div>
-    </div>
+          </ScrollReveal>
+        </div>
+      </section>
+    </>
   );
 }

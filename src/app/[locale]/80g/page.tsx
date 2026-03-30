@@ -90,27 +90,30 @@ export default async function TaxBenefitsPage({
   const currentSteps = isHindi ? steps.hi : steps.en;
 
   return (
-    <div className="section-white" style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      {/* Header */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto">
+      {/* Dark Hero */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <SectionHeader
-              title="80G Tax Benefits"
-              titleHi="80G कर लाभ"
-              subtitle={
-                isHindi
-                  ? "श्री राधे माँ चैरिटेबल सोसाइटी को किया गया दान आयकर अधिनियम की धारा 80G के तहत कर कटौती के लिए पात्र है।"
-                  : "Donations made to Shri Radhe Maa Charitable Society are eligible for tax deduction under Section 80G of the Income Tax Act, 1961."
-              }
-              className="mb-14"
-            />
+            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">80G कर लाभ</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">80G Tax Benefits</h1>
+            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+              {isHindi
+                ? "श्री राधे माँ चैरिटेबल सोसाइटी को किया गया दान आयकर अधिनियम की धारा 80G के तहत कर कटौती के लिए पात्र है।"
+                : "Donations made to Shri Radhe Maa Charitable Society are eligible for tax deduction under Section 80G of the Income Tax Act, 1961."}
+            </p>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Content on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto">
 
           {/* What is 80G */}
           <ScrollReveal delay={100}>
@@ -133,7 +136,8 @@ export default async function TaxBenefitsPage({
 
           {/* Tax Calculation Card */}
           <ScrollReveal delay={200}>
-            <div className="mb-14 rounded-3xl border border-saffron-300/50 bg-saffron-50/40 p-5 sm:p-8 md:p-10">
+            <div className="mb-14 rounded-2xl bg-cream shadow-md p-5 sm:p-8 md:p-10 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron-500 to-crimson-500" />
               <p className="font-devanagari text-center text-sm text-crimson-500 mb-2" lang="hi">
                 कर बचत उदाहरण
               </p>
@@ -201,7 +205,7 @@ export default async function TaxBenefitsPage({
           {/* Steps to Claim */}
           <ScrollReveal delay={300}>
             <div className="mb-14">
-              <h3 className="font-serif text-2xl text-warm-900 text-center mb-8">
+              <h3 className="font-serif text-2xl md:text-3xl text-warm-900 text-center mb-8">
                 {isHindi
                   ? "80G कर लाभ का दावा कैसे करें"
                   : "How to Claim Your 80G Tax Benefit"}
@@ -211,8 +215,9 @@ export default async function TaxBenefitsPage({
                 {currentSteps.map((step, i) => (
                   <div
                     key={i}
-                    className="rounded-2xl border border-warm-200 bg-white p-5 sm:p-6 text-center"
+                    className="rounded-2xl bg-white shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 p-5 sm:p-6 text-center relative overflow-hidden"
                   >
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
                     <div className="w-10 h-10 rounded-full bg-crimson-500 text-white font-stat font-bold text-lg flex items-center justify-center mx-auto mb-4">
                       {step.number}
                     </div>
@@ -230,7 +235,7 @@ export default async function TaxBenefitsPage({
 
           {/* Society Details */}
           <ScrollReveal delay={400}>
-            <div className="mb-14 rounded-2xl border border-warm-200 bg-warm-50/50 p-4 sm:p-6 md:p-8">
+            <div className="mb-14 rounded-2xl bg-cream shadow-md p-4 sm:p-6 md:p-8">
               <h3 className="font-serif text-xl text-warm-900 mb-4">
                 {isHindi ? "सोसाइटी विवरण" : "Society Details"}
               </h3>
@@ -267,18 +272,27 @@ export default async function TaxBenefitsPage({
             </div>
           </ScrollReveal>
 
-          {/* CTA Buttons */}
+        </div>
+      </section>
+
+      {/* CTA on Dark */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal delay={500}>
+            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">कर लाभ</p>
+            <h3 className="font-serif text-2xl md:text-3xl text-white mb-6">
+              {isHindi ? "अभी दान करें और कर बचाएँ" : "Donate Now and Save on Taxes"}
+            </h3>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href={`/${locale}/contact`}
-                className="inline-flex items-center justify-center gap-2 bg-white text-crimson-500 border-2 border-crimson-500 font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto rounded-lg hover:bg-crimson-50 transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/30 font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto rounded-lg hover:bg-white/20 transition-colors duration-200"
               >
                 {isHindi ? "रसीद डाउनलोड करें" : "Download Receipt"}
               </Link>
               <Link
                 href={`/${locale}/seva`}
-                className="inline-flex items-center justify-center gap-2 bg-crimson-500 text-white font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto rounded-lg hover:bg-crimson-600 transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 bg-white text-crimson-500 font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto rounded-lg hover:bg-white/90 transition-colors duration-200"
               >
                 {isHindi ? "अभी दान करें" : "Donate Now"}
                 <svg
@@ -300,6 +314,6 @@ export default async function TaxBenefitsPage({
           </ScrollReveal>
         </div>
       </section>
-    </div>
+    </>
   );
 }

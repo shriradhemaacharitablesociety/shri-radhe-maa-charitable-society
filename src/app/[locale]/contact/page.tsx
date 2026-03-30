@@ -82,7 +82,7 @@ export default function ContactPage() {
   const faqSchema = faqJsonLd(faqs);
 
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -91,103 +91,117 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <div className="max-w-7xl mx-auto px-6">
-        <ScrollReveal>
-          <SectionHeader
-            title="Get in Touch"
-            titleHi="संपर्क करें"
-            subtitle="Whether you'd like to donate, volunteer, seek assistance, or simply know more — we're here to help."
-            className="mb-10"
-          />
-        </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {/* Contact Form — 2 cols */}
-          <ScrollReveal delay={100} className="lg:col-span-2">
-            <div className="rounded-3xl border border-saffron-200 bg-white shadow-sm shadow-warm-200/40 p-8">
-              <p className="font-devanagari text-sm text-crimson-500 mb-1" lang="hi">हमें लिखें</p>
-              <h2 className="font-serif text-2xl text-warm-900 mb-6">Send us a Message</h2>
-              <ContactForm />
-            </div>
+      {/* Dark Hero */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">संपर्क करें</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Get in Touch</h1>
+            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+              Whether you&apos;d like to donate, volunteer, seek assistance, or simply know more — we&apos;re here to help.
+            </p>
           </ScrollReveal>
+        </div>
+      </section>
 
-          {/* Sidebar */}
-          <div className="flex flex-col gap-5">
-            {/* Offices */}
-            {offices.map((office, i) => (
-              <ScrollReveal key={office.city} delay={200 + i * 100}>
-                <div className="rounded-3xl border border-saffron-200 bg-white shadow-sm shadow-warm-200/40 p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Badge variant={i === 0 ? "crimson" : "gold"}>{office.type}</Badge>
+      {/* Form + Sidebar on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            {/* Contact Form — 2 cols */}
+            <ScrollReveal delay={100} className="lg:col-span-2">
+              <div className="rounded-2xl bg-white shadow-md p-8 relative overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
+                <p className="font-devanagari text-sm text-crimson-500 mb-1" lang="hi">हमें लिखें</p>
+                <h2 className="font-serif text-2xl md:text-3xl text-warm-900 mb-6">Send us a Message</h2>
+                <ContactForm />
+              </div>
+            </ScrollReveal>
+
+            {/* Sidebar */}
+            <div className="flex flex-col gap-5">
+              {/* Offices */}
+              {offices.map((office, i) => (
+                <ScrollReveal key={office.city} delay={200 + i * 100}>
+                  <div className="rounded-2xl bg-white shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 p-6 relative overflow-hidden">
+                    <div className={`absolute top-0 left-0 right-0 h-1 ${i === 0 ? "bg-gradient-to-r from-crimson-500 to-crimson-400" : "bg-gradient-to-r from-saffron-500 to-saffron-400"}`} />
+                    <div className="flex items-center gap-2 mb-3">
+                      <Badge variant={i === 0 ? "crimson" : "gold"}>{office.type}</Badge>
+                    </div>
+                    <h3 className="font-serif text-lg text-warm-900">{office.city}</h3>
+                    <p className="font-devanagari text-xs text-warm-800/50 mt-0.5 mb-3" lang="hi">{office.cityHi}</p>
+                    <address className="font-sans text-sm text-warm-800/70 not-italic leading-relaxed whitespace-pre-line mb-3">
+                      {office.address}
+                    </address>
+                    <a
+                      href={`tel:${office.phoneFull}`}
+                      className="flex items-center gap-2 font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors"
+                    >
+                      <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                      </svg>
+                      {office.phone}
+                    </a>
                   </div>
-                  <h3 className="font-serif text-lg text-warm-900">{office.city}</h3>
-                  <p className="font-devanagari text-xs text-warm-800/50 mt-0.5 mb-3" lang="hi">{office.cityHi}</p>
-                  <address className="font-sans text-sm text-warm-800/70 not-italic leading-relaxed whitespace-pre-line mb-3">
-                    {office.address}
-                  </address>
+                </ScrollReveal>
+              ))}
+
+              {/* Email */}
+              <ScrollReveal delay={400}>
+                <div className="rounded-2xl bg-white shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 p-6 relative overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron-500 to-saffron-400" />
+                  <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-2">Email</p>
                   <a
-                    href={`tel:${office.phoneFull}`}
-                    className="flex items-center gap-2 font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors"
+                    href="mailto:shriradhemaacharitablesociety@gmail.com"
+                    className="font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors break-all leading-relaxed"
                   >
-                    <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-                    </svg>
-                    {office.phone}
+                    shriradhemaacharitablesociety@gmail.com
                   </a>
                 </div>
               </ScrollReveal>
-            ))}
 
-            {/* Email */}
-            <ScrollReveal delay={400}>
-              <div className="rounded-3xl border border-saffron-200 bg-white shadow-sm shadow-warm-200/40 p-6">
-                <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-2">Email</p>
-                <a
-                  href="mailto:shriradhemaacharitablesociety@gmail.com"
-                  className="font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors break-all leading-relaxed"
-                >
-                  shriradhemaacharitablesociety@gmail.com
-                </a>
-              </div>
-            </ScrollReveal>
-
-            {/* Social */}
-            <ScrollReveal delay={500}>
-              <div className="rounded-3xl border border-saffron-200 bg-white shadow-sm shadow-warm-200/40 p-6">
-                <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-3">Follow Us</p>
-                <div className="flex flex-col gap-2">
-                  {[
-                    { label: "Instagram", handle: "@shreeradhemaa", href: "https://www.instagram.com/shreeradhemaa" },
-                    { label: "Facebook", handle: "ShriRadheMaa", href: "https://www.facebook.com/ShriRadheMaa" },
-                    { label: "YouTube", handle: "ShreeRadheMaa", href: "https://www.youtube.com/@ShreeRadheMaa" },
-                  ].map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between font-sans text-sm text-warm-800/70 hover:text-warm-900 transition-colors group"
-                    >
-                      <span>{social.label}</span>
-                      <span className="text-warm-800/40 group-hover:text-crimson-500 transition-colors text-xs">{social.handle}</span>
-                    </a>
-                  ))}
+              {/* Social */}
+              <ScrollReveal delay={500}>
+                <div className="rounded-2xl bg-white shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 p-6 relative overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
+                  <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-3">Follow Us</p>
+                  <div className="flex flex-col gap-2">
+                    {[
+                      { label: "Instagram", handle: "@shreeradhemaa", href: "https://www.instagram.com/shreeradhemaa" },
+                      { label: "Facebook", handle: "ShriRadheMaa", href: "https://www.facebook.com/ShriRadheMaa" },
+                      { label: "YouTube", handle: "ShreeRadheMaa", href: "https://www.youtube.com/@ShreeRadheMaa" },
+                    ].map((social) => (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between font-sans text-sm text-warm-800/70 hover:text-warm-900 transition-colors group"
+                      >
+                        <span>{social.label}</span>
+                        <span className="text-warm-800/40 group-hover:text-crimson-500 transition-colors text-xs">{social.handle}</span>
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </ScrollReveal>
+              </ScrollReveal>
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* FAQ */}
-        <ScrollReveal delay={600}>
-          <div className="mt-16">
-            <h2 className="font-serif text-2xl text-warm-900 mb-2">Common Questions</h2>
+      {/* FAQ on Cream */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal delay={600}>
+            <h2 className="font-serif text-2xl md:text-3xl text-warm-900 mb-2">Common Questions</h2>
             <p className="font-devanagari text-sm text-crimson-500 mb-6" lang="hi">सामान्य प्रश्न</p>
             <div className="space-y-3">
               {faqs.map((faq) => (
                 <details
                   key={faq.question}
-                  className="group rounded-2xl border border-saffron-200 bg-white shadow-sm shadow-warm-200/40 overflow-hidden"
+                  className="group rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
                 >
                   <summary className="flex items-center justify-between cursor-pointer px-6 py-4 font-sans text-sm font-medium text-warm-900 hover:bg-saffron-50/40 transition-colors list-none">
                     {faq.question}
@@ -201,9 +215,9 @@ export default function ContactPage() {
                 </details>
               ))}
             </div>
-          </div>
-        </ScrollReveal>
-      </div>
-    </div>
+          </ScrollReveal>
+        </div>
+      </section>
+    </>
   );
 }

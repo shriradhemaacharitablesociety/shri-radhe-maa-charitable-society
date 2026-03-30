@@ -84,28 +84,34 @@ export default function VolunteerPage() {
   ]);
 
   return (
-    <div style={{ paddingTop: "24px", paddingBottom: "64px" }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="max-w-7xl mx-auto px-6">
-        <ScrollReveal>
-          <div className="mb-3">
-            <Badge variant="crimson">Volunteer</Badge>
-          </div>
-          <SectionHeader
-            title="Volunteer with Us"
-            titleHi="हमारे साथ स्वयंसेवा करें"
-            subtitle="Join our network of dedicated volunteers and make a direct impact in the lives of those we serve. Every role matters."
-            align="left"
-            className="mb-12"
-          />
-        </ScrollReveal>
+
+      {/* Dark Hero */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <Badge variant="crimson" className="mb-4">Volunteer</Badge>
+            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">हमारे साथ स्वयंसेवा करें</p>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Volunteer with Us</h1>
+            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+              Join our network of dedicated volunteers and make a direct impact in the lives of those we serve. Every role matters.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Inspirational quote on White */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto">
 
         {/* Inspirational quote */}
         <ScrollReveal delay={100}>
-          <div className="mb-10 rounded-3xl border border-saffron-300/50 bg-saffron-50/40 p-8">
+          <div className="mb-10 rounded-2xl bg-cream p-8 shadow-md relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron-500 to-saffron-400" />
             <p className="font-serif text-xl text-warm-900 leading-relaxed mb-3">
               &ldquo;The best way to find yourself is to lose yourself in the service of others.&rdquo;
             </p>
@@ -228,27 +234,31 @@ export default function VolunteerPage() {
           </Card>
         </ScrollReveal>
 
-        {/* Contact for Volunteering */}
-        <ScrollReveal delay={950}>
-          <div className="rounded-3xl border border-crimson-200/50 bg-crimson-50/30 p-8">
-            <p className="font-devanagari text-sm text-crimson-500 mb-1" lang="hi">आज ही जुड़ें</p>
-            <h3 className="font-serif text-xl text-warm-900 mb-3">Contact for Volunteering</h3>
-            <p className="font-sans text-sm text-warm-800/60 leading-relaxed mb-6 max-w-lg">
+      </div>
+      </section>
+
+      {/* Contact CTA on Dark */}
+      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal delay={950}>
+            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">आज ही जुड़ें</p>
+            <h3 className="font-serif text-2xl md:text-3xl text-white mb-3">Contact for Volunteering</h3>
+            <p className="font-sans text-sm text-white/70 leading-relaxed mb-6 max-w-lg">
               Ready to begin your seva journey? Reach out to us today — our team will guide you through the process and help you find the role that fits you best.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-              <div className="rounded-2xl bg-white/50 border border-warm-800/[0.05] px-5 py-4">
-                <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-1.5">Call Us</p>
-                <a href="tel:+919560800343" className="font-stat text-2xl font-bold text-crimson-500 hover:text-crimson-600 transition-colors block">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 max-w-lg">
+              <div className="rounded-2xl bg-white/10 backdrop-blur-sm px-5 py-4">
+                <p className="font-sans text-xs uppercase tracking-wider text-white/50 mb-1.5">Call Us</p>
+                <a href="tel:+919560800343" className="font-stat text-2xl font-bold text-saffron-400 hover:text-saffron-300 transition-colors block">
                   95608 00343
                 </a>
-                <p className="font-sans text-xs text-warm-800/50 mt-1">Mon – Sat, 10 AM – 6 PM</p>
+                <p className="font-sans text-xs text-white/50 mt-1">Mon – Sat, 10 AM – 6 PM</p>
               </div>
-              <div className="rounded-2xl bg-white/50 border border-warm-800/[0.05] px-5 py-4">
-                <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-1.5">Email Us</p>
+              <div className="rounded-2xl bg-white/10 backdrop-blur-sm px-5 py-4">
+                <p className="font-sans text-xs uppercase tracking-wider text-white/50 mb-1.5">Email Us</p>
                 <a
                   href="mailto:shriradhemaacharitablesociety@gmail.com"
-                  className="font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors break-all"
+                  className="font-sans text-sm text-saffron-400 hover:text-saffron-300 transition-colors break-all"
                 >
                   shriradhemaacharitablesociety@gmail.com
                 </a>
@@ -257,21 +267,20 @@ export default function VolunteerPage() {
             <div className="flex flex-wrap gap-3">
               <a
                 href="tel:+919560800343"
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-crimson-500 to-crimson-400 text-white text-sm font-medium rounded-pill hover:from-crimson-600 hover:to-crimson-500 transition-all duration-300"
-                style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-crimson-500 text-sm font-medium rounded-lg hover:bg-white/90 transition-all duration-300"
               >
                 Call Now
               </a>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-2.5 border border-warm-800/20 text-warm-800/70 text-sm font-medium rounded-pill hover:bg-warm-100 hover:text-warm-900 transition-all duration-200 font-sans"
+                className="inline-flex items-center gap-2 px-6 py-2.5 border border-white/30 text-white text-sm font-medium rounded-lg hover:bg-white/10 transition-all duration-200 font-sans"
               >
                 Send a Message
               </a>
             </div>
-          </div>
-        </ScrollReveal>
-      </div>
-    </div>
+          </ScrollReveal>
+        </div>
+      </section>
+    </>
   );
 }
