@@ -103,43 +103,50 @@ export function Hero() {
             </ScrollReveal>
           </div>
 
-          {/* Desktop stat cards */}
+          {/* Desktop stat cards — sidebar style */}
           <div className="hidden lg:flex flex-col gap-3 pt-8">
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={200 + i * 120}>
-                <div className="group relative bg-cream rounded-2xl border border-black/[0.06] p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                  <div className="absolute left-0 top-3 bottom-3 w-[3px] rounded-full bg-crimson-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="font-stat font-bold leading-none text-crimson-500 text-[28px]">
-                    {stat.num}
+                <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+                  <div className="shrink-0 w-24 bg-crimson-500 flex items-center justify-center">
+                    <div className="font-stat font-bold text-white text-2xl leading-none">
+                      {stat.num}
+                    </div>
                   </div>
-                  <p className="font-sans text-warm-600 font-medium text-[11px] uppercase tracking-[1.5px] mt-2">
-                    {stat.label}
-                  </p>
-                  <p className="font-sans text-warm-500 text-[11px] mt-1">
-                    {stat.detail}
-                  </p>
+                  <div className="flex-1 p-4">
+                    <p className="font-sans text-warm-800 font-semibold text-sm">
+                      {stat.label}
+                    </p>
+                    <p className="font-sans text-warm-500 text-xs mt-1">
+                      {stat.detail}
+                    </p>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
           </div>
 
-          {/* Mobile horizontal scroll stat cards */}
+          {/* Mobile stat cards — sidebar style, horizontal scroll */}
           <div className="lg:hidden -mx-4 px-4 mt-3">
             <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-2 scrollbar-hide">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="snap-start shrink-0 min-w-[200px] flex-1 bg-cream rounded-xl border-l-[3px] border-l-crimson-500 border border-black/[0.06] px-4 py-3.5 shadow-sm"
+                  className="snap-start shrink-0 min-w-[240px] flex-1 flex rounded-2xl overflow-hidden shadow-md bg-white"
                 >
-                  <div className="font-stat font-bold text-crimson-500 text-xl leading-none">
-                    {stat.num}
+                  <div className="shrink-0 w-20 bg-crimson-500 flex items-center justify-center">
+                    <div className="font-stat font-bold text-white text-lg leading-none text-center px-2">
+                      {stat.num}
+                    </div>
                   </div>
-                  <p className="font-sans text-warm-700 font-medium text-[10px] uppercase tracking-wider mt-1.5">
-                    {stat.label}
-                  </p>
-                  <p className="font-sans text-warm-500 text-[10px] mt-0.5">
-                    {stat.detail}
-                  </p>
+                  <div className="flex-1 p-3.5">
+                    <p className="font-sans text-warm-800 font-semibold text-xs uppercase tracking-wider">
+                      {stat.label}
+                    </p>
+                    <p className="font-sans text-warm-500 text-[10px] mt-1 leading-snug">
+                      {stat.detail}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
