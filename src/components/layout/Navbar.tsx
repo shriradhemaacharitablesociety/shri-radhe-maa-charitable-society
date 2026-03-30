@@ -33,6 +33,7 @@ export function Navbar() {
     { href: "/about", label: t("about") },
     { href: "/seva", label: t("seva") },
     { href: "/events", label: t("events") },
+    { href: "/campaigns", label: "Campaigns" },
   ] as const;
 
   const rightLinks = [

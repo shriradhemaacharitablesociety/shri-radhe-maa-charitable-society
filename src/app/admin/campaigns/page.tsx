@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { campaigns } from "@/data/campaigns";
 
 function formatCurrency(amount: number): string {
@@ -43,7 +44,7 @@ export default function AdminCampaigns() {
         {/* Table */}
         <div className="bg-white rounded-xl border border-warm-100 shadow-sm overflow-hidden">
           <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
-            <table className="min-w-[600px] w-full">
+            <table className="min-w-[700px] w-full">
               <thead>
                 <tr className="bg-warm-50">
                   <th className="text-left text-xs font-medium text-warm-600 uppercase tracking-wider px-6 py-3">
@@ -60,6 +61,9 @@ export default function AdminCampaigns() {
                   </th>
                   <th className="text-left text-xs font-medium text-warm-600 uppercase tracking-wider px-6 py-3">
                     Status
+                  </th>
+                  <th className="text-left text-xs font-medium text-warm-600 uppercase tracking-wider px-6 py-3">
+                    Data
                   </th>
                   <th className="text-right text-xs font-medium text-warm-600 uppercase tracking-wider px-6 py-3">
                     Actions
@@ -112,14 +116,31 @@ export default function AdminCampaigns() {
                           </span>
                         )}
                       </td>
+                      <td className="px-6 py-4">
+                        {!campaign.active ? (
+                          campaign.successStory ? (
+                            <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                              Data Added
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-medium bg-amber-50 text-amber-600">
+                              <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                              Pending
+                            </span>
+                          )
+                        ) : (
+                          <span className="text-xs text-warm-400">&mdash;</span>
+                        )}
+                      </td>
                       <td className="px-6 py-4 text-right">
                         <div className="flex items-center justify-end gap-2">
-                          <button className="p-1.5 text-warm-400 hover:text-warm-700 hover:bg-warm-50 rounded-md transition-colors" title="Edit">
+                          <Link href={`/admin/campaigns/${campaign.id}`} className="p-1.5 text-warm-400 hover:text-warm-700 hover:bg-warm-50 rounded-md transition-colors" title="Edit">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                               <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
                               <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
                             </svg>
-                          </button>
+                          </Link>
                           <button className="p-1.5 text-warm-400 hover:text-crimson-600 hover:bg-crimson-50 rounded-md transition-colors" title="Delete">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                               <polyline points="3 6 5 6 21 6" />
