@@ -51,20 +51,48 @@ src/
 │   │   └── privacy-policy/, terms/, refund-policy/
 │   └── admin/                  # Dashboard (NO i18n, excluded from middleware)
 │       ├── layout.tsx          # Sidebar + responsive hamburger
-│       └── [module]/page.tsx   # blog, events, stories, campaigns, donations, gallery, messages, subscribers, settings, users
+│       ├── AdminShell.tsx      # Client shell component
+│       └── [module]/page.tsx   # blog, events, events/[id], stories, campaigns, campaigns/[id], donations, gallery, messages, subscribers, settings, users, faq
 ├── components/
-│   ├── ui/                     # Button, Card, Badge, SectionHeader, ScrollReveal, AnimatedCounter
-│   ├── home/                   # Hero, TrustBar, ImpactCounter, SevaGrid, AboutStrip, DonateCTA, EventCards, NewsletterStrip
-│   ├── layout/                 # Navbar, MobileNav, Footer, SocietyBanner, WhatsAppButton, CookieConsent, LenisProvider
+│   ├── ui/                     # Button, Card, Badge, SectionHeader, ScrollReveal, AnimatedCounter, SidebarCard
+│   ├── home/                   # Hero, TrustBar, ImpactCounter, SevaGrid, AboutStrip, DonateCTA, EventCards, NewsletterStrip, CampaignCards, StoriesPreview
+│   ├── layout/                 # Navbar, NavbarLogo, MobileNav, Footer, SocietyBanner, WhatsAppButton, CookieConsent, LenisProvider, GoogleAnalytics
+│   ├── campaigns/              # CampaignGallery, TopDonorsList
 │   ├── contact/                # ContactForm
 │   ├── donate/                 # DonationForm, BankDetails, QRCode, ImpactAmounts
 │   └── gallery/                # GalleryGrid
-├── data/                       # Static JSON data (stories, blog, campaigns, impact/FAQs)
+├── data/                       # Static TS data (stories, blog, campaigns, events, impact)
 ├── lib/                        # utils.ts, seo.ts, fonts.ts, razorpay.ts
+│   └── supabase/               # client.ts, server.ts (Supabase client helpers)
 ├── messages/                   # en.json, hi.json translation files
 ├── i18n/                       # Routing config
 └── middleware.ts               # i18n middleware (excludes /admin, /api)
 ```
+
+## API Routes
+```
+src/app/api/
+├── admin/
+│   ├── blog/              # Blog CRUD
+│   ├── events/            # Events CRUD
+│   ├── messages/          # Contact messages
+│   └── subscribers/       # Newsletter subscribers
+├── auth/
+│   └── callback/          # Supabase auth callback
+├── contact/               # Public contact form submission
+└── subscribe/             # Public newsletter signup
+```
+
+## Supabase Schema
+Tables: `blog_posts`, `events`, `messages`, `subscribers` (more planned).
+Client helpers in `src/lib/supabase/` (client.ts for browser, server.ts for SSR).
+Admin currently uses static data from `src/data/` with Supabase wiring in progress.
+
+## SEO / AEO / GEO
+- JSON-LD structured data schemas on public pages (Organization, WebSite, BreadcrumbList, FAQ, Event, Article)
+- Open Graph + Twitter Card meta tags via `src/lib/seo.ts`
+- Bilingual content for regional search visibility
+- Optimized for AI answer engines and Google SGE
 
 ## Key Data
 - **Phone:** 9560800343 | **Email:** shriradhemaacharitablesociety@gmail.com

@@ -6,15 +6,42 @@ import { Button } from "@/components/ui/Button";
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    // Simulate submission — wire to backend in production
-    setTimeout(() => {
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      subject: formData.get("subject") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Failed to send message. Please try again.");
+        setLoading(false);
+        return;
+      }
+
       setLoading(false);
       setSubmitted(true);
-    }, 1000);
+    } catch {
+      setError("Network error. Please try again.");
+      setLoading(false);
+    }
   }
 
   if (submitted) {
@@ -87,6 +114,10 @@ export function ContactForm() {
           className="w-full rounded-2xl border border-saffron-200 bg-saffron-50/30 px-4 py-3 font-sans text-sm text-warm-900 placeholder:text-warm-800/30 focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400/60 transition-all duration-200 resize-none"
         />
       </div>
+
+      {error && (
+        <p className="font-sans text-sm text-red-600">{error}</p>
+      )}
 
       <Button type="submit" variant="primary" size="lg" disabled={loading} className="w-full sm:w-auto">
         {loading ? "Sending..." : "Send Message"}

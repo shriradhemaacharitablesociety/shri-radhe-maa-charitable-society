@@ -1,0 +1,16 @@
+{
+  "name": "Shri Radhe Maa Charitable Society",
+  "short_name": "SRMCS",
+  "description": "Serving humanity through compassion",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#C41E3A",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,9 +1,30 @@
-# *
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /donor
+Disallow: /login
 
-# Host
-Host: https://shriradhemasociety.org
+User-agent: GPTBot
+Allow: /
 
-# Sitemaps
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
 Sitemap: https://shriradhemasociety.org/sitemap.xml
+Host: https://shriradhemasociety.org

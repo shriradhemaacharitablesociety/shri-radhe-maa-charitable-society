@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd } from "@/lib/seo";
 import { OfficeCards } from "./ContactCards";
 import { Send } from "lucide-react";
 
@@ -61,6 +61,7 @@ export default function ContactPage() {
     { name: "Contact", url: "https://shriradhemasociety.org/contact" },
   ]);
   const faqSchema = faqJsonLd(faqs);
+  const localBusiness = localBusinessJsonLd();
 
   return (
     <>
@@ -72,6 +73,13 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      {localBusiness.map((office, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(office) }}
+        />
+      ))}
 
       {/* Hero */}
       <section className="bg-white pt-6 md:pt-10 pb-8 md:pb-10 px-4 sm:px-6">

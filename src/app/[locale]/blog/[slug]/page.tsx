@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Badge } from "@/components/ui/Badge";
 import { blogPosts, categoryLabels } from "@/data/blog";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, articleJsonLd as articleJsonLdSchema } from "@/lib/seo";
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -65,18 +65,13 @@ export default async function BlogPostPage({
     { name: post.title, url: `https://shriradhemasociety.org/blog/${post.slug}` },
   ]);
 
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.excerpt,
-    datePublished: post.publishedAt,
-    author: { "@type": "Organization", name: post.author },
-    publisher: {
-      "@type": "Organization",
-      name: "Shri Radhe Maa Charitable Society",
-    },
-  };
+  const articleJsonLd = articleJsonLdSchema({
+    title: post.title,
+    excerpt: post.excerpt,
+    publishedAt: post.publishedAt,
+    author: post.author,
+    slug: post.slug,
+  });
 
   const shareUrl = `https://shriradhemasociety.org/blog/${post.slug}`;
   const shareText = `${post.title} — Shri Radhe Maa Charitable Society`;
