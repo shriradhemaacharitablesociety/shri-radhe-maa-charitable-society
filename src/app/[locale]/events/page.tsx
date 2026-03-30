@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Link } from "@/i18n/routing";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Badge } from "@/components/ui/Badge";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { Calendar, Heart, Stethoscope, Droplets, MapPin, Music, BookOpen, Shirt } from "lucide-react";
+import { events } from "@/data/events";
+import { Heart, Stethoscope, Droplets, MapPin, Music, BookOpen, Shirt } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -32,135 +33,42 @@ export async function generateMetadata({
   };
 }
 
-const upcomingEvents = [
-  {
-    type: "seva",
-    typeLabel: "Seva Camp",
-    typeLabelHi: "सेवा शिविर",
-    badgeVariant: "crimson" as const,
-    title: "Monthly Pension Distribution",
-    titleHi: "मासिक पेंशन वितरण",
-    date: "Every Month",
-    location: "Delhi & NCR",
-    icon: <Heart className="w-5 h-5" />,
-  },
-  {
-    type: "health",
-    typeLabel: "Health Camp",
-    typeLabelHi: "स्वास्थ्य शिविर",
-    badgeVariant: "gold" as const,
-    title: "Free Dialysis Awareness Drive",
-    titleHi: "निःशुल्क डायलिसिस जागरूकता",
-    date: "Coming Soon",
-    location: "Anand Hospital, Dahisar, Mumbai",
-    icon: <Stethoscope className="w-5 h-5" />,
-  },
-  {
-    type: "seva",
-    typeLabel: "Janseva",
-    typeLabelHi: "जनसेवा",
-    badgeVariant: "crimson" as const,
-    title: "Wheelchair Distribution Drive",
-    titleHi: "व्हीलचेयर वितरण अभियान",
-    date: "Coming Soon",
-    location: "Delhi",
-    icon: <Heart className="w-5 h-5" />,
-  },
-];
+const iconMap: Record<string, React.ReactNode> = {
+  seva: <Heart className="w-5 h-5" />,
+  health: <Stethoscope className="w-5 h-5" />,
+  spiritual: <Music className="w-5 h-5" />,
+  relief: <Droplets className="w-5 h-5" />,
+};
 
-const pastEvents = [
-  {
-    type: "spiritual",
-    typeLabel: "Spiritual Event",
-    typeLabelHi: "आध्यात्मिक आयोजन",
-    badgeVariant: "gold" as const,
-    title: "Bhajan Jamming",
-    titleHi: "भजन जैमिंग",
-    date: "2024",
-    location: "Delhi",
-    icon: <Music className="w-5 h-5" />,
-  },
-  {
-    type: "spiritual",
-    typeLabel: "Spiritual Event",
-    typeLabelHi: "आध्यात्मिक आयोजन",
-    badgeVariant: "gold" as const,
-    title: "Sukhmani Sahib Paath",
-    titleHi: "सुखमनी साहिब पाठ",
-    date: "2024",
-    location: "Delhi",
-    icon: <BookOpen className="w-5 h-5" />,
-  },
-  {
-    type: "spiritual",
-    typeLabel: "Spiritual Event",
-    typeLabelHi: "आध्यात्मिक आयोजन",
-    badgeVariant: "gold" as const,
-    title: "Bhagwat Katha",
-    titleHi: "भागवत कथा",
-    date: "2023",
-    location: "Delhi NCR",
-    icon: <BookOpen className="w-5 h-5" />,
-  },
-  {
-    type: "relief",
-    typeLabel: "Disaster Relief",
-    typeLabelHi: "आपदा राहत",
-    badgeVariant: "crimson" as const,
-    title: "Punjab Flood Relief — Islampur Village",
-    titleHi: "पंजाब बाढ़ राहत — इस्लामपुर",
-    date: "2023",
-    location: "Islampur Village, Punjab",
-    icon: <Droplets className="w-5 h-5" />,
-  },
-  {
-    type: "seva",
-    typeLabel: "Blanket Distribution",
-    typeLabelHi: "कंबल वितरण",
-    badgeVariant: "crimson" as const,
-    title: "Winter Blanket Distribution Drive",
-    titleHi: "शीतकालीन कंबल वितरण",
-    date: "Winter 2023",
-    location: "Delhi",
-    icon: <Shirt className="w-5 h-5" />,
-  },
-  {
-    type: "health",
-    typeLabel: "Blood Donation",
-    typeLabelHi: "रक्तदान",
-    badgeVariant: "gold" as const,
-    title: "Blood Donation Camp",
-    titleHi: "रक्तदान शिविर",
-    date: "2023",
-    location: "Delhi",
-    icon: <Droplets className="w-5 h-5" />,
-  },
-];
+const upcomingEvts = events.filter((e) => e.status === "upcoming");
+const pastEvts = events.filter((e) => e.status === "completed");
 
-function EventCard({ event }: { event: typeof upcomingEvents[0]; variant?: "white" | "cream" }) {
+function EventCard({ event }: { event: (typeof events)[number] }) {
   return (
-    <div className="group flex h-full rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
-      <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
-        {event.icon}
-        <span
-          className="font-stat font-bold text-sm md:text-base uppercase tracking-wider"
-          style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
-        >
-          {event.date}
-        </span>
-      </div>
-      <div className="flex-1 p-4 md:p-5">
-        <Badge variant={event.badgeVariant}>{event.typeLabel}</Badge>
-        <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900 mt-2">
-          {event.title}
-        </h3>
-        <p className="font-devanagari text-warm-500 text-xs mt-0.5" lang="hi">{event.titleHi}</p>
-        <div className="flex items-center gap-1.5 mt-3">
-          <MapPin className="w-3.5 h-3.5 text-saffron-500 shrink-0" />
-          <span className="font-sans text-xs md:text-sm text-warm-600">{event.location}</span>
+    <Link href={`/events/${event.slug}` as any} className="block h-full">
+      <div className="group flex h-full rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+        <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+          {iconMap[event.type] || <Heart className="w-5 h-5" />}
+          <span
+            className="font-stat font-bold text-sm md:text-base uppercase tracking-wider"
+            style={{ writingMode: "vertical-lr" as const, textOrientation: "mixed" as const }}
+          >
+            {event.date}
+          </span>
+        </div>
+        <div className="flex-1 p-4 md:p-5">
+          <Badge variant={event.badgeVariant}>{event.typeLabel}</Badge>
+          <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900 mt-2">
+            {event.title}
+          </h3>
+          <p className="font-devanagari text-warm-500 text-xs mt-0.5" lang="hi">{event.titleHi}</p>
+          <div className="flex items-center gap-1.5 mt-3">
+            <MapPin className="w-3.5 h-3.5 text-saffron-500 shrink-0" />
+            <span className="font-sans text-xs md:text-sm text-warm-600">{event.location}</span>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -203,9 +111,9 @@ export default function EventsPage() {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {upcomingEvents.map((event, i) => (
+            {upcomingEvts.map((event, i) => (
               <ScrollReveal key={event.title} delay={150 + i * 100}>
-                <EventCard event={event} variant="cream" />
+                <EventCard event={event} />
               </ScrollReveal>
             ))}
           </div>
@@ -223,7 +131,7 @@ export default function EventsPage() {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {pastEvents.map((event, i) => (
+            {pastEvts.map((event, i) => (
               <ScrollReveal key={event.title} delay={550 + i * 80}>
                 <EventCard event={event} />
               </ScrollReveal>
