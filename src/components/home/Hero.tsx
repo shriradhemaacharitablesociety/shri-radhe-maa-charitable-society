@@ -43,7 +43,7 @@ export function Hero() {
 
             <div className="relative mt-3 md:mt-6">
               <div
-                className="font-devanagari font-black select-none pointer-events-none hidden md:block"
+                className="font-devanagari font-black select-none pointer-events-none"
                 style={{
                   fontSize: "clamp(60px, 15vw, 120px)",
                   lineHeight: 0.85,
@@ -73,7 +73,7 @@ export function Hero() {
 
             <ScrollReveal delay={150}>
               <p
-                className="font-devanagari text-saffron-500 opacity-50 hidden md:block"
+                className="font-devanagari text-saffron-500 opacity-50"
                 style={{ fontSize: "14px", marginTop: "8px" }}
               >
                 {t("sanskrit")}

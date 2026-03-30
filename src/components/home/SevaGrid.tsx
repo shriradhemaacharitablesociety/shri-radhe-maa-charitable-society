@@ -14,7 +14,7 @@ export function SevaGrid() {
       titleHi: "निःशुल्क डायलिसिस सेवा",
       stat: t("dialysis_stat"),
       desc: t("dialysis_desc"),
-      featured: true,
+      featured: false,
     },
     {
       icon: <Heart className="w-5 h-5" />,
@@ -75,13 +75,9 @@ export function SevaGrid() {
           {sevaItems.map((item, i) => (
             <ScrollReveal key={item.title} delay={100 + i * 80}>
               <div
-                className={`group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white ${
-                  item.featured ? "md:col-span-2 border-2 border-crimson-200" : ""
-                }`}
+                className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white"
               >
-                <div className={`shrink-0 w-20 md:w-24 flex flex-col items-center justify-center text-white gap-2 ${
-                  item.featured ? "bg-gradient-to-b from-crimson-500 to-crimson-600" : "bg-crimson-500"
-                }`}>
+                <div className="shrink-0 w-20 md:w-24 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500">
                   {item.icon}
                   <span className="font-stat font-bold text-sm md:text-lg leading-none">
                     {item.stat}
