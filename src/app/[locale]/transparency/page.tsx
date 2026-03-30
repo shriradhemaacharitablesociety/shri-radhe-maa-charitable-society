@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Card, CardHeader, CardContent } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { ClipboardList, FileText, BarChart3, Landmark, FolderOpen, MailCheck, Phone, Mail } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -67,18 +65,15 @@ export default function TransparencyPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {/* Registration */}
           <ScrollReveal delay={100}>
-            <Card accent="gold" className="h-full">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="text-2xl" aria-hidden="true">📋</div>
-                  <div>
-                    <h2 className="font-serif text-xl text-warm-900">Society Registration</h2>
-                    <p className="font-devanagari text-sm text-warm-800/50 mt-0.5" lang="hi">सोसाइटी पंजीकरण</p>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <dl className="space-y-3">
+            <div className="group flex h-full rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+              <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+                <ClipboardList className="w-5 h-5" />
+                <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>REG</span>
+              </div>
+              <div className="flex-1 p-4 md:p-5">
+                <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900">Society Registration</h3>
+                <p className="font-devanagari text-warm-500 text-xs mt-0.5" lang="hi">सोसाइटी पंजीकरण</p>
+                <dl className="space-y-3 mt-3">
                   {[
                     { label: "Registration Number", value: "S/2930/SDM/NW/2017" },
                     { label: "Registered Under", value: "The Societies Registration Act, 1860" },
@@ -92,24 +87,21 @@ export default function TransparencyPage() {
                     </div>
                   ))}
                 </dl>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </ScrollReveal>
 
           {/* 80G + 12A */}
           <ScrollReveal delay={150}>
-            <Card accent="crimson" className="h-full">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="text-2xl" aria-hidden="true">📄</div>
-                  <div>
-                    <h2 className="font-serif text-xl text-warm-900">Tax Exemption & 12A</h2>
-                    <p className="font-devanagari text-sm text-warm-800/50 mt-0.5" lang="hi">80G एवं 12A पंजीकरण</p>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="font-sans text-sm text-warm-800/70 leading-relaxed mb-4">
+            <div className="group flex h-full rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+              <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+                <FileText className="w-5 h-5" />
+                <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>80G</span>
+              </div>
+              <div className="flex-1 p-4 md:p-5">
+                <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900">Tax Exemption &amp; 12A</h3>
+                <p className="font-devanagari text-warm-500 text-xs mt-0.5" lang="hi">80G एवं 12A पंजीकरण</p>
+                <p className="text-warm-600 font-sans text-xs md:text-sm leading-relaxed mt-2 mb-4">
                   Donations to the Shri Radhe Maa Charitable Society are eligible for tax deduction under <strong>Section 80G</strong> of the Income Tax Act, 1961. The society is also registered under <strong>Section 12A</strong>, which grants income tax exemption on the society&apos;s own income.
                 </p>
                 <div className="space-y-2 mb-4">
@@ -133,25 +125,22 @@ export default function TransparencyPage() {
                     Email: <a href="mailto:shriradhemaacharitablesociety@gmail.com" className="text-crimson-500 hover:text-crimson-600 transition-colors break-all">shriradhemaacharitablesociety@gmail.com</a>
                   </p>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </ScrollReveal>
         </div>
 
         {/* Fund Utilisation */}
         <ScrollReveal delay={250}>
-          <Card accent="crimson" className="mb-6">
-            <CardHeader>
-              <div className="flex items-center gap-3 mb-2">
-                <div className="text-2xl" aria-hidden="true">📊</div>
-                <div>
-                  <h2 className="font-serif text-xl text-warm-900">Fund Utilisation</h2>
-                  <p className="font-devanagari text-sm text-warm-800/50 mt-0.5" lang="hi">निधि उपयोग विवरण</p>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="font-sans text-sm text-warm-800/70 leading-relaxed mb-5">
+          <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white mb-6">
+            <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+              <BarChart3 className="w-5 h-5" />
+              <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>FUNDS</span>
+            </div>
+            <div className="flex-1 p-4 md:p-5">
+              <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900">Fund Utilisation</h3>
+              <p className="font-devanagari text-warm-500 text-xs mt-0.5" lang="hi">निधि उपयोग विवरण</p>
+              <p className="text-warm-600 font-sans text-xs md:text-sm leading-relaxed mt-2 mb-5">
                 The society maintains a strict policy of directing the maximum possible proportion of funds directly to beneficiary programmes. Our approximate allocation across activity areas:
               </p>
               <div className="space-y-4">
@@ -182,26 +171,23 @@ export default function TransparencyPage() {
               <p className="font-sans text-xs text-warm-800/40 mt-4">
                 * Approximate figures. Exact breakdown available in the annual report on request.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </ScrollReveal>
 
         {/* Governance + Annual Reports grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {/* Governance */}
           <ScrollReveal delay={350}>
-            <Card accent="gold" className="h-full">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="text-2xl" aria-hidden="true">🏛️</div>
-                  <div>
-                    <h2 className="font-serif text-xl text-warm-900">Governance</h2>
-                    <p className="font-devanagari text-sm text-warm-800/50 mt-0.5" lang="hi">शासन संरचना</p>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="rounded-2xl bg-saffron-50/60 border border-saffron-200/60 px-4 py-3 mb-4">
+            <div className="group flex h-full rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+              <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+                <Landmark className="w-5 h-5" />
+                <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>GOV</span>
+              </div>
+              <div className="flex-1 p-4 md:p-5">
+                <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900">Governance</h3>
+                <p className="font-devanagari text-warm-500 text-xs mt-0.5" lang="hi">शासन संरचना</p>
+                <div className="rounded-2xl bg-saffron-50/60 border border-saffron-200/60 px-4 py-3 mt-3 mb-4">
                   <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-1">General Secretary</p>
                   <p className="font-sans text-sm font-semibold text-warm-900">Mr. Rupendra Kashyap</p>
                   <p className="font-sans text-xs text-warm-800/50 mt-0.5">Shri Radhe Maa Charitable Society</p>
@@ -223,24 +209,21 @@ export default function TransparencyPage() {
                     </li>
                   ))}
                 </ul>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </ScrollReveal>
 
           {/* Annual Reports */}
           <ScrollReveal delay={400}>
-            <Card accent="crimson" className="h-full">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="text-2xl" aria-hidden="true">📁</div>
-                  <div>
-                    <h2 className="font-serif text-xl text-warm-900">Annual Reports</h2>
-                    <p className="font-devanagari text-sm text-warm-800/50 mt-0.5" lang="hi">वार्षिक रिपोर्ट</p>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="font-sans text-sm text-warm-800/70 leading-relaxed mb-5">
+            <div className="group flex h-full rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+              <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+                <FolderOpen className="w-5 h-5" />
+                <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>REPORTS</span>
+              </div>
+              <div className="flex-1 p-4 md:p-5">
+                <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900">Annual Reports</h3>
+                <p className="font-devanagari text-warm-500 text-xs mt-0.5" lang="hi">वार्षिक रिपोर्ट</p>
+                <p className="text-warm-600 font-sans text-xs md:text-sm leading-relaxed mt-2 mb-5">
                   Annual reports documenting our activities, financial statements, and impact are available on request. We are committed to full transparency in all our financial dealings.
                 </p>
                 <div className="space-y-3">
@@ -258,25 +241,22 @@ export default function TransparencyPage() {
                     </div>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </ScrollReveal>
         </div>
 
         {/* Contact for Verification */}
         <ScrollReveal delay={500}>
-          <Card accent="gold" className="mb-10">
-            <CardHeader>
-              <div className="flex items-center gap-3 mb-2">
-                <div className="text-2xl" aria-hidden="true">✉️</div>
-                <div>
-                  <h2 className="font-serif text-xl text-warm-900">Contact for Verification</h2>
-                  <p className="font-devanagari text-sm text-warm-800/50 mt-0.5" lang="hi">सत्यापन के लिए संपर्क</p>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="font-sans text-sm text-warm-800/70 leading-relaxed mb-5">
+          <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white mb-10">
+            <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+              <MailCheck className="w-5 h-5" />
+              <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>VERIFY</span>
+            </div>
+            <div className="flex-1 p-4 md:p-5">
+              <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900">Contact for Verification</h3>
+              <p className="font-devanagari text-warm-500 text-xs mt-0.5" lang="hi">सत्यापन के लिए संपर्क</p>
+              <p className="text-warm-600 font-sans text-xs md:text-sm leading-relaxed mt-2 mb-5">
                 Donors, auditors, and members of the public are welcome to contact us to verify registration details, request copies of certificates, or enquire about our governance and financial records. We are committed to full openness.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -302,8 +282,8 @@ export default function TransparencyPage() {
                 <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-1">Registered Office</p>
                 <p className="font-sans text-sm text-warm-900">Plot 5, Pocket-11, Sector-5, Rohini, Delhi – 110085</p>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </ScrollReveal>
 
       </div>

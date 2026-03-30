@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Card, CardHeader, CardContent } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { VolunteerStepCards, VolunteerRoleCards } from "./VolunteerCards";
+import { Quote, Sprout, Phone, Mail } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -31,51 +30,6 @@ export async function generateMetadata({
     },
   };
 }
-
-const volunteerRoles = [
-  {
-    icon: "🏥",
-    title: "Healthcare Support",
-    titleHi: "स्वास्थ्य सेवा सहयोग",
-    desc: "Assist at blood donation camps, eye and dental check-up drives, and at the free dialysis centre in Mumbai. Medical background helpful but not required.",
-    accent: "crimson" as const,
-  },
-  {
-    icon: "🎪",
-    title: "Event Coordination",
-    titleHi: "आयोजन समन्वय",
-    desc: "Help plan, organise, and execute bhajan programmes, katha events, health camps, and annual seva drives. Skills in logistics, communication, or event management valued.",
-    accent: "gold" as const,
-  },
-  {
-    icon: "📦",
-    title: "Distribution Drives",
-    titleHi: "वितरण अभियान",
-    desc: "Participate in wheelchair, blanket, clothing, food, and essential items distribution. Physical presence on drive days, with loading, sorting, and direct handover to beneficiaries.",
-    accent: "crimson" as const,
-  },
-  {
-    icon: "📝",
-    title: "Documentation",
-    titleHi: "दस्तावेज़ीकरण",
-    desc: "Help document society activities through photography, video, and written reports. Maintain beneficiary records, prepare impact reports, and support audit-readiness.",
-    accent: "gold" as const,
-  },
-  {
-    icon: "📣",
-    title: "Community Outreach",
-    titleHi: "सामुदायिक आउटरीच",
-    desc: "Identify families in need, spread awareness about programmes, build community connections, and help reach the most marginalised beneficiaries. Multilingual skills welcome.",
-    accent: "crimson" as const,
-  },
-  {
-    icon: "🖥️",
-    title: "Administration & Digital",
-    titleHi: "प्रशासन और डिजिटल",
-    desc: "Support office administration, social media, website updates, digital outreach, and correspondence. Skills in MS Office, Canva, or social media management are a plus.",
-    accent: "gold" as const,
-  },
-];
 
 export default function VolunteerPage() {
   const breadcrumb = breadcrumbJsonLd([
@@ -110,17 +64,22 @@ export default function VolunteerPage() {
 
         {/* Inspirational quote */}
         <ScrollReveal delay={100}>
-          <div className="mb-10 rounded-2xl bg-cream p-8 shadow-md relative overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron-500 to-saffron-400" />
-            <p className="font-serif text-xl text-warm-900 leading-relaxed mb-3">
-              &ldquo;The best way to find yourself is to lose yourself in the service of others.&rdquo;
-            </p>
-            <p className="font-devanagari text-base text-warm-800/60 leading-relaxed mb-4" lang="hi">
-              &ldquo;दूसरों की सेवा में खुद को खोना ही स्वयं को पाने का सबसे अच्छा तरीका है।&rdquo;
-            </p>
-            <p className="font-sans text-sm text-warm-800/60 leading-relaxed">
-              Volunteering with the Shri Radhe Maa Charitable Society is an opportunity to serve the community, grow personally, and be part of a mission that creates real, tangible change in people&apos;s lives — from the streets of Delhi to the villages of Punjab.
-            </p>
+          <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white mb-10">
+            <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+              <Quote className="w-5 h-5" />
+              <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>SEVA</span>
+            </div>
+            <div className="flex-1 p-4 md:p-5">
+              <p className="font-serif text-xl text-warm-900 leading-relaxed mb-3">
+                &ldquo;The best way to find yourself is to lose yourself in the service of others.&rdquo;
+              </p>
+              <p className="font-devanagari text-base text-warm-800/60 leading-relaxed mb-4" lang="hi">
+                &ldquo;दूसरों की सेवा में खुद को खोना ही स्वयं को पाने का सबसे अच्छा तरीका है।&rdquo;
+              </p>
+              <p className="font-sans text-sm text-warm-800/60 leading-relaxed">
+                Volunteering with the Shri Radhe Maa Charitable Society is an opportunity to serve the community, grow personally, and be part of a mission that creates real, tangible change in people&apos;s lives — from the streets of Delhi to the villages of Punjab.
+              </p>
+            </div>
           </div>
         </ScrollReveal>
 
@@ -130,50 +89,7 @@ export default function VolunteerPage() {
           <p className="font-devanagari text-sm text-crimson-500 mb-6" lang="hi">स्वयंसेवा कैसे करें</p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-          {[
-            {
-              step: "1",
-              icon: "📞",
-              title: "Apply",
-              titleHi: "आवेदन करें",
-              desc: "Call us at 95608 00343 or email shriradhemaacharitablesociety@gmail.com expressing your interest. Tell us who you are and how you'd like to help.",
-              accent: "crimson" as const,
-            },
-            {
-              step: "2",
-              icon: "🗂️",
-              title: "Get Assigned",
-              titleHi: "भूमिका प्राप्त करें",
-              desc: "Share your skills, availability, and preferred seva area. Our team will match you with the most suitable programme or drive and brief you fully.",
-              accent: "gold" as const,
-            },
-            {
-              step: "3",
-              icon: "🤲",
-              title: "Serve",
-              titleHi: "सेवा करें",
-              desc: "Attend an orientation, meet the team, and begin your seva journey. We support every volunteer with guidance, resources, and a welcoming community.",
-              accent: "crimson" as const,
-            },
-          ].map((item) => (
-            <ScrollReveal key={item.step} delay={200}>
-              <Card accent={item.accent} className="h-full">
-                <CardHeader>
-                  <div className="w-8 h-8 rounded-full bg-crimson-100 border border-crimson-200 flex items-center justify-center mb-3">
-                    <span className="font-stat text-sm font-black text-crimson-600">{item.step}</span>
-                  </div>
-                  <div className="text-2xl mb-2" aria-hidden="true">{item.icon}</div>
-                  <h3 className="font-serif text-lg text-warm-900">{item.title}</h3>
-                  <p className="font-devanagari text-sm text-warm-800/50 mt-0.5" lang="hi">{item.titleHi}</p>
-                </CardHeader>
-                <CardContent>
-                  <p className="font-sans text-sm text-warm-800/60 leading-relaxed">{item.desc}</p>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
-          ))}
-        </div>
+        <VolunteerStepCards />
 
         {/* Volunteer Roles */}
         <ScrollReveal delay={400}>
@@ -181,33 +97,19 @@ export default function VolunteerPage() {
           <p className="font-devanagari text-sm text-crimson-500 mb-6" lang="hi">स्वयंसेवक की भूमिकाएँ</p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-          {volunteerRoles.map((role, i) => (
-            <ScrollReveal key={role.title} delay={450 + i * 80}>
-              <Card accent={role.accent} className="h-full">
-                <CardHeader>
-                  <div className="text-2xl mb-2" aria-hidden="true">{role.icon}</div>
-                  <h3 className="font-serif text-lg text-warm-900">{role.title}</h3>
-                  <p className="font-devanagari text-sm text-warm-800/50 mt-0.5" lang="hi">{role.titleHi}</p>
-                </CardHeader>
-                <CardContent>
-                  <p className="font-sans text-sm text-warm-800/60 leading-relaxed">{role.desc}</p>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
-          ))}
-        </div>
+        <VolunteerRoleCards />
 
         {/* What you gain */}
         <ScrollReveal delay={870}>
-          <Card accent="gold" className="mb-10">
-            <CardHeader>
-              <div className="text-2xl mb-2" aria-hidden="true">🌱</div>
-              <h2 className="font-serif text-xl text-warm-900">What You Gain</h2>
-              <p className="font-devanagari text-sm text-warm-800/50 mt-0.5" lang="hi">स्वयंसेवक को क्या मिलता है</p>
-            </CardHeader>
-            <CardContent>
-              <p className="font-sans text-sm text-warm-800/70 leading-relaxed mb-4">
+          <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white mb-10">
+            <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+              <Sprout className="w-5 h-5" />
+              <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>GAIN</span>
+            </div>
+            <div className="flex-1 p-4 md:p-5">
+              <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900">What You Gain</h3>
+              <p className="font-devanagari text-warm-500 text-xs mt-0.5" lang="hi">स्वयंसेवक को क्या मिलता है</p>
+              <p className="text-warm-600 font-sans text-xs md:text-sm leading-relaxed mt-2 mb-4">
                 Volunteering with the society is not just an act of giving — it is also a deeply enriching personal experience. Our volunteers consistently report:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -230,8 +132,8 @@ export default function VolunteerPage() {
                   </div>
                 ))}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </ScrollReveal>
 
       </div>
@@ -247,21 +149,33 @@ export default function VolunteerPage() {
               Ready to begin your seva journey? Reach out to us today — our team will guide you through the process and help you find the role that fits you best.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 max-w-lg">
-              <div className="rounded-2xl bg-white/10 backdrop-blur-sm px-5 py-4">
-                <p className="font-sans text-xs uppercase tracking-wider text-white/50 mb-1.5">Call Us</p>
-                <a href="tel:+919560800343" className="font-stat text-2xl font-bold text-saffron-400 hover:text-saffron-300 transition-colors block">
-                  95608 00343
-                </a>
-                <p className="font-sans text-xs text-white/50 mt-1">Mon – Sat, 10 AM – 6 PM</p>
+              <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+                <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+                  <Phone className="w-5 h-5" />
+                  <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>CALL</span>
+                </div>
+                <div className="flex-1 p-4 md:p-5">
+                  <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900">Call Us</h3>
+                  <a href="tel:+919560800343" className="font-stat text-2xl font-bold text-crimson-500 hover:text-crimson-600 transition-colors block mt-1">
+                    95608 00343
+                  </a>
+                  <p className="font-sans text-xs text-warm-500 mt-1">Mon – Sat, 10 AM – 6 PM</p>
+                </div>
               </div>
-              <div className="rounded-2xl bg-white/10 backdrop-blur-sm px-5 py-4">
-                <p className="font-sans text-xs uppercase tracking-wider text-white/50 mb-1.5">Email Us</p>
-                <a
-                  href="mailto:shriradhemaacharitablesociety@gmail.com"
-                  className="font-sans text-sm text-saffron-400 hover:text-saffron-300 transition-colors break-all"
-                >
-                  shriradhemaacharitablesociety@gmail.com
-                </a>
+              <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+                <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+                  <Mail className="w-5 h-5" />
+                  <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>EMAIL</span>
+                </div>
+                <div className="flex-1 p-4 md:p-5">
+                  <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900">Email Us</h3>
+                  <a
+                    href="mailto:shriradhemaacharitablesociety@gmail.com"
+                    className="font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors break-all mt-1 block"
+                  >
+                    shriradhemaacharitablesociety@gmail.com
+                  </a>
+                </div>
               </div>
             </div>
             <div className="flex flex-wrap gap-3">

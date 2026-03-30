@@ -4,6 +4,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { SevaMapStatCards } from "./SevaMapCards";
 
 export async function generateMetadata({
   params,
@@ -127,24 +128,7 @@ export default function SevaMapPage() {
           </ScrollReveal>
 
           {/* Stats Bar inline */}
-          <ScrollReveal delay={100}>
-            <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-10 max-w-lg mx-auto">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="bg-warm-50 border border-warm-200 rounded-2xl p-3 sm:p-5 text-center"
-                >
-                  <p className="font-stat text-3xl font-black text-crimson-500">
-                    {stat.value}
-                  </p>
-                  <p className="font-sans text-sm text-warm-600 mt-1">{stat.label}</p>
-                  <p className="font-devanagari text-xs text-warm-500 mt-0.5" lang="hi">
-                    {stat.labelHi}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
+          <SevaMapStatCards stats={stats} />
         </div>
       </section>
 

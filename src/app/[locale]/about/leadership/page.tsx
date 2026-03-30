@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { GovernanceCards } from "./LeadershipCards";
+import { UserCircle, Compass, Check } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -63,28 +65,21 @@ export default function LeadershipPage() {
       <section className="py-12 md:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal delay={100}>
-            <div className="relative rounded-2xl bg-white shadow-md overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
-              <div className="p-6 md:p-8">
-                <span className="inline-block px-3 py-1 rounded-full bg-crimson-50 text-crimson-600 text-xs font-semibold font-sans uppercase tracking-wider mb-5">General Secretary</span>
-                <div className="flex gap-6 items-start">
-                  {/* Photo placeholder */}
-                  <div className="shrink-0 w-20 h-20 rounded-2xl border-2 border-warm-200 bg-warm-50 flex items-center justify-center text-warm-400">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1} viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h2 className="font-serif text-2xl text-warm-900">Mr. Rupendra Kashyap</h2>
-                    <p className="font-devanagari text-sm text-warm-600/60 mt-0.5" lang="hi">श्री रुपेंद्र कश्यप</p>
-                    <p className="font-sans text-sm text-crimson-500 font-semibold mt-2">General Secretary</p>
-                  </div>
-                </div>
-                <div className="mt-6 space-y-3">
-                  <p className="font-sans text-sm text-warm-600 leading-relaxed">
+            <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+              <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+                <UserCircle className="w-5 h-5" />
+                <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>GEN SEC</span>
+              </div>
+              <div className="flex-1 p-4 md:p-5">
+                <span className="inline-block px-3 py-1 rounded-full bg-crimson-50 text-crimson-600 text-xs font-semibold font-sans uppercase tracking-wider mb-4">General Secretary</span>
+                <h2 className="font-sans text-sm md:text-base font-semibold text-warm-900">Mr. Rupendra Kashyap</h2>
+                <p className="font-devanagari text-warm-500 text-xs mt-0.5" lang="hi">श्री रुपेंद्र कश्यप</p>
+                <p className="font-sans text-sm text-crimson-500 font-semibold mt-2">General Secretary</p>
+                <div className="mt-4 space-y-3">
+                  <p className="text-warm-600 font-sans text-xs md:text-sm leading-relaxed">
                     Mr. Rupendra Kashyap serves as the General Secretary of Shri Radhe Maa Charitable Society. Under his stewardship, the society has expanded its reach across multiple states — from operating a free dialysis centre in Mumbai to coordinating disaster relief in Punjab, Kerala, and Nepal.
                   </p>
-                  <p className="font-sans text-sm text-warm-600 leading-relaxed">
+                  <p className="text-warm-600 font-sans text-xs md:text-sm leading-relaxed">
                     His commitment to transparent governance and grassroots seva ensures that every rupee donated goes directly to the families and communities in need.
                   </p>
                 </div>
@@ -107,39 +102,7 @@ export default function LeadershipPage() {
               </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
-              {[
-                {
-                  role: "Patron",
-                  roleHi: "संरक्षक",
-                  desc: "Shri Radhe Guru Maa provides spiritual guidance and vision for all society activities.",
-                },
-                {
-                  role: "General Secretary",
-                  roleHi: "महासचिव",
-                  desc: "Mr. Rupendra Kashyap oversees day-to-day operations, governance, and programme implementation.",
-                },
-                {
-                  role: "Board of Trustees",
-                  roleHi: "न्यासी मंडल",
-                  desc: "A dedicated group of trustees ensures financial oversight and strategic direction of the society.",
-                },
-              ].map((item, i) => (
-                <ScrollReveal key={item.role} delay={250 + i * 100}>
-                  <div className="relative rounded-2xl bg-white shadow-xl overflow-hidden h-full">
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron-500 to-crimson-500" />
-                    <div className="p-6 md:p-8">
-                      <div className="w-10 h-10 rounded-full bg-crimson-500 flex items-center justify-center text-white mb-4">
-                        <span className="font-stat text-lg font-black">{i + 1}</span>
-                      </div>
-                      <h3 className="font-serif text-base text-warm-900">{item.role}</h3>
-                      <p className="font-devanagari text-xs text-warm-600/50 mt-0.5" lang="hi">{item.roleHi}</p>
-                      <p className="font-sans text-sm text-warm-600 leading-relaxed mt-3">{item.desc}</p>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+            <GovernanceCards />
           </div>
         </div>
       </section>
@@ -156,9 +119,12 @@ export default function LeadershipPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={650}>
-            <div className="relative rounded-2xl bg-white shadow-md overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
-              <div className="p-6 md:p-8">
+            <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+              <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+                <Compass className="w-5 h-5" />
+                <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>VALUES</span>
+              </div>
+              <div className="flex-1 p-4 md:p-5">
                 <ul className="space-y-4">
                   {[
                     "Transparency in all financial matters — every donation is accounted for.",
@@ -167,9 +133,7 @@ export default function LeadershipPage() {
                     "Spiritual grounding in all our humanitarian work.",
                   ].map((principle) => (
                     <li key={principle} className="flex items-start gap-3 font-sans text-sm text-warm-700">
-                      <span className="w-6 h-6 rounded-full bg-crimson-500 flex items-center justify-center shrink-0 mt-0.5">
-                        <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-                      </span>
+                      <Check className="w-4 h-4 text-crimson-500 shrink-0 mt-0.5" />
                       {principle}
                     </li>
                   ))}

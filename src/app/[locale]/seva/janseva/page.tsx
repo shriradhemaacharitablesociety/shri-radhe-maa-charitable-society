@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { JansevaActivityCards, DivyangSevaCards } from "./JansevaCards";
 
 export async function generateMetadata({
   params,
@@ -28,51 +29,6 @@ export async function generateMetadata({
     },
   };
 }
-
-const activities = [
-  {
-    icon: "♿",
-    title: "Wheelchair Distribution",
-    titleHi: "व्हीलचेयर वितरण",
-    desc: "Wheelchairs are provided free of charge to differently-abled individuals who cannot afford mobility aids. Each wheelchair restores independence, dignity, and the ability to participate in community life.",
-    detail: "For divyang individuals",
-  },
-  {
-    icon: "🎵",
-    title: "Instruments for Specially Abled",
-    titleHi: "दिव्यांगों के लिए उपकरण",
-    desc: "Musical instruments and assistive devices are distributed to specially-abled individuals as a means of livelihood, therapy, and creative expression — enabling them to earn with dignity.",
-    detail: "Livelihood & therapy",
-  },
-  {
-    icon: "🧥",
-    title: "Blanket Distribution",
-    titleHi: "कंबल वितरण",
-    desc: "During winter months, blankets are distributed to the homeless and poor to protect them from the cold — a simple but life-saving act of seva.",
-    detail: "Winter relief drives",
-  },
-  {
-    icon: "👗",
-    title: "Clothing Distribution",
-    titleHi: "वस्त्र वितरण",
-    desc: "New and quality clothing is distributed to families and individuals in need, especially during festive seasons and after disaster events.",
-    detail: "Festive & year-round",
-  },
-  {
-    icon: "🍚",
-    title: "Ann Seva — Food Distribution",
-    titleHi: "अन्न सेवा — भोजन वितरण",
-    desc: "Regular food distribution (Ann Seva) ensures that no one in our community goes hungry. Nutritious meals and food packets are distributed at regular intervals.",
-    detail: "Regular distributions",
-  },
-  {
-    icon: "📦",
-    title: "Essential Items Distribution",
-    titleHi: "आवश्यक वस्तुओं का वितरण",
-    desc: "Essential household items — toiletries, grocery staples, medicines, and daily necessities — are provided to families in need.",
-    detail: "Daily necessities",
-  },
-];
 
 export default function JansevaPage() {
   const breadcrumb = breadcrumbJsonLd([
@@ -156,24 +112,7 @@ export default function JansevaPage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {activities.map((activity, i) => (
-              <ScrollReveal key={activity.title} delay={250 + i * 80}>
-                <div className="relative rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
-                  <div className="p-6 md:p-8">
-                    <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl mb-4" aria-hidden="true">{activity.icon}</div>
-                    <h3 className="font-serif text-lg text-warm-900">{activity.title}</h3>
-                    <p className="font-devanagari text-sm text-warm-600/60 mt-0.5" lang="hi">{activity.titleHi}</p>
-                    <p className="font-sans text-sm text-warm-600 leading-relaxed mt-4 mb-4">{activity.desc}</p>
-                    <span className="inline-block font-sans text-xs text-crimson-600 bg-crimson-50 border border-crimson-200/60 rounded-full px-3 py-1 font-semibold">
-                      {activity.detail}
-                    </span>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <JansevaActivityCards />
         </div>
       </section>
 
@@ -197,22 +136,7 @@ export default function JansevaPage() {
               </p>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
-              {[
-                { icon: "♿", label: "Wheelchairs", desc: "Free mobility aids to restore independence" },
-                { icon: "🎵", label: "Instruments", desc: "Tools for livelihood and creative expression" },
-                { icon: "🤝", label: "Ongoing Support", desc: "Continued follow-up and community care" },
-              ].map((item) => (
-                <div key={item.label} className="relative rounded-2xl bg-white shadow-xl overflow-hidden">
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron-500 to-crimson-500" />
-                  <div className="p-6 text-center">
-                    <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl mx-auto mb-3" aria-hidden="true">{item.icon}</div>
-                    <p className="font-sans text-sm font-semibold text-warm-900">{item.label}</p>
-                    <p className="font-sans text-xs text-warm-600 mt-1">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <DivyangSevaCards />
           </div>
         </div>
       </section>

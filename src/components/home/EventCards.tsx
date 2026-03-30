@@ -53,14 +53,17 @@ export function EventCards() {
               <div className="group bg-white rounded-2xl shadow-md border border-black/[0.04] overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <div className="flex">
                   {/* Date badge */}
-                  <div className="shrink-0 w-20 md:w-24 bg-crimson-500 flex flex-col items-center justify-center py-4 md:py-6 text-white">
-                    <span className="font-sans text-[10px] md:text-xs font-bold uppercase tracking-wider opacity-80">
-                      {event.dateMonth}
+                  <div className="shrink-0 w-16 md:w-20 bg-crimson-500 flex flex-col items-center justify-center py-4 text-white gap-2">
+                    <span
+                      className="font-stat font-bold text-sm md:text-base uppercase tracking-wider"
+                      style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
+                    >
+                      {event.dateDay} {event.dateMonth}
                     </span>
-                    <span className="font-stat text-2xl md:text-3xl font-black leading-none mt-0.5">
-                      {event.dateDay}
-                    </span>
-                    <span className="font-sans text-[9px] md:text-[10px] uppercase tracking-wider opacity-60 mt-0.5">
+                    <span
+                      className="font-sans text-[10px] md:text-xs uppercase tracking-wider opacity-70"
+                      style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
+                    >
                       {event.dateYear}
                     </span>
                   </div>

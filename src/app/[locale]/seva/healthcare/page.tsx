@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
+import { HealthcareCards } from "./HealthcareCards";
 
 const faqs = [
   {
@@ -142,118 +143,7 @@ export default function HealthcarePage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {/* 1. Dialysis */}
-            <ScrollReveal delay={150}>
-              <div className="relative rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
-                <div className="p-6 md:p-8">
-                  <span className="inline-block px-3 py-1 rounded-full bg-saffron-100 text-saffron-700 text-xs font-semibold font-sans uppercase tracking-wider mb-4">Flagship Programme</span>
-                  <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl mb-4" aria-hidden="true">🏥</div>
-                  <h3 className="font-serif text-xl text-warm-900">Free Kidney Dialysis Centre</h3>
-                  <p className="font-devanagari text-sm text-warm-600/60 mt-0.5" lang="hi">निःशुल्क किडनी डायलिसिस केन्द्र</p>
-                  <p className="font-sans text-sm text-warm-600 leading-relaxed mt-4 mb-5">
-                    In partnership with the <strong className="text-warm-900">Taramati Charitable Foundation</strong>, the society operates a free kidney dialysis centre at Anand Hospital, Dahisar, Mumbai. All dialysis sessions are provided at absolutely no cost to patients.
-                  </p>
-                  <div className="space-y-2 mb-4">
-                    <div>
-                      <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-0.5">Location</p>
-                      <address className="font-sans text-sm text-warm-800/80 not-italic leading-relaxed">
-                        2nd Floor, Anand Hospital, Dahisar Village,<br />
-                        Anand Nagar, Dahisar East, Mumbai – 400068
-                      </address>
-                    </div>
-                    <div>
-                      <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-0.5">Contact</p>
-                      <div className="flex flex-wrap gap-2">
-                        <a href="tel:+918657067228" className="font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors">86570 67228</a>
-                        <span className="text-warm-800/30">/</span>
-                        <a href="tel:+919892154615" className="font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors">98921 54615</a>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-0.5">Partner</p>
-                      <p className="font-sans text-sm text-warm-800/80">Taramati Charitable Foundation</p>
-                    </div>
-                  </div>
-                  <div className="rounded-xl bg-crimson-50 border border-crimson-200/40 px-4 py-2.5 flex items-center gap-3">
-                    <span className="font-stat text-2xl font-bold text-crimson-500">Free</span>
-                    <span className="font-sans text-xs text-warm-800/60 uppercase tracking-wider">For All Patients</span>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            {/* 2. Ambulance */}
-            <ScrollReveal delay={200}>
-              <div className="relative rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron-500 to-crimson-500" />
-                <div className="p-6 md:p-8">
-                  <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl mb-4" aria-hidden="true">🚑</div>
-                  <h3 className="font-serif text-xl text-warm-900">Free Ambulance Service</h3>
-                  <p className="font-devanagari text-sm text-warm-600/60 mt-0.5" lang="hi">निःशुल्क एम्बुलेंस सेवा</p>
-                  <p className="font-sans text-sm text-warm-600 leading-relaxed mt-4 mb-4">
-                    The society provides a free ambulance service to <strong className="text-warm-900">Satyam Charitable Hospital</strong>, ensuring that patients in need can reach medical care without bearing transport costs.
-                  </p>
-                  <p className="font-sans text-sm text-warm-600 leading-relaxed mb-5">
-                    The ambulance is available to serve patients who need emergency transport or scheduled hospital visits and cannot afford private ambulance fees.
-                  </p>
-                  <div className="rounded-xl bg-saffron-50 border border-saffron-200/60 px-4 py-3">
-                    <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-1">Doctor Contact</p>
-                    <p className="font-sans text-sm font-semibold text-warm-900">Dr. Ramrao Athankar</p>
-                    <a href="tel:+918959388249" className="font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors">8959388249</a>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            {/* 3. Blood Donation */}
-            <ScrollReveal delay={250}>
-              <div className="relative rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
-                <div className="p-6 md:p-8">
-                  <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl mb-4" aria-hidden="true">🩸</div>
-                  <h3 className="font-serif text-xl text-warm-900">Blood Donation Camps</h3>
-                  <p className="font-devanagari text-sm text-warm-600/60 mt-0.5" lang="hi">रक्तदान शिविर</p>
-                  <p className="font-sans text-sm text-warm-600 leading-relaxed mt-4 mb-4">
-                    Regular blood donation drives are organised across Delhi and Mumbai to maintain critical blood bank supplies and save lives. A single donation can save up to three lives.
-                  </p>
-                  <p className="font-sans text-sm text-warm-600 leading-relaxed mb-5">
-                    The society works with accredited hospitals and blood banks to ensure all collected blood is safely processed and made available to patients in need.
-                  </p>
-                  <div className="rounded-xl bg-saffron-50 border border-saffron-200/60 px-4 py-3">
-                    <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-1">Stay Updated on Camps</p>
-                    <a href="tel:+919560800343" className="font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors">95608 00343</a>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            {/* 4. Eye & Dental */}
-            <ScrollReveal delay={300}>
-              <div className="relative rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron-500 to-crimson-500" />
-                <div className="p-6 md:p-8">
-                  <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl mb-4" aria-hidden="true">👁️</div>
-                  <h3 className="font-serif text-xl text-warm-900">Eye &amp; Dental Check-up Camps</h3>
-                  <p className="font-devanagari text-sm text-warm-600/60 mt-0.5" lang="hi">नेत्र और दंत जांच शिविर</p>
-                  <p className="font-sans text-sm text-warm-600 leading-relaxed mt-4 mb-4">
-                    Free eye examinations and dental check-up camps are held for underprivileged communities, often in areas with limited healthcare access.
-                  </p>
-                  <ul className="space-y-2">
-                    {["Free eye examination & vision testing", "Dental check-up & consultation", "Referrals for specialist treatment", "Corrective eyewear where available"].map((item) => (
-                      <li key={item} className="flex items-center gap-2 font-sans text-sm text-warm-600">
-                        <span className="w-5 h-5 rounded-full bg-crimson-500 flex items-center justify-center shrink-0">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-                        </span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
+          <HealthcareCards />
         </div>
       </section>
 

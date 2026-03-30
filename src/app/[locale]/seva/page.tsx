@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { SevaCards } from "./SevaCards";
 
 export async function generateMetadata({
   params,
@@ -30,59 +31,6 @@ export async function generateMetadata({
     },
   };
 }
-
-const sevaPrograms = [
-  {
-    href: "/seva/healthcare",
-    icon: "🏥",
-    title: "Healthcare",
-    titleHi: "स्वास्थ्य सेवा",
-    stat: "Free",
-    statLabel: "Dialysis",
-    desc: "Free dialysis centre, ambulance service, blood donation camps, eye and dental check-ups.",
-    featured: true,
-  },
-  {
-    href: "/seva/financial-aid",
-    icon: "🤝",
-    title: "Financial Aid",
-    titleHi: "वित्तीय सहायता",
-    stat: "100+",
-    statLabel: "Families",
-    desc: "Monthly pensions, one-time aid, and marriage assistance for families in need.",
-    featured: false,
-  },
-  {
-    href: "/seva/disaster-relief",
-    icon: "🌊",
-    title: "Disaster Relief",
-    titleHi: "आपदा राहत",
-    stat: "5+",
-    statLabel: "Operations",
-    desc: "Punjab, Kerala, Nepal, Maharashtra floods and COVID-19 relief.",
-    featured: false,
-  },
-  {
-    href: "/seva/janseva",
-    icon: "♿",
-    title: "Janseva Abhiyan",
-    titleHi: "जनसेवा अभियान",
-    stat: "500+",
-    statLabel: "Beneficiaries",
-    desc: "Wheelchairs, instruments, clothing, food, and essential items for the specially abled.",
-    featured: false,
-  },
-  {
-    href: "/seva/gaushala",
-    icon: "🐄",
-    title: "Gaushala Seva",
-    titleHi: "गौशाला सेवा",
-    stat: "∞",
-    statLabel: "Compassion",
-    desc: "Donations and support to cow shelters as a sacred act of service.",
-    featured: false,
-  },
-];
 
 const stats = [
   { value: "500+", label: "Families Served" },
@@ -166,59 +114,7 @@ export default function SevaPage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {sevaPrograms.map((program, i) => (
-              <ScrollReveal
-                key={program.href}
-                delay={i * 100}
-                className={program.featured ? "md:col-span-2" : ""}
-              >
-                <Link href={program.href} className="block group h-full">
-                  <div className="relative rounded-2xl bg-white shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 overflow-hidden">
-                    {/* Crimson top band */}
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
-
-                    <div className={`p-6 md:p-8 ${program.featured ? "md:flex md:items-center md:gap-8" : ""}`}>
-                      <div className={program.featured ? "flex-1" : ""}>
-                        <div className="flex items-start justify-between gap-4">
-                          <div>
-                            <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl mb-4" aria-hidden="true">
-                              {program.icon}
-                            </div>
-                            <h2 className="font-serif leading-tight text-xl md:text-2xl text-warm-900 group-hover:text-crimson-600 transition-colors">
-                              {program.title}
-                            </h2>
-                            <p className="font-devanagari text-sm mt-1 text-warm-600/60" lang="hi">
-                              {program.titleHi}
-                            </p>
-                          </div>
-                          <div className="text-right shrink-0">
-                            <div className="font-stat text-3xl md:text-4xl font-black text-crimson-500">
-                              {program.stat}
-                            </div>
-                            <p className="text-xs font-sans mt-1 uppercase tracking-wider text-warm-800/50 font-semibold">
-                              {program.statLabel}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className={program.featured ? "md:w-80 mt-4 md:mt-0" : "mt-4"}>
-                        <p className="font-sans text-sm leading-relaxed text-warm-600">
-                          {program.desc}
-                        </p>
-                        <div className="mt-4 flex items-center gap-1.5 text-sm font-semibold font-sans text-crimson-500 group-hover:gap-2.5 transition-all duration-300">
-                          Learn more
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
+          <SevaCards />
         </div>
       </section>
 

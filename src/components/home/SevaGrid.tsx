@@ -73,24 +73,54 @@ export function SevaGrid() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {sevaItems.map((item, i) => (
-            <ScrollReveal key={item.title} delay={100 + i * 80}>
+            <ScrollReveal key={item.title} delay={100 + i * 80} className="h-full">
+              {/* Desktop: sidebar layout */}
               <div
-                className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white"
+                className="group hidden md:flex h-full rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white"
               >
-                <div className="shrink-0 w-20 md:w-24 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500">
+                <div className="shrink-0 w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
                   {item.icon}
-                  <span className="font-stat font-bold text-sm md:text-lg leading-none">
+                  <span
+                    className="font-stat font-bold text-sm md:text-base uppercase tracking-wider"
+                    style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
+                  >
                     {item.stat}
                   </span>
                 </div>
-                <div className="flex-1 p-4 md:p-5">
-                  <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900">
+                <div className="flex-1 p-5">
+                  <h3 className="font-sans text-base font-semibold text-warm-900">
                     {item.title}
                   </h3>
                   <p className="font-devanagari text-warm-500 text-xs mt-0.5" lang="hi">
                     {item.titleHi}
                   </p>
-                  <p className="text-warm-600 font-sans text-xs md:text-sm leading-relaxed mt-2">
+                  <p className="text-warm-600 font-sans text-sm leading-relaxed mt-2">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+
+              {/* Mobile: sidebar layout with vertical text */}
+              <div
+                className="group md:hidden flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 bg-white"
+              >
+                <div className="shrink-0 w-16 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+                  {item.icon}
+                  <span
+                    className="font-stat font-bold text-sm uppercase tracking-wider"
+                    style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
+                  >
+                    {item.stat}
+                  </span>
+                </div>
+                <div className="flex-1 p-4">
+                  <h3 className="font-sans text-sm font-semibold text-warm-900">
+                    {item.title}
+                  </h3>
+                  <p className="font-devanagari text-warm-500 text-xs mt-0.5" lang="hi">
+                    {item.titleHi}
+                  </p>
+                  <p className="text-warm-600 font-sans text-xs leading-relaxed mt-2">
                     {item.desc}
                   </p>
                 </div>

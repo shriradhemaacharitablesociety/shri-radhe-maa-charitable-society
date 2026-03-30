@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { StepCards } from "./StepCards";
 
 export async function generateMetadata({
   params,
@@ -212,25 +213,7 @@ export default async function TaxBenefitsPage({
                   : "How to Claim Your 80G Tax Benefit"}
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {currentSteps.map((step, i) => (
-                  <div
-                    key={i}
-                    className="rounded-2xl bg-white shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 p-5 sm:p-6 text-center relative overflow-hidden"
-                  >
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
-                    <div className="w-10 h-10 rounded-full bg-crimson-500 text-white font-stat font-bold text-lg flex items-center justify-center mx-auto mb-4">
-                      {step.number}
-                    </div>
-                    <h4 className="font-serif text-lg text-warm-900 mb-2">
-                      {step.title}
-                    </h4>
-                    <p className="font-sans text-warm-600 text-sm leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              <StepCards steps={currentSteps} />
             </div>
           </ScrollReveal>
 

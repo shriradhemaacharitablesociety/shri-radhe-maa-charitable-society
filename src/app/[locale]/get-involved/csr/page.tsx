@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Card, CardHeader, CardContent } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { CSROpportunityCards } from "./CSRCards";
+import { FileText, Phone, Mail } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -31,45 +30,6 @@ export async function generateMetadata({
     },
   };
 }
-
-const csrOpportunities = [
-  {
-    icon: "🏥",
-    title: "Healthcare Sponsorship",
-    titleHi: "स्वास्थ्य सेवा प्रायोजन",
-    desc: "Sponsor dialysis sessions, blood donation camps, or eye and dental check-up drives for underprivileged communities.",
-  },
-  {
-    icon: "♿",
-    title: "Divyang Welfare",
-    titleHi: "दिव्यांग कल्याण",
-    desc: "Fund wheelchair procurement, assistive devices, and livelihood support for specially-abled individuals.",
-  },
-  {
-    icon: "🎓",
-    title: "Education & Skill Development",
-    titleHi: "शिक्षा और कौशल विकास",
-    desc: "Support educational initiatives and skill development programmes for underprivileged youth and families.",
-  },
-  {
-    icon: "🌊",
-    title: "Disaster Relief Fund",
-    titleHi: "आपदा राहत कोष",
-    desc: "Contribute to our disaster relief reserve to enable rapid response when calamities strike across India.",
-  },
-  {
-    icon: "🤝",
-    title: "Pension & Financial Aid",
-    titleHi: "पेंशन और वित्तीय सहायता",
-    desc: "Sponsor monthly pensions for elderly or destitute families — an ongoing, high-impact contribution.",
-  },
-  {
-    icon: "🌾",
-    title: "Gaushala & Environment",
-    titleHi: "गौशाला और पर्यावरण",
-    desc: "Support cow shelter (gaushala) operations as a culturally meaningful and eco-conscious CSR activity.",
-  },
-];
 
 export default function CSRPage() {
   const breadcrumb = breadcrumbJsonLd([
@@ -104,21 +64,20 @@ export default function CSRPage() {
 
         {/* 80G benefit */}
         <ScrollReveal delay={100}>
-          <div className="relative mb-10 rounded-2xl bg-white shadow-md p-6 overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron-500 to-saffron-400" />
-            <div className="absolute left-0 top-2 bottom-2 w-[2px] rounded-full bg-gradient-to-b from-saffron-500/25 to-transparent" />
-            <div className="flex items-start gap-5">
-              <div className="text-3xl shrink-0" aria-hidden="true">📄</div>
-              <div>
-                <Badge variant="gold" className="mb-3">Tax Benefit</Badge>
-                <h2 className="font-serif text-xl text-warm-900 mb-2">80G Tax Deduction for Corporations</h2>
-                <p className="font-sans text-warm-800/70 text-sm leading-relaxed mb-3">
-                  Corporate donations to the Shri Radhe Maa Charitable Society may qualify for deduction under <strong className="text-warm-900">Section 80G of the Income Tax Act, 1961</strong>. This makes your CSR contribution financially beneficial in addition to its social impact.
-                </p>
-                <p className="font-sans text-warm-800/60 text-sm leading-relaxed">
-                  Please contact us for our 80G certificate and to discuss eligible donation structures under the Companies Act, 2013.
-                </p>
-              </div>
+          <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white mb-10">
+            <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+              <FileText className="w-5 h-5" />
+              <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>80G</span>
+            </div>
+            <div className="flex-1 p-4 md:p-5">
+              <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900">80G Tax Deduction for Corporations</h3>
+              <p className="font-devanagari text-warm-500 text-xs mt-0.5" lang="hi">कर लाभ</p>
+              <p className="text-warm-600 font-sans text-xs md:text-sm leading-relaxed mt-2">
+                Corporate donations to the Shri Radhe Maa Charitable Society may qualify for deduction under <strong className="text-warm-900">Section 80G of the Income Tax Act, 1961</strong>. This makes your CSR contribution financially beneficial in addition to its social impact.
+              </p>
+              <p className="text-warm-600 font-sans text-xs md:text-sm leading-relaxed mt-2">
+                Please contact us for our 80G certificate and to discuss eligible donation structures under the Companies Act, 2013.
+              </p>
             </div>
           </div>
         </ScrollReveal>
@@ -129,22 +88,7 @@ export default function CSRPage() {
           <p className="font-devanagari text-sm text-crimson-500 mb-6" lang="hi">सीएसआर के अवसर</p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-          {csrOpportunities.map((item, i) => (
-            <ScrollReveal key={item.title} delay={250 + i * 80}>
-              <Card className="h-full">
-                <CardHeader>
-                  <div className="text-2xl mb-2" aria-hidden="true">{item.icon}</div>
-                  <h3 className="font-serif text-lg text-warm-900">{item.title}</h3>
-                  <p className="font-devanagari text-sm text-warm-800/50 mt-0.5" lang="hi">{item.titleHi}</p>
-                </CardHeader>
-                <CardContent>
-                  <p className="font-sans text-sm text-warm-800/60 leading-relaxed">{item.desc}</p>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
-          ))}
-        </div>
+        <CSROpportunityCards />
 
         {/* Why partner */}
         <ScrollReveal delay={750}>
@@ -184,15 +128,27 @@ export default function CSRPage() {
               Contact our team to discuss CSR partnership opportunities, project scopes, and impact reporting.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 max-w-lg">
-              <div className="rounded-2xl bg-white/10 backdrop-blur-sm px-5 py-4">
-                <p className="font-sans text-xs uppercase tracking-wider text-white/50 mb-1">Phone</p>
-                <a href="tel:+919560800343" className="font-sans text-sm text-saffron-400 hover:text-saffron-300 transition-colors">95608 00343</a>
+              <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+                <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+                  <Phone className="w-5 h-5" />
+                  <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>CALL</span>
+                </div>
+                <div className="flex-1 p-4 md:p-5">
+                  <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900">Phone</h3>
+                  <a href="tel:+919560800343" className="font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors mt-1 block">95608 00343</a>
+                </div>
               </div>
-              <div className="rounded-2xl bg-white/10 backdrop-blur-sm px-5 py-4">
-                <p className="font-sans text-xs uppercase tracking-wider text-white/50 mb-1">Email</p>
-                <a href="mailto:shriradhemaacharitablesociety@gmail.com" className="font-sans text-sm text-saffron-400 hover:text-saffron-300 transition-colors break-all">
-                  shriradhemaacharitablesociety@gmail.com
-                </a>
+              <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+                <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+                  <Mail className="w-5 h-5" />
+                  <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>EMAIL</span>
+                </div>
+                <div className="flex-1 p-4 md:p-5">
+                  <h3 className="font-sans text-sm md:text-base font-semibold text-warm-900">Email</h3>
+                  <a href="mailto:shriradhemaacharitablesociety@gmail.com" className="font-sans text-sm text-crimson-500 hover:text-crimson-600 transition-colors break-all mt-1 block">
+                    shriradhemaacharitablesociety@gmail.com
+                  </a>
+                </div>
               </div>
             </div>
             <a

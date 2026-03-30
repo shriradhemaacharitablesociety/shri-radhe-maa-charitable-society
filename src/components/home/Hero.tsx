@@ -108,10 +108,13 @@ export function Hero() {
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={200 + i * 120}>
                 <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
-                  <div className="shrink-0 w-24 bg-crimson-500 flex items-center justify-center">
-                    <div className="font-stat font-bold text-white text-2xl leading-none">
+                  <div className="shrink-0 w-20 bg-crimson-500 flex flex-col items-center justify-center py-4 gap-2">
+                    <span
+                      className="font-stat font-bold text-white text-base uppercase tracking-wider"
+                      style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
+                    >
                       {stat.num}
-                    </div>
+                    </span>
                   </div>
                   <div className="flex-1 p-4">
                     <p className="font-sans text-warm-800 font-semibold text-sm">
@@ -126,18 +129,21 @@ export function Hero() {
             ))}
           </div>
 
-          {/* Mobile stat cards — sidebar style, horizontal scroll */}
+          {/* Mobile stat cards — sidebar style */}
           <div className="lg:hidden -mx-4 px-4 mt-3">
             <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-2 scrollbar-hide">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="snap-start shrink-0 min-w-[240px] flex-1 flex rounded-2xl overflow-hidden shadow-md bg-white"
+                  className="snap-start shrink-0 min-w-[220px] flex-1 flex rounded-2xl overflow-hidden shadow-md bg-white"
                 >
-                  <div className="shrink-0 w-20 bg-crimson-500 flex items-center justify-center">
-                    <div className="font-stat font-bold text-white text-lg leading-none text-center px-2">
+                  <div className="shrink-0 w-16 bg-crimson-500 flex flex-col items-center justify-center py-4">
+                    <span
+                      className="font-stat font-bold text-white text-sm uppercase tracking-wider"
+                      style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
+                    >
                       {stat.num}
-                    </div>
+                    </span>
                   </div>
                   <div className="flex-1 p-3.5">
                     <p className="font-sans text-warm-800 font-semibold text-xs uppercase tracking-wider">

@@ -1,38 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { breadcrumbJsonLd } from "@/lib/seo";
-
-const aboutSections = [
-  {
-    href: "/about/maa",
-    badge: "Spiritual Foundation",
-    icon: "🙏",
-    title: "Shri Radhe Guru Maa",
-    titleHi: "श्री राधे गुरु माँ",
-    description:
-      "The spiritual force behind the society — 30+ years of humanitarian work across India and abroad, serving the poor and distressed.",
-  },
-  {
-    href: "/about/society",
-    badge: "Registration & Mission",
-    icon: "📋",
-    title: "The Society",
-    titleHi: "सोसाइटी के बारे में",
-    description:
-      "Registered under The Societies Registration Act, 1860 (Reg. No. S/2930/SDM/NW/2017). Our mission, activities, and commitment to transparent seva.",
-  },
-  {
-    href: "/about/leadership",
-    badge: "Governance",
-    icon: "👤",
-    title: "Leadership",
-    titleHi: "नेतृत्व",
-    description:
-      "Led by General Secretary Mr. Rupendra Kashyap, the society operates with a dedicated team of trustees committed to the welfare of all.",
-  },
-];
+import { AboutSectionCards } from "./AboutCards";
 
 export async function generateMetadata({
   params,
@@ -95,36 +65,7 @@ export default function AboutPage() {
       {/* White section: About cards */}
       <section className="py-12 md:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            {aboutSections.map((section, i) => (
-              <ScrollReveal key={section.href} delay={i * 150}>
-                <Link href={section.href} className="block h-full group">
-                  <div className="relative rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
-                    <div className="p-6 md:p-8">
-                      <span className="inline-block px-3 py-1 rounded-full bg-crimson-50 text-crimson-600 text-xs font-semibold font-sans uppercase tracking-wider mb-4">{section.badge}</span>
-                      <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl mb-4" aria-hidden="true">{section.icon}</div>
-                      <h2 className="font-serif text-xl text-warm-900 leading-tight group-hover:text-crimson-600 transition-colors">
-                        {section.title}
-                      </h2>
-                      <p className="font-devanagari text-warm-600/60 text-sm mt-1" lang="hi">
-                        {section.titleHi}
-                      </p>
-                      <p className="text-warm-600 font-sans text-sm leading-relaxed mt-4">
-                        {section.description}
-                      </p>
-                      <div className="mt-5 flex items-center gap-1.5 text-crimson-500 text-sm font-semibold font-sans group-hover:gap-2.5 transition-all duration-300">
-                        Learn more
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
+          <AboutSectionCards />
         </div>
       </section>
 

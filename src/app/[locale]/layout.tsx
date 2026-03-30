@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { nonprofitJsonLd } from "@/lib/seo";
 import { Navbar } from "@/components/layout/Navbar";
+import { NavbarLogo } from "@/components/layout/NavbarLogo";
 import { Footer } from "@/components/layout/Footer";
 import { SocietyBanner } from "@/components/layout/SocietyBanner";
 import { LenisProvider } from "@/components/layout/LenisProvider";
@@ -53,6 +54,7 @@ export default async function LocaleLayout({
       <NextIntlClientProvider messages={messages}>
         <LenisProvider>
           <Navbar />
+          <NavbarLogo />
           <SocietyBanner />
           <main>{children}</main>
           <Footer />

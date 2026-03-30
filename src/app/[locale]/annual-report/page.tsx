@@ -4,6 +4,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { HighlightCards } from "./HighlightCards";
 
 export async function generateMetadata({
   params,
@@ -182,23 +183,7 @@ export default async function AnnualReportPage({
               {isHindi ? "प्रमुख उपलब्धियाँ" : "Key Highlights"}
             </h3>
           </ScrollReveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-            {highlights.map((stat, i) => (
-              <ScrollReveal key={stat.label} delay={100 + i * 100}>
-                <div className="rounded-2xl bg-white shadow-md p-4 sm:p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 relative overflow-hidden"
-                  style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
-                >
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
-                  <p className="font-stat text-2xl sm:text-3xl md:text-4xl font-black text-crimson-500 mb-2">
-                    {stat.value}
-                  </p>
-                  <p className="text-warm-600 font-sans text-sm">
-                    {isHindi ? stat.labelHi : stat.label}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <HighlightCards highlights={highlights} isHindi={isHindi} />
         </div>
       </section>
 

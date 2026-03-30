@@ -2,22 +2,45 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { MobileNav } from "./MobileNav";
+import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const t = useTranslations("nav");
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const navLinks = [
+  // Check if a nav link is active (strip locale prefix for comparison)
+  const isActive = (href: string) => {
+    const path = pathname.replace(/^\/(en|hi)/, "") || "/";
+    if (href === "/") return path === "/";
+    return path.startsWith(href);
+  };
+
+  const linkClass = (href: string) =>
+    cn(
+      "px-3.5 py-1.5 text-sm font-sans rounded-full transition-all duration-200 whitespace-nowrap",
+      isActive(href)
+        ? "text-crimson-500 font-medium"
+        : "text-warm-600 hover:text-crimson-500"
+    );
+
+  const leftLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: t("about") },
     { href: "/seva", label: t("seva") },
     { href: "/events", label: t("events") },
+  ] as const;
+
+  const rightLinks = [
     { href: "/gallery", label: t("gallery") },
     { href: "/contact", label: t("contact") },
   ] as const;
+
+  const navLinks = [...leftLinks, ...rightLinks] as const;
 
   return (
     <>
@@ -73,36 +96,32 @@ export function Navbar() {
       {/* ===== DESKTOP NAVBAR (md and above) ===== */}
       <header className="hidden md:block fixed top-0 left-0 right-0 z-40 pointer-events-none pt-4 px-8">
         <div className="flex justify-center">
-          <nav className="pointer-events-auto flex items-center gap-1 pl-1.5 pr-2 py-1.5 bg-white/92 backdrop-blur-xl border border-warm-200/50 rounded-full shadow-lg shadow-warm-900/[0.05]">
-            {/* Logo — full image, badge style */}
-            <Link href={"/" as any} className="shrink-0 hover:scale-105 transition-transform duration-300 -my-3">
-              <Image
-                src="/logo.png"
-                alt="Shri Radhe Maa Charitable Society"
-                width={56}
-                height={56}
-                className="drop-shadow-md"
-              />
-            </Link>
-
-            {/* Divider */}
-            <div className="h-7 w-px bg-warm-200/60 mx-1.5" />
-
-            {/* Nav links */}
-            <div className="flex items-center gap-0.5">
-              {navLinks.map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href as any}
-                  className="px-3.5 py-1.5 text-sm font-sans text-warm-600 hover:text-crimson-500 hover:bg-crimson-50 rounded-full transition-all duration-200 whitespace-nowrap"
-                >
+          <nav className="pointer-events-auto flex items-center py-1.5 px-2 bg-white/92 backdrop-blur-xl border border-warm-200/50 rounded-full shadow-lg shadow-warm-900/[0.05]">
+            {/* Left links: Home | About | Our Seva | Events */}
+            {leftLinks.map(({ href, label }, i) => (
+              <div key={href} className="flex items-center">
+                {i > 0 && <div className="h-4 w-px bg-warm-300/60" />}
+                <Link href={href as any} className={linkClass(href)}>
                   {label}
                 </Link>
-              ))}
-            </div>
+              </div>
+            ))}
 
-            {/* Divider */}
-            <div className="h-7 w-px bg-warm-200/60 mx-1.5" />
+            {/* Divider between Events and Gallery */}
+            <div className="h-4 w-px bg-warm-300/60" />
+
+            {/* Right links: Gallery | Contact */}
+            {rightLinks.map(({ href, label }, i) => (
+              <div key={href} className="flex items-center">
+                {i > 0 && <div className="h-4 w-px bg-warm-300/60" />}
+                <Link href={href as any} className={linkClass(href)}>
+                  {label}
+                </Link>
+              </div>
+            ))}
+
+            {/* Divider before Login */}
+            <div className="h-4 w-px bg-warm-300/60" />
 
             {/* Login */}
             <a
@@ -111,6 +130,9 @@ export function Navbar() {
             >
               Login
             </a>
+
+            {/* Divider before Donate */}
+            <div className="h-4 w-px bg-warm-300/60 mr-1" />
 
             {/* Donate button */}
             <Link
@@ -124,6 +146,7 @@ export function Navbar() {
             </Link>
           </nav>
         </div>
+
       </header>
 
       <MobileNav

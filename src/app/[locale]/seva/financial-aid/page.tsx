@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
+import { FinancialAidCards, GovtContributionCards } from "./FinancialAidCards";
 
 const faqs = [
   {
@@ -122,89 +123,7 @@ export default function FinancialAidPage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {/* Monthly Pensions */}
-            <ScrollReveal delay={150}>
-              <div className="relative rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
-                <div className="p-6 md:p-8">
-                  <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl mb-4" aria-hidden="true">🤝</div>
-                  <h3 className="font-serif text-xl text-warm-900">Monthly Pension Programme</h3>
-                  <p className="font-devanagari text-sm text-warm-600/60 mt-0.5" lang="hi">मासिक पेंशन कार्यक्रम</p>
-                  <p className="font-sans text-sm text-warm-600 leading-relaxed mt-4 mb-5">
-                    The society provides regular monthly pensions to over <strong className="text-warm-900">100 families</strong> across Delhi and NCR. These are families living in poverty — often elderly individuals or households that have lost their primary earner.
-                  </p>
-                  <div className="rounded-xl bg-crimson-50 border border-crimson-200/40 px-4 py-3">
-                    <p className="font-stat text-2xl font-bold text-crimson-500">100+</p>
-                    <p className="font-sans text-xs text-warm-800/60 uppercase tracking-wider">Families supported monthly</p>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            {/* One-time Aid */}
-            <ScrollReveal delay={200}>
-              <div className="relative rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron-500 to-crimson-500" />
-                <div className="p-6 md:p-8">
-                  <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl mb-4" aria-hidden="true">💵</div>
-                  <h3 className="font-serif text-xl text-warm-900">One-Time Financial Assistance</h3>
-                  <p className="font-devanagari text-sm text-warm-600/60 mt-0.5" lang="hi">एकमुश्त वित्तीय सहायता</p>
-                  <p className="font-sans text-sm text-warm-600 leading-relaxed mt-4 mb-5">
-                    For families facing sudden crises — medical emergencies, job loss, or other urgent situations — the society provides one-time financial assistance.
-                  </p>
-                  <ul className="space-y-2">
-                    {["Medical emergency support", "Job loss and income disruption", "Urgent household crises", "Post-disaster recovery aid"].map((item) => (
-                      <li key={item} className="flex items-center gap-2 font-sans text-sm text-warm-600">
-                        <span className="w-5 h-5 rounded-full bg-crimson-500 flex items-center justify-center shrink-0">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-                        </span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            {/* Marriage Assistance */}
-            <ScrollReveal delay={250}>
-              <div className="relative rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-full md:col-span-2">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
-                <div className="p-6 md:p-8">
-                  <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl mb-4" aria-hidden="true">💒</div>
-                  <h3 className="font-serif text-xl text-warm-900">Marriage Assistance</h3>
-                  <p className="font-devanagari text-sm text-warm-600/60 mt-0.5" lang="hi">विवाह सहायता</p>
-                  <p className="font-sans text-sm text-warm-600 leading-relaxed mt-4 mb-5">
-                    Marriages can be financially overwhelming for poor families. The society provides a package of <strong className="text-warm-900">5 essential items per family</strong> to help ease the burden.
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="rounded-xl bg-warm-50 border border-warm-200 px-5 py-4">
-                      <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-3">Assistance Package (5 items)</p>
-                      <ul className="space-y-1.5">
-                        {["Essential household items", "Clothing and textiles", "Kitchen essentials", "Religious ceremony items", "Practical utility items"].map((item) => (
-                          <li key={item} className="flex items-center gap-2 font-sans text-sm text-warm-600">
-                            <span className="w-1.5 h-1.5 rounded-full bg-crimson-500 shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="flex flex-col justify-between gap-3">
-                      <div className="rounded-xl bg-crimson-50 border border-crimson-200/40 px-4 py-3">
-                        <p className="font-sans text-xs text-warm-800/50 uppercase tracking-wider mb-1">Items per family</p>
-                        <p className="font-stat text-3xl font-bold text-crimson-500">5</p>
-                      </div>
-                      <div className="rounded-xl bg-warm-50 border border-warm-200 px-4 py-3">
-                        <p className="font-sans text-xs text-warm-800/50 uppercase tracking-wider mb-1">Who is eligible</p>
-                        <p className="font-sans text-sm text-warm-900">Families from economically weaker sections facing financial hardship at time of marriage</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
+          <FinancialAidCards />
         </div>
       </section>
 
@@ -222,30 +141,7 @@ export default function FinancialAidPage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {[
-              { fund: "PM Cares Fund", amount: "₹10 Lakh", icon: "🇮🇳", desc: "Contribution to the Prime Minister's Citizen Assistance and Relief in Emergency Situations Fund." },
-              { fund: "Delhi CM Relief Fund", amount: "₹5 Lakh", icon: "🏛️", desc: "Contribution to the Chief Minister of Delhi's Relief Fund for welfare and emergency assistance." },
-              { fund: "Punjab CM Relief Fund", amount: "₹5 Lakh", icon: "🌾", desc: "Contribution to the Chief Minister of Punjab's Relief Fund — including COVID-19 pandemic relief." },
-              { fund: "Maharashtra CM Relief Fund", amount: "₹5 Lakh", icon: "🌊", desc: "Contribution to the Chief Minister of Maharashtra's Relief Fund for flood relief and disaster response." },
-            ].map((item, i) => (
-              <ScrollReveal key={item.fund} delay={450 + i * 80}>
-                <div className="relative rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
-                  <div className="p-6 md:p-8">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl shrink-0" aria-hidden="true">{item.icon}</div>
-                      <div>
-                        <h3 className="font-serif text-lg text-warm-900">{item.fund}</h3>
-                        <p className="font-stat text-2xl font-bold text-crimson-500 mt-0.5">{item.amount}</p>
-                      </div>
-                    </div>
-                    <p className="font-sans text-sm text-warm-600 leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <GovtContributionCards />
         </div>
       </section>
 

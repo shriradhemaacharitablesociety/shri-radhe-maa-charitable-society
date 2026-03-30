@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { SocietyActivityCards, SocietyContactCards } from "./SocietyCards";
+import { ClipboardList } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -63,17 +65,15 @@ export default function SocietyPage() {
       <section className="py-12 md:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal delay={100}>
-            <div className="relative rounded-2xl bg-white shadow-md overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson-500 to-saffron-500" />
-              <div className="p-6 md:p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl" aria-hidden="true">📋</div>
-                  <div>
-                    <h2 className="font-serif text-xl text-warm-900">Registration Details</h2>
-                    <p className="font-devanagari text-sm text-warm-600/60 mt-0.5" lang="hi">पंजीकरण विवरण</p>
-                  </div>
-                </div>
-                <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+            <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+              <div className="shrink-0 w-16 md:w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+                <ClipboardList className="w-5 h-5" />
+                <span className="font-stat font-bold text-sm md:text-base uppercase tracking-wider" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>REG</span>
+              </div>
+              <div className="flex-1 p-4 md:p-5">
+                <h2 className="font-sans text-sm md:text-base font-semibold text-warm-900">Registration Details</h2>
+                <p className="font-devanagari text-warm-500 text-xs mt-0.5" lang="hi">पंजीकरण विवरण</p>
+                <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mt-4">
                   {[
                     { label: "Society Name", value: "Shri Radhe Maa Charitable Society" },
                     { label: "Registration Number", value: "S/2930/SDM/NW/2017" },
@@ -130,27 +130,7 @@ export default function SocietyPage() {
               </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-              {[
-                { icon: "🏥", title: "Healthcare", desc: "Free dialysis centre, ambulance service, blood donation camps, eye and dental check-ups." },
-                { icon: "💰", title: "Financial Aid", desc: "Monthly pensions, one-time assistance, and marriage support for 100+ families." },
-                { icon: "🌊", title: "Disaster Relief", desc: "Rapid response to floods, earthquakes, and the COVID-19 pandemic across multiple states." },
-                { icon: "♿", title: "Janseva Abhiyan", desc: "Wheelchair and instrument distribution, clothing, food, and essential items for the specially abled." },
-                { icon: "🐄", title: "Gaushala Seva", desc: "Donations and support to cow shelters (gaushalas) as an act of cultural and spiritual service." },
-                { icon: "🎵", title: "Spiritual Events", desc: "Bhajan programmes, Sukhmani Sahib Paath, and Bhagwat Katha for community upliftment." },
-              ].map((item, i) => (
-                <ScrollReveal key={item.title} delay={350 + i * 80}>
-                  <div className="relative rounded-2xl bg-white shadow-xl overflow-hidden h-full">
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron-500 to-crimson-500" />
-                    <div className="p-6">
-                      <div className="w-10 h-10 rounded-full bg-crimson-500 flex items-center justify-center text-white text-lg mb-3" aria-hidden="true">{item.icon}</div>
-                      <h3 className="font-serif text-base text-warm-900">{item.title}</h3>
-                      <p className="font-sans text-sm text-warm-600 leading-relaxed mt-2">{item.desc}</p>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+            <SocietyActivityCards />
           </div>
         </div>
       </section>
@@ -167,29 +147,7 @@ export default function SocietyPage() {
                 <div className="w-12 h-1 bg-saffron-400 rounded-full mx-auto mt-4" />
               </div>
             </ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-6">
-                <p className="font-sans text-xs uppercase tracking-wider text-white/60 mb-1">Office Address</p>
-                <address className="font-sans text-sm text-white not-italic leading-relaxed">
-                  Plot No. 5, Pocket-11, Sector-5,<br />
-                  Rohini, New Delhi – 110085
-                </address>
-              </div>
-              <div className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-6 flex flex-col gap-4">
-                <div>
-                  <p className="font-sans text-xs uppercase tracking-wider text-white/60 mb-1">Phone</p>
-                  <a href="tel:+919560800343" className="font-sans text-sm text-white hover:text-saffron-400 transition-colors">
-                    95608 00343
-                  </a>
-                </div>
-                <div>
-                  <p className="font-sans text-xs uppercase tracking-wider text-white/60 mb-1">Email</p>
-                  <a href="mailto:shriradhemaacharitablesociety@gmail.com" className="font-sans text-sm text-white hover:text-saffron-400 transition-colors break-all">
-                    shriradhemaacharitablesociety@gmail.com
-                  </a>
-                </div>
-              </div>
-            </div>
+            <SocietyContactCards />
           </div>
         </div>
       </section>
