@@ -52,17 +52,17 @@ function DonatePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(donateAction) }}
       />
 
-      {/* Crimson Gradient Hero */}
-      <section className="bg-gradient-to-br from-crimson-600 via-crimson-500 to-crimson-700 py-12 md:py-20 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-devanagari text-sm text-saffron-300 mb-3" lang="hi">
+            <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">
               {t("title_hi")}
-            </p>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">
+            </span>
+            <h1 className="font-serif text-2xl md:text-3xl lg:text-5xl text-warm-900 tracking-tight mt-1">
               {t("title")}
             </h1>
-            <div className="mt-3 h-1 w-16 bg-white/40 rounded-full" />
+            <div className="w-12 h-1 bg-crimson-500 rounded-full mx-auto mt-4" />
           </ScrollReveal>
         </div>
       </section>

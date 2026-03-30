@@ -147,17 +147,18 @@ export default async function SevaSubscriptionsPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      {/* Crimson Gradient Hero */}
-      <section className="bg-gradient-to-br from-crimson-600 via-crimson-500 to-crimson-700 py-12 md:py-20 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-devanagari text-sm text-saffron-300 mb-3" lang="hi">
-              {isHindi ? undefined : "मासिक सेवा"}
-            </p>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">
+            <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">
+              {isHindi ? "मासिक सेवा" : "मासिक सेवा"}
+            </span>
+            <h1 className="font-serif text-2xl md:text-3xl lg:text-5xl text-warm-900 tracking-tight mt-1">
               {isHindi ? "मासिक सेवा" : "Monthly Seva"}
             </h1>
-            <p className="font-sans text-base text-white/80 max-w-2xl leading-relaxed">
+            <div className="w-12 h-1 bg-crimson-500 rounded-full mx-auto mt-4" />
+            <p className="text-sm md:text-[15px] text-warm-600 mt-3 max-w-xl mx-auto">
               {isHindi
                 ? "नियमित योगदान से हर माह जीवन बदलें। अपनी सेवा योजना चुनें।"
                 : "Transform lives every month with a regular contribution. Choose your seva plan."}

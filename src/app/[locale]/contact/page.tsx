@@ -92,13 +92,14 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Dark Hero */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">संपर्क करें</p>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Get in Touch</h1>
-            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+            <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">संपर्क करें</span>
+            <h1 className="font-serif text-2xl md:text-3xl lg:text-5xl text-warm-900 tracking-tight mt-1">Get in Touch</h1>
+            <div className="w-12 h-1 bg-crimson-500 rounded-full mx-auto mt-4" />
+            <p className="text-sm md:text-[15px] text-warm-600 mt-3 max-w-xl mx-auto">
               Whether you&apos;d like to donate, volunteer, seek assistance, or simply know more — we&apos;re here to help.
             </p>
           </ScrollReveal>

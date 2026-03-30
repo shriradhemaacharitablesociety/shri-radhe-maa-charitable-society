@@ -40,25 +40,22 @@ export default function SocietyPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      {/* Dark Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-warm-900 to-crimson-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.04),transparent_50%)]" />
-        <div className="relative py-12 md:py-20 px-4 sm:px-6">
-          <div className="max-w-7xl mx-auto">
-            <ScrollReveal>
-              <span className="inline-block px-3 py-1 rounded-full bg-saffron-500/20 text-saffron-400 text-xs font-semibold font-sans uppercase tracking-wider mb-4">Registered Society</span>
-              <span className="font-devanagari text-sm text-saffron-400 font-medium block" lang="hi">
-                सोसाइटी
-              </span>
-              <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl text-white tracking-tight mt-2">
-                The Society
-              </h1>
-              <div className="w-12 h-1 bg-saffron-400 rounded-full mt-4" />
-              <p className="text-[15px] text-white/70 mt-4 leading-relaxed max-w-xl">
-                A registered charitable organisation committed to spiritual upliftment and social welfare.
-              </p>
-            </ScrollReveal>
-          </div>
+      {/* Hero */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto text-center">
+          <ScrollReveal>
+            <span className="inline-block px-3 py-1 rounded-full bg-crimson-50 text-crimson-600 text-xs font-semibold font-sans uppercase tracking-wider mb-4">Registered Society</span>
+            <span className="font-devanagari text-sm text-crimson-500 font-medium block" lang="hi">
+              सोसाइटी
+            </span>
+            <h1 className="font-serif text-2xl md:text-3xl lg:text-5xl text-warm-900 tracking-tight mt-1">
+              The Society
+            </h1>
+            <div className="w-12 h-1 bg-crimson-500 rounded-full mx-auto mt-4" />
+            <p className="text-sm md:text-[15px] text-warm-600 mt-3 max-w-xl mx-auto">
+              A registered charitable organisation committed to spiritual upliftment and social welfare.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 

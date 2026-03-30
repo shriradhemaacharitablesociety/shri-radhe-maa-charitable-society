@@ -79,26 +79,27 @@ export async function generateMetadata({
 export default function DonorWallPage() {
   return (
     <>
-      {/* Dark Hero */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">हमारे सहयोगी</p>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Our Supporters</h1>
-            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+            <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">हमारे सहयोगी</span>
+            <h1 className="font-serif text-2xl md:text-3xl lg:text-5xl text-warm-900 tracking-tight mt-1">Our Supporters</h1>
+            <div className="w-12 h-1 bg-crimson-500 rounded-full mx-auto mt-4" />
+            <p className="text-sm md:text-[15px] text-warm-600 mt-3 max-w-xl mx-auto">
               Every act of generosity brings us closer to a compassionate society. We honour those who walk this path of seva with us.
             </p>
           </ScrollReveal>
 
-          {/* Stats inline on dark */}
+          {/* Stats inline */}
           <ScrollReveal delay={150}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center mt-10">
               {communityStats.map((stat) => (
-                <div key={stat.label} className="rounded-2xl bg-white/10 backdrop-blur-sm p-4 sm:p-6">
-                  <span className="font-stat text-3xl font-black text-saffron-400">
+                <div key={stat.label} className="rounded-2xl bg-warm-50 border border-warm-200 p-4 sm:p-6">
+                  <span className="font-stat text-3xl font-black text-crimson-500">
                     {stat.value}
                   </span>
-                  <span className="font-sans text-xs uppercase tracking-wider text-white/60 block mt-1">
+                  <span className="font-sans text-xs uppercase tracking-wider text-warm-600 block mt-1">
                     {stat.label}
                   </span>
                 </div>

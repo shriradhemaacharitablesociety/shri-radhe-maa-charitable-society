@@ -84,14 +84,14 @@ export default function CSRPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      {/* Dark Hero */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <Badge variant="gold" className="mb-4">Corporate Partnerships</Badge>
-            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">सीएसआर और कॉर्पोरेट साझेदारी</p>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">CSR &amp; Corporate Partnerships</h1>
-            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+            <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">सीएसआर और कॉर्पोरेट साझेदारी</span>
+            <h1 className="font-serif text-2xl md:text-3xl lg:text-5xl text-warm-900 tracking-tight mt-1">CSR &amp; Corporate Partnerships</h1>
+            <div className="w-12 h-1 bg-crimson-500 rounded-full mx-auto mt-4" />
+            <p className="text-sm md:text-[15px] text-warm-600 mt-3 max-w-xl mx-auto">
               Partner with us to fulfil your Corporate Social Responsibility mandate while creating real impact for India&apos;s most vulnerable communities.
             </p>
           </ScrollReveal>

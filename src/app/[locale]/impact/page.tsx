@@ -31,13 +31,14 @@ export default function ImpactCalculatorPage() {
 
   return (
     <>
-      {/* Crimson Hero with slider */}
-      <section className="bg-gradient-to-br from-crimson-600 via-crimson-500 to-crimson-700 py-12 md:py-20 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-devanagari text-sm text-saffron-300 mb-3" lang="hi">आपका प्रभाव</p>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Your Impact</h1>
-            <p className="font-sans text-base text-white/80 max-w-2xl leading-relaxed">
+            <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">आपका प्रभाव</span>
+            <h1 className="font-serif text-2xl md:text-3xl lg:text-5xl text-warm-900 tracking-tight mt-1">Your Impact</h1>
+            <div className="w-12 h-1 bg-crimson-500 rounded-full mx-auto mt-4" />
+            <p className="text-sm md:text-[15px] text-warm-600 mt-3 max-w-xl mx-auto">
               See what your donation can achieve. Move the slider to explore the real-world impact of your generosity.
             </p>
           </ScrollReveal>

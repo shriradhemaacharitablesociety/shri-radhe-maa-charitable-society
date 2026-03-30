@@ -114,30 +114,31 @@ export default function SevaMapPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      {/* Dark Hero */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">हम कहाँ सेवा करते हैं</p>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Where We Serve</h1>
-            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+            <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">हम कहाँ सेवा करते हैं</span>
+            <h1 className="font-serif text-2xl md:text-3xl lg:text-5xl text-warm-900 tracking-tight mt-1">Where We Serve</h1>
+            <div className="w-12 h-1 bg-crimson-500 rounded-full mx-auto mt-4" />
+            <p className="text-sm md:text-[15px] text-warm-600 mt-3 max-w-xl mx-auto">
               Our charitable programmes reach communities across multiple states in India.
             </p>
           </ScrollReveal>
 
           {/* Stats Bar inline */}
           <ScrollReveal delay={100}>
-            <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-10 max-w-lg">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-10 max-w-lg mx-auto">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 sm:p-5 text-center"
+                  className="bg-warm-50 border border-warm-200 rounded-2xl p-3 sm:p-5 text-center"
                 >
-                  <p className="font-stat text-3xl font-black text-saffron-400">
+                  <p className="font-stat text-3xl font-black text-crimson-500">
                     {stat.value}
                   </p>
-                  <p className="font-sans text-sm text-white/70 mt-1">{stat.label}</p>
-                  <p className="font-devanagari text-xs text-white/40 mt-0.5" lang="hi">
+                  <p className="font-sans text-sm text-warm-600 mt-1">{stat.label}</p>
+                  <p className="font-devanagari text-xs text-warm-500 mt-0.5" lang="hi">
                     {stat.labelHi}
                   </p>
                 </div>

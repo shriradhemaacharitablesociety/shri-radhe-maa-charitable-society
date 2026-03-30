@@ -156,15 +156,16 @@ export default async function AnnualReportPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      {/* Dark Hero */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero */}
+      <section className="bg-white py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-devanagari text-sm text-saffron-400 mb-3" lang="hi">वार्षिक रिपोर्ट</p>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">
+            <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">वार्षिक रिपोर्ट</span>
+            <h1 className="font-serif text-2xl md:text-3xl lg:text-5xl text-warm-900 tracking-tight mt-1">
               {isHindi ? "वार्षिक रिपोर्ट 2025-26" : "Annual Report 2025-26"}
             </h1>
-            <p className="font-sans text-base text-white/70 max-w-2xl leading-relaxed">
+            <div className="w-12 h-1 bg-crimson-500 rounded-full mx-auto mt-4" />
+            <p className="text-sm md:text-[15px] text-warm-600 mt-3 max-w-xl mx-auto">
               {isHindi
                 ? "पारदर्शिता और जवाबदेही — हमारे सेवा कार्यों का वार्षिक विवरण।"
                 : "Transparency and accountability — a comprehensive overview of our seva activities."}
