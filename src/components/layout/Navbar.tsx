@@ -49,7 +49,7 @@ export function Navbar() {
       <header className="md:hidden fixed top-0 left-0 right-0 z-40 pointer-events-none pt-2 px-3">
         <div className="pointer-events-auto flex items-center justify-between px-3 py-2 bg-white/92 backdrop-blur-xl border border-warm-200/50 rounded-full shadow-lg shadow-warm-900/[0.05]">
             {/* Logo — full image like footer, bigger */}
-            <Link href={"/" as any} className="shrink-0">
+            <Link href={"/" as any} className="shrink-0 ml-2">
               <Image
                 src="/logo.png"
                 alt="Shri Radhe Maa Charitable Society"
