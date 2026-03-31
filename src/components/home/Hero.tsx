@@ -43,9 +43,9 @@ export function Hero() {
             </ScrollReveal>
 
             {/* Mobile: image with overlapping text */}
-            <div className="lg:hidden relative -mx-4 sm:-mx-6" style={{ marginTop: "0px" }}>
+            <div className="lg:hidden relative -mx-4 sm:-mx-6" style={{ marginTop: "-4px" }}>
               {/* Cow image — near full width */}
-              <div className="relative w-full" style={{ height: "clamp(300px, 65vw, 420px)" }}>
+              <div className="relative w-full" style={{ height: "clamp(340px, 90vw, 480px)" }}>
                 <Image
                   src="/images/maa-with-cow.png"
                   alt="Shri Radhe Guru Maa with a cow — compassion in seva"
