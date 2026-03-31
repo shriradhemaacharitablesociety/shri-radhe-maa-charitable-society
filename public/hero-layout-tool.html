@@ -157,12 +157,21 @@
     height: 260px;
     overflow: hidden;
     border-radius: 4px;
+    position: relative;
   }
   .el-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top;
+    object-position: center 30%;
+    pointer-events: none;
+  }
+  /* Gradient overlay on image */
+  .el-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.3) 30%, transparent 60%);
     pointer-events: none;
   }
 
@@ -202,15 +211,59 @@
     font-size: 11px;
     padding: 8px 12px;
     border-radius: 6px;
-    z-index: 100;
+    z-index: 1000;
     white-space: pre;
+  }
+
+  /* Z-index controls */
+  .z-controls {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #222;
+    color: #fff;
+    font-family: monospace;
+    font-size: 11px;
+    padding: 12px;
+    border-radius: 8px;
+    z-index: 1000;
+    width: 220px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .z-controls h3 { font-size: 12px; margin-bottom: 8px; color: #C41E3A; }
+  .z-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px solid #333;
+  }
+  .z-row span { flex: 1; font-size: 11px; }
+  .z-row button {
+    width: 24px;
+    height: 24px;
+    background: #444;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 2px;
+  }
+  .z-row button:hover { background: #C41E3A; }
+  .z-row .z-val {
+    width: 30px;
+    text-align: center;
+    color: #0f0;
+    font-weight: bold;
   }
 </style>
 </head>
 <body>
 
 <div class="instructions">
-  <strong>Drag</strong> any element to reposition. <strong>Corner handle</strong> to resize image.<br>
+  <strong>Drag</strong> any element to reposition. <strong>Corner handle</strong> to resize image. <strong>Right panel</strong> to adjust z-index.<br>
   Take a screenshot when done!
 </div>
 
@@ -226,31 +279,19 @@
 
   <div class="canvas" id="canvas">
     <!-- Society Name -->
-    <div class="draggable" id="el-society" style="left: 0; top: 4px; width: 100%;" data-name="Society Name">
+    <div class="draggable" id="el-society" style="left: 0; top: 4px; width: 100%; z-index: 5;" data-name="Society Name" data-z="5">
       <span class="label">Society Name</span>
       <div class="el-society-name"><span class="line">॥ श्री राधे माँ चैरिटेबल सोसाइटी ॥</span></div>
     </div>
 
     <!-- Badge -->
-    <div class="draggable" id="el-badge" style="left: 16px; top: 50px;" data-name="Badge">
+    <div class="draggable" id="el-badge" style="left: 16px; top: 50px; z-index: 10;" data-name="Badge" data-z="10">
       <span class="label">Badge</span>
       <div class="el-badge">ESTABLISHED 2017 &middot; DELHI</div>
     </div>
 
-    <!-- Ghost Text -->
-    <div class="draggable" id="el-ghost" style="left: 16px; top: 88px;" data-name="Ghost सेवा">
-      <span class="label">Ghost सेवा</span>
-      <div class="el-ghost">सेवा</div>
-    </div>
-
-    <!-- Heading -->
-    <div class="draggable" id="el-heading" style="left: 16px; top: 130px;" data-name="Heading">
-      <span class="label">Heading</span>
-      <div class="el-heading">Compassion<br>in <em>every</em> <span class="saffron">seva</span></div>
-    </div>
-
     <!-- Cow Image -->
-    <div class="draggable" id="el-image" style="left: 160px; top: 80px;" data-name="Cow Image">
+    <div class="draggable" id="el-image" style="left: 60px; top: 70px; z-index: 1;" data-name="Cow Image" data-z="1">
       <span class="label">Cow Image (drag corner to resize)</span>
       <div class="el-image">
         <img src="/images/maa-with-cow.png" alt="Maa with cow">
@@ -258,20 +299,32 @@
       <div class="resize-handle" id="resize-handle"></div>
     </div>
 
+    <!-- Ghost Text -->
+    <div class="draggable" id="el-ghost" style="left: 16px; top: 200px; z-index: 15;" data-name="Ghost सेवा" data-z="15">
+      <span class="label">Ghost सेवा</span>
+      <div class="el-ghost">सेवा</div>
+    </div>
+
+    <!-- Heading -->
+    <div class="draggable" id="el-heading" style="left: 16px; top: 240px; z-index: 20;" data-name="Heading" data-z="20">
+      <span class="label">Heading</span>
+      <div class="el-heading">Compassion<br>in <em>every</em> <span class="saffron">seva</span></div>
+    </div>
+
     <!-- Sanskrit -->
-    <div class="draggable" id="el-sanskrit" style="left: 16px; top: 260px;" data-name="Sanskrit">
+    <div class="draggable" id="el-sanskrit" style="left: 16px; top: 360px; z-index: 20;" data-name="Sanskrit" data-z="20">
       <span class="label">Sanskrit</span>
       <div class="el-sanskrit">सेवा परमो धर्मः — जन सेवा ही प्रभु सेवा</div>
     </div>
 
     <!-- Description -->
-    <div class="draggable" id="el-desc" style="left: 16px; top: 290px;" data-name="Description">
+    <div class="draggable" id="el-desc" style="left: 16px; top: 390px; z-index: 20;" data-name="Description" data-z="20">
       <span class="label">Description</span>
       <div class="el-description">Free dialysis. Flood relief. Monthly pensions. Marriage aid. Divyang instruments. Under the divine guidance of Shri Radhe Guru Maa — we serve.</div>
     </div>
 
     <!-- Buttons -->
-    <div class="draggable" id="el-buttons" style="left: 16px; top: 400px; width: calc(100% - 32px);" data-name="Buttons">
+    <div class="draggable" id="el-buttons" style="left: 16px; top: 500px; width: calc(100% - 32px); z-index: 20;" data-name="Buttons" data-z="20">
       <span class="label">Buttons</span>
       <div class="el-buttons">
         <div class="btn-primary">Explore Our Work &rarr;</div>
@@ -283,16 +336,50 @@
 
 <div class="coords" id="coords">Drag an element...</div>
 
+<!-- Z-index controls panel -->
+<div class="z-controls" id="z-controls">
+  <h3>Z-INDEX CONTROLS</h3>
+</div>
+
 <script>
   const canvas = document.getElementById('canvas');
   const coordsEl = document.getElementById('coords');
+  const zPanel = document.getElementById('z-controls');
   let activeEl = null, startX, startY, origLeft, origTop;
   let resizing = false, resizeEl = null, origW, origH, resizeStartX, resizeStartY;
 
+  const draggables = document.querySelectorAll('.draggable');
+
+  // Build z-index panel
+  draggables.forEach(el => {
+    const name = el.dataset.name;
+    const z = parseInt(el.dataset.z) || 1;
+    const row = document.createElement('div');
+    row.className = 'z-row';
+    row.innerHTML = `
+      <span>${name}</span>
+      <button data-dir="-1">−</button>
+      <span class="z-val" id="zval-${el.id}">${z}</span>
+      <button data-dir="1">+</button>
+    `;
+    row.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dir = parseInt(btn.dataset.dir);
+        let cur = parseInt(el.dataset.z) || 1;
+        cur = Math.max(0, cur + dir);
+        el.dataset.z = cur;
+        el.style.zIndex = cur;
+        document.getElementById('zval-' + el.id).textContent = cur;
+        updateCoords(el);
+      });
+    });
+    zPanel.appendChild(row);
+  });
+
   // Drag
-  document.querySelectorAll('.draggable').forEach(el => {
+  draggables.forEach(el => {
     el.addEventListener('mousedown', e => {
-      if (e.target.id === 'resize-handle') return;
+      if (e.target.id === 'resize-handle' || e.target.tagName === 'BUTTON') return;
       activeEl = el;
       el.classList.add('active');
       startX = e.clientX;
@@ -302,7 +389,7 @@
       e.preventDefault();
     });
     el.addEventListener('touchstart', e => {
-      if (e.target.id === 'resize-handle') return;
+      if (e.target.id === 'resize-handle' || e.target.tagName === 'BUTTON') return;
       activeEl = el;
       el.classList.add('active');
       const t = e.touches[0];
@@ -375,10 +462,11 @@
 
   function updateCoords(el) {
     const name = el.dataset.name;
+    const z = el.dataset.z || '?';
     const imgDiv = el.querySelector('.el-image');
     let size = '';
     if (imgDiv) size = ` | ${imgDiv.offsetWidth}x${imgDiv.offsetHeight}`;
-    coordsEl.textContent = `${name}: left=${el.offsetLeft}px, top=${el.offsetTop}px${size}`;
+    coordsEl.textContent = `${name}: left=${el.offsetLeft}, top=${el.offsetTop}, z=${z}${size}`;
   }
 </script>
 </body>
