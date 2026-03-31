@@ -45,12 +45,13 @@ export function Hero() {
             <div className="relative mt-1 md:mt-6 flex items-end">
               <div className="flex-1 min-w-0 relative">
                 <div
-                  className="absolute top-0 left-0 font-devanagari font-black select-none pointer-events-none"
+                  className="font-devanagari font-black select-none pointer-events-none"
                   style={{
                     fontSize: "clamp(60px, 15vw, 120px)",
-                    lineHeight: 0.85,
+                    lineHeight: 0.7,
                     letterSpacing: "-0.04em",
                     color: "rgba(26, 15, 8, 0.04)",
+                    marginBottom: "-0.5em",
                   }}
                   aria-hidden="true"
                 >
@@ -63,7 +64,6 @@ export function Hero() {
                     lineHeight: 1.05,
                     letterSpacing: "-0.03em",
                     zIndex: 1,
-                    paddingTop: "clamp(30px, 8vw, 60px)",
                   }}
                 >
                   {t("title_1")}
