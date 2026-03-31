@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Layout Tool — Drag to arrange</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f5f5f5; font-family: system-ui, sans-serif; }
+
+  .phone-frame {
+    width: 375px;
+    height: 812px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 40px;
+    border: 3px solid #222;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .navbar {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    margin: 12px 16px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+  }
+  .navbar img { width: 44px; height: 44px; border-radius: 50%; }
+  .navbar-btns { display: flex; gap: 8px; align-items: center; }
+  .navbar-btns span { font-size: 13px; padding: 6px 14px; border-radius: 8px; }
+  .btn-login { border: 1px solid #ddd; color: #333; }
+  .btn-donate { background: #C41E3A; color: #fff; }
+  .hamburger { font-size: 20px; color: #333; margin-left: 8px; }
+
+  .canvas {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 80px);
+    overflow: hidden;
+  }
+
+  .draggable {
+    position: absolute;
+    cursor: grab;
+    user-select: none;
+    border: 2px dashed transparent;
+    padding: 4px;
+    transition: border-color 0.15s;
+  }
+  .draggable:hover, .draggable.active {
+    border-color: #C41E3A;
+  }
+  .draggable.active { cursor: grabbing; }
+
+  .label {
+    position: absolute;
+    top: -18px;
+    left: 0;
+    font-size: 10px;
+    background: #C41E3A;
+    color: #fff;
+    padding: 1px 6px;
+    border-radius: 4px;
+    pointer-events: none;
+    white-space: nowrap;
+    display: none;
+  }
+  .draggable:hover .label, .draggable.active .label { display: block; }
+
+  /* Elements */
+  .el-society-name {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    color: #C41E3A;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+  }
+  .el-society-name .line { display: block; }
+  .el-society-name .line::after { content: ''; display: block; width: 40px; height: 2px; background: #DAA520; margin: 6px auto 0; }
+
+  .el-badge {
+    background: rgba(196, 30, 58, 0.08);
+    color: #C41E3A;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .el-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #C41E3A; }
+
+  .el-ghost {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 65px;
+    font-weight: 900;
+    color: rgba(26, 15, 8, 0.04);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+  }
+
+  .el-heading {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32px;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #1a0f08;
+  }
+  .el-heading em { color: #C41E3A; font-style: italic; }
+  .el-heading .saffron { color: #DAA520; }
+
+  .el-sanskrit {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    color: #DAA520;
+    opacity: 0.5;
+    font-size: 13px;
+  }
+
+  .el-description {
+    font-family: system-ui, sans-serif;
+    color: #6b5c4f;
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 340px;
+  }
+
+  .el-buttons { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+  .el-buttons .btn-primary {
+    background: #C41E3A;
+    color: #fff;
+    text-align: center;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .el-buttons .btn-ghost {
+    border: 1px solid #ddd;
+    color: #333;
+    text-align: center;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .el-image {
+    width: 200px;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  .el-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    pointer-events: none;
+  }
+
+  /* Resize handle */
+  .resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    background: #C41E3A;
+    cursor: se-resize;
+    border-radius: 2px;
+    opacity: 0;
+  }
+  .draggable:hover .resize-handle { opacity: 0.7; }
+
+  .instructions {
+    text-align: center;
+    padding: 12px;
+    font-size: 13px;
+    color: #666;
+    background: #fff;
+    margin: 0 auto;
+    width: 375px;
+    border-radius: 0 0 8px 8px;
+  }
+  .instructions strong { color: #C41E3A; }
+
+  .coords {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background: #222;
+    color: #0f0;
+    font-family: monospace;
+    font-size: 11px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    z-index: 100;
+    white-space: pre;
+  }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  <strong>Drag</strong> any element to reposition. <strong>Corner handle</strong> to resize image.<br>
+  Take a screenshot when done!
+</div>
+
+<div class="phone-frame">
+  <div class="navbar">
+    <img src="/logo.png" alt="Logo">
+    <div class="navbar-btns">
+      <span class="btn-login">Login</span>
+      <span class="btn-donate">Donate</span>
+      <span class="hamburger">&#9776;</span>
+    </div>
+  </div>
+
+  <div class="canvas" id="canvas">
+    <!-- Society Name -->
+    <div class="draggable" id="el-society" style="left: 0; top: 4px; width: 100%;" data-name="Society Name">
+      <span class="label">Society Name</span>
+      <div class="el-society-name"><span class="line">॥ श्री राधे माँ चैरिटेबल सोसाइटी ॥</span></div>
+    </div>
+
+    <!-- Badge -->
+    <div class="draggable" id="el-badge" style="left: 16px; top: 50px;" data-name="Badge">
+      <span class="label">Badge</span>
+      <div class="el-badge">ESTABLISHED 2017 &middot; DELHI</div>
+    </div>
+
+    <!-- Ghost Text -->
+    <div class="draggable" id="el-ghost" style="left: 16px; top: 88px;" data-name="Ghost सेवा">
+      <span class="label">Ghost सेवा</span>
+      <div class="el-ghost">सेवा</div>
+    </div>
+
+    <!-- Heading -->
+    <div class="draggable" id="el-heading" style="left: 16px; top: 130px;" data-name="Heading">
+      <span class="label">Heading</span>
+      <div class="el-heading">Compassion<br>in <em>every</em> <span class="saffron">seva</span></div>
+    </div>
+
+    <!-- Cow Image -->
+    <div class="draggable" id="el-image" style="left: 160px; top: 80px;" data-name="Cow Image">
+      <span class="label">Cow Image (drag corner to resize)</span>
+      <div class="el-image">
+        <img src="/images/maa-with-cow.png" alt="Maa with cow">
+      </div>
+      <div class="resize-handle" id="resize-handle"></div>
+    </div>
+
+    <!-- Sanskrit -->
+    <div class="draggable" id="el-sanskrit" style="left: 16px; top: 260px;" data-name="Sanskrit">
+      <span class="label">Sanskrit</span>
+      <div class="el-sanskrit">सेवा परमो धर्मः — जन सेवा ही प्रभु सेवा</div>
+    </div>
+
+    <!-- Description -->
+    <div class="draggable" id="el-desc" style="left: 16px; top: 290px;" data-name="Description">
+      <span class="label">Description</span>
+      <div class="el-description">Free dialysis. Flood relief. Monthly pensions. Marriage aid. Divyang instruments. Under the divine guidance of Shri Radhe Guru Maa — we serve.</div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="draggable" id="el-buttons" style="left: 16px; top: 400px; width: calc(100% - 32px);" data-name="Buttons">
+      <span class="label">Buttons</span>
+      <div class="el-buttons">
+        <div class="btn-primary">Explore Our Work &rarr;</div>
+        <div class="btn-ghost">Watch Stories</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="coords" id="coords">Drag an element...</div>
+
+<script>
+  const canvas = document.getElementById('canvas');
+  const coordsEl = document.getElementById('coords');
+  let activeEl = null, startX, startY, origLeft, origTop;
+  let resizing = false, resizeEl = null, origW, origH, resizeStartX, resizeStartY;
+
+  // Drag
+  document.querySelectorAll('.draggable').forEach(el => {
+    el.addEventListener('mousedown', e => {
+      if (e.target.id === 'resize-handle') return;
+      activeEl = el;
+      el.classList.add('active');
+      startX = e.clientX;
+      startY = e.clientY;
+      origLeft = el.offsetLeft;
+      origTop = el.offsetTop;
+      e.preventDefault();
+    });
+    el.addEventListener('touchstart', e => {
+      if (e.target.id === 'resize-handle') return;
+      activeEl = el;
+      el.classList.add('active');
+      const t = e.touches[0];
+      startX = t.clientX;
+      startY = t.clientY;
+      origLeft = el.offsetLeft;
+      origTop = el.offsetTop;
+      e.preventDefault();
+    }, { passive: false });
+  });
+
+  function onMove(cx, cy) {
+    if (resizing && resizeEl) {
+      const dw = cx - resizeStartX;
+      const dh = cy - resizeStartY;
+      const imgDiv = resizeEl.querySelector('.el-image');
+      imgDiv.style.width = Math.max(100, origW + dw) + 'px';
+      imgDiv.style.height = Math.max(100, origH + dh) + 'px';
+      updateCoords(resizeEl);
+      return;
+    }
+    if (!activeEl) return;
+    const dx = cx - startX;
+    const dy = cy - startY;
+    activeEl.style.left = (origLeft + dx) + 'px';
+    activeEl.style.top = (origTop + dy) + 'px';
+    updateCoords(activeEl);
+  }
+
+  document.addEventListener('mousemove', e => onMove(e.clientX, e.clientY));
+  document.addEventListener('touchmove', e => {
+    onMove(e.touches[0].clientX, e.touches[0].clientY);
+    e.preventDefault();
+  }, { passive: false });
+
+  function onEnd() {
+    if (activeEl) activeEl.classList.remove('active');
+    activeEl = null;
+    resizing = false;
+    resizeEl = null;
+  }
+  document.addEventListener('mouseup', onEnd);
+  document.addEventListener('touchend', onEnd);
+
+  // Resize handle
+  const handle = document.getElementById('resize-handle');
+  handle.addEventListener('mousedown', e => {
+    resizing = true;
+    resizeEl = handle.closest('.draggable');
+    resizeStartX = e.clientX;
+    resizeStartY = e.clientY;
+    const imgDiv = resizeEl.querySelector('.el-image');
+    origW = imgDiv.offsetWidth;
+    origH = imgDiv.offsetHeight;
+    e.preventDefault();
+    e.stopPropagation();
+  });
+  handle.addEventListener('touchstart', e => {
+    resizing = true;
+    resizeEl = handle.closest('.draggable');
+    const t = e.touches[0];
+    resizeStartX = t.clientX;
+    resizeStartY = t.clientY;
+    const imgDiv = resizeEl.querySelector('.el-image');
+    origW = imgDiv.offsetWidth;
+    origH = imgDiv.offsetHeight;
+    e.preventDefault();
+    e.stopPropagation();
+  }, { passive: false });
+
+  function updateCoords(el) {
+    const name = el.dataset.name;
+    const imgDiv = el.querySelector('.el-image');
+    let size = '';
+    if (imgDiv) size = ` | ${imgDiv.offsetWidth}x${imgDiv.offsetHeight}`;
+    coordsEl.textContent = `${name}: left=${el.offsetLeft}px, top=${el.offsetTop}px${size}`;
+  }
+</script>
+</body>
+</html>
