@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
+import Image from "next/image";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -41,34 +42,46 @@ export function Hero() {
               </Badge>
             </ScrollReveal>
 
-            <div className="relative mt-3 md:mt-6">
-              <div
-                className="font-devanagari font-black select-none pointer-events-none"
-                style={{
-                  fontSize: "clamp(60px, 15vw, 120px)",
-                  lineHeight: 0.85,
-                  letterSpacing: "-0.04em",
-                  color: "rgba(26, 15, 8, 0.04)",
-                }}
-                aria-hidden="true"
-              >
-                सेवा
+            <div className="relative mt-3 md:mt-6 flex items-end gap-2">
+              <div className="flex-1 min-w-0">
+                <div
+                  className="font-devanagari font-black select-none pointer-events-none"
+                  style={{
+                    fontSize: "clamp(60px, 15vw, 120px)",
+                    lineHeight: 0.85,
+                    letterSpacing: "-0.04em",
+                    color: "rgba(26, 15, 8, 0.04)",
+                  }}
+                  aria-hidden="true"
+                >
+                  सेवा
+                </div>
+                <h1
+                  className="font-serif text-warm-900 relative md:-mt-11"
+                  style={{
+                    fontSize: "clamp(26px, 6vw, 56px)",
+                    lineHeight: 1.08,
+                    letterSpacing: "-0.03em",
+                    zIndex: 1,
+                  }}
+                >
+                  {t("title_1")}
+                  <br />
+                  {t("title_2")}{" "}
+                  <em className="text-crimson-500 italic">{t("title_3")}</em>{" "}
+                  <span className="text-saffron-600">{t("title_4")}</span>
+                </h1>
               </div>
-              <h1
-                className="font-serif text-warm-900 relative md:-mt-11"
-                style={{
-                  fontSize: "clamp(26px, 6vw, 56px)",
-                  lineHeight: 1.08,
-                  letterSpacing: "-0.03em",
-                  zIndex: 1,
-                }}
-              >
-                {t("title_1")}
-                <br />
-                {t("title_2")}{" "}
-                <em className="text-crimson-500 italic">{t("title_3")}</em>{" "}
-                <span className="text-saffron-600">{t("title_4")}</span>
-              </h1>
+              <div className="shrink-0 w-[140px] h-[170px] sm:w-[180px] sm:h-[210px] lg:w-[220px] lg:h-[260px] relative -mb-1">
+                <Image
+                  src="/images/maa-with-cow.png"
+                  alt="Shri Radhe Guru Maa with a cow — compassion in seva"
+                  fill
+                  className="object-contain object-bottom"
+                  sizes="(max-width: 640px) 140px, (max-width: 1024px) 180px, 220px"
+                  priority
+                />
+              </div>
             </div>
 
             <ScrollReveal delay={150}>
