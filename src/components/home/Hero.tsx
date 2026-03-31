@@ -41,13 +41,13 @@ export function Hero() {
           </Badge>
 
           {/* Full-width image container with overlaid text */}
-          <div className="relative mt-3" style={{ aspectRatio: "3/4" }}>
+          <div className="relative" style={{ marginTop: "4px" }}>
             <Image
               src="/images/maa-with-cow.png"
               alt="Shri Radhe Guru Maa with a cow — compassion in seva"
-              fill
-              className="object-contain"
-              style={{ objectPosition: "center bottom" }}
+              width={750}
+              height={900}
+              className="w-full h-auto"
               sizes="100vw"
               priority
             />
