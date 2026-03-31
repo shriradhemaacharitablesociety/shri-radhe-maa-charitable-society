@@ -42,10 +42,10 @@ export function Hero() {
               </Badge>
             </ScrollReveal>
 
-            <div className="relative mt-2 md:mt-6 flex items-end">
-              <div className="flex-1 min-w-0">
+            <div className="relative mt-1 md:mt-6 flex items-end">
+              <div className="flex-1 min-w-0 relative">
                 <div
-                  className="font-devanagari font-black select-none pointer-events-none"
+                  className="absolute top-0 left-0 font-devanagari font-black select-none pointer-events-none"
                   style={{
                     fontSize: "clamp(60px, 15vw, 120px)",
                     lineHeight: 0.85,
@@ -57,12 +57,13 @@ export function Hero() {
                   सेवा
                 </div>
                 <h1
-                  className="font-serif text-warm-900 relative md:-mt-11"
+                  className="font-serif text-warm-900 relative"
                   style={{
                     fontSize: "clamp(32px, 8vw, 56px)",
                     lineHeight: 1.05,
                     letterSpacing: "-0.03em",
                     zIndex: 1,
+                    paddingTop: "clamp(30px, 8vw, 60px)",
                   }}
                 >
                   {t("title_1")}
