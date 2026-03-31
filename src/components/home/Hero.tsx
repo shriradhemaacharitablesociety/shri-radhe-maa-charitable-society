@@ -53,7 +53,7 @@ export function Hero() {
                   alt="Shri Radhe Guru Maa with a cow — compassion in seva"
                   fill
                   className="object-cover"
-                  style={{ objectPosition: "center 15%" }}
+                  style={{ objectPosition: "center 30%" }}
                   sizes="100vw"
                   priority
                 />
