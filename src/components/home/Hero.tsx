@@ -35,17 +35,19 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 lg:gap-16 items-start">
           {/* Left column */}
           <div>
-            <ScrollReveal delay={0}>
-              <Badge variant="crimson">
-                <span className="w-1.5 h-1.5 rounded-full bg-crimson-500 mr-2" />
-                {t("badge")}
-              </Badge>
-            </ScrollReveal>
-
-            {/* Mobile: image with overlapping text */}
-            <div className="lg:hidden relative -mx-4 sm:-mx-6" style={{ marginTop: "-4px" }}>
-              {/* Cow image — near full width */}
-              <div className="relative w-full" style={{ height: "clamp(340px, 90vw, 480px)" }}>
+            {/* Mobile: badge overlapping the image */}
+            <div className="lg:hidden relative -mx-4 sm:-mx-6">
+              {/* Badge — sits on top of image */}
+              <div className="relative z-10 px-4 sm:px-6">
+                <ScrollReveal delay={0}>
+                  <Badge variant="crimson">
+                    <span className="w-1.5 h-1.5 rounded-full bg-crimson-500 mr-2" />
+                    {t("badge")}
+                  </Badge>
+                </ScrollReveal>
+              </div>
+              {/* Cow image — starts right at the badge, pulled up */}
+              <div className="relative w-full" style={{ height: "clamp(320px, 85vw, 440px)", marginTop: "-8px" }}>
                 <Image
                   src="/images/maa-with-cow.png"
                   alt="Shri Radhe Guru Maa with a cow — compassion in seva"
@@ -90,6 +92,16 @@ export function Hero() {
                   <span className="text-saffron-600">{t("title_4")}</span>
                 </h1>
               </div>
+            </div>
+
+            {/* Desktop: badge (not inside mobile block) */}
+            <div className="hidden lg:block">
+              <ScrollReveal delay={0}>
+                <Badge variant="crimson">
+                  <span className="w-1.5 h-1.5 rounded-full bg-crimson-500 mr-2" />
+                  {t("badge")}
+                </Badge>
+              </ScrollReveal>
             </div>
 
             {/* Desktop: original side-by-side layout (no image) */}
