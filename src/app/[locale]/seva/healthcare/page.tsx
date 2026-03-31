@@ -147,18 +147,16 @@ export default function HealthcarePage() {
         </div>
       </section>
 
-      {/* Dark FAQ section */}
-      <section className="relative overflow-hidden bg-warm-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03),transparent_50%)]" />
-        <div className="relative py-12 md:py-20 px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto">
-            <ScrollReveal delay={500}>
-              <div className="text-center mb-10">
-                <span className="font-devanagari text-sm text-saffron-400 font-medium" lang="hi">सामान्य प्रश्न</span>
-                <h2 className="font-serif text-2xl md:text-3xl text-white tracking-tight mt-1">Frequently Asked Questions</h2>
-                <div className="w-12 h-1 bg-saffron-400 rounded-full mx-auto mt-4" />
-              </div>
-            </ScrollReveal>
+      {/* FAQ section */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto">
+          <ScrollReveal delay={500}>
+            <div className="text-center mb-10">
+              <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">सामान्य प्रश्न</span>
+              <h2 className="font-serif text-2xl md:text-3xl text-warm-900 tracking-tight mt-1">Frequently Asked Questions</h2>
+              <div className="w-12 h-1 bg-crimson-500 rounded-full mx-auto mt-4" />
+            </div>
+          </ScrollReveal>
             <div className="space-y-3">
               {faqs.map((faq) => (
                 <details
@@ -178,7 +176,6 @@ export default function HealthcarePage() {
               ))}
             </div>
           </div>
-        </div>
       </section>
     </div>
   );

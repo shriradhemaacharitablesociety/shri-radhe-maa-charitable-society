@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { Stethoscope, Droplets, Heart, Pill } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -109,16 +110,16 @@ export default function MaaPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {[
-              { icon: "🏥", stat: "24/7", title: "Free Dialysis Centre", desc: "Established a free kidney dialysis centre at Anand Hospital, Mumbai — serving patients who cannot afford treatment." },
-              { icon: "🌊", stat: "4+", title: "Disaster Relief", desc: "Led relief operations in Punjab, Kerala, Nepal, and Maharashtra — including rebuilding homes for flood-affected families." },
-              { icon: "🤝", stat: "100+", title: "Monthly Pensions", desc: "Over 100+ families receive monthly financial support through the society under Maa's guidance." },
-              { icon: "💊", stat: "1000+", title: "Healthcare Camps", desc: "Blood donation drives, free eye and dental check-up camps organised across India." },
+              { icon: <Stethoscope className="w-5 h-5 md:w-6 md:h-6" />, stat: "24/7", title: "Free Dialysis Centre", desc: "Established a free kidney dialysis centre at Anand Hospital, Mumbai — serving patients who cannot afford treatment." },
+              { icon: <Droplets className="w-5 h-5 md:w-6 md:h-6" />, stat: "4+", title: "Disaster Relief", desc: "Led relief operations in Punjab, Kerala, Nepal, and Maharashtra — including rebuilding homes for flood-affected families." },
+              { icon: <Heart className="w-5 h-5 md:w-6 md:h-6" />, stat: "100+", title: "Monthly Pensions", desc: "Over 100+ families receive monthly financial support through the society under Maa's guidance." },
+              { icon: <Pill className="w-5 h-5 md:w-6 md:h-6" />, stat: "1000+", title: "Healthcare Camps", desc: "Blood donation drives, free eye and dental check-up camps organised across India." },
             ].map((item, i) => (
               <ScrollReveal key={item.title} delay={350 + i * 100}>
                 {/* Mobile */}
                 <div className="md:hidden flex rounded-2xl overflow-hidden shadow-md bg-white">
                   <div className="shrink-0 w-16 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
-                    <span className="text-xl">{item.icon}</span>
+                    {item.icon}
                     <span
                       className="font-stat font-bold text-sm uppercase tracking-wider"
                       style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
@@ -134,7 +135,7 @@ export default function MaaPage() {
                 {/* Desktop */}
                 <div className="hidden md:flex h-full rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
                   <div className="shrink-0 w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
-                    <span className="text-2xl">{item.icon}</span>
+                    {item.icon}
                     <span
                       className="font-stat font-bold text-base uppercase tracking-wider"
                       style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}

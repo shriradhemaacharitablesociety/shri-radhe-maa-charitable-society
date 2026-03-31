@@ -289,13 +289,13 @@ export default function TransparencyPage() {
       </div>
       </section>
 
-      {/* Commitment on Dark */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+      {/* Commitment */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal delay={600}>
-            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">हमारी प्रतिबद्धता</p>
-            <h3 className="font-serif text-2xl md:text-3xl text-white mb-4">Our Commitment to Donors</h3>
-            <p className="font-sans text-base text-white/70 leading-relaxed max-w-2xl mx-auto">
+            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">हमारी प्रतिबद्धता</p>
+            <h3 className="font-serif text-2xl md:text-3xl text-warm-900 mb-4">Our Commitment to Donors</h3>
+            <p className="font-sans text-base text-warm-600 leading-relaxed max-w-2xl mx-auto">
               Every donation received by the Shri Radhe Maa Charitable Society is accounted for, reported, and directed towards the purposes for which it was given. We operate on the principle that donor trust is sacred — and we honour it with complete transparency in every transaction, programme, and report.
             </p>
           </ScrollReveal>

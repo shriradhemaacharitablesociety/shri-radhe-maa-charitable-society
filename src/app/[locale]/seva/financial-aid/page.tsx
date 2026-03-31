@@ -145,34 +145,31 @@ export default function FinancialAidPage() {
         </div>
       </section>
 
-      {/* Dark CTA section */}
-      <section className="relative overflow-hidden bg-warm-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03),transparent_50%)]" />
-        <div className="relative py-12 md:py-20 px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <ScrollReveal delay={700}>
-              <span className="font-devanagari text-sm text-saffron-400 font-medium" lang="hi">सहायता के लिए संपर्क करें</span>
-              <h2 className="font-serif text-2xl md:text-3xl text-white mt-2 mb-3">Apply for Financial Assistance</h2>
-              <p className="font-sans text-white/60 text-base mb-8 max-w-md mx-auto">
-                If you or someone you know needs financial assistance, please reach out to us. All applications are treated with complete confidentiality.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <a
-                  href="tel:+919560800343"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-crimson-600 text-base font-semibold rounded-pill hover:bg-saffron-50 transition-all duration-300 shadow-lg"
-                  style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
-                >
-                  Call: 95608 00343
-                </a>
-                <a
-                  href="mailto:shriradhemaacharitablesociety@gmail.com"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 border border-white/30 text-white text-base font-medium rounded-pill hover:bg-white/10 transition-all duration-200 font-sans"
-                >
-                  Email Us
-                </a>
-              </div>
-            </ScrollReveal>
-          </div>
+      {/* CTA section */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <ScrollReveal delay={700}>
+            <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">सहायता के लिए संपर्क करें</span>
+            <h2 className="font-serif text-2xl md:text-3xl text-warm-900 mt-2 mb-3">Apply for Financial Assistance</h2>
+            <p className="font-sans text-warm-600 text-base mb-8 max-w-md mx-auto">
+              If you or someone you know needs financial assistance, please reach out to us. All applications are treated with complete confidentiality.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <a
+                href="tel:+919560800343"
+                className="inline-flex items-center gap-2 px-8 py-3.5 bg-crimson-500 text-white text-base font-semibold rounded-pill hover:bg-crimson-600 transition-all duration-300 shadow-lg"
+                style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
+              >
+                Call: 95608 00343
+              </a>
+              <a
+                href="mailto:shriradhemaacharitablesociety@gmail.com"
+                className="inline-flex items-center gap-2 px-8 py-3.5 border border-warm-100 text-warm-900 text-base font-medium rounded-pill hover:bg-warm-50 transition-all duration-200 font-sans"
+              >
+                Email Us
+              </a>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

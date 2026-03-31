@@ -165,22 +165,22 @@ export default async function FAQPage({
         </div>
       </section>
 
-      {/* CTA on Dark */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+      {/* CTA */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal delay={500}>
-            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">प्रश्न</p>
-            <h3 className="font-serif text-2xl md:text-3xl text-white mb-3">
+            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">प्रश्न</p>
+            <h3 className="font-serif text-2xl md:text-3xl text-warm-900 mb-3">
               {isHindi ? "अभी भी कोई प्रश्न है?" : "Still have questions?"}
             </h3>
-            <p className="text-white/70 text-sm mb-6 font-sans">
+            <p className="text-warm-600 text-sm mb-6 font-sans">
               {isHindi
                 ? "हमसे सीधे संपर्क करें, हम आपकी सहायता के लिए तत्पर हैं।"
                 : "Reach out to us directly and we will be happy to help."}
             </p>
             <Link
               href={`/${locale}/contact`}
-              className="inline-flex items-center gap-2 bg-white text-crimson-500 font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto justify-center rounded-lg hover:bg-white/90 transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-crimson-500 text-white font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto justify-center rounded-lg hover:bg-crimson-600 transition-colors duration-200"
             >
               {isHindi ? "संपर्क करें" : "Contact Us"}
               <svg

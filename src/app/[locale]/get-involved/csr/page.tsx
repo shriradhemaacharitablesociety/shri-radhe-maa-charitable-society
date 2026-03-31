@@ -118,13 +118,13 @@ export default function CSRPage() {
       </div>
       </section>
 
-      {/* CTA on Dark */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+      {/* CTA */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal delay={900}>
-            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">अभी संपर्क करें</p>
-            <h3 className="font-serif text-2xl md:text-3xl text-white mb-3">Start a CSR Partnership</h3>
-            <p className="font-sans text-sm text-white/70 leading-relaxed mb-6">
+            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">अभी संपर्क करें</p>
+            <h3 className="font-serif text-2xl md:text-3xl text-warm-900 mb-3">Start a CSR Partnership</h3>
+            <p className="font-sans text-sm text-warm-600 leading-relaxed mb-6">
               Contact our team to discuss CSR partnership opportunities, project scopes, and impact reporting.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 max-w-lg">
@@ -153,7 +153,7 @@ export default function CSRPage() {
             </div>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-crimson-500 text-sm font-medium rounded-lg hover:bg-white/90 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-crimson-500 text-white text-sm font-medium rounded-lg hover:bg-crimson-600 transition-all duration-300"
             >
               Get in Touch
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">

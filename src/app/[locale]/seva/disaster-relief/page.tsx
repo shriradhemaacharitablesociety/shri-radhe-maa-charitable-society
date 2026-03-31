@@ -113,37 +113,34 @@ export default function DisasterReliefPage() {
         </div>
       </section>
 
-      {/* Dark CTA */}
-      <section className="relative overflow-hidden bg-warm-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03),transparent_50%)]" />
-        <div className="relative py-12 md:py-20 px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <ScrollReveal delay={950}>
-              <span className="font-devanagari text-sm text-saffron-400 font-medium" lang="hi">आपदा राहत में सहयोग करें</span>
-              <h2 className="font-serif text-2xl md:text-3xl text-white mt-2 mb-3">Support Disaster Relief</h2>
-              <p className="font-sans text-white/60 text-base mb-8 max-w-md mx-auto">
-                Your donation enables the society to respond swiftly to the next disaster — purchasing relief kits, funding transport, and providing direct aid.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <a
-                  href="/donate"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-crimson-600 text-base font-semibold rounded-pill hover:bg-saffron-50 transition-all duration-300 shadow-lg"
-                  style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
-                >
-                  Donate for Relief
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                  </svg>
-                </a>
-                <a
-                  href="/get-involved/volunteer"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 border border-white/30 text-white text-base font-medium rounded-pill hover:bg-white/10 transition-all duration-200 font-sans"
-                >
-                  Volunteer for Relief
-                </a>
-              </div>
-            </ScrollReveal>
-          </div>
+      {/* CTA */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <ScrollReveal delay={950}>
+            <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">आपदा राहत में सहयोग करें</span>
+            <h2 className="font-serif text-2xl md:text-3xl text-warm-900 mt-2 mb-3">Support Disaster Relief</h2>
+            <p className="font-sans text-warm-600 text-base mb-8 max-w-md mx-auto">
+              Your donation enables the society to respond swiftly to the next disaster — purchasing relief kits, funding transport, and providing direct aid.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <a
+                href="/donate"
+                className="inline-flex items-center gap-2 px-8 py-3.5 bg-crimson-500 text-white text-base font-semibold rounded-pill hover:bg-crimson-600 transition-all duration-300 shadow-lg"
+                style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
+              >
+                Donate for Relief
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+              <a
+                href="/get-involved/volunteer"
+                className="inline-flex items-center gap-2 px-8 py-3.5 border border-warm-100 text-warm-900 text-base font-medium rounded-pill hover:bg-warm-50 transition-all duration-200 font-sans"
+              >
+                Volunteer for Relief
+              </a>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>

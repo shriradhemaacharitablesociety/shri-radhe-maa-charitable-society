@@ -259,24 +259,24 @@ export default async function TaxBenefitsPage({
         </div>
       </section>
 
-      {/* CTA on Dark */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+      {/* CTA */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal delay={500}>
-            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">कर लाभ</p>
-            <h3 className="font-serif text-2xl md:text-3xl text-white mb-6">
+            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">कर लाभ</p>
+            <h3 className="font-serif text-2xl md:text-3xl text-warm-900 mb-6">
               {isHindi ? "अभी दान करें और कर बचाएँ" : "Donate Now and Save on Taxes"}
             </h3>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href={`/${locale}/contact`}
-                className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/30 font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto rounded-lg hover:bg-white/20 transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 bg-white text-warm-900 border border-warm-100 font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto rounded-lg hover:bg-warm-50 transition-colors duration-200"
               >
                 {isHindi ? "रसीद डाउनलोड करें" : "Download Receipt"}
               </Link>
               <Link
                 href={`/${locale}/seva`}
-                className="inline-flex items-center justify-center gap-2 bg-white text-crimson-500 font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto rounded-lg hover:bg-white/90 transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 bg-crimson-500 text-white font-sans font-semibold text-sm px-6 py-3 min-h-[44px] w-full sm:w-auto rounded-lg hover:bg-crimson-600 transition-colors duration-200"
               >
                 {isHindi ? "अभी दान करें" : "Donate Now"}
                 <svg

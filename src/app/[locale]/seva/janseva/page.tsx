@@ -116,28 +116,25 @@ export default function JansevaPage() {
         </div>
       </section>
 
-      {/* Dark section: Divyang Seva */}
-      <section className="relative overflow-hidden bg-warm-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03),transparent_50%)]" />
-        <div className="relative py-12 md:py-20 px-4 sm:px-6">
-          <div className="max-w-7xl mx-auto">
-            <ScrollReveal delay={800}>
-              <div className="text-center mb-10">
-                <span className="inline-block px-3 py-1 rounded-full bg-saffron-500/20 text-saffron-400 text-xs font-semibold font-sans uppercase tracking-wider mb-4">Special Focus</span>
-                <span className="font-devanagari text-sm text-saffron-400 font-medium block" lang="hi">दिव्यांग सेवा</span>
-                <h2 className="font-serif text-2xl md:text-3xl text-white tracking-tight mt-1">Divyang Seva</h2>
-                <div className="w-12 h-1 bg-saffron-400 rounded-full mx-auto mt-4" />
-              </div>
-            </ScrollReveal>
+      {/* Divyang Seva */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal delay={800}>
+            <div className="text-center mb-10">
+              <span className="inline-block px-3 py-1 rounded-full bg-crimson-500/10 text-crimson-500 text-xs font-semibold font-sans uppercase tracking-wider mb-4">Special Focus</span>
+              <span className="font-devanagari text-sm text-crimson-500 font-medium block" lang="hi">दिव्यांग सेवा</span>
+              <h2 className="font-serif text-2xl md:text-3xl text-warm-900 tracking-tight mt-1">Divyang Seva</h2>
+              <div className="w-12 h-1 bg-crimson-500 rounded-full mx-auto mt-4" />
+            </div>
+          </ScrollReveal>
 
-            <ScrollReveal delay={850}>
-              <p className="font-sans text-base text-white/70 leading-relaxed mb-8 text-center max-w-2xl mx-auto">
-                The society holds a deep commitment to serving India&apos;s specially-abled community — referred to with dignity as <em className="text-saffron-400">divyang</em> (those with divine gifts).
-              </p>
-            </ScrollReveal>
+          <ScrollReveal delay={850}>
+            <p className="font-sans text-base text-warm-600 leading-relaxed mb-8 text-center max-w-2xl mx-auto">
+              The society holds a deep commitment to serving India&apos;s specially-abled community — referred to with dignity as <em className="text-crimson-500">divyang</em> (those with divine gifts).
+            </p>
+          </ScrollReveal>
 
-            <DivyangSevaCards />
-          </div>
+          <DivyangSevaCards />
         </div>
       </section>
 

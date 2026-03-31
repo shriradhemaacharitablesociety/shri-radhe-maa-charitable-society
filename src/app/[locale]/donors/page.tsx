@@ -121,22 +121,22 @@ export default function DonorWallPage() {
         </div>
       </section>
 
-      {/* CTA on Dark */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+      {/* CTA */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">
+            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">
               सेवा में भागीदार बनें
             </p>
-            <h2 className="font-serif text-2xl md:text-3xl text-white mb-4">
+            <h2 className="font-serif text-2xl md:text-3xl text-warm-900 mb-4">
               Join Our Donor Community
             </h2>
-            <p className="font-sans text-white/70 leading-relaxed mb-8">
+            <p className="font-sans text-warm-600 leading-relaxed mb-8">
               Your generosity directly funds free dialysis sessions, disability support, widow pensions,
               disaster relief, and more. All donations are eligible for 80G tax deduction.
             </p>
             <Link href="/get-involved">
-              <Button size="lg" className="bg-white text-crimson-500 hover:bg-white/90">Donate and Join</Button>
+              <Button size="lg" className="bg-crimson-500 text-white hover:bg-crimson-600">Donate and Join</Button>
             </Link>
           </ScrollReveal>
         </div>

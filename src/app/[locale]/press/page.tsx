@@ -184,17 +184,17 @@ export default function PressPage() {
         </div>
       </section>
 
-      {/* Media Contact on Dark */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+      {/* Media Contact */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">
+            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">
               मीडिया संपर्क
             </p>
-            <h2 className="font-serif text-2xl md:text-3xl text-white mb-4">
+            <h2 className="font-serif text-2xl md:text-3xl text-warm-900 mb-4">
               Media Contact
             </h2>
-            <p className="font-sans text-white/70 leading-relaxed mb-8">
+            <p className="font-sans text-warm-600 leading-relaxed mb-8">
               For press enquiries, interviews, or media coverage requests, please reach out to us.
             </p>
           </ScrollReveal>

@@ -254,22 +254,22 @@ export default function SevaMapPage() {
       </div>
       </section>
 
-      {/* CTA on Dark */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+      {/* CTA */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal delay={800}>
-            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">
+            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">
               हमसे जुड़ें
             </p>
-            <h3 className="font-serif text-2xl md:text-3xl text-white mb-3">
+            <h3 className="font-serif text-2xl md:text-3xl text-warm-900 mb-3">
               Want to Volunteer at a Location?
             </h3>
-            <p className="font-sans text-sm text-white/70 leading-relaxed mb-6 max-w-md mx-auto">
+            <p className="font-sans text-sm text-warm-600 leading-relaxed mb-6 max-w-md mx-auto">
               Whether you want to help at our Delhi headquarters or assist with field operations, we welcome your support.
             </p>
             <a
               href="/get-involved"
-              className="inline-flex items-center gap-2 px-6 py-2.5 min-h-[44px] w-full sm:w-auto justify-center bg-white text-crimson-500 text-sm font-medium rounded-lg hover:bg-white/90 transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-6 py-2.5 min-h-[44px] w-full sm:w-auto justify-center bg-crimson-500 text-white text-sm font-medium rounded-lg hover:bg-crimson-600 transition-colors duration-200"
             >
               Get Involved
             </a>

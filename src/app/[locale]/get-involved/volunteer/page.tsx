@@ -139,13 +139,13 @@ export default function VolunteerPage() {
       </div>
       </section>
 
-      {/* Contact CTA on Dark */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+      {/* Contact CTA */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal delay={950}>
-            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">आज ही जुड़ें</p>
-            <h3 className="font-serif text-2xl md:text-3xl text-white mb-3">Contact for Volunteering</h3>
-            <p className="font-sans text-sm text-white/70 leading-relaxed mb-6 max-w-lg">
+            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">आज ही जुड़ें</p>
+            <h3 className="font-serif text-2xl md:text-3xl text-warm-900 mb-3">Contact for Volunteering</h3>
+            <p className="font-sans text-sm text-warm-600 leading-relaxed mb-6 max-w-lg">
               Ready to begin your seva journey? Reach out to us today — our team will guide you through the process and help you find the role that fits you best.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 max-w-lg">
@@ -181,13 +181,13 @@ export default function VolunteerPage() {
             <div className="flex flex-wrap gap-3">
               <a
                 href="tel:+919560800343"
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-crimson-500 text-sm font-medium rounded-lg hover:bg-white/90 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-crimson-500 text-white text-sm font-medium rounded-lg hover:bg-crimson-600 transition-all duration-300"
               >
                 Call Now
               </a>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-2.5 border border-white/30 text-white text-sm font-medium rounded-lg hover:bg-white/10 transition-all duration-200 font-sans"
+                className="inline-flex items-center gap-2 px-6 py-2.5 border border-warm-100 text-warm-900 text-sm font-medium rounded-lg hover:bg-warm-50 transition-all duration-200 font-sans"
               >
                 Send a Message
               </a>

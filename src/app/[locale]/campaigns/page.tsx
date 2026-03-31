@@ -273,22 +273,22 @@ export default async function CampaignsPage({
         </section>
       )}
 
-      {/* Dark CTA */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+      {/* CTA */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">अपना अभियान शुरू करें</p>
-            <h3 className="font-serif text-2xl md:text-3xl text-white mb-3">
+            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">अपना अभियान शुरू करें</p>
+            <h3 className="font-serif text-2xl md:text-3xl text-warm-900 mb-3">
               {isHindi ? "एक अभियान प्रस्तावित करें" : "Propose a Campaign"}
             </h3>
-            <p className="font-sans text-sm text-white/70 leading-relaxed mb-6 max-w-md mx-auto">
+            <p className="font-sans text-sm text-warm-600 leading-relaxed mb-6 max-w-md mx-auto">
               {isHindi
                 ? "यदि आप किसी विशेष सेवा कारण के लिए अभियान चलाना चाहते हैं, तो हमसे संपर्क करें।"
                 : "Have a seva cause in mind? Contact us to propose a fundraising campaign and we'll help you make it happen."}
             </p>
             <Link
               href={"/contact" as any}
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-crimson-500 text-sm font-medium rounded-lg hover:bg-white/90 transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-crimson-500 text-white text-sm font-medium rounded-lg hover:bg-crimson-600 transition-colors duration-200"
             >
               {isHindi ? "संपर्क करें" : "Contact Us"}
             </Link>

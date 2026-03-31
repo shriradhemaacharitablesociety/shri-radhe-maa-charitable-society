@@ -300,22 +300,22 @@ export default async function AnnualReportPage({
         </div>
       </section>
 
-      {/* ── Section 5: Download PDF on Dark ────────────────────────── */}
-      <section className="bg-gradient-to-br from-warm-900 via-warm-800 to-crimson-900 py-12 md:py-20 px-4 sm:px-6">
+      {/* ── Section 5: Download PDF ────────────────────────── */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-devanagari text-sm text-saffron-400 mb-2" lang="hi">डाउनलोड</p>
-            <h3 className="font-serif text-2xl md:text-3xl text-white mb-3">
+            <p className="font-devanagari text-sm text-crimson-500 mb-2" lang="hi">डाउनलोड</p>
+            <h3 className="font-serif text-2xl md:text-3xl text-warm-900 mb-3">
               {isHindi
                 ? "पूरी रिपोर्ट डाउनलोड करें"
                 : "Download Full Report"}
             </h3>
-            <p className="text-white/60 font-sans text-sm mb-8 max-w-md mx-auto">
+            <p className="text-warm-600 font-sans text-sm mb-8 max-w-md mx-auto">
               {isHindi
                 ? "वित्तीय विवरण और विस्तृत प्रभाव आँकड़ों सहित पूरी वार्षिक रिपोर्ट PDF में डाउनलोड करें।"
                 : "Download the complete annual report as PDF including financial statements and detailed impact statistics."}
             </p>
-            <Button variant="primary" size="lg" className="bg-white text-crimson-500 hover:bg-white/90">
+            <Button variant="primary" size="lg" className="bg-crimson-500 text-white hover:bg-crimson-600">
               <svg
                 className="w-5 h-5"
                 fill="none"

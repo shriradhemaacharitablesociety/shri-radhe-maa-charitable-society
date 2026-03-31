@@ -89,21 +89,18 @@ export default function LeadershipPage() {
         </div>
       </section>
 
-      {/* Dark section: Governance Structure */}
-      <section className="relative overflow-hidden bg-warm-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03),transparent_50%)]" />
-        <div className="relative py-12 md:py-20 px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
-            <ScrollReveal delay={200}>
-              <div className="text-center mb-10 md:mb-16">
-                <span className="font-devanagari text-sm text-saffron-400 font-medium" lang="hi">प्रशासनिक संरचना</span>
-                <h2 className="font-serif text-2xl md:text-3xl text-white tracking-tight mt-1">Governance Structure</h2>
-                <div className="w-12 h-1 bg-saffron-400 rounded-full mx-auto mt-4" />
-              </div>
-            </ScrollReveal>
+      {/* Governance Structure */}
+      <section className="bg-cream py-12 md:py-20 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto">
+          <ScrollReveal delay={200}>
+            <div className="text-center mb-10 md:mb-16">
+              <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">प्रशासनिक संरचना</span>
+              <h2 className="font-serif text-2xl md:text-3xl text-warm-900 tracking-tight mt-1">Governance Structure</h2>
+              <div className="w-12 h-1 bg-crimson-500 rounded-full mx-auto mt-4" />
+            </div>
+          </ScrollReveal>
 
-            <GovernanceCards />
-          </div>
+          <GovernanceCards />
         </div>
       </section>
 
