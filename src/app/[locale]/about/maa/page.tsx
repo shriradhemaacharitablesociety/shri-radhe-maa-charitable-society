@@ -109,18 +109,42 @@ export default function MaaPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {[
-              { icon: "🏥", title: "Free Dialysis Centre", desc: "Established a free kidney dialysis centre at Anand Hospital, Mumbai — serving patients who cannot afford treatment." },
-              { icon: "🌊", title: "Disaster Relief", desc: "Led relief operations in Punjab, Kerala, Nepal, and Maharashtra — including rebuilding homes for flood-affected families in Islampur village." },
-              { icon: "🤝", title: "Monthly Pensions", desc: "Over 100+ families receive monthly financial support through the society under Maa's guidance." },
-              { icon: "💊", title: "Healthcare Camps", desc: "Blood donation drives, free eye and dental check-up camps organised across India." },
+              { icon: "🏥", stat: "24/7", title: "Free Dialysis Centre", desc: "Established a free kidney dialysis centre at Anand Hospital, Mumbai — serving patients who cannot afford treatment." },
+              { icon: "🌊", stat: "4+", title: "Disaster Relief", desc: "Led relief operations in Punjab, Kerala, Nepal, and Maharashtra — including rebuilding homes for flood-affected families." },
+              { icon: "🤝", stat: "100+", title: "Monthly Pensions", desc: "Over 100+ families receive monthly financial support through the society under Maa's guidance." },
+              { icon: "💊", stat: "1000+", title: "Healthcare Camps", desc: "Blood donation drives, free eye and dental check-up camps organised across India." },
             ].map((item, i) => (
               <ScrollReveal key={item.title} delay={350 + i * 100}>
-                <div className="relative rounded-2xl bg-white border border-warm-100 shadow-sm overflow-hidden h-full">
-                  <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-crimson-500 to-saffron-500" />
-                  <div className="p-6 md:p-8">
-                    <div className="w-12 h-12 rounded-full bg-crimson-50 flex items-center justify-center text-xl mb-4" aria-hidden="true">{item.icon}</div>
-                    <h3 className="font-serif text-lg text-warm-900">{item.title}</h3>
-                    <p className="font-sans text-sm text-warm-600 leading-relaxed mt-3">{item.desc}</p>
+                {/* Mobile */}
+                <div className="md:hidden flex rounded-2xl overflow-hidden shadow-md bg-white">
+                  <div className="shrink-0 w-16 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+                    <span className="text-xl">{item.icon}</span>
+                    <span
+                      className="font-stat font-bold text-sm uppercase tracking-wider"
+                      style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
+                    >
+                      {item.stat}
+                    </span>
+                  </div>
+                  <div className="flex-1 p-4">
+                    <h3 className="font-sans text-sm font-semibold text-warm-900">{item.title}</h3>
+                    <p className="text-warm-600 font-sans text-xs leading-relaxed mt-2">{item.desc}</p>
+                  </div>
+                </div>
+                {/* Desktop */}
+                <div className="hidden md:flex h-full rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+                  <div className="shrink-0 w-20 flex flex-col items-center justify-center text-white gap-2 bg-crimson-500 py-4">
+                    <span className="text-2xl">{item.icon}</span>
+                    <span
+                      className="font-stat font-bold text-base uppercase tracking-wider"
+                      style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
+                    >
+                      {item.stat}
+                    </span>
+                  </div>
+                  <div className="flex-1 p-5">
+                    <h3 className="font-sans text-base font-semibold text-warm-900">{item.title}</h3>
+                    <p className="text-warm-600 font-sans text-sm leading-relaxed mt-2">{item.desc}</p>
                   </div>
                 </div>
               </ScrollReveal>
