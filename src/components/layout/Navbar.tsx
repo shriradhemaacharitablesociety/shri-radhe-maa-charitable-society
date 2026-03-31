@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -12,6 +12,19 @@ export function Navbar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const mobileHeaderRef = useRef<HTMLElement>(null);
+  const [mobileNavHeight, setMobileNavHeight] = useState(0);
+
+  useEffect(() => {
+    const measure = () => {
+      if (mobileHeaderRef.current) {
+        setMobileNavHeight(mobileHeaderRef.current.offsetHeight);
+      }
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
 
   // Check if a nav link is active (strip locale prefix for comparison)
   const isActive = (href: string) => {
@@ -46,8 +59,8 @@ export function Navbar() {
   return (
     <>
       {/* ===== MOBILE NAVBAR (below md) ===== */}
-      <header className="md:hidden fixed top-0 left-0 right-0 z-40 pointer-events-none pt-3 px-4">
-        <div className="pointer-events-auto flex items-center justify-between px-3 py-1.5 bg-white border border-warm-200/60 rounded-2xl shadow-lg shadow-warm-900/[0.08]">
+      <header ref={mobileHeaderRef} className="md:hidden fixed top-0 left-0 right-0 z-40 pointer-events-none pt-3 px-4">
+        <div className="pointer-events-auto flex items-center justify-between px-4 py-2.5 bg-white border border-warm-200/60 rounded-2xl shadow-lg shadow-warm-900/[0.08]">
             {/* Logo */}
             <Link href={"/" as any} className="shrink-0">
               <Image
@@ -71,7 +84,7 @@ export function Navbar() {
               {/* Donate */}
               <Link
                 href={"/get-involved/donate" as any}
-                className="inline-flex items-center px-3 py-1.5 text-[11px] font-sans font-semibold text-crimson-500 border border-warm-200 rounded-lg hover:border-crimson-300 transition-colors"
+                className="inline-flex items-center px-3.5 py-1.5 bg-crimson-500 text-white text-[11px] font-sans font-semibold rounded-lg hover:bg-crimson-600 transition-colors shadow-sm"
               >
                 {t("donate")}
               </Link>
@@ -89,6 +102,10 @@ export function Navbar() {
             </div>
         </div>
       </header>
+      {/* Mobile spacer — dynamically matches navbar height + 12px gap */}
+      {mobileNavHeight > 0 && (
+        <div className="md:hidden" style={{ height: mobileNavHeight + 12 }} />
+      )}
 
       {/* ===== DESKTOP NAVBAR (md and above) ===== */}
       <header className="hidden md:block fixed top-0 left-0 right-0 z-40 pointer-events-none pt-4 px-8">

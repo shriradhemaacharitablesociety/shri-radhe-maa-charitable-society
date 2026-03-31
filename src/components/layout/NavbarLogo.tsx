@@ -19,8 +19,7 @@ export function NavbarLogo() {
           </Link>
         </div>
       </div>
-      {/* Mobile: just a spacer (mobile navbar has its own logo) */}
-      <div className="md:hidden h-[76px]" />
+      {/* Mobile: no spacer needed — Navbar handles it dynamically */}
     </>
   );
 }
