@@ -73,15 +73,15 @@ export function Hero() {
                 </h1>
               </div>
               {/* Mobile only — cow image beside heading */}
-              <div className="lg:hidden shrink-0 w-[160px] h-[200px] sm:w-[200px] sm:h-[240px] relative overflow-hidden"
-                style={{ marginBottom: "-12px", marginRight: "-8px" }}
+              <div className="lg:hidden shrink-0 w-[200px] h-[260px] sm:w-[240px] sm:h-[300px] relative overflow-hidden"
+                style={{ marginBottom: "-20px", marginRight: "-12px" }}
               >
                 <Image
                   src="/images/maa-with-cow.png"
                   alt="Shri Radhe Guru Maa with a cow — compassion in seva"
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 640px) 160px, 200px"
+                  sizes="(max-width: 640px) 200px, 240px"
                   priority
                 />
                 {/* Fade out the bottom to hide the ground */}
