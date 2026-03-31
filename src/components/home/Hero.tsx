@@ -32,100 +32,63 @@ export function Hero() {
   return (
     <section className="bg-white" style={{ paddingTop: "8px", paddingBottom: "32px" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 lg:gap-16 items-start">
-          {/* Left column */}
-          <div>
-            {/* Mobile: badge overlapping the image */}
-            <div className="lg:hidden relative -mx-4 sm:-mx-6">
-              {/* Badge — sits on top of image */}
-              <div className="relative z-10 px-4 sm:px-6">
-                <ScrollReveal delay={0}>
-                  <Badge variant="crimson">
-                    <span className="w-1.5 h-1.5 rounded-full bg-crimson-500 mr-2" />
-                    {t("badge")}
-                  </Badge>
-                </ScrollReveal>
-              </div>
-              {/* Cow image — transparent PNG, position subject to bottom-right */}
-              <div className="relative w-full" style={{ height: "clamp(320px, 85vw, 450px)", marginTop: "-20px" }}>
-                <Image
-                  src="/images/maa-with-cow.png"
-                  alt="Shri Radhe Guru Maa with a cow — compassion in seva"
-                  fill
-                  className="object-contain"
-                  style={{ objectPosition: "right bottom" }}
-                  sizes="100vw"
-                  priority
-                />
-                {/* Bottom fade */}
-                <div
-                  className="absolute bottom-0 left-0 right-0 h-24"
-                  style={{ background: "linear-gradient(to bottom, transparent, white)" }}
-                />
-              </div>
-              {/* Ghost text + heading overlapping bottom of image */}
-              <div className="relative px-4 sm:px-6" style={{ marginTop: "-160px", zIndex: 2 }}>
-                <div
-                  className="font-devanagari font-black select-none pointer-events-none"
-                  style={{
-                    fontSize: "clamp(70px, 18vw, 130px)",
-                    lineHeight: 0.85,
-                    letterSpacing: "-0.04em",
-                    color: "rgba(26, 15, 8, 0.06)",
-                  }}
-                  aria-hidden="true"
-                >
-                  सेवा
-                </div>
-                <h1
-                  className="font-serif text-warm-900"
-                  style={{
-                    fontSize: "clamp(36px, 9.5vw, 60px)",
-                    lineHeight: 1.05,
-                    letterSpacing: "-0.03em",
-                    marginTop: "-0.35em",
-                  }}
-                >
-                  {t("title_1")}
-                  <br />
-                  {t("title_2")}{" "}
-                  <em className="text-crimson-500 italic">{t("title_3")}</em>{" "}
-                  <span className="text-saffron-600">{t("title_4")}</span>
-                </h1>
-              </div>
+        {/* ──────────── MOBILE HERO ──────────── */}
+        <div className="lg:hidden">
+          {/* Container: badge + image + overlapping text */}
+          <div className="relative" style={{ minHeight: "clamp(360px, 95vw, 500px)" }}>
+            {/* Badge — top left, above image */}
+            <div className="relative z-20">
+              <Badge variant="crimson">
+                <span className="w-1.5 h-1.5 rounded-full bg-crimson-500 mr-2" />
+                {t("badge")}
+              </Badge>
             </div>
 
-            {/* Desktop: badge (not inside mobile block) */}
-            <div className="hidden lg:block">
-              <ScrollReveal delay={0}>
-                <Badge variant="crimson">
-                  <span className="w-1.5 h-1.5 rounded-full bg-crimson-500 mr-2" />
-                  {t("badge")}
-                </Badge>
-              </ScrollReveal>
+            {/* Image — absolute, right-aligned, starts at badge level */}
+            <div
+              className="absolute top-0 right-0 bottom-0"
+              style={{ width: "75%", zIndex: 1 }}
+            >
+              <Image
+                src="/images/maa-with-cow.png"
+                alt="Shri Radhe Guru Maa with a cow — compassion in seva"
+                fill
+                className="object-contain"
+                style={{ objectPosition: "right bottom" }}
+                sizes="75vw"
+                priority
+              />
+              {/* Bottom gradient for text readability */}
+              <div
+                className="absolute bottom-0 left-0 right-0"
+                style={{
+                  height: "50%",
+                  background: "linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 40%, transparent 100%)",
+                }}
+              />
             </div>
 
-            {/* Desktop: original side-by-side layout (no image) */}
-            <div className="hidden lg:block relative mt-6">
+            {/* Ghost text + heading — bottom left, overlapping image */}
+            <div className="absolute bottom-0 left-0 right-0 z-10">
               <div
                 className="font-devanagari font-black select-none pointer-events-none"
                 style={{
-                  fontSize: "120px",
+                  fontSize: "clamp(70px, 18vw, 130px)",
                   lineHeight: 0.85,
                   letterSpacing: "-0.04em",
-                  color: "rgba(26, 15, 8, 0.04)",
+                  color: "rgba(26, 15, 8, 0.06)",
                 }}
                 aria-hidden="true"
               >
                 सेवा
               </div>
               <h1
-                className="font-serif text-warm-900 relative -mt-11"
+                className="font-serif text-warm-900"
                 style={{
-                  fontSize: "56px",
-                  lineHeight: 1.08,
+                  fontSize: "clamp(36px, 9.5vw, 60px)",
+                  lineHeight: 1.05,
                   letterSpacing: "-0.03em",
-                  zIndex: 1,
+                  marginTop: "-0.35em",
                 }}
               >
                 {t("title_1")}
@@ -135,67 +98,44 @@ export function Hero() {
                 <span className="text-saffron-600">{t("title_4")}</span>
               </h1>
             </div>
+          </div>
 
-            <ScrollReveal delay={150}>
-              <p
-                className="font-devanagari text-saffron-500 opacity-50"
-                style={{ fontSize: "14px", marginTop: "8px" }}
-              >
-                {t("sanskrit")}
-              </p>
-            </ScrollReveal>
+          {/* Sanskrit */}
+          <ScrollReveal delay={150}>
+            <p
+              className="font-devanagari text-saffron-500 opacity-50"
+              style={{ fontSize: "14px", marginTop: "8px" }}
+            >
+              {t("sanskrit")}
+            </p>
+          </ScrollReveal>
 
-            <ScrollReveal delay={250}>
-              <p
-                className="text-warm-600 lg:max-w-[420px] text-[13px] md:text-[15px] leading-relaxed"
-                style={{ marginTop: "10px" }}
-              >
-                {t("description")}
-              </p>
-            </ScrollReveal>
+          {/* Description */}
+          <ScrollReveal delay={250}>
+            <p
+              className="text-warm-600 text-[13px] md:text-[15px] leading-relaxed"
+              style={{ marginTop: "10px" }}
+            >
+              {t("description")}
+            </p>
+          </ScrollReveal>
 
-            <ScrollReveal delay={350}>
-              <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3" style={{ marginTop: "16px" }}>
-                <Link href={"/seva" as any} className="w-full sm:w-auto">
-                  <Button variant="primary" className="w-full sm:w-auto">
-                    {t("cta_primary")} →
-                  </Button>
-                </Link>
-                <Button variant="ghost" className="w-full sm:w-auto">
-                  {t("cta_secondary")}
+          {/* Buttons */}
+          <ScrollReveal delay={350}>
+            <div className="flex flex-col gap-2.5" style={{ marginTop: "16px" }}>
+              <Link href={"/seva" as any} className="w-full">
+                <Button variant="primary" className="w-full">
+                  {t("cta_primary")} →
                 </Button>
-              </div>
-            </ScrollReveal>
-          </div>
+              </Link>
+              <Button variant="ghost" className="w-full">
+                {t("cta_secondary")}
+              </Button>
+            </div>
+          </ScrollReveal>
 
-          {/* Desktop stat cards — sidebar style */}
-          <div className="hidden lg:flex flex-col gap-3 pt-8">
-            {stats.map((stat, i) => (
-              <ScrollReveal key={stat.label} delay={200 + i * 120}>
-                <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
-                  <div className="shrink-0 w-20 bg-crimson-500 flex flex-col items-center justify-center py-4 gap-2">
-                    <span
-                      className="font-stat font-bold text-white text-base uppercase tracking-wider"
-                      style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
-                    >
-                      {stat.num}
-                    </span>
-                  </div>
-                  <div className="flex-1 p-4">
-                    <p className="font-sans text-warm-800 font-semibold text-sm">
-                      {stat.label}
-                    </p>
-                    <p className="font-sans text-warm-500 text-xs mt-1">
-                      {stat.detail}
-                    </p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          {/* Mobile stat cards — sidebar style */}
-          <div className="lg:hidden -mx-4 px-4 mt-3">
+          {/* Mobile stat cards */}
+          <div className="-mx-4 px-4 mt-4">
             <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-2 scrollbar-hide">
               {stats.map((stat) => (
                 <div
@@ -221,6 +161,92 @@ export function Hero() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* ──────────── DESKTOP HERO ──────────── */}
+        <div className="hidden lg:grid grid-cols-[3fr_2fr] gap-16 items-start">
+          <div>
+            <ScrollReveal delay={0}>
+              <Badge variant="crimson">
+                <span className="w-1.5 h-1.5 rounded-full bg-crimson-500 mr-2" />
+                {t("badge")}
+              </Badge>
+            </ScrollReveal>
+
+            <div className="relative mt-6">
+              <div
+                className="font-devanagari font-black select-none pointer-events-none"
+                style={{
+                  fontSize: "120px",
+                  lineHeight: 0.85,
+                  letterSpacing: "-0.04em",
+                  color: "rgba(26, 15, 8, 0.04)",
+                }}
+                aria-hidden="true"
+              >
+                सेवा
+              </div>
+              <h1
+                className="font-serif text-warm-900 relative -mt-11"
+                style={{ fontSize: "56px", lineHeight: 1.08, letterSpacing: "-0.03em", zIndex: 1 }}
+              >
+                {t("title_1")}
+                <br />
+                {t("title_2")}{" "}
+                <em className="text-crimson-500 italic">{t("title_3")}</em>{" "}
+                <span className="text-saffron-600">{t("title_4")}</span>
+              </h1>
+            </div>
+
+            <ScrollReveal delay={150}>
+              <p
+                className="font-devanagari text-saffron-500 opacity-50"
+                style={{ fontSize: "14px", marginTop: "8px" }}
+              >
+                {t("sanskrit")}
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={250}>
+              <p
+                className="text-warm-600 lg:max-w-[420px] text-[15px] leading-relaxed"
+                style={{ marginTop: "10px" }}
+              >
+                {t("description")}
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={350}>
+              <div className="flex flex-row gap-3" style={{ marginTop: "16px" }}>
+                <Link href={"/seva" as any}>
+                  <Button variant="primary">{t("cta_primary")} →</Button>
+                </Link>
+                <Button variant="ghost">{t("cta_secondary")}</Button>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Desktop stat cards */}
+          <div className="flex flex-col gap-3 pt-8">
+            {stats.map((stat, i) => (
+              <ScrollReveal key={stat.label} delay={200 + i * 120}>
+                <div className="group flex rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-white">
+                  <div className="shrink-0 w-20 bg-crimson-500 flex flex-col items-center justify-center py-4 gap-2">
+                    <span
+                      className="font-stat font-bold text-white text-base uppercase tracking-wider"
+                      style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
+                    >
+                      {stat.num}
+                    </span>
+                  </div>
+                  <div className="flex-1 p-4">
+                    <p className="font-sans text-warm-800 font-semibold text-sm">{stat.label}</p>
+                    <p className="font-sans text-warm-500 text-xs mt-1">{stat.detail}</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </div>
