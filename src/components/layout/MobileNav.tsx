@@ -56,13 +56,13 @@ export function MobileNav({ open, onClose, navLinks, donateLabel }: MobileNavPro
       </div>
 
       {/* Nav links with staggered reveal */}
-      <nav className="flex flex-col px-6 pt-8 gap-1 flex-1">
+      <nav className="flex flex-col px-6 pt-4 gap-0 flex-1">
         {navLinks.map(({ href, label }, i) => (
           <Link
             key={href}
             href={href as any}
             onClick={onClose}
-            className="py-4 text-2xl font-serif text-warm-900 hover:text-crimson-600 border-b border-warm-100 transition-colors duration-200"
+            className="py-2.5 text-base font-serif text-warm-900 hover:text-crimson-600 border-b border-warm-100 transition-colors duration-200"
             style={{
               opacity: open ? 1 : 0,
               transform: open ? "translateY(0)" : "translateY(20px)",
@@ -77,7 +77,7 @@ export function MobileNav({ open, onClose, navLinks, donateLabel }: MobileNavPro
         <a
           href="/login"
           onClick={onClose}
-          className="mt-6 inline-flex items-center justify-center gap-2 py-3.5 border border-warm-200 text-warm-800 text-base font-sans font-medium rounded-lg hover:border-crimson-300 hover:text-crimson-600 transition-all duration-200"
+          className="mt-4 inline-flex items-center justify-center gap-2 py-3 border border-warm-200 text-warm-800 text-sm font-sans font-medium rounded-lg hover:border-crimson-300 hover:text-crimson-600 transition-all duration-200"
           style={{
             opacity: open ? 1 : 0,
             transform: open ? "translateY(0)" : "translateY(20px)",
@@ -91,7 +91,7 @@ export function MobileNav({ open, onClose, navLinks, donateLabel }: MobileNavPro
         <Link
           href={"/get-involved/donate" as any}
           onClick={onClose}
-          className="mt-3 inline-flex items-center justify-center gap-2 py-3.5 bg-crimson-600 text-white text-base font-sans font-medium rounded-lg hover:bg-crimson-700 active:scale-[0.98] transition-all duration-200"
+          className="mt-2 inline-flex items-center justify-center gap-2 py-3 bg-crimson-600 text-white text-sm font-sans font-medium rounded-lg hover:bg-crimson-700 active:scale-[0.98] transition-all duration-200"
           style={{
             opacity: open ? 1 : 0,
             transform: open ? "translateY(0)" : "translateY(20px)",
