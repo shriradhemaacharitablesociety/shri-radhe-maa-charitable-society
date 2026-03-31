@@ -46,13 +46,14 @@ export function Hero() {
                   </Badge>
                 </ScrollReveal>
               </div>
-              {/* Cow image — starts right at the badge, pulled up */}
-              <div className="relative w-full" style={{ height: "clamp(320px, 85vw, 440px)", marginTop: "-8px" }}>
+              {/* Cow image — starts right at the badge */}
+              <div className="relative w-full" style={{ height: "clamp(380px, 100vw, 520px)", marginTop: "-8px" }}>
                 <Image
                   src="/images/maa-with-cow.png"
                   alt="Shri Radhe Guru Maa with a cow — compassion in seva"
                   fill
-                  className="object-cover object-top"
+                  className="object-contain"
+                  style={{ objectPosition: "right top" }}
                   sizes="100vw"
                   priority
                 />
@@ -63,11 +64,11 @@ export function Hero() {
                 />
               </div>
               {/* Ghost text + heading overlapping bottom of image */}
-              <div className="relative px-4 sm:px-6" style={{ marginTop: "-120px", zIndex: 2 }}>
+              <div className="relative px-4 sm:px-6" style={{ marginTop: "-160px", zIndex: 2 }}>
                 <div
                   className="font-devanagari font-black select-none pointer-events-none"
                   style={{
-                    fontSize: "clamp(60px, 15vw, 120px)",
+                    fontSize: "clamp(70px, 18vw, 130px)",
                     lineHeight: 0.85,
                     letterSpacing: "-0.04em",
                     color: "rgba(26, 15, 8, 0.06)",
@@ -79,10 +80,10 @@ export function Hero() {
                 <h1
                   className="font-serif text-warm-900"
                   style={{
-                    fontSize: "clamp(32px, 8vw, 56px)",
+                    fontSize: "clamp(36px, 9.5vw, 60px)",
                     lineHeight: 1.05,
                     letterSpacing: "-0.03em",
-                    marginTop: "-0.4em",
+                    marginTop: "-0.35em",
                   }}
                 >
                   {t("title_1")}
