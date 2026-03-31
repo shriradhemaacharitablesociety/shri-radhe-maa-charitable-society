@@ -46,14 +46,14 @@ export function Hero() {
                   </Badge>
                 </ScrollReveal>
               </div>
-              {/* Cow image — starts right at the badge */}
-              <div className="relative w-full" style={{ height: "clamp(380px, 100vw, 520px)", marginTop: "-20px" }}>
+              {/* Cow image — transparent PNG, position subject to bottom-right */}
+              <div className="relative w-full" style={{ height: "clamp(320px, 85vw, 450px)", marginTop: "-20px" }}>
                 <Image
                   src="/images/maa-with-cow.png"
                   alt="Shri Radhe Guru Maa with a cow — compassion in seva"
                   fill
-                  className="object-cover"
-                  style={{ objectPosition: "center 30%" }}
+                  className="object-contain"
+                  style={{ objectPosition: "right bottom" }}
                   sizes="100vw"
                   priority
                 />

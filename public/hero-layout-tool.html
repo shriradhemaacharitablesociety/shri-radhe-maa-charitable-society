@@ -215,7 +215,7 @@
     white-space: pre;
   }
 
-  /* Z-index controls */
+  /* Z-index controls — collapsible & draggable */
   .z-controls {
     position: fixed;
     top: 10px;
@@ -224,39 +224,64 @@
     color: #fff;
     font-family: monospace;
     font-size: 11px;
-    padding: 12px;
     border-radius: 8px;
     z-index: 1000;
-    width: 220px;
-    max-height: 90vh;
+    width: 200px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+  .z-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    cursor: grab;
+    background: #C41E3A;
+    border-radius: 8px 8px 0 0;
+    user-select: none;
+  }
+  .z-header.collapsed { border-radius: 8px; }
+  .z-header h3 { font-size: 11px; margin: 0; color: #fff; font-weight: 700; }
+  .z-header button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 4px;
+    line-height: 1;
+  }
+  .z-body {
+    padding: 8px 12px;
+    max-height: 300px;
     overflow-y: auto;
   }
-  .z-controls h3 { font-size: 12px; margin-bottom: 8px; color: #C41E3A; }
+  .z-body.hidden { display: none; }
   .z-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 4px 0;
+    padding: 3px 0;
     border-bottom: 1px solid #333;
   }
-  .z-row span { flex: 1; font-size: 11px; }
+  .z-row span { flex: 1; font-size: 10px; }
   .z-row button {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     background: #444;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
-    margin: 0 2px;
+    font-size: 13px;
+    margin: 0 1px;
   }
   .z-row button:hover { background: #C41E3A; }
   .z-row .z-val {
-    width: 30px;
+    width: 28px;
     text-align: center;
     color: #0f0;
     font-weight: bold;
+    font-size: 11px;
   }
 </style>
 </head>
@@ -336,21 +361,28 @@
 
 <div class="coords" id="coords">Drag an element...</div>
 
-<!-- Z-index controls panel -->
+<!-- Z-index controls panel — collapsible & draggable -->
 <div class="z-controls" id="z-controls">
-  <h3>Z-INDEX CONTROLS</h3>
+  <div class="z-header" id="z-header">
+    <h3>Z-INDEX</h3>
+    <button id="z-toggle" title="Collapse/Expand">−</button>
+  </div>
+  <div class="z-body" id="z-body"></div>
 </div>
 
 <script>
   const canvas = document.getElementById('canvas');
   const coordsEl = document.getElementById('coords');
-  const zPanel = document.getElementById('z-controls');
+  const zBody = document.getElementById('z-body');
+  const zHeader = document.getElementById('z-header');
+  const zToggle = document.getElementById('z-toggle');
+  const zControls = document.getElementById('z-controls');
   let activeEl = null, startX, startY, origLeft, origTop;
   let resizing = false, resizeEl = null, origW, origH, resizeStartX, resizeStartY;
 
   const draggables = document.querySelectorAll('.draggable');
 
-  // Build z-index panel
+  // Build z-index panel rows
   draggables.forEach(el => {
     const name = el.dataset.name;
     const z = parseInt(el.dataset.z) || 1;
@@ -373,8 +405,57 @@
         updateCoords(el);
       });
     });
-    zPanel.appendChild(row);
+    zBody.appendChild(row);
   });
+
+  // Collapse / expand
+  zToggle.addEventListener('click', () => {
+    const body = document.getElementById('z-body');
+    body.classList.toggle('hidden');
+    zToggle.textContent = body.classList.contains('hidden') ? '+' : '−';
+    zHeader.classList.toggle('collapsed', body.classList.contains('hidden'));
+  });
+
+  // Make z-controls panel draggable
+  let zDrag = false, zStartX, zStartY, zOrigLeft, zOrigTop;
+  zHeader.addEventListener('mousedown', e => {
+    if (e.target.tagName === 'BUTTON') return;
+    zDrag = true;
+    zStartX = e.clientX;
+    zStartY = e.clientY;
+    zOrigLeft = zControls.offsetLeft;
+    zOrigTop = zControls.offsetTop;
+    zControls.style.right = 'auto';
+    zControls.style.left = zOrigLeft + 'px';
+    zControls.style.top = zOrigTop + 'px';
+    e.preventDefault();
+  });
+  zHeader.addEventListener('touchstart', e => {
+    if (e.target.tagName === 'BUTTON') return;
+    zDrag = true;
+    const t = e.touches[0];
+    zStartX = t.clientX;
+    zStartY = t.clientY;
+    zOrigLeft = zControls.offsetLeft;
+    zOrigTop = zControls.offsetTop;
+    zControls.style.right = 'auto';
+    zControls.style.left = zOrigLeft + 'px';
+    zControls.style.top = zOrigTop + 'px';
+    e.preventDefault();
+  }, { passive: false });
+  document.addEventListener('mousemove', e => {
+    if (!zDrag) return;
+    zControls.style.left = (zOrigLeft + e.clientX - zStartX) + 'px';
+    zControls.style.top = (zOrigTop + e.clientY - zStartY) + 'px';
+  });
+  document.addEventListener('touchmove', e => {
+    if (!zDrag) return;
+    const t = e.touches[0];
+    zControls.style.left = (zOrigLeft + t.clientX - zStartX) + 'px';
+    zControls.style.top = (zOrigTop + t.clientY - zStartY) + 'px';
+  }, { passive: false });
+  document.addEventListener('mouseup', () => { zDrag = false; });
+  document.addEventListener('touchend', () => { zDrag = false; });
 
   // Drag
   draggables.forEach(el => {
