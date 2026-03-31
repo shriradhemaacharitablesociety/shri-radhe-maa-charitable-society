@@ -46,45 +46,51 @@ export function Navbar() {
   return (
     <>
       {/* ===== MOBILE NAVBAR (below md) ===== */}
-      <header className="md:hidden fixed top-0 left-0 right-0 z-40 pointer-events-none pt-2 px-3">
-        <div className="pointer-events-auto flex items-center justify-between py-2 bg-white/92 backdrop-blur-xl border border-warm-200/50 rounded-full shadow-lg shadow-warm-900/[0.05]" style={{ paddingLeft: 10, paddingRight: 10 }}>
-            {/* Logo — full image like footer, bigger */}
-            <Link href={"/" as any} className="shrink-0 ml-5">
+      <header className="md:hidden fixed top-0 left-0 right-0 z-40 pointer-events-none pt-3 px-4">
+        <div className="pointer-events-auto flex items-center justify-between px-4 py-3 bg-white border border-warm-200/60 rounded-2xl shadow-lg shadow-warm-900/[0.08]">
+            {/* Logo */}
+            <Link href={"/" as any} className="shrink-0">
               <Image
                 src="/logo.png"
                 alt="Shri Radhe Maa Charitable Society"
-                width={44}
-                height={44}
+                width={48}
+                height={48}
                 className="drop-shadow-sm"
               />
             </Link>
 
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-3">
               {/* Login */}
               <a
                 href="/login"
-                className="inline-flex items-center px-3 py-1.5 text-[11px] font-sans font-medium text-warm-700 border border-warm-200 rounded-full hover:border-crimson-300 hover:text-crimson-500 transition-colors"
+                className="text-crimson-500 hover:text-crimson-600 transition-colors"
+                aria-label="Login"
               >
-                Login
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
               </a>
 
               {/* Donate */}
               <Link
                 href={"/get-involved/donate" as any}
-                className="inline-flex items-center px-3.5 py-1.5 bg-crimson-500 text-white text-[11px] font-sans font-semibold rounded-full hover:bg-crimson-600 transition-colors shadow-sm"
+                className="text-crimson-500 hover:text-crimson-600 transition-colors"
+                aria-label="Donate"
               >
-                {t("donate")}
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
               </Link>
 
               {/* Hamburger */}
               <button
-                className="flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded-lg hover:bg-warm-50 transition-colors"
+                className="flex flex-col justify-center items-center w-8 h-8 gap-[5px]"
                 onClick={() => setMobileOpen(true)}
                 aria-label="Open menu"
               >
-                <span className="block w-[18px] h-[2px] bg-warm-800 rounded-full" />
-                <span className="block w-[14px] h-[2px] bg-warm-800 rounded-full" />
-                <span className="block w-[18px] h-[2px] bg-warm-800 rounded-full" />
+                <span className="block w-[20px] h-[2px] bg-warm-800 rounded-full" />
+                <span className="block w-[15px] h-[2px] bg-warm-800 rounded-full" />
+                <span className="block w-[20px] h-[2px] bg-warm-800 rounded-full" />
               </button>
             </div>
         </div>
