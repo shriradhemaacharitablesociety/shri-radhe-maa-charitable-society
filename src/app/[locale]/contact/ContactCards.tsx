@@ -56,7 +56,7 @@ export function OfficeCards() {
           <p className="font-sans text-xs uppercase tracking-wider text-warm-800/50 mb-2">Email</p>
           <a
             href="mailto:shriradhemaacharitablesociety@gmail.com"
-            className="font-sans text-[11px] md:text-sm text-crimson-500 hover:text-crimson-600 transition-colors break-all leading-relaxed"
+            className="font-sans text-[9px] sm:text-xs md:text-sm text-crimson-500 hover:text-crimson-600 transition-colors leading-relaxed"
           >
             shriradhemaacharitablesociety@gmail.com
           </a>
