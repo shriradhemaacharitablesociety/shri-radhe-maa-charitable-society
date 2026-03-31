@@ -42,28 +42,45 @@ export function Hero() {
               </Badge>
             </ScrollReveal>
 
-            <div className="relative flex items-end" style={{ marginTop: "10px" }}>
-              <div className="flex-1 min-w-0 relative">
+            {/* Mobile: image with overlapping text */}
+            <div className="lg:hidden relative -mx-4 sm:-mx-6" style={{ marginTop: "0px" }}>
+              {/* Cow image — near full width */}
+              <div className="relative w-full" style={{ height: "clamp(300px, 65vw, 420px)" }}>
+                <Image
+                  src="/images/maa-with-cow.png"
+                  alt="Shri Radhe Guru Maa with a cow — compassion in seva"
+                  fill
+                  className="object-cover object-top"
+                  sizes="100vw"
+                  priority
+                />
+                {/* Bottom fade */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-24"
+                  style={{ background: "linear-gradient(to bottom, transparent, white)" }}
+                />
+              </div>
+              {/* Ghost text + heading overlapping bottom of image */}
+              <div className="relative px-4 sm:px-6" style={{ marginTop: "-120px", zIndex: 2 }}>
                 <div
                   className="font-devanagari font-black select-none pointer-events-none"
                   style={{
                     fontSize: "clamp(60px, 15vw, 120px)",
                     lineHeight: 0.85,
                     letterSpacing: "-0.04em",
-                    color: "rgba(26, 15, 8, 0.04)",
+                    color: "rgba(26, 15, 8, 0.06)",
                   }}
                   aria-hidden="true"
                 >
                   सेवा
                 </div>
                 <h1
-                  className="font-serif text-warm-900 relative"
+                  className="font-serif text-warm-900"
                   style={{
                     fontSize: "clamp(32px, 8vw, 56px)",
                     lineHeight: 1.05,
                     letterSpacing: "-0.03em",
-                    zIndex: 1,
-                    marginTop: "clamp(-40px, -8vw, -70px)",
+                    marginTop: "-0.4em",
                   }}
                 >
                   {t("title_1")}
@@ -73,24 +90,37 @@ export function Hero() {
                   <span className="text-saffron-600">{t("title_4")}</span>
                 </h1>
               </div>
-              {/* Mobile only — cow image beside heading */}
-              <div className="lg:hidden shrink-0 w-[300px] h-[390px] sm:w-[360px] sm:h-[450px] relative overflow-hidden"
-                style={{ marginBottom: "-20px", marginRight: "-16px" }}
+            </div>
+
+            {/* Desktop: original side-by-side layout (no image) */}
+            <div className="hidden lg:block relative mt-6">
+              <div
+                className="font-devanagari font-black select-none pointer-events-none"
+                style={{
+                  fontSize: "120px",
+                  lineHeight: 0.85,
+                  letterSpacing: "-0.04em",
+                  color: "rgba(26, 15, 8, 0.04)",
+                }}
+                aria-hidden="true"
               >
-                <Image
-                  src="/images/maa-with-cow.png"
-                  alt="Shri Radhe Guru Maa with a cow — compassion in seva"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 640px) 300px, 360px"
-                  priority
-                />
-                {/* Fade out the bottom to hide the ground */}
-                <div
-                  className="absolute bottom-0 left-0 right-0 h-16"
-                  style={{ background: "linear-gradient(to bottom, transparent, white)" }}
-                />
+                सेवा
               </div>
+              <h1
+                className="font-serif text-warm-900 relative -mt-11"
+                style={{
+                  fontSize: "56px",
+                  lineHeight: 1.08,
+                  letterSpacing: "-0.03em",
+                  zIndex: 1,
+                }}
+              >
+                {t("title_1")}
+                <br />
+                {t("title_2")}{" "}
+                <em className="text-crimson-500 italic">{t("title_3")}</em>{" "}
+                <span className="text-saffron-600">{t("title_4")}</span>
+              </h1>
             </div>
 
             <ScrollReveal delay={150}>
