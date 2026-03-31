@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { DonationForm } from "@/components/donate/DonationForm";
 import { QRCode } from "@/components/donate/QRCode";
@@ -33,8 +33,8 @@ export async function generateMetadata({
   };
 }
 
-function DonatePage() {
-  const t = useTranslations("donate");
+async function DonatePage() {
+  const t = await getTranslations("donate");
   const breadcrumb = breadcrumbJsonLd([
     { name: "Home", url: "https://shriradhemasociety.org" },
     { name: "Donate", url: "https://shriradhemasociety.org/get-involved/donate" },

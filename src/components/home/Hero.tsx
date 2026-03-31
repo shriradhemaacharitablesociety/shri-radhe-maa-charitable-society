@@ -34,61 +34,82 @@ export function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* ──────────── MOBILE HERO ──────────── */}
         <div className="lg:hidden">
-          {/* Container: badge + image + overlapping text */}
-          <div className="relative" style={{ minHeight: "clamp(360px, 95vw, 500px)" }}>
-            {/* Badge — top left, above image */}
-            <div className="relative z-20">
-              <Badge variant="crimson">
-                <span className="w-1.5 h-1.5 rounded-full bg-crimson-500 mr-2" />
-                {t("badge")}
-              </Badge>
-            </div>
+          {/* Badge — centered left */}
+          <Badge variant="crimson">
+            <span className="w-1.5 h-1.5 rounded-full bg-crimson-500 mr-2" />
+            {t("badge")}
+          </Badge>
 
-            {/* Image — absolute, right-aligned, starts at badge level */}
+          {/* Full-width image container with overlaid text */}
+          <div className="relative mt-3" style={{ aspectRatio: "3/4" }}>
+            <Image
+              src="/images/maa-with-cow.png"
+              alt="Shri Radhe Guru Maa with a cow — compassion in seva"
+              fill
+              className="object-contain"
+              style={{ objectPosition: "center bottom" }}
+              sizes="100vw"
+              priority
+            />
+
+            {/* Uneven bottom gradient — organic fade, completely white at bottom edge */}
             <div
-              className="absolute top-0 right-0 bottom-0"
-              style={{ width: "75%", zIndex: 1 }}
+              className="absolute bottom-0 left-0 right-0 pointer-events-none"
+              style={{
+                height: "45%",
+                background: `
+                  linear-gradient(
+                    178deg,
+                    transparent 0%,
+                    rgba(255,255,255,0.08) 15%,
+                    rgba(255,255,255,0.3) 35%,
+                    rgba(255,255,255,0.65) 55%,
+                    rgba(255,255,255,0.9) 75%,
+                    #FFFFFF 95%
+                  )
+                `,
+              }}
+            />
+            {/* Extra uneven left-side fade for organic look */}
+            <div
+              className="absolute bottom-0 left-0 pointer-events-none"
+              style={{
+                width: "60%",
+                height: "50%",
+                background: `
+                  linear-gradient(
+                    160deg,
+                    transparent 0%,
+                    rgba(255,255,255,0.2) 30%,
+                    rgba(255,255,255,0.7) 60%,
+                    #FFFFFF 90%
+                  )
+                `,
+              }}
+            />
+
+            {/* Ghost "सेवा" text — overlaid on image */}
+            <div
+              className="absolute bottom-[60px] left-0 z-10 font-devanagari font-black select-none pointer-events-none"
+              style={{
+                fontSize: "clamp(80px, 22vw, 140px)",
+                lineHeight: 0.85,
+                letterSpacing: "-0.04em",
+                color: "rgba(26, 15, 8, 0.14)",
+              }}
+              aria-hidden="true"
             >
-              <Image
-                src="/images/maa-with-cow.png"
-                alt="Shri Radhe Guru Maa with a cow — compassion in seva"
-                fill
-                className="object-contain"
-                style={{ objectPosition: "right bottom" }}
-                sizes="75vw"
-                priority
-              />
-              {/* Bottom gradient for text readability */}
-              <div
-                className="absolute bottom-0 left-0 right-0"
-                style={{
-                  height: "50%",
-                  background: "linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 40%, transparent 100%)",
-                }}
-              />
+              सेवा
             </div>
 
-            {/* Ghost text + heading — bottom left, overlapping image */}
+            {/* "Compassion in every seva" heading — bottom-left of image */}
             <div className="absolute bottom-0 left-0 right-0 z-10">
-              <div
-                className="font-devanagari font-black select-none pointer-events-none"
-                style={{
-                  fontSize: "clamp(70px, 18vw, 130px)",
-                  lineHeight: 0.85,
-                  letterSpacing: "-0.04em",
-                  color: "rgba(26, 15, 8, 0.06)",
-                }}
-                aria-hidden="true"
-              >
-                सेवा
-              </div>
               <h1
                 className="font-serif text-warm-900"
                 style={{
                   fontSize: "clamp(36px, 9.5vw, 60px)",
                   lineHeight: 1.05,
                   letterSpacing: "-0.03em",
-                  marginTop: "-0.35em",
                 }}
               >
                 {t("title_1")}
@@ -97,31 +118,28 @@ export function Hero() {
                 <em className="text-crimson-500 italic">{t("title_3")}</em>{" "}
                 <span className="text-saffron-600">{t("title_4")}</span>
               </h1>
+              {/* Sanskrit — immediately below heading, inside image area */}
+              <p
+                className="font-devanagari text-saffron-600 opacity-60"
+                style={{ fontSize: "14px", marginTop: "4px" }}
+              >
+                {t("sanskrit")}
+              </p>
             </div>
           </div>
 
-          {/* Sanskrit */}
+          {/* Description */}
           <ScrollReveal delay={150}>
             <p
-              className="font-devanagari text-saffron-500 opacity-50"
-              style={{ fontSize: "14px", marginTop: "8px" }}
-            >
-              {t("sanskrit")}
-            </p>
-          </ScrollReveal>
-
-          {/* Description */}
-          <ScrollReveal delay={250}>
-            <p
-              className="text-warm-600 text-[13px] md:text-[15px] leading-relaxed"
-              style={{ marginTop: "10px" }}
+              className="text-warm-600 text-[15px] leading-relaxed"
+              style={{ marginTop: "16px" }}
             >
               {t("description")}
             </p>
           </ScrollReveal>
 
           {/* Buttons */}
-          <ScrollReveal delay={350}>
+          <ScrollReveal delay={250}>
             <div className="flex flex-col gap-2.5" style={{ marginTop: "16px" }}>
               <Link href={"/seva" as any} className="w-full">
                 <Button variant="primary" className="w-full">
