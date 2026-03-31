@@ -43,27 +43,24 @@ export function Hero() {
             </ScrollReveal>
 
             <div className="relative mt-2 md:mt-6 flex items-end">
-              <div className="flex-1 min-w-0 relative">
-                {/* Ghost सेवा — absolute so it doesn't add height */}
+              <div className="flex-1 min-w-0">
                 <div
-                  className="absolute font-devanagari font-black select-none pointer-events-none"
+                  className="font-devanagari font-black select-none pointer-events-none"
                   style={{
                     fontSize: "clamp(60px, 15vw, 120px)",
                     lineHeight: 0.85,
                     letterSpacing: "-0.04em",
                     color: "rgba(26, 15, 8, 0.04)",
-                    top: "-0.35em",
-                    left: 0,
                   }}
                   aria-hidden="true"
                 >
                   सेवा
                 </div>
                 <h1
-                  className="font-serif text-warm-900 relative"
+                  className="font-serif text-warm-900 relative md:-mt-11"
                   style={{
-                    fontSize: "clamp(26px, 6vw, 56px)",
-                    lineHeight: 1.08,
+                    fontSize: "clamp(32px, 8vw, 56px)",
+                    lineHeight: 1.05,
                     letterSpacing: "-0.03em",
                     zIndex: 1,
                   }}
