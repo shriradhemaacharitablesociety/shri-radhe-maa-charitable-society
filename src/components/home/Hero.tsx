@@ -42,7 +42,7 @@ export function Hero() {
               </Badge>
             </ScrollReveal>
 
-            <div className="relative mt-1 md:mt-6 flex items-end">
+            <div className="relative flex items-end" style={{ marginTop: "10px" }}>
               <div className="flex-1 min-w-0 relative">
                 <div
                   className="font-devanagari font-black select-none pointer-events-none"
@@ -63,6 +63,7 @@ export function Hero() {
                     lineHeight: 1.05,
                     letterSpacing: "-0.03em",
                     zIndex: 1,
+                    marginTop: "clamp(-40px, -8vw, -70px)",
                   }}
                 >
                   {t("title_1")}
