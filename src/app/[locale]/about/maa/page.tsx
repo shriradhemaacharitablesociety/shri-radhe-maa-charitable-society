@@ -115,7 +115,8 @@ export default function MaaPage() {
               { icon: "💊", title: "Healthcare Camps", desc: "Blood donation drives, free eye and dental check-up camps organised across India." },
             ].map((item, i) => (
               <ScrollReveal key={item.title} delay={350 + i * 100}>
-                <div className="rounded-2xl bg-white border border-warm-100 shadow-sm overflow-hidden h-full">
+                <div className="relative rounded-2xl bg-white border border-warm-100 shadow-sm overflow-hidden h-full">
+                  <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-crimson-500 to-saffron-500" />
                   <div className="p-6 md:p-8">
                     <div className="w-12 h-12 rounded-full bg-crimson-50 flex items-center justify-center text-xl mb-4" aria-hidden="true">{item.icon}</div>
                     <h3 className="font-serif text-lg text-warm-900">{item.title}</h3>
