@@ -34,112 +34,65 @@ export function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* ──────────── MOBILE HERO ──────────── */}
         <div className="lg:hidden">
-          {/* Badge — centered left */}
+          {/* Badge — top left */}
           <Badge variant="crimson">
             <span className="w-1.5 h-1.5 rounded-full bg-crimson-500 mr-2" />
             {t("badge")}
           </Badge>
 
-          {/* Full-width image container with overlaid text */}
-          <div className="relative" style={{ marginTop: "4px" }}>
-            <Image
-              src="/images/maa-with-cow.png"
-              alt="Shri Radhe Guru Maa with a cow — compassion in seva"
-              width={750}
-              height={900}
-              className="w-full h-auto"
-              sizes="100vw"
-              priority
-            />
-
-            {/* Uneven bottom gradient — organic fade, completely white at bottom edge */}
+          {/* Ghost text + heading */}
+          <div className="relative mt-6">
             <div
-              className="absolute bottom-0 left-0 right-0 pointer-events-none"
+              className="font-devanagari font-black select-none pointer-events-none"
               style={{
-                height: "45%",
-                background: `
-                  linear-gradient(
-                    178deg,
-                    transparent 0%,
-                    rgba(255,255,255,0.08) 15%,
-                    rgba(255,255,255,0.3) 35%,
-                    rgba(255,255,255,0.65) 55%,
-                    rgba(255,255,255,0.9) 75%,
-                    #FFFFFF 95%
-                  )
-                `,
-              }}
-            />
-            {/* Extra uneven left-side fade for organic look */}
-            <div
-              className="absolute bottom-0 left-0 pointer-events-none"
-              style={{
-                width: "60%",
-                height: "50%",
-                background: `
-                  linear-gradient(
-                    160deg,
-                    transparent 0%,
-                    rgba(255,255,255,0.2) 30%,
-                    rgba(255,255,255,0.7) 60%,
-                    #FFFFFF 90%
-                  )
-                `,
-              }}
-            />
-
-            {/* Ghost "सेवा" text — overlaid on image */}
-            <div
-              className="absolute bottom-[60px] left-0 z-10 font-devanagari font-black select-none pointer-events-none"
-              style={{
-                fontSize: "clamp(80px, 22vw, 140px)",
+                fontSize: "clamp(70px, 18vw, 130px)",
                 lineHeight: 0.85,
                 letterSpacing: "-0.04em",
-                color: "rgba(26, 15, 8, 0.14)",
+                color: "rgba(26, 15, 8, 0.06)",
               }}
               aria-hidden="true"
             >
               सेवा
             </div>
-
-            {/* "Compassion in every seva" heading — bottom-left of image */}
-            <div className="absolute bottom-0 left-0 right-0 z-10">
-              <h1
-                className="font-serif text-warm-900"
-                style={{
-                  fontSize: "clamp(36px, 9.5vw, 60px)",
-                  lineHeight: 1.05,
-                  letterSpacing: "-0.03em",
-                }}
-              >
-                {t("title_1")}
-                <br />
-                {t("title_2")}{" "}
-                <em className="text-crimson-500 italic">{t("title_3")}</em>{" "}
-                <span className="text-saffron-600">{t("title_4")}</span>
-              </h1>
-              {/* Sanskrit — immediately below heading, inside image area */}
-              <p
-                className="font-devanagari text-saffron-600 opacity-60"
-                style={{ fontSize: "14px", marginTop: "4px" }}
-              >
-                {t("sanskrit")}
-              </p>
-            </div>
+            <h1
+              className="font-serif text-warm-900"
+              style={{
+                fontSize: "clamp(36px, 9.5vw, 60px)",
+                lineHeight: 1.05,
+                letterSpacing: "-0.03em",
+                marginTop: "-0.35em",
+              }}
+            >
+              {t("title_1")}
+              <br />
+              {t("title_2")}{" "}
+              <em className="text-crimson-500 italic">{t("title_3")}</em>{" "}
+              <span className="text-saffron-600">{t("title_4")}</span>
+            </h1>
           </div>
 
-          {/* Description */}
+          {/* Sanskrit */}
           <ScrollReveal delay={150}>
             <p
-              className="text-warm-600 text-[15px] leading-relaxed"
-              style={{ marginTop: "16px" }}
+              className="font-devanagari text-saffron-500 opacity-50"
+              style={{ fontSize: "14px", marginTop: "8px" }}
+            >
+              {t("sanskrit")}
+            </p>
+          </ScrollReveal>
+
+          {/* Description */}
+          <ScrollReveal delay={250}>
+            <p
+              className="text-warm-600 text-[13px] md:text-[15px] leading-relaxed"
+              style={{ marginTop: "10px" }}
             >
               {t("description")}
             </p>
           </ScrollReveal>
 
           {/* Buttons */}
-          <ScrollReveal delay={250}>
+          <ScrollReveal delay={350}>
             <div className="flex flex-col gap-2.5" style={{ marginTop: "16px" }}>
               <Link href={"/seva" as any} className="w-full">
                 <Button variant="primary" className="w-full">
