@@ -20,7 +20,7 @@ export function NavbarLogo() {
         </div>
       </div>
       {/* Mobile: just a spacer (mobile navbar has its own logo) */}
-      <div className="md:hidden h-[90px]" />
+      <div className="md:hidden h-[76px]" />
     </>
   );
 }

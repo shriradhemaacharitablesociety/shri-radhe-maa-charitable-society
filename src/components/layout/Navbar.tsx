@@ -47,14 +47,14 @@ export function Navbar() {
     <>
       {/* ===== MOBILE NAVBAR (below md) ===== */}
       <header className="md:hidden fixed top-0 left-0 right-0 z-40 pointer-events-none pt-3 px-4">
-        <div className="pointer-events-auto flex items-center justify-between px-4 py-3 bg-white border border-warm-200/60 rounded-2xl shadow-lg shadow-warm-900/[0.08]">
+        <div className="pointer-events-auto flex items-center justify-between px-3 py-1.5 bg-white border border-warm-200/60 rounded-2xl shadow-lg shadow-warm-900/[0.08]">
             {/* Logo */}
             <Link href={"/" as any} className="shrink-0">
               <Image
                 src="/logo.png"
                 alt="Shri Radhe Maa Charitable Society"
-                width={48}
-                height={48}
+                width={40}
+                height={40}
                 className="drop-shadow-sm"
               />
             </Link>
