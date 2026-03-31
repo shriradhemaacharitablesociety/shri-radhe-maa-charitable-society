@@ -61,17 +61,6 @@ export default function MaaPage() {
         </div>
       </section>
 
-      {/* Cream note banner */}
-      <section className="pt-2 md:pt-4 pb-6 px-4 sm:px-6 bg-warm-50">
-        <div className="max-w-4xl mx-auto">
-          <ScrollReveal delay={100}>
-            <div className="rounded-xl bg-saffron-50 border border-saffron-200/60 px-6 py-4 text-sm font-sans text-warm-700 leading-relaxed">
-              <strong className="text-warm-900">Note:</strong> This page represents the charitable society&apos;s perspective on Shri Radhe Guru Maa&apos;s humanitarian contributions. For Maa&apos;s personal ministry and teachings, please visit her official social media channels.
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* White section: Bio */}
       <section className="py-12 md:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-4xl mx-auto">
@@ -107,38 +96,34 @@ export default function MaaPage() {
         </div>
       </section>
 
-      {/* Dark section: Key contributions */}
-      <section className="relative overflow-hidden bg-warm-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03),transparent_50%)]" />
-        <div className="relative py-12 md:py-20 px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
-            <ScrollReveal delay={300}>
-              <div className="text-center mb-10 md:mb-16">
-                <span className="font-devanagari text-sm text-saffron-400 font-medium" lang="hi">मानवीय योगदान</span>
-                <h2 className="font-serif text-2xl md:text-3xl text-white tracking-tight mt-1">Humanitarian Contributions</h2>
-                <div className="w-12 h-1 bg-saffron-400 rounded-full mx-auto mt-4" />
-              </div>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-              {[
-                { icon: "🏥", title: "Free Dialysis Centre", desc: "Established a free kidney dialysis centre at Anand Hospital, Mumbai — serving patients who cannot afford treatment." },
-                { icon: "🌊", title: "Disaster Relief", desc: "Led relief operations in Punjab, Kerala, Nepal, and Maharashtra — including rebuilding homes for flood-affected families in Islampur village." },
-                { icon: "🤝", title: "Monthly Pensions", desc: "Over 100+ families receive monthly financial support through the society under Maa's guidance." },
-                { icon: "💊", title: "Healthcare Camps", desc: "Blood donation drives, free eye and dental check-up camps organised across India." },
-              ].map((item, i) => (
-                <ScrollReveal key={item.title} delay={350 + i * 100}>
-                  <div className="relative rounded-2xl bg-white shadow-xl overflow-hidden h-full">
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron-500 to-crimson-500" />
-                    <div className="p-6 md:p-8">
-                      <div className="w-12 h-12 rounded-full bg-crimson-500 flex items-center justify-center text-white text-xl mb-4" aria-hidden="true">{item.icon}</div>
-                      <h3 className="font-serif text-lg text-warm-900">{item.title}</h3>
-                      <p className="font-sans text-sm text-warm-600 leading-relaxed mt-3">{item.desc}</p>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
+      {/* Cream section: Key contributions */}
+      <section className="py-12 md:py-20 px-4 sm:px-6 bg-cream">
+        <div className="max-w-4xl mx-auto">
+          <ScrollReveal delay={300}>
+            <div className="text-center mb-10 md:mb-16">
+              <span className="font-devanagari text-sm text-crimson-500 font-medium" lang="hi">मानवीय योगदान</span>
+              <h2 className="font-serif text-2xl md:text-3xl text-warm-900 tracking-tight mt-1">Humanitarian Contributions</h2>
+              <div className="w-12 h-1 bg-crimson-500 rounded-full mx-auto mt-4" />
             </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            {[
+              { icon: "🏥", title: "Free Dialysis Centre", desc: "Established a free kidney dialysis centre at Anand Hospital, Mumbai — serving patients who cannot afford treatment." },
+              { icon: "🌊", title: "Disaster Relief", desc: "Led relief operations in Punjab, Kerala, Nepal, and Maharashtra — including rebuilding homes for flood-affected families in Islampur village." },
+              { icon: "🤝", title: "Monthly Pensions", desc: "Over 100+ families receive monthly financial support through the society under Maa's guidance." },
+              { icon: "💊", title: "Healthcare Camps", desc: "Blood donation drives, free eye and dental check-up camps organised across India." },
+            ].map((item, i) => (
+              <ScrollReveal key={item.title} delay={350 + i * 100}>
+                <div className="rounded-2xl bg-white border border-warm-100 shadow-sm overflow-hidden h-full">
+                  <div className="p-6 md:p-8">
+                    <div className="w-12 h-12 rounded-full bg-crimson-50 flex items-center justify-center text-xl mb-4" aria-hidden="true">{item.icon}</div>
+                    <h3 className="font-serif text-lg text-warm-900">{item.title}</h3>
+                    <p className="font-sans text-sm text-warm-600 leading-relaxed mt-3">{item.desc}</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
@@ -189,6 +174,17 @@ export default function MaaPage() {
                 </svg>
                 ShreeRadheMaa
               </a>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Note banner */}
+      <section className="py-6 md:py-8 px-4 sm:px-6 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <ScrollReveal>
+            <div className="rounded-xl bg-saffron-50 border border-saffron-200/60 px-6 py-4 text-sm font-sans text-warm-700 leading-relaxed">
+              <strong className="text-warm-900">Note:</strong> This page represents the charitable society&apos;s perspective on Shri Radhe Guru Maa&apos;s humanitarian contributions. For Maa&apos;s personal ministry and teachings, please visit her official social media channels.
             </div>
           </ScrollReveal>
         </div>

@@ -72,38 +72,32 @@ export function Hero() {
           </div>
 
           {/* Sanskrit */}
-          <ScrollReveal delay={150}>
-            <p
-              className="font-devanagari text-saffron-500 opacity-50"
-              style={{ fontSize: "14px", marginTop: "8px" }}
-            >
-              {t("sanskrit")}
-            </p>
-          </ScrollReveal>
+          <p
+            className="font-devanagari text-saffron-500 opacity-50"
+            style={{ fontSize: "14px", marginTop: "8px" }}
+          >
+            {t("sanskrit")}
+          </p>
 
           {/* Description */}
-          <ScrollReveal delay={250}>
-            <p
-              className="text-warm-600 text-[13px] md:text-[15px] leading-relaxed"
-              style={{ marginTop: "10px" }}
-            >
-              {t("description")}
-            </p>
-          </ScrollReveal>
+          <p
+            className="text-warm-600 text-[13px] md:text-[15px] leading-relaxed"
+            style={{ marginTop: "10px" }}
+          >
+            {t("description")}
+          </p>
 
           {/* Buttons */}
-          <ScrollReveal delay={350}>
-            <div className="flex flex-col gap-2.5" style={{ marginTop: "16px" }}>
-              <Link href={"/seva" as any} className="w-full">
-                <Button variant="primary" className="w-full">
-                  {t("cta_primary")} →
-                </Button>
-              </Link>
-              <Button variant="ghost" className="w-full">
-                {t("cta_secondary")}
+          <div className="flex flex-col gap-2.5" style={{ marginTop: "16px" }}>
+            <Link href={"/seva" as any} className="w-full">
+              <Button variant="primary" className="w-full">
+                {t("cta_primary")} →
               </Button>
-            </div>
-          </ScrollReveal>
+            </Link>
+            <Button variant="ghost" className="w-full">
+              {t("cta_secondary")}
+            </Button>
+          </div>
 
           {/* Mobile stat cards */}
           <div className="-mx-4 px-4 mt-4">
