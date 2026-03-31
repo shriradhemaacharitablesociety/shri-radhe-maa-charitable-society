@@ -46,18 +46,15 @@ export function Navbar() {
   return (
     <>
       {/* ===== MOBILE NAVBAR (below md) ===== */}
-      <header className="md:hidden fixed top-0 left-0 right-0 z-40">
-        {/* Top bar with gradient accent */}
-        <div className="h-1 bg-gradient-to-r from-crimson-500 via-saffron-500 to-crimson-500" />
-        <div className="bg-white/95 backdrop-blur-xl shadow-md">
-          <div className="flex items-center justify-between px-3 py-2">
+      <header className="md:hidden fixed top-0 left-0 right-0 z-40 pointer-events-none pt-2 px-3">
+        <div className="pointer-events-auto flex items-center justify-between px-3 py-2 bg-white/92 backdrop-blur-xl border border-warm-200/50 rounded-full shadow-lg shadow-warm-900/[0.05]">
             {/* Logo — full image like footer, bigger */}
             <Link href={"/" as any} className="shrink-0">
               <Image
                 src="/logo.png"
                 alt="Shri Radhe Maa Charitable Society"
-                width={52}
-                height={52}
+                width={44}
+                height={44}
                 className="drop-shadow-sm"
               />
             </Link>
@@ -66,7 +63,7 @@ export function Navbar() {
               {/* Login */}
               <a
                 href="/login"
-                className="inline-flex items-center px-3 py-1.5 text-[11px] font-sans font-medium text-warm-700 border border-warm-200 rounded-lg hover:border-crimson-300 hover:text-crimson-500 transition-colors"
+                className="inline-flex items-center px-3 py-1.5 text-[11px] font-sans font-medium text-warm-700 border border-warm-200 rounded-full hover:border-crimson-300 hover:text-crimson-500 transition-colors"
               >
                 Login
               </a>
@@ -74,7 +71,7 @@ export function Navbar() {
               {/* Donate */}
               <Link
                 href={"/get-involved/donate" as any}
-                className="inline-flex items-center px-3.5 py-1.5 bg-crimson-500 text-white text-[11px] font-sans font-semibold rounded-lg hover:bg-crimson-600 transition-colors shadow-sm"
+                className="inline-flex items-center px-3.5 py-1.5 bg-crimson-500 text-white text-[11px] font-sans font-semibold rounded-full hover:bg-crimson-600 transition-colors shadow-sm"
               >
                 {t("donate")}
               </Link>
@@ -90,7 +87,6 @@ export function Navbar() {
                 <span className="block w-[18px] h-[2px] bg-warm-800 rounded-full" />
               </button>
             </div>
-          </div>
         </div>
       </header>
 
