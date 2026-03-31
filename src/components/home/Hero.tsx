@@ -42,7 +42,7 @@ export function Hero() {
               </Badge>
             </ScrollReveal>
 
-            <div className="relative mt-3 md:mt-6 flex items-end gap-2">
+            <div className="relative mt-3 md:mt-6 flex items-end">
               <div className="flex-1 min-w-0">
                 <div
                   className="font-devanagari font-black select-none pointer-events-none"
@@ -72,14 +72,22 @@ export function Hero() {
                   <span className="text-saffron-600">{t("title_4")}</span>
                 </h1>
               </div>
-              <div className="shrink-0 w-[140px] h-[170px] sm:w-[180px] sm:h-[210px] lg:w-[220px] lg:h-[260px] relative -mb-1">
+              {/* Mobile only — cow image beside heading */}
+              <div className="lg:hidden shrink-0 w-[160px] h-[200px] sm:w-[200px] sm:h-[240px] relative overflow-hidden"
+                style={{ marginBottom: "-12px", marginRight: "-8px" }}
+              >
                 <Image
                   src="/images/maa-with-cow.png"
                   alt="Shri Radhe Guru Maa with a cow — compassion in seva"
                   fill
-                  className="object-contain object-bottom"
-                  sizes="(max-width: 640px) 140px, (max-width: 1024px) 180px, 220px"
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 160px, 200px"
                   priority
+                />
+                {/* Fade out the bottom to hide the ground */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-16"
+                  style={{ background: "linear-gradient(to bottom, transparent, white)" }}
                 />
               </div>
             </div>
