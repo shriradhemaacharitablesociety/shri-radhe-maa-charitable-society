@@ -47,7 +47,7 @@ export function Navbar() {
     <>
       {/* ===== MOBILE NAVBAR (below md) ===== */}
       <header className="md:hidden fixed top-0 left-0 right-0 z-40 pointer-events-none pt-2 px-3">
-        <div className="pointer-events-auto flex items-center justify-between px-3 py-2 bg-white/92 backdrop-blur-xl border border-warm-200/50 rounded-full shadow-lg shadow-warm-900/[0.05]">
+        <div className="pointer-events-auto flex items-center justify-between py-2 bg-white/92 backdrop-blur-xl border border-warm-200/50 rounded-full shadow-lg shadow-warm-900/[0.05]" style={{ paddingLeft: 10, paddingRight: 10 }}>
             {/* Logo — full image like footer, bigger */}
             <Link href={"/" as any} className="shrink-0 ml-5">
               <Image
