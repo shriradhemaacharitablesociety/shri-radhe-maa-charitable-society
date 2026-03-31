@@ -48,10 +48,9 @@ export function Hero() {
                   className="font-devanagari font-black select-none pointer-events-none"
                   style={{
                     fontSize: "clamp(60px, 15vw, 120px)",
-                    lineHeight: 0.7,
+                    lineHeight: 0.85,
                     letterSpacing: "-0.04em",
                     color: "rgba(26, 15, 8, 0.04)",
-                    marginBottom: "-0.5em",
                   }}
                   aria-hidden="true"
                 >
@@ -74,15 +73,15 @@ export function Hero() {
                 </h1>
               </div>
               {/* Mobile only — cow image beside heading */}
-              <div className="lg:hidden shrink-0 w-[200px] h-[260px] sm:w-[240px] sm:h-[300px] relative overflow-hidden"
-                style={{ marginBottom: "-20px", marginRight: "-12px" }}
+              <div className="lg:hidden shrink-0 w-[300px] h-[390px] sm:w-[360px] sm:h-[450px] relative overflow-hidden"
+                style={{ marginBottom: "-20px", marginRight: "-16px" }}
               >
                 <Image
                   src="/images/maa-with-cow.png"
                   alt="Shri Radhe Guru Maa with a cow — compassion in seva"
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 640px) 200px, 240px"
+                  sizes="(max-width: 640px) 300px, 360px"
                   priority
                 />
                 {/* Fade out the bottom to hide the ground */}
