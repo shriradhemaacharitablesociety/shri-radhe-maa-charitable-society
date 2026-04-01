@@ -12,6 +12,7 @@ Official website + admin dashboard for Shri Radhe Maa Charitable Society (Reg. S
 - **Animations:** GSAP 3.14 + Lenis smooth scroll
 - **Payments:** Razorpay integration
 - **Database:** Supabase (credentials in .env.local)
+- **Images:** Cloudinary CDN (cloud: dkv1mtt5v, credentials in .env.local)
 - **Fonts:** Instrument Serif, Space Grotesk, Noto Devanagari, Fraunces
 
 ## Design System: "Sacred Modern"
@@ -118,6 +119,7 @@ npx playwright test  # E2E tests
 - **GitHub:** shriradhemaacharitablesociety/shri-radhe-maa-charitable-society
 - **Vercel:** shriradhemaacharitablesociety@gmail.com
 - **Supabase:** https://gbfogimmzokajmslecbp.supabase.co
+- **Cloudinary:** Cloud name `dkv1mtt5v` (image CDN)
 
 ## Design Spec
 Full spec: `docs/superpowers/specs/2026-03-28-sacred-modern-redesign.md`
