@@ -37,7 +37,7 @@ const sections: TermsSection[] = [
   {
     title: "Acceptance of Terms",
     content: [
-      "By accessing and using this website (shriradhemasociety.org), you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use our website.",
+      "By accessing and using this website (srmcs.org), you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use our website.",
       "These terms apply to all visitors, users, and donors who access or use the website.",
       "We reserve the right to modify these terms at any time without prior notice. Continued use of the website after any changes constitutes acceptance of the updated terms.",
     ],
@@ -114,8 +114,8 @@ export default async function TermsPage({
   const { locale } = await params;
 
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Terms & Conditions", url: "https://shriradhemasociety.org/terms" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Terms & Conditions", url: "https://srmcs.org/terms" },
   ]);
 
   return (

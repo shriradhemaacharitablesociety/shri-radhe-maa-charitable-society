@@ -116,8 +116,8 @@ export default async function RefundPolicyPage({
   const { locale } = await params;
 
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Refund & Cancellation Policy", url: "https://shriradhemasociety.org/refund-policy" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Refund & Cancellation Policy", url: "https://srmcs.org/refund-policy" },
   ]);
 
   return (

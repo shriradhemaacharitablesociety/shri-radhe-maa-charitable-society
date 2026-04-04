@@ -56,9 +56,9 @@ export async function generateMetadata({
 
 export default function FinancialAidPage() {
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Seva", url: "https://shriradhemasociety.org/seva" },
-    { name: "Financial Aid", url: "https://shriradhemasociety.org/seva/financial-aid" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Seva", url: "https://srmcs.org/seva" },
+    { name: "Financial Aid", url: "https://srmcs.org/seva/financial-aid" },
   ]);
   const faqSchema = faqJsonLd(faqs);
 

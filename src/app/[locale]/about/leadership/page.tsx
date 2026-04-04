@@ -30,9 +30,9 @@ export async function generateMetadata({
 
 export default function LeadershipPage() {
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "About", url: "https://shriradhemasociety.org/about" },
-    { name: "Leadership", url: "https://shriradhemasociety.org/about/leadership" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "About", url: "https://srmcs.org/about" },
+    { name: "Leadership", url: "https://srmcs.org/about/leadership" },
   ]);
 
   return (

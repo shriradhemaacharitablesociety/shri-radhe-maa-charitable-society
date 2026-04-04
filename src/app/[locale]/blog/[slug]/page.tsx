@@ -60,9 +60,9 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "News & Updates", url: "https://shriradhemasociety.org/blog" },
-    { name: post.title, url: `https://shriradhemasociety.org/blog/${post.slug}` },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "News & Updates", url: "https://srmcs.org/blog" },
+    { name: post.title, url: `https://srmcs.org/blog/${post.slug}` },
   ]);
 
   const articleJsonLd = articleJsonLdSchema({
@@ -73,7 +73,7 @@ export default async function BlogPostPage({
     slug: post.slug,
   });
 
-  const shareUrl = `https://shriradhemasociety.org/blog/${post.slug}`;
+  const shareUrl = `https://srmcs.org/blog/${post.slug}`;
   const shareText = `${post.title} — Shri Radhe Maa Charitable Society`;
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText + " " + shareUrl)}`;
   const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;

@@ -32,9 +32,9 @@ export async function generateMetadata({
 
 export default function DisasterReliefPage() {
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Seva", url: "https://shriradhemasociety.org/seva" },
-    { name: "Disaster Relief", url: "https://shriradhemasociety.org/seva/disaster-relief" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Seva", url: "https://srmcs.org/seva" },
+    { name: "Disaster Relief", url: "https://srmcs.org/seva/disaster-relief" },
   ]);
 
   return (

@@ -2,13 +2,13 @@
 
 **Status:** PENDING
 **Priority:** HIGH
-**Why:** Map your custom domain (e.g., shriradhemasociety.org) to the Vercel deployment
+**Why:** Map your custom domain (e.g., srmcs.org) to the Vercel deployment
 
 ## Steps
 
 ### 1. Buy a Domain (if not already owned)
 Recommended registrars: GoDaddy, Namecheap, Google Domains, Hostinger
-Suggested domain: `shriradhemasociety.org` or `shriradhemasociety.in`
+Suggested domain: `srmcs.org`
 
 ### 2. Add Domain to Vercel
 1. Go to https://vercel.com/dashboard

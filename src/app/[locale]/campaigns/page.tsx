@@ -58,8 +58,8 @@ export default async function CampaignsPage({
   const isHindi = locale === "hi";
 
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Campaigns", url: "https://shriradhemasociety.org/campaigns" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Campaigns", url: "https://srmcs.org/campaigns" },
   ]);
 
   const activeCampaigns = campaigns.filter((c) => c.active);

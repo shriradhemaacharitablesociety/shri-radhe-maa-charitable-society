@@ -1,7 +1,7 @@
 // ─── JSON-LD Schema Generators ────────────────────────────────────────────────
 // Used for SEO, GEO (AI search engines), and AEO (featured snippets / voice).
 
-const BASE_URL = "https://shriradhemasociety.org";
+const BASE_URL = "https://srmcs.org";
 
 /** NonProfit / NGO Organisation schema — rendered on every page via root layout */
 export function nonprofitJsonLd() {

@@ -143,10 +143,10 @@ export default async function AnnualReportPage({
   const isHindi = locale === "hi";
 
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "Home", url: "https://srmcs.org" },
     {
       name: "Annual Report",
-      url: "https://shriradhemasociety.org/annual-report",
+      url: "https://srmcs.org/annual-report",
     },
   ]);
 

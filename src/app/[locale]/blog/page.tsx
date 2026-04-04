@@ -44,8 +44,8 @@ function formatDate(dateStr: string): string {
 
 export default function BlogPage() {
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "News & Updates", url: "https://shriradhemasociety.org/blog" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "News & Updates", url: "https://srmcs.org/blog" },
   ]);
 
   const featuredPost = blogPosts.find((p) => p.featured);

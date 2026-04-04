@@ -119,8 +119,8 @@ export default async function PrivacyPolicyPage({
   const { locale } = await params;
 
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Privacy Policy", url: "https://shriradhemasociety.org/privacy-policy" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Privacy Policy", url: "https://srmcs.org/privacy-policy" },
   ]);
 
   return (

@@ -1,12 +1,12 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://shriradhemasociety.org",
+  siteUrl: "https://srmcs.org",
   generateRobotsTxt: true,
   changefreq: "weekly",
   priority: 0.7,
   alternateRefs: [
-    { href: "https://shriradhemasociety.org/en", hreflang: "en-IN" },
-    { href: "https://shriradhemasociety.org/hi", hreflang: "hi-IN" },
+    { href: "https://srmcs.org/en", hreflang: "en-IN" },
+    { href: "https://srmcs.org/hi", hreflang: "hi-IN" },
   ],
   exclude: ["/api/*", "/admin/*", "/login", "/donor"],
   robotsTxtOptions: {

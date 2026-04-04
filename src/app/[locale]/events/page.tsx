@@ -74,8 +74,8 @@ function EventCard({ event }: { event: (typeof events)[number] }) {
 
 export default function EventsPage() {
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Events", url: "https://shriradhemasociety.org/events" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Events", url: "https://srmcs.org/events" },
   ]);
 
   return (

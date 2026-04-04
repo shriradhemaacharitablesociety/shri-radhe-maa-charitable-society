@@ -133,10 +133,10 @@ export default async function SevaSubscriptionsPage({
   const isHindi = locale === "hi";
 
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
+    { name: "Home", url: "https://srmcs.org" },
     {
       name: "Monthly Seva",
-      url: "https://shriradhemasociety.org/seva-subscriptions",
+      url: "https://srmcs.org/seva-subscriptions",
     },
   ]);
 

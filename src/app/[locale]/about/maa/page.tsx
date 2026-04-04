@@ -32,9 +32,9 @@ export async function generateMetadata({
 
 export default function MaaPage() {
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "About", url: "https://shriradhemasociety.org/about" },
-    { name: "Shri Radhe Guru Maa", url: "https://shriradhemasociety.org/about/maa" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "About", url: "https://srmcs.org/about" },
+    { name: "Shri Radhe Guru Maa", url: "https://srmcs.org/about/maa" },
   ]);
   return (
     <div>

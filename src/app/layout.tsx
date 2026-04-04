@@ -3,7 +3,7 @@ import { instrumentSerif, spaceGrotesk, notoDevanagari, fraunces } from "@/lib/f
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://shriradhemasociety.org"),
+  metadataBase: new URL("https://srmcs.org"),
   title: "Shri Radhe Maa Charitable Society | श्री राधे माँ चैरिटेबल सोसाइटी",
   description:
     "Serving humanity through compassion — free dialysis, disaster relief, monthly pensions, divyang seva.",

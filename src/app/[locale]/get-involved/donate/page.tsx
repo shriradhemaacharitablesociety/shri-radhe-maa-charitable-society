@@ -36,8 +36,8 @@ export async function generateMetadata({
 async function DonatePage() {
   const t = await getTranslations("donate");
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Donate", url: "https://shriradhemasociety.org/get-involved/donate" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Donate", url: "https://srmcs.org/get-involved/donate" },
   ]);
   const donateAction = donateActionJsonLd();
 

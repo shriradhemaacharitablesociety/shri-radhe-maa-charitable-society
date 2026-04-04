@@ -104,8 +104,8 @@ const locations = [
 
 export default function SevaMapPage() {
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Seva Map", url: "https://shriradhemasociety.org/seva-map" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Seva Map", url: "https://srmcs.org/seva-map" },
   ]);
 
   return (

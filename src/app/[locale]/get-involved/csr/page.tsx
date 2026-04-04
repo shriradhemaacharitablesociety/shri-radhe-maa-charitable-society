@@ -33,8 +33,8 @@ export async function generateMetadata({
 
 export default function CSRPage() {
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "CSR", url: "https://shriradhemasociety.org/get-involved/csr" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "CSR", url: "https://srmcs.org/get-involved/csr" },
   ]);
 
   return (

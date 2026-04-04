@@ -57,8 +57,8 @@ export async function generateMetadata({
 
 export default function ContactPage() {
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Contact", url: "https://shriradhemasociety.org/contact" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Contact", url: "https://srmcs.org/contact" },
   ]);
   const faqSchema = faqJsonLd(faqs);
   const localBusiness = localBusinessJsonLd();

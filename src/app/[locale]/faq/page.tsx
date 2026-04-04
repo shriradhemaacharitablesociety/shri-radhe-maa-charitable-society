@@ -60,8 +60,8 @@ export default async function FAQPage({
   const grouped = groupByCategory();
 
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "FAQ", url: "https://shriradhemasociety.org/faq" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "FAQ", url: "https://srmcs.org/faq" },
   ]);
 
   const faqSchema = faqJsonLd(

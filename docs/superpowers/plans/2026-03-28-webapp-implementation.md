@@ -2208,7 +2208,7 @@ export function nonprofitJsonLd() {
     "@type": "NGO",
     name: "Shri Radhe Maa Charitable Society",
     alternateName: "श्री राधे माँ चैरिटेबल सोसाइटी",
-    url: "https://shriradhemasociety.org",
+    url: "https://srmcs.org",
     description: "Serving humanity through free dialysis, disaster relief, monthly pensions, divyang seva. समाज सेवा, मुफ्त डायलिसिस, बाढ़ राहत।",
     foundingDate: "2017-08-21",
     address: {

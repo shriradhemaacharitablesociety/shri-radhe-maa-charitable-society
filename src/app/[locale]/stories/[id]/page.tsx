@@ -57,12 +57,12 @@ export default async function StoryDetailPage({
   if (!story) notFound();
 
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Impact Stories", url: "https://shriradhemasociety.org/stories" },
-    { name: story.name, url: `https://shriradhemasociety.org/stories/${story.id}` },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Impact Stories", url: "https://srmcs.org/stories" },
+    { name: story.name, url: `https://srmcs.org/stories/${story.id}` },
   ]);
 
-  const shareUrl = `https://shriradhemasociety.org/stories/${story.id}`;
+  const shareUrl = `https://srmcs.org/stories/${story.id}`;
   const shareText = `${story.name}: "${story.quote}" — Shri Radhe Maa Charitable Society`;
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText + " " + shareUrl)}`;
   const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;

@@ -32,8 +32,8 @@ export async function generateMetadata({
 
 export default function TransparencyPage() {
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Transparency", url: "https://shriradhemasociety.org/transparency" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Transparency", url: "https://srmcs.org/transparency" },
   ]);
 
   return (

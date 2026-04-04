@@ -84,8 +84,8 @@ export default async function TaxBenefitsPage({
   const isHindi = locale === "hi";
 
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "80G Tax Benefits", url: "https://shriradhemasociety.org/80g" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "80G Tax Benefits", url: "https://srmcs.org/80g" },
   ]);
 
   const currentSteps = isHindi ? steps.hi : steps.en;

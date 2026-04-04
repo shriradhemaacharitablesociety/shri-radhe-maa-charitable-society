@@ -60,9 +60,9 @@ export async function generateMetadata({
 
 export default function HealthcarePage() {
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Seva", url: "https://shriradhemasociety.org/seva" },
-    { name: "Healthcare", url: "https://shriradhemasociety.org/seva/healthcare" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Seva", url: "https://srmcs.org/seva" },
+    { name: "Healthcare", url: "https://srmcs.org/seva/healthcare" },
   ]);
   const faqSchema = faqJsonLd(faqs);
 

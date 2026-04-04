@@ -41,8 +41,8 @@ const stats = [
 
 export default function SevaPage() {
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Seva", url: "https://shriradhemasociety.org/seva" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Seva", url: "https://srmcs.org/seva" },
   ]);
 
   return (

@@ -26,5 +26,5 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://shriradhemasociety.org/sitemap.xml
-Host: https://shriradhemasociety.org
+Sitemap: https://srmcs.org/sitemap.xml
+Host: https://srmcs.org

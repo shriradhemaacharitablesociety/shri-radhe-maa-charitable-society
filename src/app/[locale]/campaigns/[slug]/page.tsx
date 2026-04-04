@@ -72,12 +72,12 @@ export default async function CampaignDetailPage({
   const isCompleted = !campaign.active;
 
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Campaigns", url: "https://shriradhemasociety.org/campaigns" },
-    { name: campaign.title, url: `https://shriradhemasociety.org/campaigns/${campaign.slug}` },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Campaigns", url: "https://srmcs.org/campaigns" },
+    { name: campaign.title, url: `https://srmcs.org/campaigns/${campaign.slug}` },
   ]);
 
-  const shareUrl = `https://shriradhemasociety.org/campaigns/${campaign.slug}`;
+  const shareUrl = `https://srmcs.org/campaigns/${campaign.slug}`;
   const shareText = `${campaign.title} — Shri Radhe Maa Charitable Society`;
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText + " " + shareUrl)}`;
   const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;

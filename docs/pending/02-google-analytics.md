@@ -17,7 +17,7 @@
 
 ### 2. Get Measurement ID
 1. In the property, go to Data Streams → Add stream → Web
-2. Website URL: `shriradhemasociety.org` (or your Vercel URL)
+2. Website URL: `srmcs.org` (or your Vercel URL)
 3. Stream name: `Main Website`
 4. Copy the **Measurement ID** (starts with `G-`)
 

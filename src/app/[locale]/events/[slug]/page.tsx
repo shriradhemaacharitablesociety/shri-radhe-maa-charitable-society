@@ -43,9 +43,9 @@ export default async function EventDetailPage({
   const isCompleted = event.status === "completed";
 
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Events", url: "https://shriradhemasociety.org/events" },
-    { name: event.title, url: `https://shriradhemasociety.org/events/${event.slug}` },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Events", url: "https://srmcs.org/events" },
+    { name: event.title, url: `https://srmcs.org/events/${event.slug}` },
   ]);
 
   return (

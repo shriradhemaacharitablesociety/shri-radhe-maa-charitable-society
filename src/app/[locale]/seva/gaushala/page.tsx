@@ -32,9 +32,9 @@ export async function generateMetadata({
 
 export default function GaushalaPage() {
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Seva", url: "https://shriradhemasociety.org/seva" },
-    { name: "Gaushala Seva", url: "https://shriradhemasociety.org/seva/gaushala" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Seva", url: "https://srmcs.org/seva" },
+    { name: "Gaushala Seva", url: "https://srmcs.org/seva/gaushala" },
   ]);
 
   return (

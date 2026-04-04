@@ -33,8 +33,8 @@ export async function generateMetadata({
 
 export default function VolunteerPage() {
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Home", url: "https://shriradhemasociety.org" },
-    { name: "Volunteer", url: "https://shriradhemasociety.org/get-involved/volunteer" },
+    { name: "Home", url: "https://srmcs.org" },
+    { name: "Volunteer", url: "https://srmcs.org/get-involved/volunteer" },
   ]);
 
   return (
